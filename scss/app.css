@@ -4,12 +4,12 @@ Error: File to import not found or unreadable: foundation/functions.
          Compass::SpriteImporter
          /Applications/MAMP/htdocs/corporate-2015/scss
          /Users/joeb/.rvm/gems/ruby-2.1.4/gems/compass-core-1.0.3/stylesheets
-        on line 104 of /Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss
+        on line 105 of /Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss
         from line 2 of /Applications/MAMP/htdocs/corporate-2015/scss/base.scss
         from line 1 of /Applications/MAMP/htdocs/corporate-2015/scss/./app.scss
 
 Backtrace:
-/Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss:104
+/Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss:105
 /Applications/MAMP/htdocs/corporate-2015/scss/base.scss:2
 /Applications/MAMP/htdocs/corporate-2015/scss/./app.scss:1
 /Users/joeb/.rvm/gems/ruby-2.1.4/gems/sass-3.4.12/lib/sass/tree/import_node.rb:66:in `rescue in import'
@@ -84,4 +84,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: foundation/functions.\A        Load paths:\A          Compass::SpriteImporter\A          /Applications/MAMP/htdocs/corporate-2015/scss\A          /Users/joeb/.rvm/gems/ruby-2.1.4/gems/compass-core-1.0.3/stylesheets\A         on line 104 of /Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss\A         from line 2 of /Applications/MAMP/htdocs/corporate-2015/scss/base.scss\A         from line 1 of /Applications/MAMP/htdocs/corporate-2015/scss/./app.scss"; }
+  content: "Error: File to import not found or unreadable: foundation/functions.\A        Load paths:\A          Compass::SpriteImporter\A          /Applications/MAMP/htdocs/corporate-2015/scss\A          /Users/joeb/.rvm/gems/ruby-2.1.4/gems/compass-core-1.0.3/stylesheets\A         on line 105 of /Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss\A         from line 2 of /Applications/MAMP/htdocs/corporate-2015/scss/base.scss\A         from line 1 of /Applications/MAMP/htdocs/corporate-2015/scss/./app.scss"; }

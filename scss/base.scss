@@ -95,8 +95,11 @@ h1, h2, h3, h4, h5, h6 {
 .subheader {
     text-transform: none;
 }
+p.subheader {
+    font-size: $h3-font-size;
+}
 
-.title, .subtitle, h1, h2, h3, .subheader {
+.title, .subtitle, h1, h2, h3 {
     line-height: 1em;
 }
 
@@ -129,3 +132,4 @@ blockquote {
 a {
     @include transition(color 0.25s);
 }
+

@@ -1,8 +1,8 @@
-<div class="section-green">
+<div class="section">
     <div class="row">
         <div class="column">
-            <h2>The Enchilada of Programs</h2>
-            <ul class="accordion accordion-invert small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-accordion="programs">
+            <h2>Accordion List</h2>
+            <ul class="accordion small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-accordion="programs">
               <li class="accordion-navigation">
                 <a href="#panel1a">English</a>
                 <div id="panel1a" class="content">

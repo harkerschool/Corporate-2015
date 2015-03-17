@@ -4,14 +4,14 @@
     include "modules/hero.php"; 
 ?>
 <?php 
-    the_header();
-    // video_container( array(
-    //     'bgvideo' => '4fvhgvb00f',
-    //     'title' => 'Lower School<br>Students',
-    //     'subtitle' => 'Friendships for Life.'
-    // ));
+    the_header('Lower School Students');
+    video_container( array(
+        'bgvideo' => '4fvhgvb00f',
+        'title' => 'Lower School<br>Students',
+        'subtitle' => 'Friendships for Life.',
+        'text_classes' => 'large-14 large-offset-2'
+    ));
 ?>
-<?php include "modules/hero-video.php"; ?>
 <main id="main" data-magellan-destination="main">
 <?php 
     include "modules/intro.php";

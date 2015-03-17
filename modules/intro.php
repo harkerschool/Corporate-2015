@@ -1,8 +1,9 @@
 <div class="section">
     <div class="row">
         <div class="column">
-            <h1>Introduction</h1>
-            <p class="intro large-text-columns-2">
+            <h1>Page Title</h1>
+            <p class="subheader">Tag Line Goes Here.</p>
+            <p class="large-text-columns-3">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo

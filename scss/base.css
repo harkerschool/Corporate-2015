@@ -4,23 +4,23 @@ Error: File to import not found or unreadable: foundation/functions.
          Compass::SpriteImporter
          /Applications/MAMP/htdocs/corporate-2015/scss
          /Users/joeb/.rvm/gems/ruby-2.1.4/gems/compass-core-1.0.3/stylesheets
-        on line 104 of /Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss
+        on line 105 of /Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss
         from line 2 of /Applications/MAMP/htdocs/corporate-2015/scss/./base.scss
 
-99: .title, .subtitle, h1, h2, h3, .subheader {
-100:     line-height: 1em;
-101: }
-102: 
-103: h5 {
-104:     text-decoration: underline;
-105: }
-106: 
-107: // Block Elements
-108: // - - - - - - - - - - - - - - - - - - - - - - - - -
+100: }
+101: 
+102: .title, .subtitle, h1, h2, h3 {
+103:     line-height: 1em;
+104: }
+105: 
+106: h5 {
+107:     text-decoration: underline;
+108: }
 109: 
+110: // Block Elements
 
 Backtrace:
-/Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss:104
+/Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss:105
 /Applications/MAMP/htdocs/corporate-2015/scss/./base.scss:2
 /Users/joeb/.rvm/gems/ruby-2.1.4/gems/sass-3.4.12/lib/sass/tree/import_node.rb:66:in `rescue in import'
 /Users/joeb/.rvm/gems/ruby-2.1.4/gems/sass-3.4.12/lib/sass/tree/import_node.rb:45:in `import'
@@ -81,4 +81,4 @@ Backtrace:
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: foundation/functions.\A        Load paths:\A          Compass::SpriteImporter\A          /Applications/MAMP/htdocs/corporate-2015/scss\A          /Users/joeb/.rvm/gems/ruby-2.1.4/gems/compass-core-1.0.3/stylesheets\A         on line 104 of /Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss\A         from line 2 of /Applications/MAMP/htdocs/corporate-2015/scss/./base.scss\A \A 99: .title, .subtitle, h1, h2, h3, .subheader {\A 100:     line-height: 1em;\A 101: }\A 102: \A 103: h5 {\A 104:     text-decoration: underline;\A 105: }\A 106: \A 107: // Block Elements\A 108: // - - - - - - - - - - - - - - - - - - - - - - - - -\A 109: "; }
+  content: "Error: File to import not found or unreadable: foundation/functions.\A        Load paths:\A          Compass::SpriteImporter\A          /Applications/MAMP/htdocs/corporate-2015/scss\A          /Users/joeb/.rvm/gems/ruby-2.1.4/gems/compass-core-1.0.3/stylesheets\A         on line 105 of /Applications/MAMP/htdocs/corporate-2015/scss/_settings.scss\A         from line 2 of /Applications/MAMP/htdocs/corporate-2015/scss/./base.scss\A \A 100: }\A 101: \A 102: .title, .subtitle, h1, h2, h3 {\A 103:     line-height: 1em;\A 104: }\A 105: \A 106: h5 {\A 107:     text-decoration: underline;\A 108: }\A 109: \A 110: // Block Elements"; }

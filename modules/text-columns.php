@@ -1,4 +1,4 @@
-<div class="section-blue">
+<div class="section blue-bg">
     <div class="row">
         <div class="column">
             <h2>CSS3 Columns Module</h2>

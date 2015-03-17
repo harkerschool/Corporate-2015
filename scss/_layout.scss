@@ -2,6 +2,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main {
+    background-color: $default-bg-color;
     &:before, &:after {
       content: " ";
       display: table;

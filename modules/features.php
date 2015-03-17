@@ -1,35 +1,35 @@
-<div class="section-feature section-red">
+<div class="section section-feature red-bg">
     <div class="row">
         <img src="img/feature-photo-1.jpg" alt="placeholder+image">
-        <div class="feature-caption position-right">
+        <div class="feature-caption red-bg position-right">
             <div class="feature-caption-content">
-                <h2 class="feature-header">After-School Program</h2>
-                <a href="#" class="button large button-outline">View Activities</a>
+                <h2 class="feature-caption-header">Featured Program</h2>
+                <a href="#" class="button large button-outline-invert">Learn More</a>
             </div>
         </div>
     </div>
 </div>
-<div class="section-feature section-navy">
+<div class="section section-feature navy-bg hide">
     <div class="row">
         <div class="column">
             <img src="img/feature-photo-2.jpg" alt="placeholder+image">
-            <div class="feature-caption">
+            <div class="feature-caption blue-bg">
                 <div class="feature-caption-content">
-                    <h2 class="feature-header">Athletics</h2>
-                    <a href="#" class="button large button-outline">View Sports</a>
+                    <h2 class="feature-caption-header">Featured Program</h2>
+                    <a href="#" class="button large button-outline-invert">Learn More</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<div class="section-feature section-blue">
+<div class="section section-feature blue-bg hide">
     <div class="row">
         <div class="column">
             <img src="img/feature-photo-3.jpg" alt="placeholder+image">
-            <div class="feature-caption position-right">
+            <div class="feature-caption navy-bg position-right">
                 <div class="feature-caption-content">
-                    <h2 class="feature-header">Performing Arts</h2>
-                    <a href="#" class="button large button-outline">View Programs</a>
+                    <h2 class="feature-caption-header">Featured Program</h2>
+                    <a href="#" class="button large button-outline-invert">Learn More</a>
                 </div>
             </div>
         </div>

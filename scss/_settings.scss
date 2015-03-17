@@ -12,6 +12,7 @@ $white: #fff;
 $silver: #ccc;
 $gray: #888;
 $darkgray: #555;
+$harkergreen: #005941;
 
 $green: #32a988;
 $red: #bf6938;
@@ -166,7 +167,7 @@ $font-weight-bold: 700;
 
 // We use these as default colors throughout
 $primary-color: #32a988;
-// $secondary-color: #e7e7e7;
+$secondary-color: $white;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
 // $warning-color: #f08a24;
@@ -271,7 +272,7 @@ $h5-font-reduction: rem-calc(2); // 16
 // $h6-font-reduction: 0; // 16
 
 // These control how subheaders are styled.
-$subheader-line-height: $default-header-line-height;
+$subheader-line-height: 1.25;
 $subheader-font-color: $default-subheader-font-color; // scale-color($header-font-color, $lightness: 35%);
 // $subheader-font-weight: $font-weight-normal;
 $subheader-top-margin: rhythm(1);
@@ -283,7 +284,7 @@ $small-font-color: $default-font-color; // scale-color($header-font-color, $ligh
 
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
-// $paragraph-font-weight: $font-weight-normal;
+$paragraph-font-weight: inherit;
 $paragraph-font-size: inherit;
 $paragraph-line-height: inherit;
 $paragraph-margin-bottom: $default-bottom-margin;
@@ -311,7 +312,7 @@ $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
 // $hr-border-style: solid;
-// $hr-border-color: $gainsboro;
+$hr-border-color: rgba(black, 0.2); // $gainsboro;
 $hr-margin: $default-bottom-margin;
 
 // We use these to style lists
@@ -494,7 +495,7 @@ $accordion-navigation-font-size: rem-calc(20);
 // $button-font-align: center;
 
 // We use these to control various hover effects.
-// $button-function-factor: -20%;
+$button-function-factor: -5%;
 
 // We use these to control button border styles.
 // $button-border-width: 0;
