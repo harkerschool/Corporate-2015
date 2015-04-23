@@ -5,10 +5,13 @@
 ?>
 <?php 
     the_header('Preschool Specialty Classes');
-    video_container( array(
-        'bgvideo' => 'fa3kbm70ic',
-        'title' => 'Preschool<br>Specialty Classes',
-        'subtitle' => 'Learn by Exploring.'
+    hero( array(
+        'title' => 'Preschool Specialty Classes',
+        'subtitle' => 'Learn by Exploring.',
+        'text_classes' => 'large-12 large-offset-12',
+        'img_src' => 'img/bgimg-ps-specialty-classes.jpg', // background image
+        'img_alt' => '',
+        'vimeo_id' => '122377196', // background video
     ));
 ?>
 <main id="main" data-magellan-destination="main">

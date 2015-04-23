@@ -425,19 +425,19 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
   font-weight: normal;
 }
 
-// Hero Video (iframe)
+// Hero Section
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.hero-video, .hero-video-fixed {
+.hero, .hero-fixed {
   width: 100%; height: 100%;
   overflow: hidden;
 }
 
-.hero-video {
+.hero {
   position: relative;
 }
 
-.hero-video-text {
+.hero-text {
   margin-top: rhythm(8);
   margin-bottom: rhythm(8);
   .csstransforms & {
@@ -447,11 +447,11 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
   }
 }
 
-.hero-video-img {
+.hero-img {
   position: relative;
   z-index: -2;
   background-color: $oil; // $harkergreen;
-  @extend .hero-video-fixed; 
+  @extend .hero-fixed; 
   img {
     @extend %vertical-align;
     &.is-resized {
@@ -466,10 +466,10 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
     }
   }
 }
-.hero-video-bg {
+.hero-bg {
   position: relative;
   z-index: -3;
-  @extend .hero-video-fixed;
+  @extend .hero-fixed;
   &.is-playing {
     z-index: -1;
   }
@@ -480,23 +480,23 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
     height: 100%;
   }
 }
-.hero-video-feature {
+.hero-feature {
   position: relative;
   z-index: -5;
-  @extend .hero-video-fixed;
+  @extend .hero-fixed;
   &.is-playing {
     z-index: 1;
   }
 }
 
-.hero-video-fixed {
+.hero-fixed {
   position: fixed !important;
   top: 0; left: 0;
   width: 100%;
   height: 100%;
 }
 
-.hero-video #fs-wistia-exit {
+.hero #fs-wistia-exit {
   position: absolute;
   top: 0;
   right: 0;

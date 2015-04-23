@@ -5,10 +5,13 @@
 ?>
 <?php 
     the_header('Lower School Academics');
-    video_container( array(
-        'bgvideo' => 'n14fdif2k0',
+    hero( array(
         'title' => 'Lower School Academics',
-        'subtitle' => 'Inspiring a Passion for Learning.'
+        'subtitle' => 'Inspiring a Passion for Learning.',
+        'text_classes' => 'large-14 large-offset-2',
+        'img_src' => 'img/bgimg-ls-academics.jpg', // background image
+        'img_alt' => '',
+        'vimeo_id' => '125299312', // background video
     ));
 ?>
 <main id="main" data-magellan-destination="main">

@@ -5,23 +5,17 @@
 
     var pluginName = "fullscreenVideo",
         defaults = {
-            overlayVideo: '',
-            backgroundVideo: ''
-        },
-        wistiaEmbed = {},
-        overlayEmbed = {};
+            aspectRatio : 16/9,
+            cropBottom : 0,
+            img : '',
+            ready : function() {}
+        };
 
     // The actual plugin constructor
     function Plugin(element, options) {
         this.element = element;
 
         this.settings = $.extend({}, defaults, options);
-
-        this.settings.overlayVideo = ($(element).data('fvideo')) ? $(element).data('fvideo') : this.settings.overlayVideo;
-        this.settings.backgroundVideo = ($(element).data('bgvideo')) ? $(element).data('bgvideo') : this.settings.backgroundVideo;
-        this.settings.overlayVideoDiv = '#wistia_' + this.settings.overlayVideo;
-        this.settings.backgroundVideoDiv = '#wistia_' + this.settings.backgroundVideo;
-
         this._defaults = defaults;
 
         this._name = pluginName;
@@ -31,118 +25,80 @@
     // Avoid Plugin.prototype conflicts
     $.extend(Plugin.prototype, {
         init: function() {
+            var theWindow = $(window),
+                $video = $(this.element),
+                $img = $(this.settings.img);
 
-            var plugin = this;
+            // bind resize event handler                                              
+            theWindow.resize({
+                theWindow : theWindow,
+                video : $video,
+                img : $img,
+                settings : this.settings
+            }, this.resizeVideo).trigger("resize");
 
-            $(document).ready(function() {
-                // When the doc is ready, fix the video and images sizes
-                // then display the text on the page.
-                plugin.fixTextPosition();
-                $("#text").delay(200).animate({
-                    opacity: 1
-                }, 650);
-            });
-
-            // When the window is resized, resize the fullscreen videos
-            $(window).resize(this.fixTextPosition);
-
-            // When the play button is clicked, call the play function
-            $("#button-play").click({settings : this.settings}, this.playVideo);
-
-            // When the "X" is clicked, exit the video
-            $("#ex").click({settings : this.settings}, this.exitVideo);
-
-            // // Start loading the video
-            this.embedVideo(this.settings);
+            this.settings.ready();
         },
-        /**
-         * This will call Wistia and embed the two videos
-         * @param None
-         */
-        embedVideo: function(settings) {
-            var videoOptions = {};
+        // resize video iframe to fill the screen
+        resizeVideo: function(event) {
+            var windowWidth = event.data.theWindow.width(),
+                windowHeight = event.data.theWindow.height(),
+                $video = event.data.video,
+                $img = event.data.img,
+                aspectRatio = event.data.settings.aspectRatio,
+                crop = event.data.settings.cropBottom,
+                newWidth = '', newHeight = '',
+                topOffset = '', leftOffset = '',
+                styles = {};
+            
+            if ( (windowWidth / windowHeight) < aspectRatio ) {
+                // video doesn't fill vertical space
+                // increase video width and crop left/right
+                // newWidth / windowHeight = 16/9
+                newWidth = windowHeight * aspectRatio;
+                leftOffset = -((newWidth-windowWidth)/2); // center align
 
-            // Add the crop fill plugin to the videoOptions
-            Wistia.obj.merge(videoOptions, {
-                plugin: {
-                    cropFill: {
-                        src: "//fast.wistia.com/labs/crop-fill/plugin.js"
+                if ( crop ) {
+                    // increase video height to crop bottom of video and hide controls
+                    newHeight = windowHeight + crop;
+                    newWidth = newHeight * aspectRatio;
+                    topOffset = 0;
+                } 
+
+            } else {
+                // video doesn't fill horizontal space
+                // increase video height and crop top/bottom
+                // windowWidth / newHeight = 16/9
+                newHeight = windowWidth / aspectRatio;
+                topOffset = -((newHeight-windowHeight)/2); // center align
+
+                if ( crop ) {
+                    if ( (newHeight-windowHeight) < crop ) {
+                        // video is not tall enough to crop
+                        // increase video height to crop bottom of video and hide controls
+                        newHeight = windowHeight + crop;
+                        newWidth = newHeight * aspectRatio;
+                        topOffset = 0;
+                        leftOffset = -((newWidth-windowWidth)/2); // center align
+                    } else if ( Math.abs(topOffset) < crop ) {
+                        // video is not tall enough to vertically center
+                        topOffset = 0;
                     }
                 }
-            });
 
-            if (settings.backgroundVideo !== '') {
-                // Video in the background
-                wistiaEmbed = Wistia.embed(settings.backgroundVideo, videoOptions);
             }
 
-            if (settings.overlayVideo !== '') {
-                // Video to be shown in the overlay
-                overlayEmbed = Wistia.embed(settings.overlayVideo, videoOptions);
-            }
+            styles = {
+                'display' : 'block',
+                'width' : newWidth,
+                'height' : newHeight, 
+                'top' : topOffset,
+                'left' : leftOffset
+            };
 
-            /**
-             * We load the thumbnail in the background while we wait
-             * for the video to load and play. Once loaded, we pause, reset to 
-             * frame zero, show the video then play it.
-             */
-            wistiaEmbed.bind("play", function() {
-                wistiaEmbed.pause();
-                wistiaEmbed.time(0);
-                $(settings.backgroundVideoDiv).css('visibility', 'visible');
-                wistiaEmbed.play();
-                return this.unbind;
-            });
-        },
-        /**
-         * Plays the video set as overlayEmbed
-         * @param None
-         */
-        playVideo: function(event) {
-            $(event.data.settings.overlayVideoDiv).css("left", 0).css("visibility", "visible");
-            overlayEmbed.plugin.cropFill.resize();
-            $("#video_container").css({
-                position: "fixed",
-                top: 0,
-                left: 0
-            });
-            $("#text").css({
-                opacity: 0
-            });
-            $("#ex").css("right", 24);
-            overlayEmbed.play();
-        },
-        /**
-         * Hide the overlay video and pause it. Also reshow 
-         * the text on the page.
-         * @param None
-         */
-        exitVideo: function(event) {
-            $(event.data.settings.overlayVideoDiv).css("left", -3000).css("visibility", "hidden");
-            $("#video_container").css({
-                position: "relative",
-                top: "auto",
-                left: "auto"
-            });
-            $("#ex").css("right", -3000);
-            $("#text").css({
-                opacity: 1
-            });
-            overlayEmbed.pause();
-            overlayEmbed._keyBindingsActive = false;
-        },
-        /**
-         * Fix the size of the images and text on page
-         * @param None
-         */
-        fixTextPosition: function() {
-            var width = $(window).width();
-            var height = $(window).height();
-            var textWidth = $("#text").width();
-            var textHeight = $("#text").height();
-            $("#video_container").css("width", width).css("height", height);
-            $("#main-image").css("width", width).css("height", height);
-            $("#text").css("left", (width / 2) - (textWidth / 2)).css("top", (height / 2) - (textHeight / 2));
+            // update elements
+            $img.css(styles).addClass('is-resized');  
+            $video.css(styles).addClass('is-resized');     
         }
     });
 

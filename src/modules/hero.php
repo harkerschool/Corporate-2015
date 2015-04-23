@@ -1,27 +1,29 @@
 <?php 
 
-function video_container( $args = array() ) {     
+function hero( $args = array() ) {     
     $args = array_merge( array(
-        'bgvideo' => '', 
-        'fvideo' => '',
-        'title' => 'Some Text Here',
-        'subtitle' => 'Some Text Here',
-        'text_classes' => 'large-14 large-offset-10'
+        'title' => 'Page Title',
+        'subtitle' => 'Tag Line Goes Here',
+        'text_classes' => 'large-14 large-offset-10',
+        'img_src' => 'http://dummyimage.com/1440x1200/4d494d/686a82.gif&text=placeholder+image', // background image
+        'img_alt' => 'Placeholder Image',
+        'vimeo_id' => '', // background video
+        'wistia_id' => '' // feature video
     ), $args );
     extract( $args );
 ?>
-<div id="video_container" data-bgvideo="<?php echo $bgvideo; ?>" data-fvideo="<?php echo $fvideo; ?>">
-    <div id="text">
-        <div class="text-wrapper columns <?php echo $text_classes; ?>">
+<div class="hero">
+    <div class="hero-text row-fill">
+        <div class="columns <?php echo $text_classes; ?>">
             <h1 class="title"><?php echo $title; ?></h1>
             <p class="subtitle">
                 <?php echo $subtitle; ?>
             </p>
             <div id="actions">
                 <ul class="button-group">
-                    <?php if ( $fvideo ) : ?>
+                    <?php if ( $wistia_id ): ?>
                     <li>
-                        <div id="button-play" class="button">Play Video</div>
+                        <div id="fs-wistia-play" class="button">Play Video</div>
                     </li>
                     <?php endif; ?>
                     <li data-magellan-expedition data-magellan-arrival="main">
@@ -31,21 +33,17 @@ function video_container( $args = array() ) {
             </div>
         </div>
     </div>
-    <div id="cover_all">
+    <div class="hero-img">
+        <img src="<?php echo $img_src; ?>" alt="<?php echo $img_alt; ?>">
     </div>
-    <div id="main-image">
-    </div>
-    <?php if ( $bgvideo ) : ?>
-    <div id="wistia_<?php echo $bgvideo; ?>" class="wistia_embed backgroundVideo" style="width:920px;height:518px;">
-    </div>
-    <?php endif; ?>
-    <?php if ( $fvideo ) : ?>
-    <div id="wistia_<?php echo $fvideo; ?>" class="wistia_embed overlayVideo" style="width:1920px;height:1080px;">
+    <?php if ( $vimeo_id ): ?>
+    <div class="hero-bg"> 
+        <iframe id="vimeoplayer" src="https://player.vimeo.com/video/<?php echo $vimeo_id; ?>?autoplay=1&loop=1&title=0&byline=0&portrait=0&api=1&player_id=vimeoplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
     <?php endif; ?>
-    <div id="ex">
-        <i class="fa fa-2x fa-times" style="color:white;text-shadow:0 1px 2px rgba(0,0,0,0.3);"></i>
-        <!-- <img src="img/ex.svg" width="23" height="23"/> -->
+    <?php if ( $wistia_id ): ?>
+    <div class="hero-feature" data-wistia-id="<?php echo $wistia_id; ?>">
     </div>
+    <?php endif; ?>
 </div>
 <?php } ?>

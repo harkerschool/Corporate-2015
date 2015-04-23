@@ -5,11 +5,14 @@
 ?>
 <?php 
     the_header('Preschool Academics');
-    video_container( array(
-        'bgvideo' => '2eq7hwy1ik',
-        'fvideo' => 'ponntrph3v',
+    hero( array(
         'title' => 'Preschool Academics',
-        'subtitle' => 'The Genius of Play.'
+        'subtitle' => 'The Genius of Play',
+        'text_classes' => 'large-14 large-offset-10',
+        'img_src' => 'img/bgimg-ps-specialty-classes.jpg', // background image
+        'img_alt' => 'I\'m a Big Hero Image',
+        'vimeo_id' => '122377196', // background video
+        'wistia_id' => 'upuuu76nzq' // feature video
     ));
 ?>
 <main id="main" data-magellan-destination="main">

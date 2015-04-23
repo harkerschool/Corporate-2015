@@ -1,12 +1,11 @@
 <?php 
     include "modules/header.php";
     include "modules/footer.php";
-    include "modules/hero.php"; 
-    include "modules/hero-video.php";
+    include "modules/hero.php";
 ?>
 <?php 
     the_header();
-    hero_video();
+    hero();
 ?>
 <main id="main" data-magellan-destination="main">
 <?php 

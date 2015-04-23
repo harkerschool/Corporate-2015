@@ -1,6 +1,16 @@
 # Harker Marketing Website 2015
 
+## Requirements
 
+  * Ruby 1.9+
+  * [Node.js](http://nodejs.org)
+  * [compass](http://compass-style.org/): `gem install compass`
+  * [bower](http://bower.io): `npm install bower -g`
+
+## Getting Started
+
+  * Run `npm install` to install dev dependencies for project
+  * Run `bower install` to install plugins and libraries
 
 # Foundation Compass Template
 
