@@ -1,5 +1,3 @@
-/*.php
-!/index.php
 *.DS_Store
 .sass-cache
 /backup
@@ -7,6 +5,8 @@
 /dist
 /doc
 /node_modules
+/src/*.php
+!/src/index.php
 /src/.sass-cache
 /src/bower_components
 /src/css
