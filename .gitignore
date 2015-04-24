@@ -1,3 +1,5 @@
+/*.php
+!/index.php
 *.DS_Store
 .sass-cache
 /backup
@@ -8,5 +10,6 @@
 /src/.sass-cache
 /src/bower_components
 /src/css
+/src/img/placeholders
 /test
 /tmp
