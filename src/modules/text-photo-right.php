@@ -8,7 +8,7 @@
             <p><a href="#" class="button button-outline-invert">Learn more about this topic</a></p>
         </div>
         <div class="column medium-11 medium-offset-1 column-collapse">
-            <img src="img/side-photo.jpg" alt="placeholder+image">
+            <img src="img/placeholders/side-photo.jpg" alt="placeholder+image">
         </div>
     </div>
 </div>
