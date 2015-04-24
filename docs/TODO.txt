@@ -1,2 +1,1 @@
-Update video embeds
-Set up git repo and upload to Github
+Add custom templates functionality to wp-json-feed.js.

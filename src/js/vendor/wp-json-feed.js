@@ -15,11 +15,16 @@
                     include: "id,title,title_plain,url,content,thumbnail"
                 },
                 container: 'ul',
+                errorMsg: 'Read about what\'s happening at Harker in <a href="http://news.harker.org" target="_blank">Harker News</a>.',
                 success: function() {}
             }, options),
             inlineOptions = container.data('wpargs') ===  undefined ? {} : container.data('wpargs');
 
         settings.args = $.extend( true, settings.args, inlineOptions);
+
+        if ( container.length === 0 ) {
+            return;
+        }
 
         $.ajax({
             url: settings.domain + '?json=' + settings.method,
@@ -33,9 +38,12 @@
                     createHTML(posts); // create HTML for feed
                     container.html(html); // replace container's content with feed
                 } else {
-                    container.html('<p>There are no posts available.</p>');
+                    container.html('<p>' + errorMsg + '</p>');
                 }
                 settings.success();
+            },
+            error: function() {
+                container.html('<p>' + errorMsg + '</p>');
             }
         });
 
