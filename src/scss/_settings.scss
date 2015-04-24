@@ -7,29 +7,41 @@
 // 01. Colors
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$offwhite: #f4f5ef;
-$white: #fff;
-$silver: #ccc;
+// Neutral Colors
+$white: #FFF;
+$silver: #CCC;
+$lightgray: #F4F5EF;
 $gray: #888;
 $darkgray: #555;
-$harkergreen: #085841;
-$darkharkergreen: #053D2F;
 
-$green: #63A70A; // #32a988;
-$red: #9C0947; // #bf6938;
-$blue: #05533e;
-$navy: #0b2c53;
-$royalblue: #00809E; // #597da9;
-$darkroyalblue: #3c6da9;
-$orange: #ce5d27;
-$gold: #DCAA00;
+// Harker Primary Color
+$harkergreen: #05533E;
 
-$default-bg-color: $offwhite;
+// Secondary Colors 3
+$blue: #00809E; // links, buttons
+$green: #63A70A; // preschool background and text colors
+$red: #9C0947; // lower school background and text colors
+$orange: #CE5D27; // middle school background and text colors
+$gold: #DCAA00; // upper school background and text colors
+
+// Secondary Colors 4
+// $red: #A23BBC;
+// $orange: #ba6d40;
+
+// Nick's Initial Colors
+// $green: #32a988;
+// $blue: #05533e;
+// $orange: #bf6938;
+// $navy: #0b2c53;
+// $royalblue: #597da9;
+// $darkroyalblue: #3c6da9;
+
+$default-bg-color: $lightgray;
 $default-border-color: $silver;
 $default-shadow: 0 1px 2px -1px rgba(black,0.2);
 
 $default-font-color: $gray;
-$default-link-font-color: $royalblue;
+$default-link-font-color: $blue;
 $default-header-font-color: $darkgray;
 $default-subheader-font-color: $green;
 
@@ -169,7 +181,7 @@ $font-weight-bold: 700;
 // $black       : #000000;
 
 // We use these as default colors throughout
-// $primary-color: $green;
+$primary-color: $blue;
 $secondary-color: $white;
 // $alert-color: #f04124;
 // $success-color: #43AC6A;
@@ -372,7 +384,7 @@ $blockquote-cite-font-color: scale-color($blockquote-font-color, $lightness: 20%
 // $include-html-accordion-classes: $include-html-classes;
 
 $accordion-navigation-padding: rhythm(0.5);
-$accordion-navigation-bg-color: $green;
+$accordion-navigation-bg-color: $primary-color;
 // $accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -5%);
 // $accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -3%);
 $accordion-navigation-font-color: $white;

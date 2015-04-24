@@ -19,9 +19,10 @@
   &:last-child { margin-bottom: rhythm(1.5); }
   
   &.green-bg, 
-  &.red-bg, 
   &.blue-bg, 
-  &.navy-bg {
+  &.red-bg, 
+  &.orange-bg,
+  &.gold-bg {
     color: $white;
     h1, h2, h3, h4, h5, h6, code, a {
       color: $white;
@@ -73,7 +74,7 @@
   width: rem-calc(360);
   height: rem-calc(360);
   margin: 0 rem-calc(100) 0;
-  background-color: rgba( $green, 0.9 );
+  background-color: rgba( $darkgray, 0.9 );
   color: $white;
   text-align: center;
   &.position-left {
@@ -82,14 +83,20 @@
   &.position-right {
     right: 0;
   }
-  &.red-bg {
-    background-color: rgba( $red, 0.9 );
+  &.green-bg {
+    background-color: rgba( $green, 0.9 );
   }
   &.blue-bg {
     background-color: rgba( $blue, 0.9 );
   }
-  &.navy-bg {
-    background-color: rgba( $navy, 0.9 );
+  &.red-bg {
+    background-color: rgba( $red, 0.9 );
+  }
+  &.orange-bg {
+    background-color: rgba( $orange, 0.9 );
+  }
+  &.gold-bg {
+    background-color: rgba( $gold, 0.9 );
   }
 }
 .feature-caption-content {
@@ -197,9 +204,6 @@
 // Accordion
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$accordion-button-bgcolor: $white;
-$accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
-
 // anchors
 .accordion .accordion-navigation > a, .accordion dd > a {
   position: relative; // overlay dropshadow on content
@@ -216,7 +220,7 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
     color: inherit;
     float: right;
   }
-  .accordion & { // child accordion
+  .accordion & { // child accordion anchors
     text-transform: none;
     background: none;
     color: $default-link-font-color;
@@ -325,7 +329,7 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
 
 .accordion .content .button {
   display: block;
-  background: $accordion-button-bgcolor;
+  background: $secondary-color;
   color: $default-font-color;
   border: 1px solid $default-border-color;
   line-height: rhythm(1);
@@ -334,7 +338,7 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
   margin: 0;
   @include transition( background-color 0.25s );
   &:hover, &:focus {
-    background-color: $accordion-button-bgcolor-hover;
+    background-color: $secondary-button-bg-hover;
     color: $default-font-color;
   }
 }
@@ -343,10 +347,10 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
 .accordion-invert {
   .accordion-navigation > a, dd > a,
   .accordion-navigation.active > a, dd.active > a {
-    background-color: $accordion-button-bgcolor;
+    background-color: $secondary-color;
     color: $anchor-font-color;
     &:hover, &:focus {
-      background-color: $accordion-button-bgcolor-hover;
+      background-color: $secondary-button-bg-hover;
       color: $anchor-font-color-hover;
     }
   }
@@ -381,12 +385,12 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
 }
 .stat-measure {
   font-size: rem-calc(64);
-  color: #3c6da9;
+  color: $green;
   margin-bottom: rhythm(1);
 }
 .stat-desc {
   font-size: rem-calc(24);
-  color: #888888;
+  color: $gray;
 }
 
 .feedburnerFeedBlock {
@@ -516,10 +520,11 @@ $accordion-button-bgcolor-hover: scale-color($white, $lightness: -3%);
 .border-bottom { border-bottom: 1px solid $default-border-color; }
 
 // Background Colors
-.red-bg { background-color: $red }
 .green-bg { background-color: $green }
 .blue-bg { background-color: $blue; }
-.navy-bg { background-color: $navy; }
+.red-bg { background-color: $red }
+.orange-bg { background-color: $orange; }
+.gold-bg { background-color: $gold; }
 
 // Circles
 .circle { @include border-radius(50%); }

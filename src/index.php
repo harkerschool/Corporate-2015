@@ -12,6 +12,7 @@
         'img_src' => 'img/placeholders/bgimg-ps-specialty-classes.jpg', // background image
         'img_alt' => '',
         'vimeo_id' => '122377196', // background video
+        'wistia_id' => 'ponntrph3v' // feature video
     ));
 ?>
 <main id="main" data-magellan-destination="main">
@@ -20,8 +21,8 @@
     include "modules/stats.php";
     include "modules/text-photo-right.php";
     include "modules/three-column.php";
-    include "modules/two-column.php";
     include "modules/text-photo-left.php";
+    include "modules/two-column.php";
     include "modules/accordion-list.php";
     // include "modules/text-columns.php";
     include "modules/features.php";
