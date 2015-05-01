@@ -1,0 +1,17 @@
+.fsElement {
+    @include grid-row();
+}
+
+.fsElementContent {
+    @include grid-column(24);
+}
+
+.fsTwoColumnLayout .fsDiv {
+    @include grid-column(12);
+}
+.fsThreeColumnLayout .fsDiv {
+    @include grid-column(8);
+}
+.fsFourColumnLayout .fsDiv {
+    @include grid-column(6);
+}

@@ -21,6 +21,7 @@
   
   &.green-bg, 
   &.blue-bg, 
+  &.purple-bg,
   &.red-bg, 
   &.orange-bg,
   &.gold-bg {
@@ -90,6 +91,9 @@
   &.blue-bg {
     background-color: rgba( $blue, 0.9 );
   }
+  &.purple-bg {
+    background-color: rgba( $purple, 0.9 );
+  }
   &.red-bg {
     background-color: rgba( $red, 0.9 );
   }
@@ -117,6 +121,30 @@
   margin: 0 0 rhythm(1) 0;
   color: $white;
   text-transform: none;
+}
+
+// Nav
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.off-canvas-wrap,
+.off-canvas-wrap .inner-wrap,
+.off-canvas-content {
+    height: 100%;
+    width: 100%;
+}
+
+.tab-bar-fixed {
+    .off-canvas-content {
+        padding-top: $tabbar-height;
+        overflow-y: auto;
+    }
+
+    .tab-bar {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+    }
 }
 
 // Intro
@@ -523,6 +551,7 @@
 // Background Colors
 .green-bg { background-color: $green }
 .blue-bg { background-color: $blue; }
+.purple-bg { background-color: $purple; }
 .red-bg { background-color: $red }
 .orange-bg { background-color: $orange; }
 .gold-bg { background-color: $gold; }
@@ -530,6 +559,7 @@
 // Text Colors
 .green-txt { color: $green }
 .blue-txt { color: $blue; }
+.purple-txt { color: $purple; }
 .red-txt { color: $red }
 .orange-txt { color: $orange; }
 .gold-txt { color: $gold; }

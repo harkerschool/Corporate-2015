@@ -15,18 +15,24 @@
         'wistia_id' => 'ponntrph3v' // feature video
     ));
 ?>
-<main id="main" data-magellan-destination="main">
-<?php 
-    include "modules/intro.php";
-    include "modules/stats.php";
-    include "modules/text-photo-right.php";
-    include "modules/three-column.php";
-    include "modules/text-photo-left.php";
-    include "modules/two-column.php";
-    include "modules/accordion-list.php";
-    // include "modules/text-columns.php";
-    include "modules/features.php";
-    include "modules/base.php";
-?>
+<main id="main" class="off-canvas-wrap" data-magellan-destination="main" data-offcanvas>
+<div class="inner-wrap">
+    <?php include "modules/nav.php"; ?>
+    <div class="off-canvas-content">
+    <?php
+        include "modules/intro.php";
+        include "modules/stats.php";
+        include "modules/text-photo-right.php";
+        include "modules/three-column.php";
+        include "modules/text-photo-left.php";
+        include "modules/two-column.php";
+        include "modules/accordion-list.php";
+        // include "modules/text-columns.php";
+        include "modules/features.php";
+        include "modules/base.php";
+    ?>
+    </div>
+    <a class="exit-off-canvas"></a>
+</div>
 </main>
 <?php the_footer(); ?>

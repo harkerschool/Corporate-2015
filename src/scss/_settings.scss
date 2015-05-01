@@ -17,16 +17,13 @@ $darkgray: #555;
 // Harker Primary Color
 $harkergreen: #05533E;
 
-// Secondary Colors 3
+// Secondary Colors
 $blue: #00809E;
 $green: #63A70A;
+$purple: #A23BBC;
 $red: #9C0947;
 $orange: #CE5D27;
 $gold: #DCAA00;
-
-// Secondary Colors 4
-// $red: #A23BBC;
-// $orange: #ba6d40;
 
 // Nick's Initial Colors
 // $green: #32a988;
@@ -882,7 +879,7 @@ $button-function-factor: -5%;
 // Off Canvas Tab Bar Variables
 // $include-html-off-canvas-classes: $include-html-classes;
 
-// $tabbar-bg: $oil;
+$tabbar-bg: $harkergreen; // $oil;
 // $tabbar-height: rem-calc(45);
 // $tabbar-icon-width: $tabbar-height;
 // $tabbar-line-height: $tabbar-height;
@@ -902,22 +899,22 @@ $button-function-factor: -5%;
 
 // Off Canvas Menu Variables
 // $off-canvas-width: rem-calc(250);
-// $off-canvas-bg: $oil;
+$off-canvas-bg: $darkgray; // $oil;
 
 // Off Canvas Menu List Variables
 // $off-canvas-label-padding: 0.3rem rem-calc(15);
-// $off-canvas-label-color: $aluminum;
+$off-canvas-label-color: $white; // $aluminum;
 // $off-canvas-label-text-transform: uppercase;
 // $off-canvas-label-font-size: rem-calc(12);
 // $off-canvas-label-font-weight: $font-weight-bold;
-// $off-canvas-label-bg: $tuatara;
+$off-canvas-label-bg: scale-color($off-canvas-bg, $lightness: -50%); // $tuatara;
 // $off-canvas-label-border-top: 1px solid scale-color($off-canvas-label-bg, $lightness: 14%);
 // $off-canvas-label-border-bottom: none;
 // $off-canvas-label-margin:0;
 // $off-canvas-link-padding: rem-calc(10, 15);
 // $off-canvas-link-color: rgba($white, 0.7);
 // $off-canvas-link-border-bottom: 1px solid scale-color($off-canvas-bg, $lightness: -25%);
-// $off-canvas-back-bg: #444;
+$off-canvas-back-bg: $off-canvas-bg; // #444;
 // $off-canvas-back-border-top: $off-canvas-label-border-top;
 // $off-canvas-back-border-bottom: $off-canvas-label-border-bottom;
 // $off-canvas-back-hover-bg: scale-color($off-canvas-back-bg, $lightness: -30%);
