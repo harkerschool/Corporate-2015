@@ -11,5 +11,6 @@
 /src/.sass-cache
 /src/bower_components
 /src/css
+/src/js/vendor/bower.js
 /test
 /tmp

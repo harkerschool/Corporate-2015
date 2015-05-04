@@ -23,7 +23,8 @@ module.exports = function(grunt) {
             js: {
                 dest: 'src/js/vendor/bower.js',
                 exclude: [
-                    'modernizr'
+                    'modernizr',
+                    'waypoints'
                 ]
             }
         },

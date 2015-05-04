@@ -9,12 +9,13 @@
 </style>
 <script src="bower_components/modernizr/modernizr.js"></script>
 <script src="js/vendor/bower.js"></script>
+<script src="bower_components/waypoints/lib/jquery.waypoints.js"></script>
+<script src="bower_components/waypoints/lib/shortcuts/inview.js"></script>
 <script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
 <script charset='ISO-8859-1' src='//fast.wistia.com/labs/crop-fill/plugin.js'></script>
 <script src="js/vendor/wp-json-feed.js"></script>
 <script src="js/vendor/fullscreen-video.js"></script>
 <script src="js/vendor/fullscreen-wistia.js"></script>
-<script src="js/vendor/cover-video.js"></script>
 <script src="js/main.js"></script>
 <script>
 (function($){

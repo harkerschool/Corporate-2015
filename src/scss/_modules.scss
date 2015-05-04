@@ -123,30 +123,6 @@
   text-transform: none;
 }
 
-// Nav
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-
-.off-canvas-wrap,
-.off-canvas-wrap .inner-wrap,
-.off-canvas-content {
-    height: 100%;
-    width: 100%;
-}
-
-.tab-bar-fixed {
-    .off-canvas-content {
-        padding-top: $tabbar-height;
-        overflow-y: auto;
-    }
-
-    .tab-bar {
-        position: absolute;
-        top: 0;
-        width: 100%;
-        z-index: 1000;
-    }
-}
-
 // Intro
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
