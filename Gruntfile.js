@@ -26,6 +26,13 @@ module.exports = function(grunt) {
                     'modernizr',
                     'waypoints'
                 ]
+            },
+            css: {
+                cssDest: 'src/css/vendor/bower.css',
+                exclude: [
+                    'foundation',
+                    'font-awesome'
+                ]
             }
         },
 
