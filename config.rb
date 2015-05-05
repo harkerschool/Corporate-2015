@@ -1,6 +1,7 @@
 # Require any additional compass plugins here.
 add_import_path "src/bower_components/foundation/scss"
 add_import_path "src/bower_components/font-awesome/scss"
+add_import_path "src/bower_components/jQuery.mmenu/src/scss"
 
 # Set this to the root of your project when deployed:
 http_path = "/src"

@@ -1,4 +1,4 @@
-<div class="section">
+<div class="section section-expand-top" id="intro" data-magellan-destination="intro">
     <div class="row">
         <div class="column">
             <h1>Page Title</h1>

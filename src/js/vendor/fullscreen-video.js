@@ -7,6 +7,7 @@
         defaults = {
             aspectRatio : 16/9,
             cropBottom : 0,
+            container: '',
             img : '',
             ready : function() {}
         };
@@ -27,23 +28,26 @@
         init: function() {
             var theWindow = $(window),
                 $video = $(this.element),
+                $container = $(this.settings.container),
                 $img = $(this.settings.img);
 
             // bind resize event handler                                              
             theWindow.resize({
                 theWindow : theWindow,
                 video : $video,
+                container: $container,
                 img : $img,
                 settings : this.settings
-            }, this.resizeVideo).trigger("resize");
+            }, this.resizeContent).trigger("resize");
 
             this.settings.ready();
         },
         // resize video iframe to fill the screen
-        resizeVideo: function(event) {
+        resizeContent: function(event) {
             var windowWidth = event.data.theWindow.width(),
                 windowHeight = event.data.theWindow.height(),
                 $video = event.data.video,
+                $container = event.data.container,
                 $img = event.data.img,
                 aspectRatio = event.data.settings.aspectRatio,
                 crop = event.data.settings.cropBottom,
@@ -97,6 +101,10 @@
             };
 
             // update elements
+            $container.css({
+                'width' : windowWidth,
+                'height' : windowHeight
+            }).addClass('is-resized');
             $img.css(styles).addClass('is-resized');  
             $video.css(styles).addClass('is-resized');     
         }

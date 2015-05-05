@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <title><?php echo $title; ?></title>
-<link rel="stylesheet" type="text/css" href="css/vendor/bower.css">
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <style type="text/css">
 </style>

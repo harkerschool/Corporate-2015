@@ -23,6 +23,7 @@
         // Set up fullscreen background video and image
         $('.hero-bg iframe').fullscreenVideo({
             cropBottom: 60,
+            container: '.hero',
             img: '.hero-img img'
         });
 
@@ -43,6 +44,24 @@
             accordion: {
                 multi_expand: true
             }
+        });
+
+        $("#global-nav").mmenu({
+            offCanvas: {
+               // zposition : "front"
+            }
+        }, 
+        {
+            // configurations
+            offCanvas: {
+                pageNodetype: 'main',
+                pageSelector: '#main'
+            },
+            classNames: {
+                fixedElements: {
+                   fixed: "fixed"
+                }
+             }
         });
         
         // Set up WordPress JSON API Feed

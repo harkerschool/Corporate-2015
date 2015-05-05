@@ -3,183 +3,186 @@
 
 // Vertically Align
 %vertical-align {
-  position: relative;
-  top: 50%;
-  -webkit-transform: translateY(-50%);
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
+    position: relative;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
+
+// Bower Components
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@import "jquery.mmenu.all";
 
 // Sections
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .section {
-  background-color: $lightgray;
-  padding: rhythm(1.5) 0;
-  &:first-child { margin-top: rhythm(1.5); }
-  &:last-child { margin-bottom: rhythm(1.5); }
-  
-  &.green-bg, 
-  &.blue-bg, 
-  &.purple-bg,
-  &.red-bg, 
-  &.orange-bg,
-  &.gold-bg {
-    color: $white;
-    h1, h2, h3, h4, h5, h6, code, a {
-      color: $white;
+    background-color: $lightgray;
+    padding: rhythm(1.5) 0;
+    &.section-expand {
+        padding: rhythm(3) 0;
     }
-    a:hover, a:focus {
-      color: scale-color($white, $lightness: -3%);
+    &.section-expand-top, &:first-child {
+        padding-top: rhythm(3);
     }
-    a.button.secondary, a.button.info {
-      color: $oil;
+    &.section-expand-bottom, &:last-child {
+        padding-bottom: rhythm(3);
     }
-    .section + & { margin-top: rhythm(0.5); }
-    & + .section { margin-top: rhythm(1.5); }
-    & + & { margin-top: 0; }
-  }
+    &.section-collapse {
+        padding: 0;
+    }
+    &.section-collapse-top {
+        padding-top: 0;
+    }
+    &.section-collapse-bottom {
+        padding-bottom: 0;
+    }
+}
 
-  &.section-feature {
-    margin: 0;
+.green-bg, .blue-bg, .purple-bg,
+.red-bg, .orange-bg, .gold-bg,
+.section-feature {
+    &.section + .section:not(&) {
+        padding-top: rhythm(3);
+    }
+}
+
+.section.section-feature {
     padding: 0;
     overflow: hidden;
     > .row {
-      @extend .row-wide;
-      position: relative;
-      > .column, > .columns {
-        padding-left: 0;
-        padding-right: 0;
-      }
+        @extend .row-wide;
+        position: relative;
+        > .column, > .columns {
+            padding-left: 0;
+            padding-right: 0;
+        }
     }
-    & + .section {
-      margin-top: rhythm(1.5);
-    }
-  }
-
-  &.section-fill {
-    margin: 0;
-    padding: rhythm(3) 0;
-  }
-  &.section-collapse {
-    padding: 0;
-    margin: 0;
-  }
 }
 
 .feature-caption {
-  @extend .circle;
-  @extend %vertical-align;
-  @include box-shadow ( $default-shadow );
-  @include text-shadow( $default-shadow );
-  position: absolute;
-  width: rem-calc(360);
-  height: rem-calc(360);
-  margin: 0 rem-calc(100) 0;
-  background-color: rgba( $darkgray, 0.9 );
-  color: $white;
-  text-align: center;
-  &.position-left {
-    left: 0;
-  }
-  &.position-right {
-    right: 0;
-  }
-  &.green-bg {
-    background-color: rgba( $green, 0.9 );
-  }
-  &.blue-bg {
-    background-color: rgba( $blue, 0.9 );
-  }
-  &.purple-bg {
-    background-color: rgba( $purple, 0.9 );
-  }
-  &.red-bg {
-    background-color: rgba( $red, 0.9 );
-  }
-  &.orange-bg {
-    background-color: rgba( $orange, 0.9 );
-  }
-  &.gold-bg {
-    background-color: rgba( $gold, 0.9 );
-  }
-}
-.feature-caption-content {
-  @extend %vertical-align;
-  position: absolute;
-  width: 100%;
-  padding: 4rem;
-  :first-child { margin-top: 0; }
-  :last-child { margin-bottom: 0; }
-  .button, .button:hover, .button:focus {
+    @extend .circle;
+    @extend %vertical-align;
+    @include box-shadow($default-shadow);
+    @include text-shadow($default-shadow);
+    position: absolute;
+    width: rem-calc(360);
+    height: rem-calc(360);
+    margin: 0 rem-calc(100) 0;
+    background-color: rgba($darkgray, 0.9);
     color: $white;
-  }
+    text-align: center;
+    &.position-left {
+        left: 0;
+    }
+    &.position-right {
+        right: 0;
+    }
+    &.green-bg {
+        background-color: rgba($green, 0.9);
+    }
+    &.blue-bg {
+        background-color: rgba($blue, 0.9);
+    }
+    &.purple-bg {
+        background-color: rgba($purple, 0.9);
+    }
+    &.red-bg {
+        background-color: rgba($red, 0.9);
+    }
+    &.orange-bg {
+        background-color: rgba($orange, 0.9);
+    }
+    &.gold-bg {
+        background-color: rgba($gold, 0.9);
+    }
 }
+
+.feature-caption-content {
+    @extend %vertical-align;
+    position: absolute;
+    width: 100%;
+    padding: 4rem;
+    :first-child {
+        margin-top: 0;
+    }
+    :last-child {
+        margin-bottom: 0;
+    }
+    .button, .button:hover, .button:focus {
+        color: $white;
+    }
+}
+
 .feature-caption-header {
-  font-size: $h1-font-size;
-  line-height: 1em;
-  margin: 0 0 rhythm(1) 0;
-  color: $white;
-  text-transform: none;
+    font-size: $h1-font-size;
+    line-height: 1em;
+    margin: 0 0 rhythm(1) 0;
+    color: $white;
+    text-transform: none;
 }
 
 // Intro
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .intro {
-  font-size: rem-calc(18);
-  font-weight: 100;
-  color: #333;
+    font-size: rem-calc(18);
+    font-weight: 100;
+    color: #333;
 }
 
 @media #{$medium-up} {
-  .intro {
-    font-size: rem-calc(22);
-  }
+    .intro {
+        font-size: rem-calc(22);
+    }
 }
 
 // Vertical Rhythm Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 @for $i from 0 through 4 {
-  .rhythm-padding-#{$i} {
-    padding-top: rhythm($i);
-    padding-bottom: rhythm($i);
-  }
-  .rhythm-margin-#{$i} {
-    margin-top: rhythm($i);
-    margin-bottom: rhythm($i);
-  }
+    .rhythm-padding-#{$i} {
+        padding-top: rhythm($i);
+        padding-bottom: rhythm($i);
+    }
+    .rhythm-margin-#{$i} {
+        margin-top: rhythm($i);
+        margin-bottom: rhythm($i);
+    }
 }
+
 .rhythm-padding-1-5 {
-  padding-top: rhythm(1.5);
-  padding-bottom: rhythm(1.5);
+    padding-top: rhythm(1.5);
+    padding-bottom: rhythm(1.5);
 }
+
 .rhythm-margin-1-5 {
-  margin-top: rhythm(1.5);
-  margin-bottom: rhythm(1.5);
+    margin-top: rhythm(1.5);
+    margin-bottom: rhythm(1.5);
 }
 
 // Grid Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .column.column-collapse, .columns.columns-collapse {
-  padding-right: 0;
-  padding-left: 0;
+    padding-right: 0;
+    padding-left: 0;
 }
 
 .row-wide {
-  @include grid-row();
-  max-width: 90rem;
+    @include grid-row;
+    max-width: 90rem;
 }
 
 .row-fill {
-  @include grid-row();
-  max-width: none;
+    @include grid-row;
+    max-width: none;
 }
 
 [class*="block-grid-"] {
-  margin-bottom: rhythm(1);
+    margin-bottom: rhythm(1);
 }
 
 // Buttons
@@ -189,21 +192,21 @@
 .button-outline:hover, .button-outline:focus,
 .button-outline-invert,
 .button-outline-invert:hover, .button-outline-invert:focus {
-  background: transparent;
-  font-weight: 100;
-  font-size: rem-calc(22);
+    background: transparent;
+    font-weight: 100;
+    font-size: rem-calc(22);
 }
 
 .button-outline,
 .button-outline:hover, .button-outline:focus {
-  border: 1px solid $oil;
-  color: $oil;
+    border: 1px solid $oil;
+    color: $oil;
 }
 
 .button-outline-invert,
 .button-outline-invert:hover, .button-outline-invert:focus {
-  border: 1px solid $white;
-  color: $white;
+    border: 1px solid $white;
+    color: $white;
 }
 
 // Accordion
@@ -211,363 +214,449 @@
 
 // anchors
 .accordion .accordion-navigation > a, .accordion dd > a {
-  position: relative; // overlay dropshadow on content
-  text-decoration: none;
-  text-transform: uppercase;
-  line-height: rhythm(1);
-  padding-top: $accordion-navigation-padding + rem-calc(2); // vertically center text
-  padding-bottom: $accordion-navigation-padding - rem-calc(2);
-  @include box-shadow( $default-shadow );
-  @include transition( background-color 0.25s, color 0.25s );
-  &:before {
-    @include fa-icon();
-    content: $fa-var-ellipsis-v;
-    color: inherit;
-    float: right;
-  }
-  .accordion & { // child accordion anchors
-    text-transform: none;
-    background: none;
-    color: $default-link-font-color;
-    font-size: 1rem;
-    padding: 0;
-    @include box-shadow( none );
-    &:hover, &:focus {
-      color: $anchor-font-color-hover;
-    }
+    position: relative;
+    // overlay dropshadow on content
+    text-decoration: none;
+    text-transform: uppercase;
+    line-height: rhythm(1);
+    padding-top: $accordion-navigation-padding + rem-calc(2);
+    // vertically center text
+    padding-bottom: $accordion-navigation-padding - rem-calc(2);
+    @include box-shadow($default-shadow);
+    @include transition(background-color 0.25s, color 0.25s);
     &:before {
-      @include fa-icon();
-      content: $fa-var-chevron-down;
-      color: inherit;
-      float: right;
+        @include fa-icon;
+        content: $fa-var-ellipsis-v;
+        color: inherit;
+        float: right;
     }
-  }
+    .accordion & {
+        // child accordion anchors
+        text-transform: none;
+        background: none;
+        color: $default-link-font-color;
+        font-size: 1rem;
+        padding: 0;
+        @include box-shadow(none);
+        &:hover, &:focus {
+            color: $anchor-font-color-hover;
+        }
+        &:before {
+            @include fa-icon;
+            content: $fa-var-chevron-down;
+            color: inherit;
+            float: right;
+        }
+    }
 }
-.accordion .accordion-navigation.active > a, 
+
+.accordion .accordion-navigation.active > a,
 .accordion dd.active > a {
-  @include box-shadow( none );
-  .accordion &:before {
-    content: $fa-var-chevron-up;
-  }
+    @include box-shadow(none);
+    .accordion &:before {
+        content: $fa-var-chevron-up;
+    }
 }
 
 .accordion .accordion-navigation {
-  position: relative; 
+    position: relative;
 }
+
 .accordion-direct-link {
-  top: 0; 
-  left: 0;
-  bottom: 0; // stretch height of parent container
-  z-index: 1;
-  width: rem-calc(48);
-  border-right: 1px solid rgba($white, 0.5);
-  margin-right: ($column-gutter/2);
-  text-align: center;
-  [class*="block-grid-"] > li & {
-    left: $block-grid-default-spacing/2;
-    bottom: $block-grid-default-spacing;
-  }
+    top: 0;
+    left: 0;
+    bottom: 0;
+    // stretch height of parent container
+    z-index: 1;
+    width: rem-calc(48);
+    border-right: 1px solid rgba($white, 0.5);
+    margin-right: $column-gutter / 2;
+    text-align: center;
+    [class*="block-grid-"] > li & {
+        left: $block-grid-default-spacing / 2;
+        bottom: $block-grid-default-spacing;
+    }
 }
+
 .accordion .accordion-navigation > .accordion-direct-link {
-  position: absolute;
-  & + a {
-    padding-left: rem-calc(48+12);
-  }
-  &:before {
-    display: none; // hide vertical ellipses
-  }
+    position: absolute;
+    & + a {
+        padding-left: rem-calc(48 + 12);
+    }
+    &:before {
+        display: none;
+        // hide vertical ellipses
+   
+    }
 }
 
 // content
 .accordion .accordion-navigation > .content, .accordion dd > .content {
-  border: 1px solid $default-border-color;
-  border-top: none;
-  line-height: 1;
-  .accordion & {
-    padding: 0;
-    margin: rhythm(0.5) 0;
-    border: none;
-  }
-}
-.accordion .accordion-navigation > .content.active, 
-.accordion dd > .content.active {
-  position: relative;
-  z-index: 1; // overlap .accordion-direct-link ;P
-  @include box-shadow( $default-shadow );
-  .accordion & {
-    @include box-shadow( none );
-  }
+    border: 1px solid $default-border-color;
+    border-top: none;
+    line-height: 1;
+    .accordion & {
+        padding: 0;
+        margin: rhythm(0.5) 0;
+        border: none;
+    }
 }
 
-.accordion .content > *:first-child { margin-top: 0; }
-.accordion .content > *:last-child { margin-bottom: 0; }
+.accordion .accordion-navigation > .content.active,
+.accordion dd > .content.active {
+    position: relative;
+    z-index: 1;
+    // overlap .accordion-direct-link ;P
+    @include box-shadow($default-shadow);
+    .accordion & {
+        @include box-shadow(none);
+    }
+}
+
+.accordion .content > *:first-child {
+    margin-top: 0;
+}
+
+.accordion .content > *:last-child {
+    margin-bottom: 0;
+}
 
 .accordion .content > ul {
-  list-style: none;
-  margin-left: -$accordion-content-padding; 
-  margin-right: -$accordion-content-padding;
-  margin-top: 0; 
-  margin-bottom: $default-bottom-margin;
-  border-top: 1px solid $default-border-color;
-  border-bottom: 1px solid $default-border-color;
-  li {
-    padding: $accordion-content-padding;
+    list-style: none;
+    margin-left: -$accordion-content-padding;
+    margin-right: -$accordion-content-padding;
+    margin-top: 0;
+    margin-bottom: $default-bottom-margin;
     border-top: 1px solid $default-border-color;
+    border-bottom: 1px solid $default-border-color;
+    li {
+        padding: $accordion-content-padding;
+        border-top: 1px solid $default-border-color;
+        &:first-child {
+            border-top: none;
+        }
+    }
     &:first-child {
-      border-top: none;
+        border-top: none;
+        li:first-child {
+            padding-top: 0;
+        }
     }
-  }
-  &:first-child {
-    border-top: none;
-    li:first-child {
-      padding-top: 0;
+    &:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+        li:last-child {
+            padding-bottom: 0;
+        }
     }
-  }
-  &:last-child {
-    margin-bottom: 0;
-    border-bottom: none;
-    li:last-child {
-      padding-bottom: 0;
-    }
-  }
 }
 
 .accordion .content .button {
-  display: block;
-  background: $secondary-color;
-  color: $default-font-color;
-  border: 1px solid $default-border-color;
-  line-height: rhythm(1);
-  padding-top: rhythm(0.25);
-  padding-bottom: rhythm(0.25);
-  margin: 0;
-  @include transition( background-color 0.25s );
-  &:hover, &:focus {
-    background-color: $secondary-button-bg-hover;
+    display: block;
+    background: $secondary-color;
     color: $default-font-color;
-  }
+    border: 1px solid $default-border-color;
+    line-height: rhythm(1);
+    padding-top: rhythm(0.25);
+    padding-bottom: rhythm(0.25);
+    margin: 0;
+    @include transition(background-color 0.25s);
+    &:hover, &:focus {
+        background-color: $secondary-button-bg-hover;
+        color: $default-font-color;
+    }
 }
 
 // inverted colors
 .accordion-invert {
-  .accordion-navigation > a, dd > a,
-  .accordion-navigation.active > a, dd.active > a {
-    background-color: $secondary-color;
-    color: $anchor-font-color;
-    &:hover, &:focus {
-      background-color: $secondary-button-bg-hover;
-      color: $anchor-font-color-hover;
+    .accordion-navigation > a, dd > a,
+    .accordion-navigation.active > a, dd.active > a {
+        background-color: $secondary-color;
+        color: $anchor-font-color;
+        &:hover, &:focus {
+            background-color: $secondary-button-bg-hover;
+            color: $anchor-font-color-hover;
+        }
     }
-  }
-  .accordion-navigation > .content, dd > .content {
-    color: $default-font-color;
-    &.active {
-      border-top: 1px solid $default-border-color;
-    }
-  }
-  .accordion {
     .accordion-navigation > .content, dd > .content {
-      &.active {
-        border-top: none;
-      }
+        color: $default-font-color;
+        &.active {
+            border-top: 1px solid $default-border-color;
+        }
     }
-  }
-  .accordion-direct-link {
-    border-right: 1px solid $default-border-color;
-  }
+    .accordion {
+        .accordion-navigation > .content, dd > .content {
+            &.active {
+                border-top: none;
+            }
+        }
+    }
+    .accordion-direct-link {
+        border-right: 1px solid $default-border-color;
+    }
 }
 
 .stat {
-  background-color: $white;
-  padding: 2em;
-  @include box-shadow($default-shadow);
-  text-align: center;
+    background-color: $white;
+    padding: 2em;
+    @include box-shadow($default-shadow);
+    text-align: center;
 }
+
 .stat-measure, .stat-desc {
-  display: block;
-  font-weight: bold;
-  line-height: 1;
+    display: block;
+    font-weight: bold;
+    line-height: 1;
 }
+
 .stat-measure {
-  font-size: rem-calc(64);
-  color: $green;
-  margin-bottom: rhythm(1);
+    font-size: rem-calc(64);
+    color: $green;
+    margin-bottom: rhythm(1);
 }
+
 .stat-desc {
-  font-size: rem-calc(24);
-  color: $gray;
+    font-size: rem-calc(24);
+    color: $gray;
 }
 
 .feedburnerFeedBlock {
-  ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    > li {
-      margin-bottom: rhythm(1);
-      > div {
-        margin: rhythm(0.5) 0;
-      }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        > li {
+            margin-bottom: rhythm(1);
+            > div {
+                margin: rhythm(0.5) 0;
+            }
+        }
     }
-  }
-  .headline {
-    font-size: rhythm(1);
-    line-height: 1;
-    a {
-      text-decoration: none;
+    .headline {
+        font-size: rhythm(1);
+        line-height: 1;
+        a {
+            text-decoration: none;
+        }
+        a:hover, a:focus {
+            text-decoration: underline;
+        }
     }
-    a:hover, a:focus {
-      text-decoration: underline;
+    .date {
+        margin-bottom: rhythm(0.5);
     }
-  }
-  .date {
-    margin-bottom: rhythm(0.5);
-  }
 }
 
 .wp-feed {
-  list-style: none;
-  margin: 0;
-  padding: 0;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
+
 .wp-article-title a {
-  font-weight: normal;
+    font-weight: normal;
 }
 
 // Hero Section
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .hero, .hero-fixed {
-  width: 100%; height: 100%;
-  overflow: hidden;
+    width: 100%;
+    overflow: hidden;
 }
 
 .hero {
-  position: relative;
+    position: relative;
+    z-index: 0;
 }
 
 .hero-text {
-  margin-top: rhythm(8);
-  margin-bottom: rhythm(8);
-  .csstransforms & {
+    position: absolute;
+    width: 100%;
+    .is-resized & {
+        height: 100%;
+    }
+}
+
+.hero-text > .row-fill {
+    margin-top: rhythm(8);
+    margin-bottom: rhythm(8);
+}
+
+.csstransforms .is-resized .hero-text > .row-fill {
     margin-top: 0;
     margin-bottom: 0;
     @extend %vertical-align;
-  }
 }
 
 .hero-img {
-  position: relative;
-  z-index: -2;
-  background-color: $oil; // $harkergreen;
-  @extend .hero-fixed; 
-  img {
-    @extend %vertical-align;
-    &.is-resized {
-      position: absolute;
-      top: 0; left: 0;
-      min-width: 100%;
-      min-height: 100%;
-      max-width: none;
-      -webkit-transform: translateY(0);
-      -ms-transform: translateY(0);
-      transform: translateY(0);
+    position: relative;
+    z-index: -3;
+    background-color: $harkergreen; // $oil;
+    img.is-resized {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        max-width: none;
     }
-  }
-}
-.hero-bg {
-  position: relative;
-  z-index: -3;
-  @extend .hero-fixed;
-  &.is-playing {
-    z-index: -1;
-  }
-  iframe {
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-  }
-}
-.hero-feature {
-  position: relative;
-  z-index: -5;
-  @extend .hero-fixed;
-  &.is-playing {
-    z-index: 1;
-  }
 }
 
-.hero-fixed {
-  position: fixed !important;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
+.hero-bg {
+    position: relative;
+    z-index: -4;
+    &.is-playing {
+        z-index: -2;
+    }
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.hero-feature {
+    position: relative;
+    z-index: -5;
+    &.is-playing {
+        z-index: 1;
+    }
+}
+
+.hero.is-resized .hero-fixed {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 
 .hero #fs-wistia-exit {
-  position: absolute;
-  top: 0;
-  right: 0;
-  z-index: 2;
-  background-color: rgba(black, 0.5);
-  color: $white;
-  padding: 0.75rem 1rem;
-  -moz-border-radius: 0 0 0 5px;
-  -webkit-border-radius: 0 0 0 5px;
-  border-radius: 0 0 0 5px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    background-color: rgba(black, 0.5);
+    color: $white;
+    padding: 0.75rem 1rem;
+    -moz-border-radius: 0 0 0 5px;
+    -webkit-border-radius: 0 0 0 5px;
+    border-radius: 0 0 0 5px;
 }
 
 // Atomic Styles
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Borders
-.border-bottom { border-bottom: 1px solid $default-border-color; }
+.border-bottom {
+    border-bottom: 1px solid $default-border-color;
+}
 
 // Background Colors
-.green-bg { background-color: $green }
-.blue-bg { background-color: $blue; }
-.purple-bg { background-color: $purple; }
-.red-bg { background-color: $red }
-.orange-bg { background-color: $orange; }
-.gold-bg { background-color: $gold; }
+.green-bg {
+    background-color: $green;
+}
+
+.blue-bg {
+    background-color: $blue;
+}
+
+.purple-bg {
+    background-color: $purple;
+}
+
+.red-bg {
+    background-color: $red;
+}
+
+.orange-bg {
+    background-color: $orange;
+}
+
+.gold-bg {
+    background-color: $gold;
+}
+
+.green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg {
+    color: $white;
+    h1, h2, h3, h4, h5, h6, code, a {
+        color: $white;
+    }
+    a:hover, a:focus {
+        color: scale-color($white, $lightness: -3%);
+    }
+    a.button.secondary, a.button.info {
+        color: $oil;
+    }
+}
 
 // Text Colors
-.green-txt { color: $green }
-.blue-txt { color: $blue; }
-.purple-txt { color: $purple; }
-.red-txt { color: $red }
-.orange-txt { color: $orange; }
-.gold-txt { color: $gold; }
+.green-txt {
+    color: $green;
+}
+
+.blue-txt {
+    color: $blue;
+}
+
+.purple-txt {
+    color: $purple;
+}
+
+.red-txt {
+    color: $red;
+}
+
+.orange-txt {
+    color: $orange;
+}
+
+.gold-txt {
+    color: $gold;
+}
 
 // Circles
-.circle { @include border-radius(50%); }
+.circle {
+    @include border-radius(50%);
+}
 
 // Floaters
-.float-left { float: left; }
-.float-right { float: right; }
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
 
 // CSS3 Columns
-@mixin css3-columns( $columns:false ) {
-  @if $columns {
-    @include column-width(grid-calc($columns, $total-columns));
-    @include column-count($columns);
-    @include column-gap($column-gutter);
-  }
-}
-@mixin css3-columns-html-class($size) {
-  @for $i from 1 through $total-columns {
-    .#{$size}-text-columns-#{$i} { 
-      @include css3-columns($i); 
+@mixin css3-columns($columns: false) {
+    @if $columns {
+        @include column-width(grid-calc($columns, $total-columns));
+        @include column-count($columns);
+        @include column-gap($column-gutter);
     }
-  }
 }
+
+@mixin css3-columns-html-class($size) {
+    @for $i from 1 through $total-columns {
+        .#{$size}-text-columns-#{$i} {
+            @include css3-columns($i);
+        }
+    }
+}
+
 @media #{$small-up} {
-  @include css3-columns-html-class($size:small);
+    @include css3-columns-html-class($size: small);
 }
+
 @media #{$medium-up} {
-  @include css3-columns-html-class($size:medium);
+    @include css3-columns-html-class($size: medium);
 }
+
 @media #{$large-up} {
-  @include css3-columns-html-class($size:large);
+    @include css3-columns-html-class($size: large);
 }

@@ -2,7 +2,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 main {
-    background-color: $default-bg-color;
+    background-color: $lightgray;
     &:before, &:after {
       content: " ";
       display: table;
