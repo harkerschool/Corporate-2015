@@ -460,18 +460,17 @@
 // Hero Section
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.hero, .hero-fixed {
+.hero {
+    position: relative;
+    z-index: 0;
     width: 100%;
     overflow: hidden;
 }
 
-.hero {
-    position: relative;
-    z-index: 0;
-}
-
 .hero-text {
     position: absolute;
+    top: 0; left: 0;
+    z-index: 0;
     width: 100%;
     .is-resized & {
         height: 100%;
@@ -481,19 +480,18 @@
 .hero-text > .row-fill {
     margin-top: rhythm(8);
     margin-bottom: rhythm(8);
-}
-
-.csstransforms .is-resized .hero-text > .row-fill {
-    margin-top: 0;
-    margin-bottom: 0;
-    @extend %vertical-align;
+    .csstransforms .is-resized & {
+        margin-top: 0;
+        margin-bottom: 0;
+        @extend %vertical-align;
+    }
 }
 
 .hero-img {
     position: relative;
     z-index: -3;
     background-color: $harkergreen; // $oil;
-    img.is-resized {
+    .is-resized & > img {
         position: absolute;
         top: 0;
         left: 0;
@@ -501,33 +499,47 @@
         min-height: 100%;
         max-width: none;
     }
-}
-
-.hero-bg {
-    position: relative;
-    z-index: -4;
-    &.is-playing {
-        z-index: -2;
-    }
-    iframe {
-        position: absolute;
-        top: 0;
-        left: 0;
+    .is-resized & {
         width: 100%;
         height: 100%;
     }
 }
 
+.hero-bg {
+    position: absolute;
+    top: 0; left: 0;
+    z-index: -4;
+    width: 100%;
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 720px;
+    }
+    &.is-playing {
+        z-index: -2;
+    }
+    .is-resized &, .is-resized & > iframe {
+        height: 100%;
+    }
+}
+
 .hero-feature {
-    position: relative;
+    position: absolute !important; // overriding wistia's inline styles
+    top: 0; left: 0;
     z-index: -5;
+    width: 100%;
     &.is-playing {
         z-index: 1;
+    }
+    .is-resized & {
+        height: 100%;
     }
 }
 
 .hero.is-resized .hero-fixed {
-    position: fixed !important;
+    position: fixed !important; // overriding wistia's inline styles
     top: 0;
     left: 0;
     width: 100%;
