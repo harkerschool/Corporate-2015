@@ -6,6 +6,7 @@
         </div>
     </div>
 </footer>
+<?php include "nav-global.php"; ?>
 </body>
 </html>
 <?php } ?>

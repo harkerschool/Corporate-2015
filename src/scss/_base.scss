@@ -1,4 +1,6 @@
-@import "compass";
+@import "compass/support";
+@import "compass/css3";
+@import "compass/typography/vertical_rhythm";
 @import "settings";
 @import "normalize";
 @import "font-awesome";
@@ -20,7 +22,7 @@
 @import "foundation/components/flex-video";
 @import "foundation/components/forms";
 @import "foundation/components/grid";
-// @import "foundation/components/inline-lists";
+@import "foundation/components/inline-lists";
 // @import "foundation/components/joyride";
 // @import "foundation/components/keystrokes";
 // @import "foundation/components/labels";
@@ -39,7 +41,7 @@
 // @import "foundation/components/tabs";
 // @import "foundation/components/thumbs";
 // @import "foundation/components/tooltips";
-// @import "foundation/components/top-bar";
+@import "foundation/components/top-bar";
 @import "foundation/components/type";
 @import "foundation/components/offcanvas";
 @import "foundation/components/visibility";
@@ -93,6 +95,12 @@ h1, h2, h3, h4, h5, h6 {
         margin-top: 0;
     }
 }
+.h1 { @extend h1; }
+.h2 { @extend h2; }
+.h3 { @extend h3; }
+.h4 { @extend h4; }
+.h5 { @extend h5; }
+.h6 { @extend h6; }
 .subheader {
     text-transform: none;
 }
@@ -100,8 +108,12 @@ p.subheader {
     font-size: $h3-font-size;
 }
 
-.title, .subtitle, h1, h2, h3 {
+.title, h1, h2, h3 {
     line-height: 1em;
+}
+
+.subtitle {
+    line-height: 1.5em;
 }
 
 h5 {

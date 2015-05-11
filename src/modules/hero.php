@@ -27,8 +27,8 @@ function hero( $args = array() ) {
                             <div id="fs-wistia-play" class="button">Play Video</div>
                         </li>
                         <?php endif; ?>
-                        <li data-magellan-expedition data-magellan-arrival="intro">
-                            <a class="button secondary" href="#intro">Learn More</a>
+                        <li>
+                            <a class="button secondary" href="#intro" data-magellan-expedition data-magellan-arrival="intro">Learn More</a>
                         </li>
                     </ul>
                 </div>

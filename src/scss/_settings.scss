@@ -13,9 +13,12 @@ $silver: #CCC;
 $lightgray: #F4F5EF;
 $gray: #888;
 $darkgray: #555;
+$darkergray: #333;
 
 // Harker Primary Color
 $harkergreen: #05533E;
+$darkharkergreen: #044836;
+$darkerharkergreen: #033e2f;
 
 // Secondary Colors
 $blue: #00809E;
@@ -601,7 +604,7 @@ $button-function-factor: -5%;
 // We use this to set the border styles for dropdowns.
 // $f-dropdown-border-style: solid;
 // $f-dropdown-border-width: 1px;
-// $f-dropdown-border-color: scale-color($white, $lightness: -20%);
+$f-dropdown-border-color: $default-border-color;
 
 // We use these to style the triangle pip.
 // $f-dropdown-triangle-size: 6px;
@@ -610,10 +613,10 @@ $button-function-factor: -5%;
 
 // We use these to control styles for the list elements.
 // $f-dropdown-list-style: none;
-// $f-dropdown-font-color: $charcoal;
-// $f-dropdown-font-size: rem-calc(14);
-// $f-dropdown-list-padding: rem-calc(5, 10);
-// $f-dropdown-line-height: rem-calc(18);
+$f-dropdown-font-color: $gray;
+$f-dropdown-font-size: rem-calc(16);
+$f-dropdown-list-padding: 0.5rem;
+$f-dropdown-line-height: rhythm(1);
 // $f-dropdown-list-hover-bg: $smoke;
 // $dropdown-mobile-default-float: 0;
 
@@ -1441,16 +1444,16 @@ $table-margin-bottom: rhythm(1);
 // $include-html-top-bar-classes: $include-html-classes;
 
 // Background color for the top bar
-// $topbar-bg-color: $oil;
+$topbar-bg-color: transparent;
 // $topbar-bg: $topbar-bg-color;
 
 // Height and margin
-// $topbar-height: rem-calc(45);
+$topbar-height: auto;
 // $topbar-margin-bottom: 0;
 
 // Controlling the styles for the title in the top bar
 // $topbar-title-weight: $font-weight-normal;
-// $topbar-title-font-size: rem-calc(17);
+$topbar-title-font-size: 1rem;
 
 // Set the link colors and styles for top-level nav
 // $topbar-link-color: $white;
@@ -1458,13 +1461,13 @@ $table-margin-bottom: rhythm(1);
 // $topbar-link-color-active: $white;
 // $topbar-link-color-active-hover: $white;
 // $topbar-link-weight: $font-weight-normal;
-// $topbar-link-font-size: rem-calc(13);
+$topbar-link-font-size: rem-calc(16);
 // $topbar-link-hover-lightness: -10%; // Darken by 10%
 // $topbar-link-bg: $topbar-bg;
-// $topbar-link-bg-hover: $oil;
-// $topbar-link-bg-color-hover: $charcoal;
-// $topbar-link-bg-active: $primary-color;
-// $topbar-link-bg-active-hover: scale-color($primary-color, $lightness: -14%);
+$topbar-link-bg-hover: transparent;
+$topbar-link-bg-color-hover: transparent;
+$topbar-link-bg-active: transparent;
+$topbar-link-bg-active-hover: scale-color($topbar-link-bg-active, $lightness: -14%);
 // $topbar-link-font-family: $body-font-family;
 // $topbar-link-text-transform: none;
 // $topbar-link-padding: ($topbar-height / 3);

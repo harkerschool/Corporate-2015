@@ -1,8 +1,6 @@
-<div class="section section-expand-top" id="intro" data-magellan-destination="intro">
+<div class="section" id="intro" data-magellan-destination="intro">
     <div class="row">
         <div class="column">
-            <h1>Page Title</h1>
-            <p class="subheader">Tag Line Goes Here.</p>
             <p class="large-text-columns-3">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,

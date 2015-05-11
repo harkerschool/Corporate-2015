@@ -10,15 +10,11 @@
     transform: translateY(-50%);
 }
 
-// Bower Components
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-
-@import "jquery.mmenu.all";
-
 // Sections
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .section {
+    position: relative;
     background-color: $lightgray;
     padding: rhythm(1.5) 0;
     &.section-expand {
@@ -122,6 +118,260 @@
     margin: 0 0 rhythm(1) 0;
     color: $white;
     text-transform: none;
+}
+
+// Navigation Bars
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.brand-bar, .current-page-bar {
+    position: relative;
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+    }
+    a, span {
+        display: block;
+        text-decoration: none;
+    }
+}
+.primary-nav, .current-page-nav {
+    @include grid-row();
+}
+.primary-nav-menu, .current-page-menu {
+    @include inline-list;
+    li {
+        margin: 0;
+    }
+    ul, ul li {
+        float: left;
+    }
+    ul[data-dropdown-content], ul[data-dropdown-content] li {
+        float: none;
+    }
+}
+.menu-item-more > a:after {
+    @include fa-icon();
+    content: $fa-var-angle-down;
+    margin-left: 0.5rem;
+}
+
+// Brand Bar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.brand-bar {
+    z-index: 100;
+    background-color: $darkharkergreen;
+    a, span {
+        padding: 0.75rem 0.5rem;
+        background-color: $darkharkergreen;
+        @include transition(background-color 0.5s);
+        &:hover { 
+            background-color: $darkerharkergreen; 
+        }
+    }
+    ul[data-dropdown-content] a,
+    ul[data-dropdown-content] a:hover {
+        background-color: transparent;
+    }
+    .primary-nav-menu-sections {
+        margin-left: 0.5rem;
+        margin-right: 0.5rem;
+    } 
+    .primary-nav-menu-secondary {
+        margin-right: 0.5rem;
+    }
+}
+.brand-bar, .brand-bar a {
+    color: $lightgray;
+}
+
+.primary-nav-menu-home, 
+.primary-nav-menu-sections {
+    float: left;
+}
+.primary-nav-menu-secondary {
+    float: right;
+}
+
+.harker-logo, .harker-logo a {
+    background: $harkergreen url(../img/harker-logo-square.png) no-repeat center center;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    @media #{$large-up} { 
+        background-image: url(../img/harker-logo.png)
+    }
+}
+.harker-logo {
+    width: 72px;
+    border-right: 4px solid $darkerharkergreen;
+    @media #{$large-up} { 
+        width: 223px;
+        border-left: 4px solid $darkerharkergreen;
+    }
+}
+.harker-logo a:hover {
+    background-color: $darkharkergreen;
+}
+
+.primary-nav-menu-sections {
+    a[href="#more-sections"] {
+        // display: none;
+    }
+    li.active a {
+        background-image: url(../img/active-menu-item.png);
+        background-position: bottom center;
+        background-repeat: no-repeat;
+    }
+}
+
+.primary-nav-menu-secondary a {
+    @include fa-icon();
+    font-size: rem-calc(24);
+    line-height: rhythm(1);
+    padding-right: 0.5rem; 
+    padding-left: 0.5rem;
+}
+.menu-item-instagram a:before { content: $fa-var-instagram; }
+.menu-item-youtube a:before { content: $fa-var-youtube-square; }
+.menu-item-twitter a:before { content: $fa-var-twitter-square; }
+.menu-item-facebook a:before { content: $fa-var-facebook-square; }
+.menu-item-search a:before { content: $fa-var-search; }
+.menu-item-login a:before { content: $fa-var-user; }
+
+// Current Page Bar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.current-page-bar {
+    z-index: 99;
+    background-color: rgba($lightgray, 0.9);
+    color: $gray;
+    font-size: rem-calc(12);
+    line-height: rhythm(1);
+    // border-bottom: 1px solid $silver;
+    a, span {
+        padding: 1rem 0.5rem 0.5rem;
+    }
+}
+
+.current-page-menu {
+    float: left;
+    @media #{$large-up} {
+        float: none;
+    }
+}
+
+.current-page-menu-meta a {
+    color: $darkergray;
+}
+
+.current-page-menu-meta .current-page-tagline {
+    display: none;
+    @media #{$large-up} {
+        display: block;
+        font-size: 1rem;
+    }
+}
+
+.current-page-hamburger a {
+    @include fa-icon();
+    font-size: rem-calc(13);
+    line-height: rhythm(1);
+    padding-left: 1rem;
+    // font-size: rem-calc(24); // big icon
+    // padding-left: 1rem;
+    // padding-right: 1rem;
+    // border-left: 1px solid $silver;
+    // border-right: 1px solid $silver;
+    // margin-right: 0.5rem;
+    &:before {
+        content: $fa-var-bars;
+    }
+}
+.current-page-title {
+    text-transform: uppercase;
+    a, &:after {
+        display: inline-block;
+    }
+    &:after {
+        content: "|";
+    }
+    @media #{$large-up} {
+        font-size: rem-calc(24);
+        &:after {
+            display: none;
+        }
+    }
+}
+.current-page-bar .current-page-menu-bookmarks {
+    @media #{$large-up} {
+        margin-left: 0.5rem;
+    }
+}
+.current-page-menu-bookmarks a {
+    color: $gray;
+    &:hover, &:focus {
+        color: $darkergray;
+    }
+    &.active {
+        color: $darkergray;
+        height: rem-calc(48);
+        border-bottom: 3px solid $blue;
+    }
+    @media #{$large-up} {
+        font-size: 1rem;
+        padding-top: 0.5rem;
+        &.active {
+            height: rem-calc(24+8+8); // line-height + padding
+        }
+    }
+}
+
+// mmenu (drawer menu)
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$mm_backgroundColor: $white;
+$mm_borderColor: $default-border-color;
+$mm_textColor: $gray;
+$mm_highlightedBackgroundColor: $f-dropdown-list-hover-bg;
+$mm_fontSize: 16px;
+// $mm_btnSize: 48px;
+// $mm_padding: 8px;
+// $mm_listitemIndent: 0;
+@import "jquery.mmenu.all";
+
+.mm-menu.mm-front {
+    @include box-shadow(2px 0 10px -2px rgba(black, 0.3));
+}
+
+#mm-blocker {
+    background: rgba( 0, 0, 0, 0 );
+    transition: background 0.25s ease;
+}
+.mm-opening #mm-blocker {
+    background: rgba( 0, 0, 0, 0.3 );
+}
+
+.mm-listview > li {
+    border-bottom: 1px solid $default-border-color;
+}
+
+.mm-listview > li:not(.mm-divider):after {
+    border-bottom: none;
+}
+
+.mm-menu .mm-listview > li.mm-selected > a:not(.mm-next), 
+.mm-menu .mm-listview > li.mm-selected > span {
+    color: $darkergray;
+    background: $f-dropdown-list-hover-bg;
+}
+.mm-listview > li > a, 
+.mm-listview > li > span {
+    &:hover {
+        color: $darkergray;
+        background: $f-dropdown-list-hover-bg;
+    }
 }
 
 // Intro

@@ -48,11 +48,14 @@
 
         $("#global-nav").mmenu({
             offCanvas: {
-               // zposition : "front"
-            }
+               position  : "left",
+               zposition : "front"
+            },
+            navbars: true,
+            extensions: ["pageshadow"]
         }, 
         {
-            // configurations
+            // configuration
             offCanvas: {
                 pageNodetype: 'main',
                 pageSelector: '#main'
@@ -63,6 +66,14 @@
                 }
              }
         });
+
+        var mmenu = $("#global-nav").data("mmenu");
+
+        // somehow find list item to select
+        mmenu.setSelected( $('.global-nav-selected') );
+
+        // somehow find panel to activate
+        mmenu.openPanel( $('#mm-14') );
         
         // Set up WordPress JSON API Feed
         $('.news-feed').WPFeed({
