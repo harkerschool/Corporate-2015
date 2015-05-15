@@ -6,7 +6,8 @@
         defaults = {
             visibleItems: "",
             hiddenItems: "",
-            moreItem: ""
+            moreItem: "",
+            afterTruncate: function() {}
         };
 
     function Plugin(element, options) {
@@ -28,7 +29,8 @@
             $(window).resize(truncate);
         },
         getTruncate: function() {
-            var $list = $(this.element),
+            var settings = this.settings,
+                $list = $(this.element),
                 $moreItem = $(this.settings.moreItem),
                 $hiddenList = $moreItem.children('ul'),
                 $hiddenItems = $(this.settings.hiddenItems).add($hiddenList.children('li')),
@@ -105,6 +107,8 @@
 
                 $list.empty().append(visible);
                 $hiddenList.empty().append(hidden);
+
+                settings.afterTruncate();
             };
         }
     });

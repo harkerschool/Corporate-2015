@@ -1,4 +1,4 @@
-<div class="section section-feature red-bg">
+<div id="spotlight" class="section section-feature red-bg" data-magellan-destination="spotlight">
     <div class="row">
         <img src="img/placeholders/feature-photo-1.jpg" alt="placeholder+image">
         <div class="feature-caption red-bg position-right">

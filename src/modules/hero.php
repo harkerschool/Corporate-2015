@@ -20,15 +20,15 @@ function hero( $args = array() ) {
                 <p class="subtitle">
                     <?php echo $subtitle; ?>
                 </p>
-                <div id="actions">
+                <div id="actions" data-magellan-expedition="actions">
                     <ul class="button-group">
                         <?php if ( $wistia_id ): ?>
                         <li>
                             <div id="fs-wistia-play" class="button">Play Video</div>
                         </li>
                         <?php endif; ?>
-                        <li>
-                            <a class="button secondary" href="#intro" data-magellan-expedition data-magellan-arrival="intro">Learn More</a>
+                        <li data-magellan-arrival="intro">
+                            <a class="button secondary" href="#intro">Learn More</a>
                         </li>
                     </ul>
                 </div>
