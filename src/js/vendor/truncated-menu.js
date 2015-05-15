@@ -60,7 +60,6 @@
             // get required visible items width
             $visibleItems.each(function() {
                 visibleItemsWidth += $(this).outerWidth(true);
-                // console.log($(this).text() + " = " + $(this).outerWidth(true));
             });
 
             if ($hiddenList.children().length === 0) {
@@ -73,7 +72,7 @@
                     hidden = [],
                     sum = visibleItemsWidth;
 
-                console.log("sum = " + sum);
+                // console.log("sum = " + sum);
 
                 for (var i = 0; i < listItems.length; i++) {
                     var listItem = listItems[i].element,
@@ -86,9 +85,9 @@
 
                     if (sum < listWidth || $listItem.is($visibleItems)) {
                         visible.push(listItem);
-                        if (!$listItem.is($visibleItems)) {
-                            console.log("+ " + listItemWidth + " (" + $listItem.text() + ")" + " = " + sum + " < " + listWidth);
-                        }
+                        // if (!$listItem.is($visibleItems)) {
+                        //     console.log("+ " + listItemWidth + " (" + $listItem.text() + ")" + " = " + sum + " < " + listWidth);
+                        // }
                     } else {
                         hidden.push(listItem);
                     }
