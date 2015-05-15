@@ -56,8 +56,18 @@
 
         // Set up navigation bar behavior
         var navBar = $('.nav-bar'),
-            brandBar = $('.brand-bar'),
-            currentPageBar = $('.current-page-bar');
+            handleUp = function() {
+                // hide when user scrolls/swipes down
+                if (!navBar.hasClass('is-collapsed') && navBar.hasClass('is-stuck')) {
+                    navBar.addClass('is-collapsed');
+                }
+            },
+            handleDown = function() {
+                // show when user scrolls/swipes up
+                if (navBar.hasClass('is-collapsed')) {
+                    navBar.removeClass('is-collapsed').addClass('is-social');
+                }
+            };
 
         new Waypoint.Sticky({
             element: navBar[0],
@@ -65,16 +75,10 @@
             wrapper: '<div class="nav-bar-wrapper" />'
         });
 
-        hkr.scroll(function() {
-            // hide when user scrolls down
-            if (!navBar.hasClass('is-collapsed') && navBar.hasClass('is-stuck')) {
-                navBar.addClass('is-collapsed');
-            }
-        }, function() {
-            // show when user scrolls up
-            if (navBar.hasClass('is-collapsed')) {
-                navBar.removeClass('is-collapsed').addClass('is-social');
-            }
+        hkr.scroll(handleDown, handleUp);
+        $(window).swipe({
+            swipeDown: handleDown,
+            swipeUp: handleUp
         });
 
         // Set up mmenu
