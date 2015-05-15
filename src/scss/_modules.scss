@@ -120,8 +120,41 @@
     text-transform: none;
 }
 
-// Navigation Bars
+// Nav Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$brand-bar-height: rem-calc(48);
+$current-page-bar-height: $brand-bar-height;
+$harker-logo-square-width: 72px;
+$harker-logo-width: 223px;
+
+@mixin nav-bar-icon($content) {
+    @include fa-icon();
+    content: $content;
+    line-height: rhythm(1);
+    display: block;
+    width: rhythm(1);
+    text-align: center;
+}
+
+.nav-bar, .nav-bar-wrapper {
+    position: relative;
+    background-color: $default-bg-color;
+}
+
+.nav-bar {
+    z-index: 100;
+    &.is-stuck {
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        @include transition(top 0.25s);
+    }
+    &.is-stuck.is-collapsed {
+        top: -$brand-bar-height;
+    }
+}
 
 .brand-bar, .current-page-bar {
     position: relative;
@@ -150,18 +183,16 @@
         float: none;
     }
 }
-.menu-item-more > a:after {
-    @include fa-icon();
-    content: $fa-var-angle-down;
-    margin-left: 0.5rem;
-}
 
 // Brand Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .brand-bar {
-    z-index: 100;
+    z-index: 2;
     background-color: $darkharkergreen;
+    a, span, & {
+        color: $lightgray;
+    }
     a, span {
         padding: 0.75rem 0.5rem;
         background-color: $darkharkergreen;
@@ -169,50 +200,92 @@
         &:hover { 
             background-color: $darkerharkergreen; 
         }
+        span {
+            padding: 0;
+        }
     }
     ul[data-dropdown-content] a,
     ul[data-dropdown-content] a:hover {
         background-color: transparent;
     }
-    .primary-nav-menu-sections {
-        margin-left: 0.5rem;
-        margin-right: 0.5rem;
-    } 
-    .primary-nav-menu-secondary {
-        margin-right: 0.5rem;
-    }
-}
-.brand-bar, .brand-bar a {
-    color: $lightgray;
 }
 
-.primary-nav-menu-home, 
-.primary-nav-menu-sections {
+.primary-nav-menu-home {
     float: left;
 }
 .primary-nav-menu-secondary {
     float: right;
 }
+.brand-bar .primary-nav-menu-secondary {
+    margin-right: 0.5rem;
+}
+.brand-bar .primary-nav-menu-sections {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+} 
 
-.harker-logo, .harker-logo a {
-    background: $harkergreen url(../img/harker-logo-square.png) no-repeat center center;
-    text-indent: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    @media #{$large-up} { 
-        background-image: url(../img/harker-logo.png)
+.primary-nav-menu-home {
+    width: $harker-logo-square-width;
+    height: $brand-bar-height;
+    @media #{$large-up} {
+        width: $harker-logo-width;
     }
 }
+
 .harker-logo {
-    width: 72px;
+    width: $harker-logo-square-width;
     border-right: 4px solid $darkerharkergreen;
     @media #{$large-up} { 
-        width: 223px;
+        width: $harker-logo-width;
         border-left: 4px solid $darkerharkergreen;
     }
+    .nav-bar.is-stuck & {
+        position: fixed;
+        top: 0;
+    }
+    a, & {
+        background: $harkergreen url(../img/harker-logo-square.png) no-repeat center center;
+        text-indent: 120%;
+        white-space: nowrap;
+        overflow: hidden;
+        @media #{$large-up} { 
+            background-image: url(../img/harker-logo.png)
+        }
+    }
+    a:hover {
+        background-color: $darkharkergreen;
+    }
 }
-.harker-logo a:hover {
-    background-color: $darkharkergreen;
+
+.primary-nav-menu-secondary a {
+    font-size: rem-calc(24);
+    line-height: rhythm(1);
+    padding-right: 0.5rem; 
+    padding-left: 0.5rem;
+    &:before {
+        @include fa-icon();
+        line-height: rhythm(1);
+        display: block;
+        width: rhythm(1);
+        text-align: center;
+    }
+}
+.menu-item-instagram a:before { content: $fa-var-instagram; }
+.menu-item-youtube a:before { content: $fa-var-youtube-square; }
+.menu-item-twitter a:before { content: $fa-var-twitter-square; }
+.menu-item-facebook a:before { content: $fa-var-facebook-square; }
+.menu-item-search a:before { content: $fa-var-search; }
+.menu-item-login a:before { content: $fa-var-user; }
+
+.primary-nav-menu-secondary .menu-item-social {
+    display: none;
+    @media #{$large-up} { 
+        display: block;
+        visibility: hidden;
+        .nav-bar.is-social & {
+            visibility: visible;
+        }
+    }
 }
 
 .primary-nav-menu-sections {
@@ -226,58 +299,58 @@
     }
 }
 
-.primary-nav-menu-secondary a {
-    @include fa-icon();
-    font-size: rem-calc(24);
-    line-height: rhythm(1);
-    padding-right: 0.5rem; 
-    padding-left: 0.5rem;
-}
-.menu-item-instagram a:before { content: $fa-var-instagram; }
-.menu-item-youtube a:before { content: $fa-var-youtube-square; }
-.menu-item-twitter a:before { content: $fa-var-twitter-square; }
-.menu-item-facebook a:before { content: $fa-var-facebook-square; }
-.menu-item-search a:before { content: $fa-var-search; }
-.menu-item-login a:before { content: $fa-var-user; }
-
 // Current Page Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .current-page-bar {
-    z-index: 99;
+    z-index: 1;
     background-color: rgba($lightgray, 0.9);
     color: $gray;
-    font-size: rem-calc(12);
+    font-size: rem-calc(14);
     line-height: rhythm(1);
-    // border-bottom: 1px solid $silver;
+    // height: $current-page-bar-height;
+    // overflow: hidden;
+    // border-bottom: 3px solid scale-color($default-bg-color, $lightness: -8%);
+    // background-color: $white;
+    // @include box-shadow( $default-shadow );
     a, span {
-        padding: 1rem 0.5rem 0.5rem;
+        height: $current-page-bar-height;
+        padding: 0.75rem 0.5rem 0.5rem;
+        @media #{$large-up} {
+            padding: 1rem 0.5rem 0.5rem;
+            margin-bottom: 0;
+        }
     }
 }
 
-.current-page-menu {
+// .current-page-nav {
+//     @include transform( translateX(0) );
+//     @include transition(transform 0.25s ease-out);
+//     .nav-bar.is-stuck.is-collapsed & {
+//         @include transform( translateX($harker-logo-square-width) );
+//         @media #{$large-up} { 
+//             @include transform( translateX($harker-logo-width) );
+//         }
+//     }
+// }
+
+.current-page-menu-meta {
     float: left;
-    @media #{$large-up} {
-        float: none;
+    margin-left: 0;
+    @include transition(margin-left 0.25s ease-out);
+    a {
+        color: $darkergray;
     }
-}
-
-.current-page-menu-meta a {
-    color: $darkergray;
-}
-
-.current-page-menu-meta .current-page-tagline {
-    display: none;
-    @media #{$large-up} {
-        display: block;
-        font-size: 1rem;
+    .nav-bar.is-stuck.is-collapsed & {
+        margin-left: $harker-logo-square-width;
+        @media #{$large-up} {
+            margin-left: $harker-logo-width;
+        }
     }
 }
 
 .current-page-hamburger a {
-    @include fa-icon();
     font-size: rem-calc(13);
-    line-height: rhythm(1);
     padding-left: 1rem;
     // font-size: rem-calc(24); // big icon
     // padding-left: 1rem;
@@ -286,9 +359,11 @@
     // border-right: 1px solid $silver;
     // margin-right: 0.5rem;
     &:before {
-        content: $fa-var-bars;
+        @include nav-bar-icon($fa-var-bars);
+        width: 1em;
     }
 }
+
 .current-page-title {
     text-transform: uppercase;
     a, &:after {
@@ -304,26 +379,79 @@
         }
     }
 }
+.current-page-bar .current-page-tagline {
+    display: none;
+    font-size: 1rem;
+    @media #{$large-up} {
+        // display: block; // tagline not needed
+    }
+    .nav-bar.is-stuck & {
+        display: none;
+    }
+}
+
+.current-page-menu-bookmarks {
+    li {
+        &.active {
+            a {
+                color: $darkergray;
+                border-bottom: 3px solid $blue;
+            }
+        }
+    }
+    a {
+        color: $gray;
+        &:hover, &:focus {
+            color: $darkergray;
+        }
+        @media #{$large-up} {
+            font-size: 1rem;
+        }
+    }
+}
 .current-page-bar .current-page-menu-bookmarks {
     @media #{$large-up} {
         margin-left: 0.5rem;
     }
+    .f-dropdown a {
+        font-size: 0.875rem;
+    }
 }
-.current-page-menu-bookmarks a {
-    color: $gray;
-    &:hover, &:focus {
-        color: $darkergray;
+
+// Nav Bar Modules
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.menu-item-more > a {
+    position: relative;
+    overflow: hidden;
+    span {
+        position: absolute;
+        top: 0;
+        left: 100%;
     }
-    &.active {
-        color: $darkergray;
-        height: rem-calc(48);
-        border-bottom: 3px solid $blue;
+    &:after {
+        @include nav-bar-icon($fa-var-ellipsis-h); // $fa-var-angle-down;
     }
-    @media #{$large-up} {
-        font-size: 1rem;
-        padding-top: 0.5rem;
+}
+.menu-item-more .f-dropdown {
+    background-color: rgba($white,0.9);
+    margin-top: -6px;
+    @include box-shadow( 0 2px 2px -1px rgba(black, 0.2) );
+    li {
         &.active {
-            height: rem-calc(24+8+8); // line-height + padding
+            a {
+                color: $darkergray;
+                border-bottom: 3px solid $blue;
+            }
+        }
+    }
+    a {
+        color: $gray;
+        font-size: inherit;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        &:hover, &:focus {
+            color: $darkergray;
         }
     }
 }
@@ -811,6 +939,8 @@ $mm_fontSize: 16px;
 
 // Atomic Styles
 // - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.hide { display: none !important; }
 
 // Borders
 .border-bottom {
