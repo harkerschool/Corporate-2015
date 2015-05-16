@@ -65,7 +65,8 @@
     @include text-shadow($default-shadow);
     position: absolute;
     width: rem-calc(360);
-    height: rem-calc(360);
+    height:  rem-calc(360); // 0;
+    // padding-bottom: 100%;
     margin: 0 rem-calc(100) 0;
     background-color: rgba($darkgray, 0.9);
     color: $white;
@@ -466,7 +467,7 @@ $mm_borderColor: $default-border-color;
 $mm_textColor: $gray;
 $mm_highlightedBackgroundColor: $f-dropdown-list-hover-bg;
 $mm_fontSize: 16px;
-// $mm_btnSize: 48px;
+$mm_btnSize: 48px;
 // $mm_padding: 8px;
 // $mm_listitemIndent: 0;
 @import "jquery.mmenu.all";
@@ -504,6 +505,10 @@ $mm_fontSize: 16px;
         color: $darkergray;
         background: $f-dropdown-list-hover-bg;
     }
+}
+
+.mm-prev:before, .mm-next:after, .mm-arrow:after {
+    right: 26px;
 }
 
 .mm-menu .mm-navbar > a {

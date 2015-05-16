@@ -121,6 +121,12 @@ hkr.navbar = {
             });
 
             hkr.helpers.scroll(handleDown, handleUp);
+        } else {
+            new Waypoint.Sticky({
+                element: $('.current-page-bar')[0],
+                stuckClass: 'is-stuck',
+                wrapper: '<div class="current-page-bar-wrapper" />'
+            });
         }
 
         // Set up mmenu
