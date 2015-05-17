@@ -7,12 +7,13 @@
             visibleItems: "",
             hiddenItems: "",
             moreItem: "",
-            id: Date.now(),
+            id: 0,
             afterTruncate: function() {}
         };
 
     function Plugin(element, options) {
         this.element = element;
+        this.id = Date.now();
 
         this.settings = $.extend({}, defaults, options);
 
@@ -29,10 +30,10 @@
         },
         on: function() {
             this.truncate();
-            $(window).on('resize.hkr.' + pluginName + this.id, this.truncate);
+            $(window).on('resize.hkr.' + pluginName + '.' + this.id, this.truncate);
         },
         off: function() {
-            $(window).off('resize.hkr.' + pluginName + this.id);
+            $(window).off('resize.hkr.' + pluginName + '.' + this.id);
         },
         getTruncate: function() {
             var settings = this.settings,
