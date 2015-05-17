@@ -7,6 +7,7 @@
             visibleItems: "",
             hiddenItems: "",
             moreItem: "",
+            id: Date.now(),
             afterTruncate: function() {}
         };
 
@@ -23,10 +24,15 @@
 
     $.extend(Plugin.prototype, {
         init: function() {
-            var truncate = this.getTruncate();
-
-            truncate();
-            $(window).resize(truncate);
+            this.truncate = this.getTruncate();
+            this.on();
+        },
+        on: function() {
+            this.truncate();
+            $(window).on('resize.hkr.' + pluginName + this.id, this.truncate);
+        },
+        off: function() {
+            $(window).off('resize.hkr.' + pluginName + this.id);
         },
         getTruncate: function() {
             var settings = this.settings,
@@ -37,6 +43,10 @@
                 $visibleItems = $(this.settings.visibleItems).add($moreItem),
                 visibleItemsWidth = 0,
                 listItems = [];
+
+            // save initial visible and hidden items
+            this.initVisibleItems = $visibleItems;
+            this.initHiddenItems = $hiddenItems;
 
             if ($list.length === 0) {
                 return false;
@@ -105,11 +115,34 @@
                     $moreItem.addClass('hide');
                 }
 
-                $list.empty().append(visible);
+                $list.empty().append(visible).addClass('is-truncated');
                 $hiddenList.empty().append(hidden);
 
                 settings.afterTruncate();
             };
+        },
+        truncateAll: function() {
+            var $list = $(this.element),
+                $moreItem = $(this.settings.moreItem).removeClass('hide'),
+                $hiddenList = $moreItem.children('ul'),
+                $hiddenItems = $list.find('li').not($moreItem);
+
+            $list.empty().append($moreItem).addClass('is-truncated-all');
+            $hiddenList.empty().append($hiddenItems);
+
+            this.settings.afterTruncate();
+        },
+        restore: function() {
+            var $list = $(this.element),
+                $moreItem = $(this.settings.moreItem).removeClass('hide'),
+                $hiddenList = $moreItem.children('ul');
+
+            $list.empty().append(this.initVisibleItems).removeClass('is-truncated');
+            $hiddenList.empty().append(this.initHiddenItems);
+
+            if ($hiddenList.children().length === 0) {
+                $moreItem.addClass('hide');
+            }
         }
     });
 

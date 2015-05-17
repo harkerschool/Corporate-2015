@@ -74,11 +74,14 @@ hkr.hero = {
         }
 
         // Set up Wistia feature video
-        if ($heroFeature.length) {
+        if ($heroFeature.length && typeof Wistia !== 'undefined') {
             $heroFeature.append(exitLinkHTML + wistiaHTML);
             Wistia.fsembed(wistiaID, {
-                container: '.hero-feature'
+                container: '.hero-feature',
+                playLink: '#fs-wistia-play'
             });
+        } else {
+            $('#fs-wistia-play').remove();
         }
     }
 };
@@ -86,31 +89,49 @@ hkr.hero = {
 hkr.navbar = {
     init: function() {
         var navBar = $('.nav-bar'),
+            sectionsMenu = $('.primary-nav-menu-sections'),
+            bookmarksMenu = $('.current-page-menu-bookmarks'),
             handleDown = function() {
                 // hide when user scrolls/swipes down
                 if (!navBar.hasClass('is-collapsed') && navBar.hasClass('is-stuck')) {
                     navBar.addClass('is-collapsed');
+                    bookmarksMenu.data('plugin_truncatedMenu').truncate();
                 }
             },
             handleUp = function() {
                 // show when user scrolls/swipes up
                 if (navBar.hasClass('is-collapsed')) {
                     navBar.removeClass('is-collapsed').addClass('is-social');
+                    bookmarksMenu.data('plugin_truncatedMenu').truncate();
                 }
             };
 
-        $('.primary-nav-menu-sections').truncatedMenu({
+        sectionsMenu.truncatedMenu({
             visibleItems: '.primary-nav-menu-sections .active',
             moreItem: '.primary-nav-menu-sections .menu-item-more',
             afterTruncate: function() {
                 $(document).foundation('dropdown', 'reflow');
             }
         });
-        $('.current-page-menu-bookmarks').truncatedMenu({
+        bookmarksMenu.truncatedMenu({
             moreItem: '.current-page-menu-bookmarks .menu-item-more',
             afterTruncate: function() {
                 $(document).foundation('dropdown', 'reflow');
             }
+        });
+
+        var bookmarksMediaQueries = function() {
+            if (Foundation.utils.is_small_only()) {
+                bookmarksMenu.data('plugin_truncatedMenu').truncateAll();
+                bookmarksMenu.data('plugin_truncatedMenu').off();
+            } else {
+                bookmarksMenu.data('plugin_truncatedMenu').on();
+            }
+        };
+
+        bookmarksMediaQueries();
+        $(window).on('resize.hkr', function() {
+            bookmarksMediaQueries();
         });
 
         if (!Modernizr.touch) {
@@ -128,6 +149,13 @@ hkr.navbar = {
                 wrapper: '<div class="current-page-bar-wrapper" />'
             });
         }
+
+        $(window).load(function() {
+            if (location.hash && navBar.hasClass('is-stuck')) {
+                // scroll up to reveal content behind fixed navbar
+                scrollBy(0, navBar.height() * -1);
+            }
+        });
 
         // Set up mmenu
         $("#global-nav").mmenu({

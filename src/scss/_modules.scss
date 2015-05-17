@@ -138,6 +138,19 @@ $harker-logo-width: 223px;
     text-align: center;
 }
 
+@mixin is-stuck() {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+}
+
+@mixin trigger-gpu() {
+    @include transform( translateZ(0) );
+    @include backface-visibility(hidden);
+    @include perspective(1000);
+}
+
 .nav-bar, .nav-bar-wrapper {
     position: relative;
     background-color: $default-bg-color;
@@ -146,14 +159,14 @@ $harker-logo-width: 223px;
 .nav-bar {
     z-index: 100;
     &.is-stuck {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 100%;
-        @include transition(top 0.25s);
+        @include is-stuck();
+        // @include transition(top 0.25s);
+        @include transition(transform 0.25s);
+        @include trigger-gpu();
     }
     &.is-stuck.is-collapsed {
-        top: -$brand-bar-height;
+        // top: -$brand-bar-height;
+        @include transform( translateY(-$brand-bar-height) );
     }
 }
 
@@ -243,6 +256,12 @@ $harker-logo-width: 223px;
     .nav-bar.is-stuck & {
         position: fixed;
         top: 0;
+        @include transition( transform 0.25s );
+        @include transform( translateY(0) );
+        @include trigger-gpu();
+    }
+    .nav-bar.is-stuck.is-collapsed & {
+        @include transform( translateY($brand-bar-height) );
     }
     a, & {
         background: $harkergreen url(../img/harker-logo-square.png) no-repeat center center;
@@ -322,31 +341,43 @@ $harker-logo-width: 223px;
             margin-bottom: 0;
         }
     }
+    &.is-stuck {
+        @include is-stuck();
+    }
 }
 
-// .current-page-nav {
-//     @include transform( translateX(0) );
-//     @include transition(transform 0.25s ease-out);
-//     .nav-bar.is-stuck.is-collapsed & {
-//         @include transform( translateX($harker-logo-square-width) );
-//         @media #{$large-up} { 
-//             @include transform( translateX($harker-logo-width) );
-//         }
-//     }
-// }
+.current-page-nav {
+    @include transform( translateX(0) );
+    @include transition(transform 0.25s ease-out);
+    @include trigger-gpu();
+    .nav-bar.is-stuck.is-collapsed & {
+        @include transform( translateX($harker-logo-square-width) );
+        @media #{$large-up} { 
+            @include transform( translateX($harker-logo-width) );
+        }
+    }
+}
+
+.nav-bar.is-stuck.is-collapsed .f-dropdown {
+    @include transform( translateX(-$harker-logo-square-width) );
+    @media #{$large-up} {
+        @include transform( translateX(-$harker-logo-width) );
+    }
+}
 
 .current-page-menu-meta {
     float: left;
-    margin-left: 0;
-    @include transition(margin-left 0.25s ease-out);
+    // margin-left: 0;
+    // @include transition(margin-left 0.25s ease-out);
+    // @include trigger-gpu();
     a {
         color: $darkergray;
     }
     .nav-bar.is-stuck.is-collapsed & {
-        margin-left: $harker-logo-square-width;
-        @media #{$large-up} {
-            margin-left: $harker-logo-width;
-        }
+        // margin-left: $harker-logo-square-width;
+        // @media #{$large-up} {
+        //     margin-left: $harker-logo-width;
+        // }
     }
 }
 
@@ -370,8 +401,10 @@ $harker-logo-width: 223px;
     a, span, &:after {
         display: inline-block;
     }
-    &:after {
-        content: "|";
+    @media #{$medium-only} {
+        &:after {
+            content: "|";
+        }
     }
     @media #{$large-up} {
         font-size: rem-calc(24);
@@ -411,6 +444,14 @@ $harker-logo-width: 223px;
             font-size: 1rem;
         }
     }
+    .nav-bar.is-stuck.is-collapsed & {
+        // menu has tranlated right
+        // so decrease to appropriate width for truncation
+        padding-right: $harker-logo-square-width;
+        @media #{$large-up} {
+            padding-right: $harker-logo-width;
+        }
+    }
 }
 .current-page-bar .current-page-menu-bookmarks {
     @media #{$large-up} {
@@ -438,7 +479,7 @@ $harker-logo-width: 223px;
 }
 .menu-item-more .f-dropdown {
     background-color: rgba($white,0.9);
-    margin-top: -6px;
+    margin-top: 0;
     @include box-shadow( 0 2px 2px -1px rgba(black, 0.2) );
     li {
         &.active {
@@ -921,6 +962,7 @@ $mm_btnSize: 48px;
     top: 0; left: 0;
     z-index: -5;
     width: 100%;
+    background-color: $darkergray;
     &.is-playing {
         z-index: 1;
     }

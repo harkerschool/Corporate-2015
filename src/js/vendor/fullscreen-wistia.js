@@ -2,10 +2,14 @@
 (function($, window, document, undefined) {
 
     var defaults = {
-            container : '#fs-wistia-container',
-            playLink : '#fs-wistia-play',
-            exitLink : '#fs-wistia-exit'
-        };
+        container: '#fs-wistia-container',
+        playLink: '#fs-wistia-play',
+        exitLink: '#fs-wistia-exit'
+    };
+
+    if (typeof Wistia === 'undefined') {
+        return;
+    }
 
     Wistia.fsembed = function(id, options) {
         var settings = $.extend({}, defaults, options),
@@ -26,12 +30,12 @@
 
         wistiaEmbed = Wistia.embed(id, videoOptions);
 
-        $playLink.click( function() {
+        $playLink.click(function() {
             wistiaEmbed.plugin.cropFill.resize();
             wistiaEmbed.play();
             $container.addClass('is-playing');
         });
-        $exitLink.click( function() {
+        $exitLink.click(function() {
             wistiaEmbed._keyBindingsActive = false;
             wistiaEmbed.pause();
             $container.removeClass('is-playing');
