@@ -106,56 +106,65 @@ hkr.navbar = {
                 }
             };
 
-        sectionsMenu.truncatedMenu({
-            visibleItems: '.primary-nav-menu-sections .active',
-            moreItem: '.primary-nav-menu-sections .menu-item-more',
-            afterTruncate: function() {
-                $(document).foundation('dropdown', 'reflow');
-            }
-        });
-        bookmarksMenu.truncatedMenu({
-            moreItem: '.current-page-menu-bookmarks .menu-item-more',
-            afterTruncate: function() {
-                $(document).foundation('dropdown', 'reflow');
-            }
-        });
-
-        var bookmarksMediaQueries = function() {
-            if (Foundation.utils.is_small_only()) {
-                bookmarksMenu.data('plugin_truncatedMenu').truncateAll();
-                bookmarksMenu.data('plugin_truncatedMenu').off();
-            } else {
-                bookmarksMenu.data('plugin_truncatedMenu').on();
-            }
-        };
-
-        bookmarksMediaQueries();
-        $(window).on('resize.hkr', function() {
-            bookmarksMediaQueries();
-        });
-
-        if (!Modernizr.touch) {
-            new Waypoint.Sticky({
-                element: navBar[0],
-                stuckClass: 'is-stuck',
-                wrapper: '<div class="nav-bar-wrapper" />'
-            });
-
-            hkr.helpers.scroll(handleDown, handleUp);
-        } else {
-            new Waypoint.Sticky({
-                element: $('.current-page-bar')[0],
-                stuckClass: 'is-stuck',
-                wrapper: '<div class="current-page-bar-wrapper" />'
+        if (sectionsMenu.length) {
+            sectionsMenu.truncatedMenu({
+                visibleItems: '.primary-nav-menu-sections .active',
+                moreItem: '.primary-nav-menu-sections .menu-item-more',
+                afterTruncate: function() {
+                    $(document).foundation('dropdown', 'reflow');
+                }
             });
         }
 
-        $(window).load(function() {
-            if (location.hash && navBar.hasClass('is-stuck')) {
-                // scroll up to reveal content behind fixed navbar
-                scrollBy(0, navBar.height() * -1);
+        if (bookmarksMenu.length) {
+            bookmarksMenu.truncatedMenu({
+                moreItem: '.current-page-menu-bookmarks .menu-item-more',
+                afterTruncate: function() {
+                    $(document).foundation('dropdown', 'reflow');
+                }
+            });
+
+            var bookmarksMediaQueries = function() {
+                if (Foundation.utils.is_small_only()) {
+                    bookmarksMenu.data('plugin_truncatedMenu').truncateAll();
+                    bookmarksMenu.data('plugin_truncatedMenu').off();
+                } else {
+                    bookmarksMenu.data('plugin_truncatedMenu').on();
+                }
+            };
+
+            bookmarksMediaQueries();
+            $(window).on('resize.hkr', function() {
+                bookmarksMediaQueries();
+            });
+        }
+
+        if (navBar.length) {
+
+            if (!Modernizr.touch) {
+                new Waypoint.Sticky({
+                    element: navBar[0],
+                    stuckClass: 'is-stuck',
+                    wrapper: '<div class="nav-bar-wrapper" />'
+                });
+
+                hkr.helpers.scroll(handleDown, handleUp);
+            } else {
+                new Waypoint.Sticky({
+                    element: $('.current-page-bar')[0],
+                    stuckClass: 'is-stuck',
+                    wrapper: '<div class="current-page-bar-wrapper" />'
+                });
             }
-        });
+
+            $(window).load(function() {
+                if (location.hash && navBar.hasClass('is-stuck')) {
+                    // scroll up to reveal content behind fixed navbar
+                    scrollBy(0, navBar.height() * -1);
+                }
+            });
+
+        }
 
         // Set up mmenu
         $("#global-nav").mmenu({
@@ -179,10 +188,14 @@ hkr.navbar = {
         });
 
         var mmenu = $("#global-nav").data("mmenu");
-        // somehow find list item to select
-        mmenu.setSelected($('.global-nav-selected'));
-        // somehow find panel to activate
-        mmenu.openPanel($('#mm-14'));
+
+        if (typeof mmenu != "undefined") {
+            // somehow find list item to select
+            mmenu.setSelected($('.global-nav-selected'));
+            // somehow find panel to activate
+            mmenu.openPanel($('#mm-14'));
+        }
+
     }
 };
 

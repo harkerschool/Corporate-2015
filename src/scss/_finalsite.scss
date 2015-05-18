@@ -1,11 +1,36 @@
 .fsElement {
-    @include grid-row();
+    position: relative;
 }
 
 .fsElementContent {
+    @include grid-row();
     @include grid-column(24);
+    float: none;
 }
 
+.fsElementContent, .fsLayout { // rows
+    .fsLayout, .fsElementContent {
+        max-width: none;
+        width: auto;
+    }
+    .fsLayout {
+        margin: 0 -1rem; // not contrained by column
+    }
+    .fsElementContent {
+        margin: 0; // contrained by column
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.fsElementAddWrapper { clear: both; }
+
+.fsLayout {
+    @include grid-row();
+}
+.fsDiv {
+    @include grid-column(24);
+}
 .fsTwoColumnLayout .fsDiv {
     @include grid-column(12);
 }
