@@ -126,7 +126,7 @@ module.exports = function(grunt) {
     // 6. Minify JS
     // 7. Copy bower files that aren't CSS or JS (e.g. images, fonts) and save in dist folder
     // 8. Copy src files that arent's CSS or JS (e.g. images, fonts) and save in dist folder
-    grunt.registerTask('default', [
+    grunt.registerTask('build', [
         'clean',
         'bower_concat',
         'concat',
@@ -135,6 +135,10 @@ module.exports = function(grunt) {
         'uglify',
         'copy:bower',
         'copy:dist'
+    ]);
+
+    grunt.registerTask('default' [
+        'build'
     ]);
 
 };
