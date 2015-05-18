@@ -23,9 +23,14 @@ module.exports = function(grunt) {
             js: {
                 dest: 'src/js/vendor/bower.js',
                 exclude: [
-                    'modernizr',
-                    'waypoints'
-                ]
+                    'modernizr'
+                ],
+                mainFiles: {
+                    'waypoints': [
+                        'lib/jquery.waypoints.js',
+                        'lib/shortcuts/sticky.js'
+                    ]
+                }
             }
             // css: {
             //     cssDest: 'src/css/vendor/bower.css',
