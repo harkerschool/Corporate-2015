@@ -52,6 +52,9 @@
     }
 }
 
+// Feature
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
 .section-feature {
     padding: 0;
     overflow: hidden;
@@ -605,9 +608,11 @@ $mm_btnSize: 48px;
 // Grid Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.column.column-collapse, .columns.columns-collapse {
-    padding-right: 0;
-    padding-left: 0;
+.column, .columns {
+    &.column-collapse, &.columns-collapse {
+        padding-right: 0;
+        padding-left: 0;
+    } 
 }
 
 .row-wide {

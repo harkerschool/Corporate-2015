@@ -25,6 +25,30 @@
     }
 }
 
+@mixin fsElement-wide() {
+    > header,
+    .fsElementContent,
+    > footer {
+        max-width: 90rem;
+    }
+}
+
+@mixin fsElement-full() {
+    > header,
+    .fsElementContent,
+    > footer {
+        max-width: none;
+    }
+}
+
+.fsElement.section-wide {
+    @include fsElement-wide();
+}
+
+.fsElement.section-full {
+    @include fsElement-full();
+}
+
 // Content Elements
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -70,6 +94,13 @@
     }
 }
 
+// Hero Element
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsElement.hero {
+    @include fsElement-full();
+}
+
 // Page Content & Layout
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -78,7 +109,7 @@
         @include grid-row();
         @include grid-column();
         float: none;
-        margin-top: rhythm(1);
+        margin-top: rhythm(2);
         margin-bottom: rhythm(1);
     }
     > .fsLayout {
