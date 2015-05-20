@@ -17,35 +17,42 @@
     position: relative;
     background-color: $lightgray;
     padding: rhythm(1.5) 0;
-    &.section-expand {
-        padding: rhythm(3) 0;
-    }
-    &.section-expand-top, &:first-child {
+    &:first-child {
         padding-top: rhythm(3);
     }
-    &.section-expand-bottom, &:last-child {
+    &:last-child {
         padding-bottom: rhythm(3);
     }
-    &.section-collapse {
-        padding: 0;
-    }
-    &.section-collapse-top {
-        padding-top: 0;
-    }
-    &.section-collapse-bottom {
-        padding-bottom: 0;
-    }
+}
+
+.section-expand {
+    padding: rhythm(3) 0;
+}
+.section-expand-top {
+    padding-top: rhythm(3);
+}
+.section-expand-bottom {
+    padding-bottom: rhythm(3);
+}
+.section-collapse {
+    padding: 0;
+}
+.section-collapse-top {
+    padding-top: 0;
+}
+.section-collapse-bottom {
+    padding-bottom: 0;
 }
 
 .green-bg, .blue-bg, .purple-bg,
 .red-bg, .orange-bg, .gold-bg,
 .section-feature {
-    &.section + .section:not(&) {
+    & + :not(&) {
         padding-top: rhythm(3);
     }
 }
 
-.section.section-feature {
+.section-feature {
     padding: 0;
     overflow: hidden;
     > .row {

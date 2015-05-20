@@ -1,42 +1,153 @@
+// General Elements
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
 .fsElement {
     position: relative;
+    clear: both;
+    background-color: $lightgray;
+    padding: rhythm(1.5) 0;
+    .fsElement {
+        background-color: transparent;
+        padding: 0;
+    }
 }
 
-.fsElementContent {
+.fsElement > header,
+.fsElementContent,
+.fsElement > footer {
     @include grid-row();
     @include grid-column(24);
     float: none;
-}
-
-.fsElementContent, .fsLayout { // rows
-    .fsLayout, .fsElementContent {
+    .row {
         max-width: none;
         width: auto;
-    }
-    .fsLayout {
         margin: 0 -1rem; // not contrained by column
-    }
-    .fsElementContent {
-        margin: 0; // contrained by column
-        padding-left: 0;
-        padding-right: 0;
     }
 }
 
-.fsElementAddWrapper { clear: both; }
+// Content Elements
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsContent.column, .fsContent.columns {
+    padding-right: 0;
+    padding-left: 0;
+    clear: none;
+}
+
+// Container Elements
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsContainer {
+    > .fsElementContent {
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+
+// Column Elements
+// - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .fsLayout {
     @include grid-row();
 }
-.fsDiv {
-    @include grid-column(24);
+
+.fsDiv, .fsOneColumnLayout .fsDiv {
+    @include grid-column($columns:24, $collapse:true);
 }
-.fsTwoColumnLayout .fsDiv {
-    @include grid-column(12);
+
+@media #{$medium-up} {
+    .fsTwoColumnLayout .fsDiv {
+        @include grid-column($columns:12, $collapse:true);
+    }
 }
-.fsThreeColumnLayout .fsDiv {
-    @include grid-column(8);
+
+@media #{$large-up} {
+    .fsThreeColumnLayout .fsDiv {
+        @include grid-column($columns:8, $collapse:true);
+    }
+    .fsFourColumnLayout .fsDiv {
+        @include grid-column($columns:6, $collapse:true);
+    }
 }
-.fsFourColumnLayout .fsDiv {
-    @include grid-column(6);
+
+// Page Content & Layout
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#fsPageContent {
+    > h1 {
+        @include grid-row();
+        @include grid-column();
+        float: none;
+        margin-top: rhythm(1);
+        margin-bottom: rhythm(1);
+    }
+    > .fsLayout {
+        margin: 0;
+        max-width: none;
+        width: auto;
+    }
 }
+
+// Account Bar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$account-bar-height: 38px;
+
+#fsAccountBar {
+    background-color: $darkergray;
+    color: $lightgray;
+    height: $account-bar-height;
+    > ul > li {
+        &:hover, &:focus {
+            background-color: #222;
+        }
+        > a {
+            color: $lightgray;
+        }
+    }
+    li > span {
+        cursor: pointer;
+    }
+}
+#fsAccountBar .fsAccountBarAvatar {
+    height: $account-bar-height;
+}
+.fsAccountBarMenu {
+    &, ul {
+        background-color: rgba($white,0.9);
+        @include box-shadow( 0 1px 1px rgba(black, 0.3) );
+    }
+    a, span {
+        color: $gray;
+    }
+    li {
+        &:hover, &:focus {
+            background-color: #EEE;
+            > a, > a > span, > span {
+                color: $darkergray;
+            }
+        }
+    }
+}
+#fsAccountBar .fsAccountBarMenu ul {
+    top: 0;
+    left: 100%;
+}
+.fsAccountBarVisible {
+    #fsPageWrapper {
+        padding-top: 35px;
+    }
+}
+
+// Footer
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+#fsPoweredByFinalsite {
+    float: right;
+    margin: 1rem;
+}
+
+// Admin
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsElementAddWrapper { clear: both; }

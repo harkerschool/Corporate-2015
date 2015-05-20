@@ -86,6 +86,7 @@ hkr.hero = {
     }
 };
 
+// TODO: Delay reaction of scroll events
 hkr.navbar = {
     init: function() {
         var navBar = $('.nav-bar'),
