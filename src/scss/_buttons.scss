@@ -1,0 +1,23 @@
+// Buttons
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.button-outline,
+.button-outline:hover, .button-outline:focus,
+.button-outline-invert,
+.button-outline-invert:hover, .button-outline-invert:focus {
+    background: transparent;
+    font-weight: 100;
+    font-size: rem-calc(22);
+}
+
+.button-outline,
+.button-outline:hover, .button-outline:focus {
+    border: 1px solid $oil;
+    color: $oil;
+}
+
+.button-outline-invert,
+.button-outline-invert:hover, .button-outline-invert:focus {
+    border: 1px solid $white;
+    color: $white;
+}

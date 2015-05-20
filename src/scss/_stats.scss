@@ -1,0 +1,26 @@
+// Stats
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.stat {
+    background-color: $white;
+    padding: 2em;
+    @include box-shadow($default-shadow);
+    text-align: center;
+}
+
+.stat-measure, .stat-desc {
+    display: block;
+    font-weight: bold;
+    line-height: 1;
+}
+
+.stat-measure {
+    font-size: rem-calc(64);
+    color: $green;
+    margin-bottom: rhythm(1);
+}
+
+.stat-desc {
+    font-size: rem-calc(24);
+    color: $gray;
+}

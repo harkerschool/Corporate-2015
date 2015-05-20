@@ -1,0 +1,164 @@
+// Vertical Rhythm Helpers
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@for $i from 0 through 4 {
+    .rhythm-padding-#{$i} {
+        padding-top: rhythm($i);
+        padding-bottom: rhythm($i);
+    }
+    .rhythm-margin-#{$i} {
+        margin-top: rhythm($i);
+        margin-bottom: rhythm($i);
+    }
+}
+
+.rhythm-padding-1-5 {
+    padding-top: rhythm(1.5);
+    padding-bottom: rhythm(1.5);
+}
+
+.rhythm-margin-1-5 {
+    margin-top: rhythm(1.5);
+    margin-bottom: rhythm(1.5);
+}
+
+// Grid Helpers
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.column, .columns {
+    &.column-collapse, &.columns-collapse {
+        padding-right: 0;
+        padding-left: 0;
+    } 
+}
+
+.row-wide {
+    @include grid-row;
+    max-width: 90rem;
+}
+
+.row-fill {
+    @include grid-row;
+    max-width: none;
+}
+
+[class*="block-grid-"] {
+    margin-bottom: rhythm(1);
+}
+
+// General Helpers
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Hide
+.hide { display: none !important; }
+
+// Borders
+.border-bottom {
+    border-bottom: 1px solid $default-border-color;
+}
+
+// Background Colors
+.green-bg {
+    background-color: $green;
+}
+
+.blue-bg {
+    background-color: $blue;
+}
+
+.purple-bg {
+    background-color: $purple;
+}
+
+.red-bg {
+    background-color: $red;
+}
+
+.orange-bg {
+    background-color: $orange;
+}
+
+.gold-bg {
+    background-color: $gold;
+}
+
+.green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg {
+    color: $white;
+    h1, h2, h3, h4, h5, h6, code, a {
+        color: $white;
+    }
+    a:hover, a:focus {
+        color: scale-color($white, $lightness: -3%);
+    }
+    a.button.secondary, a.button.info {
+        color: $oil;
+    }
+}
+
+// Text Colors
+.green-txt {
+    color: $green;
+}
+
+.blue-txt {
+    color: $blue;
+}
+
+.purple-txt {
+    color: $purple;
+}
+
+.red-txt {
+    color: $red;
+}
+
+.orange-txt {
+    color: $orange;
+}
+
+.gold-txt {
+    color: $gold;
+}
+
+// Circles
+.circle {
+    @include border-radius(50%);
+}
+
+// Floaters
+.float-left {
+    float: left;
+}
+
+.float-right {
+    float: right;
+}
+
+// CSS3 Columns
+@mixin css3-columns($columns: false) {
+    @if $columns {
+        @include column-width(grid-calc($columns, $total-columns));
+        @include column-count($columns);
+        @include column-gap($column-gutter);
+    }
+}
+
+@mixin css3-columns-html-class($size) {
+    @for $i from 1 through $total-columns {
+        .#{$size}-text-columns-#{$i} {
+            @include css3-columns($i);
+        }
+    }
+}
+
+@media #{$small-up} {
+    @include css3-columns-html-class($size: small);
+}
+
+@media #{$medium-up} {
+    @include css3-columns-html-class($size: medium);
+}
+
+@media #{$large-up} {
+    @include css3-columns-html-class($size: large);
+}
