@@ -81,8 +81,7 @@
 
 // content
 .accordion .accordion-navigation > .content, .accordion dd > .content {
-    border: 1px solid $default-border-color;
-    border-top: none;
+    border: none;
     line-height: 1;
     .accordion & {
         padding: 0;
@@ -169,6 +168,7 @@
     }
     .accordion-navigation > .content, dd > .content {
         color: $default-font-color;
+        border: none;
         &.active {
             border-top: 1px solid $default-border-color;
         }

@@ -25,28 +25,28 @@
     }
 }
 
-@mixin fsElement-wide() {
+.fsElement.section-wide {
     > header,
     .fsElementContent,
     > footer {
         max-width: 90rem;
+        padding-left: 0;
+        padding-right: 0;
     }
 }
 
-@mixin fsElement-full() {
+.fsElement.section-full {
+    padding: 0;
     > header,
     .fsElementContent,
     > footer {
         max-width: none;
+        padding-left: 0;
+        padding-right: 0;
     }
-}
-
-.fsElement.section-wide {
-    @include fsElement-wide();
-}
-
-.fsElement.section-full {
-    @include fsElement-full();
+    .row {
+        margin: 0;
+    }
 }
 
 // Content Elements
@@ -94,11 +94,38 @@
     }
 }
 
-// Hero Element
+// Hero
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .fsElement.hero {
-    @include fsElement-full();
+    @extend .section-full;
+}
+
+// Navbar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsElement.nav-bar {
+    @extend .fsElement.section-full;
+}
+
+// Feature
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsElement.feature {
+    @extend .fsElement.section-wide;
+}
+
+// Feature Element
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsElement.feature {
+    padding: 0;
+    overflow: hidden;
+    > .fsElementContent {
+        position: relative;
+        padding-left: 0;
+        padding-right: 0;
+    }
 }
 
 // Page Content & Layout
@@ -125,6 +152,8 @@
 $account-bar-height: 38px;
 
 #fsAccountBar {
+    top: auto;
+    bottom: 0;
     background-color: $darkergray;
     color: $lightgray;
     height: $account-bar-height;
@@ -146,7 +175,7 @@ $account-bar-height: 38px;
 .fsAccountBarMenu {
     &, ul {
         background-color: rgba($white,0.9);
-        @include box-shadow( 0 1px 1px rgba(black, 0.3) );
+        @include box-shadow(0 -1px 1px rgba(black, 0.2));
     }
     a, span {
         color: $gray;
@@ -160,13 +189,18 @@ $account-bar-height: 38px;
         }
     }
 }
+#fsAccountBar .fsAccountBarMenu {
+    top: auto;
+    bottom: 100%;
+}
 #fsAccountBar .fsAccountBarMenu ul {
-    top: 0;
+    top: auto;
+    bottom: 0;
     left: 100%;
 }
 .fsAccountBarVisible {
     #fsPageWrapper {
-        padding-top: 35px;
+        padding-bottom: $account-bar-height;
     }
 }
 
@@ -174,11 +208,17 @@ $account-bar-height: 38px;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 #fsPoweredByFinalsite {
-    float: right;
     margin: 1rem;
 }
 
 // Admin
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.fsElementAddWrapper { clear: both; }
+.fsElementAddWrapper { 
+    clear: both; 
+    .hero & {
+        position: absolute;
+        width: 100%;
+        bottom: 0;
+    }
+}

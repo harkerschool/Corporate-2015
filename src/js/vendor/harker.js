@@ -68,7 +68,7 @@ hkr.hero = {
         if ($heroBgIframe.length) {
             $heroBgIframe.fullscreenVideo({
                 cropBottom: 60,
-                container: '.hero',
+                container: '#hero',
                 img: '.hero-img img'
             });
         }
@@ -168,7 +168,9 @@ hkr.navbar = {
         }
 
         // Set up mmenu
-        $("#global-nav").mmenu({
+        var globalNav = $(".global-nav nav").attr('id', 'global-nav');
+
+        globalNav.mmenu({
             offCanvas: {
                 position: "left",
                 zposition: "front"
@@ -188,13 +190,13 @@ hkr.navbar = {
             }
         });
 
-        var mmenu = $("#global-nav").data("mmenu");
+        var mmenu = globalNav.data("mmenu");
 
         if (typeof mmenu != "undefined") {
             // somehow find list item to select
-            mmenu.setSelected($('.global-nav-selected'));
-            // somehow find panel to activate
-            mmenu.openPanel($('#mm-14'));
+            // mmenu.setSelected($('.global-nav-selected'));
+            // // somehow find panel to activate
+            // mmenu.openPanel($('#mm-14'));
         }
 
     }

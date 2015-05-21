@@ -29,7 +29,11 @@
     &.column-collapse, &.columns-collapse {
         padding-right: 0;
         padding-left: 0;
-    } 
+    }
+    &.column-expand, &.columns-expand {
+        padding-top: rhythm(1.5);
+        padding-bottom: rhythm(1.5);
+    }
 }
 
 .row-wide {
@@ -37,7 +41,7 @@
     max-width: 90rem;
 }
 
-.row-fill {
+.row-fill, .row-full {
     @include grid-row;
     max-width: none;
 }
@@ -92,6 +96,9 @@
     }
     a.button.secondary, a.button.info {
         color: $oil;
+    }
+    .button-outline {
+        @extend .button-outline-invert;
     }
 }
 
