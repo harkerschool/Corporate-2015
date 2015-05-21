@@ -91,21 +91,7 @@ hkr.navbar = {
     init: function() {
         var navBar = $('.nav-bar'),
             sectionsMenu = $('.primary-nav-menu-sections'),
-            bookmarksMenu = $('.current-page-menu-bookmarks'),
-            handleDown = function() {
-                // hide when user scrolls/swipes down
-                if (!navBar.hasClass('is-collapsed') && navBar.hasClass('is-stuck')) {
-                    navBar.addClass('is-collapsed');
-                    bookmarksMenu.data('plugin_truncatedMenu').truncate();
-                }
-            },
-            handleUp = function() {
-                // show when user scrolls/swipes up
-                if (navBar.hasClass('is-collapsed')) {
-                    navBar.removeClass('is-collapsed').addClass('is-social');
-                    bookmarksMenu.data('plugin_truncatedMenu').truncate();
-                }
-            };
+            bookmarksMenu = $('.current-page-menu-bookmarks');
 
         if (sectionsMenu.length) {
             sectionsMenu.truncatedMenu({
@@ -149,7 +135,26 @@ hkr.navbar = {
                     wrapper: '<div class="nav-bar-wrapper" />'
                 });
 
-                hkr.helpers.scroll(handleDown, handleUp);
+                hkr.helpers.scroll(
+                    function() {
+                        // hide when user scrolls/swipes down
+                        if (!navBar.hasClass('is-collapsed') && navBar.hasClass('is-stuck')) {
+                            navBar.addClass('is-collapsed');
+                            if (bookmarksMenu.length) {
+                                bookmarksMediaQueries();
+                            }
+                        }
+                    },
+                    function() {
+                        // show when user scrolls/swipes up
+                        if (navBar.hasClass('is-collapsed')) {
+                            navBar.removeClass('is-collapsed').addClass('is-social');
+                            if (bookmarksMenu.length) {
+                                bookmarksMediaQueries();
+                            }
+                        }
+                    }
+                );
             } else {
                 new Waypoint.Sticky({
                     element: $('.current-page-bar')[0],

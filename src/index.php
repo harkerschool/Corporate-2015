@@ -22,7 +22,7 @@
         include "modules/three-column.php";
         include "modules/text-photo-left.php";
         include "modules/two-column.php";
-        include "modules/text-photo-right-alt.php";
+        include "modules/text-photo-left-alt.php";
         include "modules/accordion-list.php";
         // include "modules/text-columns.php";
         include "modules/features.php";
