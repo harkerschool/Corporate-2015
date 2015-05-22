@@ -1,177 +1,173 @@
 // Accordion
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// anchors
-.accordion .accordion-navigation > a, .accordion dd > a {
-    position: relative;
-    // overlay dropshadow on content
-    text-decoration: none;
-    text-transform: uppercase;
-    line-height: rhythm(1);
-    padding-top: $accordion-navigation-padding + rem-calc(2);
-    // vertically center text
-    padding-bottom: $accordion-navigation-padding - rem-calc(2);
-    @include box-shadow($default-shadow);
-    @include transition(background-color 0.25s, color 0.25s);
-    &:before {
-        @include fa-icon;
-        content: $fa-var-ellipsis-v;
-        color: inherit;
-        float: right;
-    }
-    .accordion & {
-        // child accordion anchors
-        text-transform: none;
-        background: none;
-        color: $default-link-font-color;
-        font-size: 1rem;
-        padding: 0;
-        @include box-shadow(none);
-        &:hover, &:focus {
-            color: $anchor-font-color-hover;
+// standard accordion
+.accordion {
+    .accordion-navigation, dd {
+        position: relative;
+        > a {
+            position: relative;
+            text-decoration: none;
+            text-transform: uppercase;
+            line-height: rhythm(1);
+            padding-top: $accordion-navigation-padding + rem-calc(2);
+            padding-bottom: $accordion-navigation-padding - rem-calc(2);
+            @include box-shadow($default-shadow);
+            @include transition(background-color 0.25s, color 0.25s);
+            &:after {
+                @include fa-icon;
+                content: $fa-var-ellipsis-v;
+                color: inherit;
+                float: right;
+            }
         }
-        &:before {
-            @include fa-icon;
-            content: $fa-var-chevron-down;
-            color: inherit;
-            float: right;
+        &.active > a {
+            @include box-shadow(none);
+            .accordion &:after {
+                content: $fa-var-chevron-up;
+            }
+        }
+        > .content {
+            border: none;
+            line-height: 1;
+            &.active {
+                position: relative;
+                z-index: 1; // overlap .accordion-direct-link ;P
+                @include box-shadow($default-shadow);
+            }
+            > *:first-child {
+                margin-top: 0;
+            }
+            > *:last-child {
+                margin-bottom: 0;
+            }
+            > ul {
+                list-style: none;
+                margin-left: -$accordion-content-padding;
+                margin-right: -$accordion-content-padding;
+                margin-top: 0;
+                margin-bottom: $default-bottom-margin;
+                border-top: 1px solid $default-border-color;
+                border-bottom: 1px solid $default-border-color;
+                > li {
+                    padding: $accordion-content-padding;
+                    border-top: 1px solid $default-border-color;
+                    &:first-child {
+                        border-top: none;
+                    }
+                }
+                &:first-child {
+                    border-top: none;
+                    > li:first-child {
+                        padding-top: 0;
+                    }
+                }
+                &:last-child {
+                    margin-bottom: 0;
+                    border-bottom: none;
+                    > li:last-child {
+                        padding-bottom: 0;
+                    }
+                }
+            }
+            .button {
+                background: $secondary-color;
+                border: 1px solid $default-border-color;
+                display: block;
+                line-height: rhythm(1);
+                padding-top: rhythm(0.25);
+                padding-bottom: rhythm(0.25);
+                margin: 0;
+                @include transition(background-color 0.25s);
+                &, &:hover, &:focus {
+                    color: $default-link-font-color;
+                }
+                &:hover, &:focus {
+                    background-color: $secondary-button-bg-hover;
+                }
+            }
         }
     }
 }
 
-.accordion .accordion-navigation.active > a,
-.accordion dd.active > a {
-    @include box-shadow(none);
-    .accordion &:before {
-        content: $fa-var-chevron-up;
-    }
-}
-
-.accordion .accordion-navigation {
-    position: relative;
-}
-
+// direct link
 .accordion-direct-link {
     top: 0;
     left: 0;
-    bottom: 0;
-    // stretch height of parent container
+    bottom: 0; // stretch height of parent container
     z-index: 1;
     width: rem-calc(48);
     border-right: 1px solid rgba($white, 0.5);
     margin-right: $column-gutter / 2;
     text-align: center;
+    .accordion .accordion-navigation > & {
+        position: absolute;
+        & + a {
+            padding-left: rem-calc(48 + 12);
+        }
+        &:after {
+            display: none; // hide ellipses
+        }
+    }
     [class*="block-grid-"] > li & {
         left: $block-grid-default-spacing / 2;
         bottom: $block-grid-default-spacing;
     }
 }
 
-.accordion .accordion-navigation > .accordion-direct-link {
-    position: absolute;
-    & + a {
-        padding-left: rem-calc(48 + 12);
-    }
-    &:before {
-        display: none;
-        // hide vertical ellipses
-   
-    }
-}
-
-// content
-.accordion .accordion-navigation > .content, .accordion dd > .content {
-    border: none;
-    line-height: 1;
-    .accordion & {
-        padding: 0;
-        margin: rhythm(0.5) 0;
-        border: none;
-    }
-}
-
-.accordion .accordion-navigation > .content.active,
-.accordion dd > .content.active {
-    position: relative;
-    z-index: 1;
-    // overlap .accordion-direct-link ;P
-    @include box-shadow($default-shadow);
-    .accordion & {
-        @include box-shadow(none);
-    }
-}
-
-.accordion .content > *:first-child {
-    margin-top: 0;
-}
-
-.accordion .content > *:last-child {
-    margin-bottom: 0;
-}
-
-.accordion .content > ul {
-    list-style: none;
-    margin-left: -$accordion-content-padding;
-    margin-right: -$accordion-content-padding;
-    margin-top: 0;
-    margin-bottom: $default-bottom-margin;
-    border-top: 1px solid $default-border-color;
-    border-bottom: 1px solid $default-border-color;
-    li {
-        padding: $accordion-content-padding;
-        border-top: 1px solid $default-border-color;
-        &:first-child {
-            border-top: none;
+// child accordion
+.accordion .accordion {
+    .accordion-navigation, dd {
+        > a {
+            text-transform: none;
+            background: none;
+            color: $default-link-font-color;
+            font-size: 1rem;
+            padding: 0;
+            @include box-shadow(none);
+            &:hover, &:focus {
+                color: $anchor-font-color-hover;
+            }
+            &:after {
+                @include fa-icon;
+                content: $fa-var-chevron-down;
+                color: inherit;
+                float: right;
+            }
         }
-    }
-    &:first-child {
-        border-top: none;
-        li:first-child {
-            padding-top: 0;
-        }
-    }
-    &:last-child {
-        margin-bottom: 0;
-        border-bottom: none;
-        li:last-child {
+        > .content {
+            padding-left: 0;
+            padding-right: 0;
             padding-bottom: 0;
+            border: none;
+            &.active {
+                @include box-shadow(none);
+            }
         }
-    }
-}
-
-.accordion .content .button {
-    display: block;
-    background: $secondary-color;
-    color: $default-font-color;
-    border: 1px solid $default-border-color;
-    line-height: rhythm(1);
-    padding-top: rhythm(0.25);
-    padding-bottom: rhythm(0.25);
-    margin: 0;
-    @include transition(background-color 0.25s);
-    &:hover, &:focus {
-        background-color: $secondary-button-bg-hover;
-        color: $default-font-color;
     }
 }
 
 // inverted colors
 .accordion-invert {
-    .accordion-navigation > a, dd > a,
-    .accordion-navigation.active > a, dd.active > a {
-        background-color: $secondary-color;
-        color: $anchor-font-color;
-        &:hover, &:focus {
-            background-color: $secondary-button-bg-hover;
-            color: $anchor-font-color-hover;
+    .accordion-navigation, dd {
+        > a, &.active > a {
+            background-color: $secondary-color;
+            color: $anchor-font-color;
+            &:hover, &:focus {
+                background-color: $secondary-button-bg-hover;
+                color: $anchor-font-color-hover;
+            }
+        }
+        > .content {
+            color: $default-font-color;
+            border: none;
+            &.active {
+                border-top: 1px solid $default-border-color;
+            }
         }
     }
-    .accordion-navigation > .content, dd > .content {
-        color: $default-font-color;
-        border: none;
-        &.active {
-            border-top: 1px solid $default-border-color;
-        }
+    .accordion-direct-link {
+        border-right: 1px solid $default-border-color;
     }
     .accordion {
         .accordion-navigation > .content, dd > .content {
@@ -179,8 +175,5 @@
                 border-top: none;
             }
         }
-    }
-    .accordion-direct-link {
-        border-right: 1px solid $default-border-color;
     }
 }
