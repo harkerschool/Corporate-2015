@@ -385,8 +385,8 @@ $blockquote-cite-font-color: scale-color($blockquote-font-color, $lightness: 20%
 
 $accordion-navigation-padding: rhythm(0.5);
 $accordion-navigation-bg-color: $primary-color;
-// $accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -5%);
-// $accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -3%);
+$accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -8%);
+$accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -8%);
 $accordion-navigation-font-color: $white;
 $accordion-navigation-font-size: rem-calc(20);
 // $accordion-navigation-font-family: $body-font-family;
@@ -444,7 +444,7 @@ $accordion-navigation-font-size: rem-calc(20);
 
 // We use this to control the maximum number of block grid elements per row
 // $block-grid-elements: 12;
-// $block-grid-default-spacing: rem-calc(20);
+$block-grid-default-spacing: rem-calc(32);
 
 // $align-block-grid-to-grid: false;
 // @if $align-block-grid-to-grid {$block-grid-default-spacing: $column-gutter;}

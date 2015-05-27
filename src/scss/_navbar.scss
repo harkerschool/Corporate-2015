@@ -276,7 +276,7 @@ $harker-logo-width: 223px;
 .current-page-title {
     text-transform: uppercase;
     a, span, &:after {
-        display: block;
+        display: inline-block;
     }
     @media #{$medium-only} {
         &:after {

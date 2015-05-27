@@ -1,6 +1,62 @@
 // Accordion
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+@mixin accordion-content-children() {
+    li {
+        padding: rem-calc(2) 0;
+    }
+    ul.accordion-list, .accordion {
+        @include accordion-list;
+    }
+    .button {
+        background: $secondary-color;
+        border: 1px solid $default-border-color;
+        display: block;
+        line-height: rhythm(1);
+        padding-top: rhythm(0.25);
+        padding-bottom: rhythm(0.25);
+        margin: 0;
+        @include transition(background-color 0.25s);
+        &, &:hover, &:focus {
+            color: $default-link-font-color;
+        }
+        &:hover, &:focus {
+            background-color: $secondary-button-bg-hover;
+        }
+    }
+}
+
+@mixin accordion-list() {
+    list-style: none;
+    line-height: inherit;
+    margin-left: -$accordion-content-padding;
+    margin-right: -$accordion-content-padding;
+    margin-top: 0;
+    margin-bottom: $default-bottom-margin;
+    border-top: 1px solid $default-border-color;
+    border-bottom: 1px solid $default-border-color;
+    > li {
+        padding: $accordion-content-padding;
+        border-top: 1px solid $default-border-color;
+        &:first-child {
+            border-top: none;
+        }
+    }
+    &:first-child {
+        border-top: none;
+        > li:first-child {
+            padding-top: 0;
+        }
+    }
+    &:last-child {
+        margin-bottom: 0;
+        border-bottom: none;
+        > li:last-child {
+            padding-bottom: 0;
+        }
+    }
+}
+
 // standard accordion
 .accordion {
     .accordion-navigation, dd {
@@ -23,69 +79,15 @@
         }
         &.active > a {
             @include box-shadow(none);
-            .accordion &:after {
-                content: $fa-var-chevron-up;
-            }
         }
         > .content {
-            border: none;
-            line-height: 1;
+            line-height: 1.25;
             &.active {
                 position: relative;
                 z-index: 1; // overlap .accordion-direct-link ;P
                 @include box-shadow($default-shadow);
             }
-            > *:first-child {
-                margin-top: 0;
-            }
-            > *:last-child {
-                margin-bottom: 0;
-            }
-            > ul {
-                list-style: none;
-                margin-left: -$accordion-content-padding;
-                margin-right: -$accordion-content-padding;
-                margin-top: 0;
-                margin-bottom: $default-bottom-margin;
-                border-top: 1px solid $default-border-color;
-                border-bottom: 1px solid $default-border-color;
-                > li {
-                    padding: $accordion-content-padding;
-                    border-top: 1px solid $default-border-color;
-                    &:first-child {
-                        border-top: none;
-                    }
-                }
-                &:first-child {
-                    border-top: none;
-                    > li:first-child {
-                        padding-top: 0;
-                    }
-                }
-                &:last-child {
-                    margin-bottom: 0;
-                    border-bottom: none;
-                    > li:last-child {
-                        padding-bottom: 0;
-                    }
-                }
-            }
-            .button {
-                background: $secondary-color;
-                border: 1px solid $default-border-color;
-                display: block;
-                line-height: rhythm(1);
-                padding-top: rhythm(0.25);
-                padding-bottom: rhythm(0.25);
-                margin: 0;
-                @include transition(background-color 0.25s);
-                &, &:hover, &:focus {
-                    color: $default-link-font-color;
-                }
-                &:hover, &:focus {
-                    background-color: $secondary-button-bg-hover;
-                }
-            }
+            @include accordion-content-children;
         }
     }
 }
@@ -115,6 +117,41 @@
     }
 }
 
+// inverted colors
+.accordion-invert {
+    .accordion-navigation, dd {
+        > a, &.active > a {
+            background-color: $secondary-color;
+            color: $anchor-font-color;
+            &:hover, &:focus {
+                background-color: $secondary-button-bg-hover;
+                color: $anchor-font-color-hover;
+            }
+        }
+        > .content {
+            border-top: 1px solid $default-border-color;
+            color: $default-font-color;
+        }
+    }
+    .accordion-direct-link {
+        border-right: 1px solid $default-border-color;
+    }
+    .accordion {
+        .accordion-navigation, dd {
+            > a, &.active > a {
+                &, &:hover, &:focus {
+                    background-color: transparent;
+                }
+            }
+            > .content {
+                &.active {
+                    border-top: none;
+                }
+            }
+        }
+    }
+}
+
 // child accordion
 .accordion .accordion {
     .accordion-navigation, dd {
@@ -135,6 +172,9 @@
                 float: right;
             }
         }
+        &.active > a:after {
+            content: $fa-var-chevron-up;
+        }
         > .content {
             padding-left: 0;
             padding-right: 0;
@@ -142,37 +182,6 @@
             border: none;
             &.active {
                 @include box-shadow(none);
-            }
-        }
-    }
-}
-
-// inverted colors
-.accordion-invert {
-    .accordion-navigation, dd {
-        > a, &.active > a {
-            background-color: $secondary-color;
-            color: $anchor-font-color;
-            &:hover, &:focus {
-                background-color: $secondary-button-bg-hover;
-                color: $anchor-font-color-hover;
-            }
-        }
-        > .content {
-            color: $default-font-color;
-            border: none;
-            &.active {
-                border-top: 1px solid $default-border-color;
-            }
-        }
-    }
-    .accordion-direct-link {
-        border-right: 1px solid $default-border-color;
-    }
-    .accordion {
-        .accordion-navigation > .content, dd > .content {
-            &.active {
-                border-top: none;
             }
         }
     }

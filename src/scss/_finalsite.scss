@@ -108,15 +108,12 @@
     @extend .fsElement.section-full;
 }
 
-// Feature
+// Feature Element
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .fsElement.feature {
     @extend .fsElement.section-wide;
 }
-
-// Feature Element
-// - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .fsElement.feature {
     padding: 0;
@@ -126,6 +123,232 @@
         padding-left: 0;
         padding-right: 0;
     }
+}
+
+// Accordion Element
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsAccordion > .fsElementContent {
+    padding-right: 0;
+    padding-left: 0;
+}
+
+.fsPanel {
+    margin-bottom: rhythm(1);
+
+    // button
+    > header .fsElementTitle {
+        position: relative;
+        cursor: pointer;
+        background: $accordion-navigation-bg-color;
+        color: $accordion-navigation-font-color;
+        font-size: $accordion-navigation-font-size;
+        line-height: rhythm(1);
+        padding-top: $accordion-navigation-padding + rem-calc(2); // fix vertical alignment of text
+        padding-bottom: $accordion-navigation-padding - rem-calc(2);
+        padding-left: ($column-gutter/2);
+        padding-right: ($column-gutter/2);
+        margin: 0;
+        text-decoration: none;
+        text-transform: uppercase;
+        @include box-shadow($default-shadow);
+        @include transition(background-color 0.25s, color 0.25s);
+        &:hover, &:focus {
+            background: $accordion-navigation-hover-bg-color;
+        }
+        &:before {
+            display: none !important; // hide Finalsite's icon
+        }
+        &:after {
+            @include fa-icon;
+            content: $fa-var-ellipsis-v;
+            color: inherit;
+            float: right;
+        }
+    }
+
+    // content
+    .fsAccordion & > .fsElementContent {
+        min-height: 0;
+    }
+    > .fsElementContent > .fsElement {
+        border-top: 1px solid $default-border-color;
+        padding-top: $accordion-content-padding;
+        padding-bottom: $accordion-content-padding;
+        background: $accordion-content-active-bg-color;
+        color: $default-font-color;
+        line-height: 1.25;
+        > .fsElementContent {
+            @include accordion-content-children;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            color: $default-header-font-color;
+        }
+        code {
+            color: $default-font-color;
+        }
+        a {
+            color: $default-link-font-color;
+        }
+    }
+
+    // open
+    &.fsStateOpen {
+        > header .fsElementTitle {
+            @include box-shadow(none);
+        }
+        > .fsElementContent > .fsElement {
+            position: relative;
+            z-index: 1; // overlap .accordion-direct-link ;P
+            @include box-shadow($default-shadow);
+        }
+    }
+}
+
+// inverted accordion
+.fsAccordion.accordion-invert,
+.fsAccordion .fsAccordion {
+    .fsPanel {
+        > header .fsElementTitle {
+            background-color: $secondary-color;
+            color: $anchor-font-color;
+            &:hover, &:focus {
+                background-color: $secondary-button-bg-hover;
+                color: $anchor-font-color-hover;
+            }
+        }
+    }
+    .accordion-direct-link {
+        border-right: 1px solid $default-border-color;
+    }
+}
+
+// child accordion
+.fsAccordion .fsAccordion {
+    .fsPanel {
+        border-bottom: 1px solid $default-border-color;
+        margin-bottom: 0;
+        &:first-child {
+            border-top: 1px solid $default-border-color;
+        }
+
+        > header,
+        > .fsElementContent {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        > header .fsElementTitle {
+            text-transform: none;
+            color: $default-link-font-color;
+            font-size: 1rem;
+            @include box-shadow(none);
+            &:hover, &:focus {
+                color: $anchor-font-color-hover;
+            }
+            &:after {
+                content: $fa-var-chevron-down;
+            }
+        }
+        > .fsElementContent > .fsElement {
+            border-top: 1px dashed $silver;
+        }
+        &.fsStateOpen {
+            > header .fsElementTitle {
+                &:after {
+                    content: $fa-var-chevron-up;
+                }
+            }
+        }
+    }
+    > footer {
+        margin-top: $accordion-content-padding;
+    }
+}
+
+// Finalsite Block Grid
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Create a custom block grid
+//
+// $per-row - # of items to display per row. Default: false.
+// $spacing - # of ems to use as padding on each block item. Default: rem-calc(20).
+// $include-spacing - Adds padding to our list item. Default: true.
+// $base-style - Apply a base style to block grid. Default: true.
+@mixin fs-block-grid(
+  $per-row:false,
+  $spacing:$block-grid-default-spacing,
+  $include-spacing:true,
+  $base-style:true) {
+
+  @if $base-style {
+    margin-left: 0;
+    margin-right: 0;
+
+    > .fsElementContent {
+        display: block;
+    }
+
+    > .fsElementContent > .fsElement {
+      display: block;
+      float: $default-float;
+      height: auto;
+    }
+  }
+
+  @if $per-row {
+    > .fsElementContent > .fsElement {
+      width: 100%/$per-row;
+
+      &:nth-of-type(1n) { clear: none; }
+      &:nth-of-type(#{$per-row}n+1) { clear: both; }
+      @if $align-block-grid-to-grid {
+        @include block-grid-aligned($per-row, $spacing);
+      }
+    }
+  }
+}
+
+// Generate presentational markup for block grid.
+//
+// $size - Name of class to use, i.e. "large" will generate .large-block-grid-1, .large-block-grid-2, etc.
+@mixin fs-block-grid-html-classes($size, $include-spacing) {
+  @for $i from 1 through $block-grid-elements {
+    .fsElement.#{$size}-block-grid-#{($i)} {
+      @include fs-block-grid($i, $block-grid-default-spacing, $include-spacing, false);
+    }
+  }
+}
+
+@include exports("fs-block-grid") {
+  @if $include-html-block-grid-classes {
+
+    .fsElement[class*="block-grid-"] { @include fs-block-grid; }
+
+    @if $block-grid-media-queries {
+      @media #{$small-up} {
+        @include fs-block-grid-html-classes($size:small, $include-spacing:false);
+      }
+
+      @media #{$medium-up} {
+        @include fs-block-grid-html-classes($size:medium, $include-spacing:false);
+      }
+
+      @media #{$large-up} {
+        @include fs-block-grid-html-classes($size:large, $include-spacing:false);
+      }
+
+      @if $include-xl-html-block-grid-classes {
+        @media #{$xlarge-up} {
+          @include fs-block-grid-html-classes($size:xlarge, $include-spacing:false);
+        }
+
+        @media #{$xxlarge-up} {
+          @include fs-block-grid-html-classes($size:xxlarge, $include-spacing:false);
+        }
+      }
+    }
+  }
 }
 
 // Global Nav Element

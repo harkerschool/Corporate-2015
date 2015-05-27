@@ -1,3 +1,25 @@
+// Section Helpers
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.section-expand {
+    padding: rhythm(3) 0;
+}
+.section-expand-top {
+    padding-top: rhythm(3);
+}
+.section-expand-bottom {
+    padding-bottom: rhythm(3);
+}
+.section-collapse {
+    padding: 0;
+}
+.section-collapse-top {
+    padding-top: 0;
+}
+.section-collapse-bottom {
+    padding-bottom: 0;
+}
+
 // Vertical Rhythm Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
