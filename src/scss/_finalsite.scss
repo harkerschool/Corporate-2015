@@ -15,6 +15,7 @@
 .fsElement > header,
 .fsElementContent,
 .fsElement > footer {
+    background-color: transparent;
     @include grid-row();
     @include grid-column(24);
     float: none;
@@ -149,22 +150,32 @@
     }
     > .fsElementContent > .fsElement {
         @include accordion-content;
+        padding: rhythm(1) 0;
 
         > header, 
         > .fsElementContent,
         > footer {
-            margin: 0 (-$accordion-content-padding);
-            width: auto;
-            :first-child {
+            > :first-child,
+            > :first-child > :first-child {
                 margin-top: 0;
             }
-            :last-child {
+            > :last-child, 
+            > :last-child > :last-child {
                 margin-bottom: 0;
             }
         }
 
+        > header {
+            margin-bottom: rhythm(1);
+        }
         > footer {
-            padding-top: $accordion-content-padding;
+            margin-top: rhythm(1);
+        }
+    }
+
+    &.fsStateOpen {
+        > header .fsElementTitle {
+            @include accordion-button-active;
         }
     }
 }
@@ -176,8 +187,14 @@
         > header .fsElementTitle {
             @include accordion-button-invert;
         }
-        > .fsElementContent > .fsElement {
+        > .fsElementContent > .fsElement:first-child {
             @include accordion-content-invert;
+        }
+
+        &.fsStateOpen {
+            > header .fsElementTitle {
+                @include accordion-button-active-invert;
+            }
         }
     }
 }
@@ -192,7 +209,8 @@
         }
 
         > header,
-        > .fsElementContent {
+        > .fsElementContent,
+        > footer {
             padding-left: 0;
             padding-right: 0;
         }
@@ -210,6 +228,21 @@
                 }
             }
         }
+    }
+}
+
+// Finalsite Tabs
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsTabs {
+    .ui-tabs .ui-tabs-nav {
+        padding: 0;
+    }
+    .fsTab {
+        padding-top: rhythm(1);
+        padding-bottom: rhythm(1);
+        background-color: $white;
+        @include box-shadow($default-shadow);
     }
 }
 

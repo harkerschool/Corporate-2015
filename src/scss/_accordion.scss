@@ -19,7 +19,7 @@
     @include box-shadow($default-shadow);
     @include transition(background-color 0.25s, color 0.25s);
     &:hover, &:focus {
-        background: $accordion-navigation-hover-bg-color;
+        @include accordion-button-active;
     }
     &:after {
         @include fa-icon;
@@ -27,6 +27,9 @@
         color: inherit;
         float: right;
     }
+}
+@mixin accordion-button-active() {
+    background: $accordion-navigation-hover-bg-color;
 }
 
 @mixin accordion-content() {
@@ -65,6 +68,58 @@
     }
 }
 
+@mixin accordion-button-invert() {
+    background-color: $secondary-color;
+    color: $anchor-font-color;
+    &:hover, &:focus {
+        @include accordion-button-active-invert;
+    }
+}
+@mixin accordion-button-active-invert() {
+    background-color: $secondary-button-bg-hover;
+    color: $anchor-font-color-hover;
+}
+@mixin accordion-content-invert() {
+    border-top: 1px solid $default-border-color;
+}
+
+@mixin accordion-list() {
+    list-style: none;
+    line-height: inherit;
+    margin-left: -$accordion-content-padding;
+    margin-right: -$accordion-content-padding;
+    margin-top: 0;
+    margin-bottom: $default-bottom-margin;
+    > li {
+        padding: $accordion-content-padding;
+        border-bottom: 1px solid $default-border-color;
+        &:first-child {
+            border-top: 1px solid $default-border-color;
+        }
+        > a {
+            margin: -$accordion-content-padding;
+        }
+    }
+}
+@mixin accordion-button-child() {
+    margin: 0;
+    text-transform: none;
+    font-size: 1rem;
+    @include box-shadow(none);
+    &:hover, &:focus {
+        color: $anchor-font-color-hover;
+    }
+    &:after {
+        content: $fa-var-chevron-down;
+    }
+    .active > a:after {
+        content: $fa-var-chevron-up;
+    }
+}
+@mixin accordion-content-child() {
+    @include box-shadow(none);
+}
+
 // standard accordion
 .accordion {
     .accordion-navigation, dd {
@@ -77,7 +132,12 @@
             ul {
                 margin-bottom: rhythm(1);
             }
-            :last-child {
+            > :first-child,
+            > :first-child > :first-child {
+                margin-top: 0;
+            }
+            > :last-child, 
+            > :last-child > :last-child {
                 margin-bottom: 0;
             }
         }
@@ -110,18 +170,6 @@
 }
 
 // inverted colors
-@mixin accordion-button-invert() {
-    background-color: $secondary-color;
-    color: $anchor-font-color;
-    &:hover, &:focus {
-        background-color: $secondary-button-bg-hover;
-        color: $anchor-font-color-hover;
-    }
-}
-@mixin accordion-content-invert() {
-    border-top: 1px solid $default-border-color;
-}
-
 .accordion-invert {
     .accordion-navigation, dd {
         > a, &.active > a {
@@ -137,56 +185,6 @@
 }
 
 // child accordion list
-@mixin accordion-list() {
-    list-style: none;
-    line-height: inherit;
-    margin-left: -$accordion-content-padding;
-    margin-right: -$accordion-content-padding;
-    margin-top: 0;
-    margin-bottom: $default-bottom-margin;
-    > li {
-        padding: $accordion-content-padding;
-        border-bottom: 1px solid $default-border-color;
-        &:first-child {
-            border-top: 1px solid $default-border-color;
-        }
-        > a {
-            margin: -$accordion-content-padding;
-        }
-    }
-    &:first-child {
-        margin-top: -$accordion-content-padding;
-        > li:first-child {
-            border-top: none;
-        }
-    }
-    &:last-child {
-        margin-bottom: -$accordion-content-padding;
-        > li:last-child {
-            border-bottom: none;
-        }
-    }
-}
-@mixin accordion-button-child() {
-    margin: 0;
-    text-transform: none;
-    font-size: 1rem;
-    @include box-shadow(none);
-    &:hover, &:focus {
-        color: $anchor-font-color-hover;
-    }
-    &:after {
-        content: $fa-var-chevron-down;
-    }
-    .active > a:after {
-        content: $fa-var-chevron-up;
-    }
-}
-@mixin accordion-content-child() {
-    border-top: 1px dashed $silver;
-    @include box-shadow(none);
-}
-
 .accordion .accordion, 
 .accordion-list {
     @include accordion-list;
