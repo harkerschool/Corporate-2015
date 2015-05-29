@@ -1,8 +1,8 @@
-<div class="section purple-bg">
+<div class="section">
     <div class="row">
         <div class="column">
             <h2>Accordion List</h2>
-            <ul class="accordion accordion-invert small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-accordion="programs">
+            <ul class="accordion small-block-grid-1 medium-block-grid-2 large-block-grid-4" data-accordion="programs">
                 <li class="accordion-navigation">
                     <a href="#panel1a">English</a>
                     <div id="panel1a" class="content">
@@ -15,7 +15,7 @@
                         <p>
                             Panel 2. Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
                         </p>
-                        <ul>
+                        <ul class="accordion-list">
                             <li>Spanish</li>
                             <li>French</li>
                             <li>Chinese</li>

@@ -1,12 +1,51 @@
 // Accordion
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-@mixin accordion-content-children() {
-    li {
-        padding: rem-calc(2) 0;
+@mixin accordion-button() {
+    position: relative;
+    cursor: pointer;
+    text-decoration: none;
+    background: $accordion-navigation-bg-color;
+    color: $accordion-navigation-font-color;
+    font-size: $accordion-navigation-font-size;
+    line-height: rhythm(1);
+    padding-top: rhythm(0.5) + rem-calc(2); // fix vertical alignment of text
+    padding-bottom: rhythm(0.5) - rem-calc(2);
+    padding-left: ($column-gutter/2);
+    padding-right: ($column-gutter/2);
+    margin: 0;
+    text-decoration: none;
+    text-transform: uppercase;
+    @include box-shadow($default-shadow);
+    @include transition(background-color 0.25s, color 0.25s);
+    &:hover, &:focus {
+        background: $accordion-navigation-hover-bg-color;
     }
-    ul.accordion-list, .accordion {
-        @include accordion-list;
+    &:after {
+        @include fa-icon;
+        content: $fa-var-ellipsis-v;
+        color: inherit;
+        float: right;
+    }
+}
+
+@mixin accordion-content() {
+    padding: $accordion-content-padding;
+    background: $accordion-content-active-bg-color;
+    color: $default-font-color;
+    line-height: 1.25;
+    position: relative;
+    z-index: 1; // overlap .accordion-direct-link ;P
+    @include box-shadow($default-shadow);
+
+    h1, h2, h3, h4, h5, h6 {
+        color: $default-header-font-color;
+    }
+    code {
+        color: $default-font-color;
+    }
+    a {
+        color: $default-link-font-color;
     }
     .button {
         background: $secondary-color;
@@ -26,68 +65,21 @@
     }
 }
 
-@mixin accordion-list() {
-    list-style: none;
-    line-height: inherit;
-    margin-left: -$accordion-content-padding;
-    margin-right: -$accordion-content-padding;
-    margin-top: 0;
-    margin-bottom: $default-bottom-margin;
-    border-top: 1px solid $default-border-color;
-    border-bottom: 1px solid $default-border-color;
-    > li {
-        padding: $accordion-content-padding;
-        border-top: 1px solid $default-border-color;
-        &:first-child {
-            border-top: none;
-        }
-    }
-    &:first-child {
-        border-top: none;
-        > li:first-child {
-            padding-top: 0;
-        }
-    }
-    &:last-child {
-        margin-bottom: 0;
-        border-bottom: none;
-        > li:last-child {
-            padding-bottom: 0;
-        }
-    }
-}
-
 // standard accordion
 .accordion {
     .accordion-navigation, dd {
         position: relative;
         > a {
-            position: relative;
-            text-decoration: none;
-            text-transform: uppercase;
-            line-height: rhythm(1);
-            padding-top: $accordion-navigation-padding + rem-calc(2);
-            padding-bottom: $accordion-navigation-padding - rem-calc(2);
-            @include box-shadow($default-shadow);
-            @include transition(background-color 0.25s, color 0.25s);
-            &:after {
-                @include fa-icon;
-                content: $fa-var-ellipsis-v;
-                color: inherit;
-                float: right;
-            }
-        }
-        &.active > a {
-            @include box-shadow(none);
+            @include accordion-button;
         }
         > .content {
-            line-height: 1.25;
-            &.active {
-                position: relative;
-                z-index: 1; // overlap .accordion-direct-link ;P
-                @include box-shadow($default-shadow);
+            @include accordion-content;
+            ul {
+                margin-bottom: rhythm(1);
             }
-            @include accordion-content-children;
+            :last-child {
+                margin-bottom: 0;
+            }
         }
     }
 }
@@ -118,71 +110,97 @@
 }
 
 // inverted colors
+@mixin accordion-button-invert() {
+    background-color: $secondary-color;
+    color: $anchor-font-color;
+    &:hover, &:focus {
+        background-color: $secondary-button-bg-hover;
+        color: $anchor-font-color-hover;
+    }
+}
+@mixin accordion-content-invert() {
+    border-top: 1px solid $default-border-color;
+}
+
 .accordion-invert {
     .accordion-navigation, dd {
         > a, &.active > a {
-            background-color: $secondary-color;
-            color: $anchor-font-color;
-            &:hover, &:focus {
-                background-color: $secondary-button-bg-hover;
-                color: $anchor-font-color-hover;
-            }
+            @include accordion-button-invert;
         }
         > .content {
-            border-top: 1px solid $default-border-color;
-            color: $default-font-color;
+            @include accordion-content-invert;
         }
     }
     .accordion-direct-link {
         border-right: 1px solid $default-border-color;
     }
-    .accordion {
-        .accordion-navigation, dd {
-            > a, &.active > a {
-                &, &:hover, &:focus {
-                    background-color: transparent;
-                }
-            }
-            > .content {
-                &.active {
-                    border-top: none;
-                }
-            }
+}
+
+// child accordion list
+@mixin accordion-list() {
+    list-style: none;
+    line-height: inherit;
+    margin-left: -$accordion-content-padding;
+    margin-right: -$accordion-content-padding;
+    margin-top: 0;
+    margin-bottom: $default-bottom-margin;
+    > li {
+        padding: $accordion-content-padding;
+        border-bottom: 1px solid $default-border-color;
+        &:first-child {
+            border-top: 1px solid $default-border-color;
+        }
+        > a {
+            margin: -$accordion-content-padding;
+        }
+    }
+    &:first-child {
+        margin-top: -$accordion-content-padding;
+        > li:first-child {
+            border-top: none;
+        }
+    }
+    &:last-child {
+        margin-bottom: -$accordion-content-padding;
+        > li:last-child {
+            border-bottom: none;
         }
     }
 }
+@mixin accordion-button-child() {
+    margin: 0;
+    text-transform: none;
+    font-size: 1rem;
+    @include box-shadow(none);
+    &:hover, &:focus {
+        color: $anchor-font-color-hover;
+    }
+    &:after {
+        content: $fa-var-chevron-down;
+    }
+    .active > a:after {
+        content: $fa-var-chevron-up;
+    }
+}
+@mixin accordion-content-child() {
+    border-top: 1px dashed $silver;
+    @include box-shadow(none);
+}
 
-// child accordion
+.accordion .accordion, 
+.accordion-list {
+    @include accordion-list;
+}
+
 .accordion .accordion {
+    @extend .accordion-invert;
     .accordion-navigation, dd {
+        padding: 0;
         > a {
-            text-transform: none;
-            background: none;
-            color: $default-link-font-color;
-            font-size: 1rem;
-            padding: 0;
-            @include box-shadow(none);
-            &:hover, &:focus {
-                color: $anchor-font-color-hover;
-            }
-            &:after {
-                @include fa-icon;
-                content: $fa-var-chevron-down;
-                color: inherit;
-                float: right;
-            }
-        }
-        &.active > a:after {
-            content: $fa-var-chevron-up;
+            @include accordion-button-child;
         }
         > .content {
-            padding-left: 0;
-            padding-right: 0;
-            padding-bottom: 0;
-            border: none;
-            &.active {
-                @include box-shadow(none);
-            }
+            @include accordion-content-child;
         }
     }
 }

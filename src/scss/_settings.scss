@@ -383,7 +383,7 @@ $blockquote-cite-font-color: scale-color($blockquote-font-color, $lightness: 20%
 
 // $include-html-accordion-classes: $include-html-classes;
 
-$accordion-navigation-padding: rhythm(0.5);
+$accordion-navigation-padding: rhythm(0.5) ($column-gutter/2);
 $accordion-navigation-bg-color: $primary-color;
 $accordion-navigation-hover-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -8%);
 $accordion-navigation-active-bg-color: scale-color($accordion-navigation-bg-color, $lightness: -8%);

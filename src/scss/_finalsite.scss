@@ -128,9 +128,11 @@
 // Accordion Element
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.fsAccordion > .fsElementContent {
-    padding-right: 0;
-    padding-left: 0;
+.fsAccordion {
+    > .fsElementContent {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }
 
 .fsPanel {
@@ -138,33 +140,7 @@
 
     // button
     > header .fsElementTitle {
-        position: relative;
-        cursor: pointer;
-        background: $accordion-navigation-bg-color;
-        color: $accordion-navigation-font-color;
-        font-size: $accordion-navigation-font-size;
-        line-height: rhythm(1);
-        padding-top: $accordion-navigation-padding + rem-calc(2); // fix vertical alignment of text
-        padding-bottom: $accordion-navigation-padding - rem-calc(2);
-        padding-left: ($column-gutter/2);
-        padding-right: ($column-gutter/2);
-        margin: 0;
-        text-decoration: none;
-        text-transform: uppercase;
-        @include box-shadow($default-shadow);
-        @include transition(background-color 0.25s, color 0.25s);
-        &:hover, &:focus {
-            background: $accordion-navigation-hover-bg-color;
-        }
-        &:before {
-            display: none !important; // hide Finalsite's icon
-        }
-        &:after {
-            @include fa-icon;
-            content: $fa-var-ellipsis-v;
-            color: inherit;
-            float: right;
-        }
+        @include accordion-button;
     }
 
     // content
@@ -172,35 +148,23 @@
         min-height: 0;
     }
     > .fsElementContent > .fsElement {
-        border-top: 1px solid $default-border-color;
-        padding-top: $accordion-content-padding;
-        padding-bottom: $accordion-content-padding;
-        background: $accordion-content-active-bg-color;
-        color: $default-font-color;
-        line-height: 1.25;
-        > .fsElementContent {
-            @include accordion-content-children;
-        }
-        h1, h2, h3, h4, h5, h6 {
-            color: $default-header-font-color;
-        }
-        code {
-            color: $default-font-color;
-        }
-        a {
-            color: $default-link-font-color;
-        }
-    }
+        @include accordion-content;
 
-    // open
-    &.fsStateOpen {
-        > header .fsElementTitle {
-            @include box-shadow(none);
+        > header, 
+        > .fsElementContent,
+        > footer {
+            margin: 0 (-$accordion-content-padding);
+            width: auto;
+            :first-child {
+                margin-top: 0;
+            }
+            :last-child {
+                margin-bottom: 0;
+            }
         }
-        > .fsElementContent > .fsElement {
-            position: relative;
-            z-index: 1; // overlap .accordion-direct-link ;P
-            @include box-shadow($default-shadow);
+
+        > footer {
+            padding-top: $accordion-content-padding;
         }
     }
 }
@@ -210,16 +174,11 @@
 .fsAccordion .fsAccordion {
     .fsPanel {
         > header .fsElementTitle {
-            background-color: $secondary-color;
-            color: $anchor-font-color;
-            &:hover, &:focus {
-                background-color: $secondary-button-bg-hover;
-                color: $anchor-font-color-hover;
-            }
+            @include accordion-button-invert;
         }
-    }
-    .accordion-direct-link {
-        border-right: 1px solid $default-border-color;
+        > .fsElementContent > .fsElement {
+            @include accordion-content-invert;
+        }
     }
 }
 
@@ -239,19 +198,10 @@
         }
 
         > header .fsElementTitle {
-            text-transform: none;
-            color: $default-link-font-color;
-            font-size: 1rem;
-            @include box-shadow(none);
-            &:hover, &:focus {
-                color: $anchor-font-color-hover;
-            }
-            &:after {
-                content: $fa-var-chevron-down;
-            }
+            @include accordion-button-child;
         }
         > .fsElementContent > .fsElement {
-            border-top: 1px dashed $silver;
+            @include accordion-content-child;
         }
         &.fsStateOpen {
             > header .fsElementTitle {
@@ -260,9 +210,6 @@
                 }
             }
         }
-    }
-    > footer {
-        margin-top: $accordion-content-padding;
     }
 }
 
