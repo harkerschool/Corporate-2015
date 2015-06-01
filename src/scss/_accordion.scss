@@ -14,14 +14,13 @@
     padding-left: ($column-gutter/2);
     padding-right: ($column-gutter/2);
     margin: 0;
-    text-decoration: none;
     text-transform: uppercase;
     @include box-shadow($default-shadow);
     @include transition(background-color 0.25s, color 0.25s);
     &:hover, &:focus {
         @include accordion-button-active;
     }
-    &:after {
+    &:before {
         @include fa-icon;
         content: $fa-var-ellipsis-v;
         color: inherit;
@@ -30,6 +29,7 @@
 }
 @mixin accordion-button-active() {
     background: $accordion-navigation-hover-bg-color;
+    color: $accordion-navigation-font-color;
 }
 
 @mixin accordion-content() {
@@ -109,10 +109,10 @@
     &:hover, &:focus {
         color: $anchor-font-color-hover;
     }
-    &:after {
+    &:before {
         content: $fa-var-chevron-down;
     }
-    .active > a:after {
+    .active > a:before {
         content: $fa-var-chevron-up;
     }
 }
@@ -146,24 +146,38 @@
 
 // direct link
 .accordion-direct-link {
+    @include accordion-button;
+    position: absolute;
     top: 0;
     left: 0;
     bottom: 0; // stretch height of parent container
     z-index: 1;
     width: rem-calc(48);
+    padding-left: 0;
+    padding-right: 0;
     border-right: 1px solid rgba($white, 0.5);
-    margin-right: $column-gutter / 2;
     text-align: center;
+    &:before {
+        content: $fa-var-link !important;
+        float: none;
+    }
+    .accordion-invert & {
+        @include accordion-button-invert;
+        border-right: 1px solid $default-border-color;
+    }
+    // overwrite specificity
     .accordion .accordion-navigation > & {
         position: absolute;
+        padding-left: 0;
+        padding-right: 0;
         & + a {
             padding-left: rem-calc(48 + 12);
         }
-        &:after {
-            display: none; // hide ellipses
+        &:before {
+            float: none;
         }
     }
-    [class*="block-grid-"] > li & {
+    .accordion[class*="block-grid-"] > li & {
         left: $block-grid-default-spacing / 2;
         bottom: $block-grid-default-spacing;
     }
@@ -178,9 +192,6 @@
         > .content {
             @include accordion-content-invert;
         }
-    }
-    .accordion-direct-link {
-        border-right: 1px solid $default-border-color;
     }
 }
 

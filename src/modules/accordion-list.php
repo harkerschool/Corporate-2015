@@ -72,9 +72,7 @@
                     </div>
                 </li>
                 <li class="accordion-navigation">
-                    <a href="http://www.harker.org/page.cfm?p=2793" class="accordion-direct-link">
-                        <i class="fa fa-link"></i>
-                    </a>
+                    <a href="#" class="accordion-direct-link"></a>
                     <a href="#pa">Performing Arts</a>
                     <div id="pa" class="content">
                         <ul>
