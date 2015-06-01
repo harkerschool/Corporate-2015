@@ -18,6 +18,7 @@
         include "modules/nav.php";
         include "modules/intro.php";
         include "modules/stats.php";
+        // include "modules/tabs.php";
         include "modules/text-photo-right.php";
         include "modules/three-column.php";
         include "modules/text-photo-left.php";
