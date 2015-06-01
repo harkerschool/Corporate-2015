@@ -115,12 +115,82 @@ hkr.hero = {
 // TODO: Delay reaction of scroll events
 hkr.navbar = {
     init: function() {
-        var navBar = $('.nav-bar'),
-            sectionsMenu = $('.primary-nav-menu-sections'),
-            bookmarksMenu = $('.current-page-menu-bookmarks');
+        var $navBar = $('.nav-bar');
 
-        if (sectionsMenu.length) {
-            sectionsMenu.truncatedMenu({
+        if ($navBar.length === 0) {
+            this.element = {};
+            return this.element;
+        }
+
+        this.element = $navBar;
+        this.sectionMenu.init();
+        this.bookmarksMenu.init();
+        this.globalNav.init();
+
+        // set up scroll behavior for navbar
+        if (!Modernizr.touch) {
+            new Waypoint.Sticky({
+                element: $navBar[0],
+                stuckClass: 'is-stuck',
+                wrapper: '<div class="nav-bar-wrapper" />'
+            });
+
+            hkr.helpers.scroll(this.getScrollHandle("down"), this.getScrollHandle("up"));
+        } else {
+            new Waypoint.Sticky({
+                element: $('.current-page-bar')[0],
+                stuckClass: 'is-stuck',
+                wrapper: '<div class="current-page-bar-wrapper" />'
+            });
+        }
+
+        $(window).load(function() {
+            if (location.hash && $navBar.hasClass('is-stuck')) {
+                // scroll up to reveal content behind fixed navbar
+                scrollBy(0, $navBar.height() * -1);
+            }
+        });
+    },
+    getScrollHandle: function(direction) {
+        var bookmarksMenu = this.bookmarksMenu,
+            $navBar = this.element;
+
+        if (direction === "down") {
+            return function() {
+                // hide when user scrolls/swipes down
+                if (!$navBar.hasClass('is-collapsed') && $navBar.hasClass('is-stuck')) {
+                    $navBar.addClass('is-collapsed');
+                    if (bookmarksMenu.element.length) {
+                        bookmarksMenu.mediaQueries();
+                    }
+                }
+            };
+        }
+
+        if (direction === "up") {
+            return function() {
+                // show when user scrolls/swipes up
+                if ($navBar.hasClass('is-collapsed')) {
+                    $navBar.removeClass('is-collapsed').addClass('is-social');
+                    if (bookmarksMenu.element.length) {
+                        bookmarksMenu.mediaQueries();
+                    }
+                }
+            };
+        }
+    },
+    sectionMenu: {
+        init: function() {
+            var $sectionMenu = $('.primary-nav-menu-sections');
+
+            if ($sectionMenu.length === 0) {
+                this.element = {};
+                return this.element;
+            }
+
+            this.element = $sectionMenu;
+
+            $sectionMenu.truncatedMenu({
                 visibleItems: '.primary-nav-menu-sections .active',
                 moreItem: '.primary-nav-menu-sections .menu-item-more',
                 afterTruncate: function() {
@@ -128,108 +198,84 @@ hkr.navbar = {
                 }
             });
         }
+    },
+    bookmarksMenu: {
+        init: function() {
+            var $bookmarksMenu = $('.current-page-menu-bookmarks');
 
-        if (bookmarksMenu.length) {
-            bookmarksMenu.truncatedMenu({
+            if ($bookmarksMenu.length === 0) {
+                this.element = {};
+                return this.element;
+            }
+
+            this.element = $bookmarksMenu;
+            this.mediaQueries = this.getMediaQueries();
+
+            $bookmarksMenu.truncatedMenu({
                 moreItem: '.current-page-menu-bookmarks .menu-item-more',
                 afterTruncate: function() {
                     $(document).foundation('dropdown', 'reflow');
                 }
             });
 
-            var bookmarksMediaQueries = function() {
+            this.mediaQueries();
+            $(window).on('resize.hkr', this.mediaQueries);
+        },
+        getMediaQueries: function() {
+            var $bookmarksMenu = this.element;
+
+            return function() {
                 if (Foundation.utils.is_small_only()) {
-                    bookmarksMenu.data('plugin_truncatedMenu').truncateAll();
-                    bookmarksMenu.data('plugin_truncatedMenu').off();
+                    $bookmarksMenu.data('plugin_truncatedMenu').truncateAll();
+                    $bookmarksMenu.data('plugin_truncatedMenu').off();
                 } else {
-                    bookmarksMenu.data('plugin_truncatedMenu').on();
+                    $bookmarksMenu.data('plugin_truncatedMenu').on();
                 }
             };
-
-            bookmarksMediaQueries();
-            $(window).on('resize.hkr', function() {
-                bookmarksMediaQueries();
-            });
         }
+    },
+    globalNav: {
+        init: function() {
+            var $globalNav = $(".global-nav nav");
 
-        if (navBar.length) {
+            if ($globalNav.length === 0) {
+                this.element = {};
+                return this.element;
+            }
 
-            if (!Modernizr.touch) {
-                new Waypoint.Sticky({
-                    element: navBar[0],
-                    stuckClass: 'is-stuck',
-                    wrapper: '<div class="nav-bar-wrapper" />'
-                });
+            this.element = $globalNav;
+            $globalNav.attr('id', 'global-nav');
 
-                hkr.helpers.scroll(
-                    function() {
-                        // hide when user scrolls/swipes down
-                        if (!navBar.hasClass('is-collapsed') && navBar.hasClass('is-stuck')) {
-                            navBar.addClass('is-collapsed');
-                            if (bookmarksMenu.length) {
-                                bookmarksMediaQueries();
-                            }
-                        }
-                    },
-                    function() {
-                        // show when user scrolls/swipes up
-                        if (navBar.hasClass('is-collapsed')) {
-                            navBar.removeClass('is-collapsed').addClass('is-social');
-                            if (bookmarksMenu.length) {
-                                bookmarksMediaQueries();
-                            }
-                        }
+            // Set up mmenu
+            $globalNav.mmenu({
+                offCanvas: {
+                    position: "left",
+                    zposition: "front"
+                },
+                navbars: true,
+                extensions: ["pageshadow"]
+            }, {
+                // configuration
+                offCanvas: {
+                    pageNodetype: 'main',
+                    pageSelector: '#main'
+                },
+                classNames: {
+                    fixedElements: {
+                        fixed: "fixed"
                     }
-                );
-            } else {
-                new Waypoint.Sticky({
-                    element: $('.current-page-bar')[0],
-                    stuckClass: 'is-stuck',
-                    wrapper: '<div class="current-page-bar-wrapper" />'
-                });
-            }
-
-            $(window).load(function() {
-                if (location.hash && navBar.hasClass('is-stuck')) {
-                    // scroll up to reveal content behind fixed navbar
-                    scrollBy(0, navBar.height() * -1);
                 }
             });
 
-        }
+            var mmenu = $globalNav.data("mmenu");
 
-        // Set up mmenu
-        var globalNav = $(".global-nav nav").attr('id', 'global-nav');
-
-        globalNav.mmenu({
-            offCanvas: {
-                position: "left",
-                zposition: "front"
-            },
-            navbars: true,
-            extensions: ["pageshadow"]
-        }, {
-            // configuration
-            offCanvas: {
-                pageNodetype: 'main',
-                pageSelector: '#main'
-            },
-            classNames: {
-                fixedElements: {
-                    fixed: "fixed"
-                }
+            if (typeof mmenu !== "undefined") {
+                // somehow find list item to select
+                // mmenu.setSelected($('.global-nav-selected'));
+                // // somehow find panel to activate
+                // mmenu.openPanel($('#mm-14'));
             }
-        });
-
-        var mmenu = globalNav.data("mmenu");
-
-        if (typeof mmenu != "undefined") {
-            // somehow find list item to select
-            // mmenu.setSelected($('.global-nav-selected'));
-            // // somehow find panel to activate
-            // mmenu.openPanel($('#mm-14'));
         }
-
     }
 };
 

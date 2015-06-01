@@ -46,7 +46,8 @@
         padding-right: 0;
     }
     .row {
-        margin: 0;
+        margin-left: 0;
+        margin-right: 0;
     }
 }
 
@@ -99,7 +100,15 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .fsElement.hero {
-    @extend .section-full;
+    @extend .fsElement.section-full;
+    > header,
+    > footer {
+        display: none;
+    }
+    .row {
+        margin-top: rhythm(8);
+        margin-bottom: rhythm(8);
+    }
 }
 
 // Navbar
