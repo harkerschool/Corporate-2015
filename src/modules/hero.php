@@ -40,7 +40,6 @@ function hero( $args = array() ) {
     </div>
     <?php if ( $vimeo_id ): ?>
     <div class="hero-bg hero-fixed" data-vimeo-id="<?php echo $vimeo_id; ?>"> 
-        <iframe id="vimeoplayer" src="https://player.vimeo.com/video/<?php echo $vimeo_id; ?>?autoplay=1&loop=1&title=0&byline=0&portrait=0&api=1&player_id=vimeoplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     </div>
     <?php endif; ?>
     <?php if ( $wistia_id ): ?>

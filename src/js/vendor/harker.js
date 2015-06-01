@@ -44,45 +44,71 @@ hkr.foundation = {
 
 hkr.hero = {
     init: function() {
-        var vimeoPlayer = ($('#vimeoplayer').length) ? $f($('#vimeoplayer')[0]) : false,
-            wistiaID = $('.hero-feature').data('wistia-id'),
-            wistiaHTML = '<div id="wistia_' + wistiaID + '" class="wistia_embed">&nbsp;</div>',
-            exitLinkHTML = '<a href="#" id="fs-wistia-exit" title="Exit Video"><i class="fa fa-2x fa-times"></i></a>',
-            $heroBg = $('.hero-bg'),
-            $heroBgIframe = $('iframe', $heroBg),
-            $heroFeature = $('.hero-feature');
+        this.setupBgImage();
+        this.setupBgVideo();
+        this.setupFeatureVideo();
+    },
+    setupBgImage: function() {
+        var $img = $('.hero-img > img');
+
+        if ($img.length === 0) {
+            return;
+        }
+
+        // Initiate fullscreen image
+        $img.fsBackground({
+            cropBottom: 60,
+            container: '#hero'
+        });
+    },
+    setupBgVideo: function() {
+        var $videoContainer = $('.hero-bg'),
+            vimeoID = $videoContainer.data('vimeo-id');
+
+        if ($videoContainer.length === 0 || vimeoID === undefined) {
+            return;
+        }
+
+        var vimeoHTML = '<iframe id="vimeoplayer" src="https://player.vimeo.com/video/' + vimeoID + '?autoplay=1&loop=1&title=0&byline=0&portrait=0&api=1&player_id=vimeoplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
+            $video = $(vimeoHTML),
+            vimeoPlayer = $f($video[0]);
 
         // Add CSS handles to indicate when Vimeo background video is playing
         if (vimeoPlayer) {
             vimeoPlayer.addEvent('ready', function() {
                 vimeoPlayer.addEvent('play', function() {
-                    $heroBg.addClass('is-playing');
+                    $videoContainer.addClass('is-playing');
                 });
                 vimeoPlayer.addEvent('pause', function() {
-                    $heroBg.removeClass('is-playing');
+                    $videoContainer.removeClass('is-playing');
                 });
             });
         }
 
-        // Set up fullscreen background video and image
-        if ($heroBgIframe.length) {
-            $heroBgIframe.fullscreenVideo({
-                cropBottom: 60,
-                container: '#hero',
-                img: '.hero-img img'
-            });
+        // Add element and initiate fullscreen video
+        $video.appendTo($videoContainer).fsBackground({
+            cropBottom: 60
+        });
+    },
+    setupFeatureVideo: function() {
+        var $videoContainer = $('.hero-feature'),
+            wistiaID = $videoContainer.data('wistia-id');
+
+        if (wistiaID === undefined || typeof Wistia === 'undefined' || $videoContainer.length === 0) {
+            $('#fs-wistia-play').remove();
+            return;
         }
 
+        var wistiaHTML = '<div id="wistia_' + wistiaID + '" class="wistia_embed">&nbsp;</div>',
+            exitLinkHTML = '<a href="#" id="fs-wistia-exit" title="Exit Video"><i class="fa fa-2x fa-times"></i></a>';
+
         // Set up Wistia feature video
-        if ($heroFeature.length && typeof Wistia !== 'undefined') {
-            $heroFeature.append(exitLinkHTML + wistiaHTML);
-            Wistia.fsembed(wistiaID, {
-                container: '.hero-feature',
-                playLink: '#fs-wistia-play'
-            });
-        } else {
-            $('#fs-wistia-play').remove();
-        }
+        $videoContainer.append(exitLinkHTML + wistiaHTML);
+        Wistia.fsembed(wistiaID, {
+            container: '.hero-feature',
+            playLink: '#fs-wistia-play'
+        });
+
     }
 };
 
