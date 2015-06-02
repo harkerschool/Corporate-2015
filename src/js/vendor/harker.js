@@ -26,7 +26,8 @@ hkr.foundation = {
         // Initialize Foundation
         $(document).foundation({
             "magellan-expedition": {
-                destination_threshold: 48, // pixels from the top of destination for it to be considered active
+                destination_threshold: 96, // pixels from the top of destination for it to be considered active
+                offset_by_height: false
             },
             accordion: {
                 multi_expand: true
@@ -209,6 +210,8 @@ hkr.navbar = {
             }
 
             this.element = $bookmarksMenu;
+            this.insertBookmarks();
+            this.insertPageTitle();
             this.mediaQueries = this.getMediaQueries();
 
             $bookmarksMenu.truncatedMenu({
@@ -232,6 +235,48 @@ hkr.navbar = {
                     $bookmarksMenu.data('plugin_truncatedMenu').on();
                 }
             };
+        },
+        insertBookmarks: function() {
+            var $bookmarks = $('main').find('*[id^="bookmark-"]'),
+                $bookmarksMenu = this.element,
+                menuHTML = '';
+
+            $bookmarks.each(function(i, el) {
+                var $bookmark = $(this),
+                    id = $bookmark.attr('id'),
+                    text = '',
+                    lengthMax = 20;
+
+                if ($bookmark.data('bookmark-label') !== undefined) {
+                    text = $bookmark.data('bookmark-label');
+                } else {
+                    text = $bookmark.text().trim();
+                    if (text.length > lengthMax) {
+                        text = text.substring(0, lengthMax).trim() + "&hellip;";
+                    }
+                }
+
+                $bookmark.data('magellan-destination', id);
+                menuHTML += '<li data-magellan-arrival="' + id + '"><a href="#' + id + '">' + text + '</a></li>';
+            });
+
+            menuHTML += '<li class="menu-item-more">\n\t<a href="#more-bookmarks" data-dropdown="more-bookmarks" aria-controls="more-bookmarks" aria-expanded="false"><span>More</span></a>\n\t<ul id="more-bookmarks" class="f-dropdown" data-dropdown-content aria-hidden="true"></ul>\n</li>';
+
+            $bookmarksMenu.html(menuHTML);
+        },
+        insertPageTitle: function() {
+            var $pageTitle = $('.title'),
+                $pageTopic = $pageTitle.children('.title-topic'),
+                $navbarTitle = $('.current-page-title > a'),
+                text = '';
+
+            if ($pageTitle.data('nav-bar-title') !== undefined) {
+                $pageTitle.data('nav-bar-title');
+            } else {
+                text = ($pageTopic.length) ? $pageTopic.text().trim() : $pageTitle.text().trim();
+            }
+
+            $navbarTitle.html(text);
         }
     },
     globalNav: {

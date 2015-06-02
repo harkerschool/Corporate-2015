@@ -54,11 +54,10 @@
             }
 
             if ($moreItem.length === 0) {
-                $moreItem = $('li[class="menu-item-more"]').appendTo($list);
-            }
+                var moreItemHTML = '<li class="menu-item-more"><a href="#more-bookmarks" data-dropdown="more-bookmarks" aria-controls="more-bookmarks" aria-expanded="false"><span>More</span></a><ul id="more-bookmarks" class="f-dropdown" data-dropdown-content aria-hidden="true"></ul></li>';
 
-            if ($hiddenList.length === 0) {
-                $hiddenList = $('ul').appendTo($moreItem);
+                $moreItem = $(moreItemHTML).appendTo($list);
+                $hiddenList = $moreItem.children('ul');
             }
 
             // get list items and widths

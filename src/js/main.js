@@ -2,8 +2,8 @@
     $(document).ready(function() {
 
         hkr.hero.init();
-        hkr.foundation.init();
         hkr.navbar.init();
+        hkr.foundation.init();
         hkr.news.init();
 
     });

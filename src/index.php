@@ -7,7 +7,7 @@
 <main id="main" data-magellan-destination="main">
     <?php
         hero( array(
-            'title' => 'Preschool Specialty Classes',
+            'title' => '<span class="title-division">Preschool</span> <span class="title-topic">Specialty Classes</span>',
             'subtitle' => 'Learn by Exploring.',
             'text_classes' => 'large-12 large-offset-10',
             'img_src' => 'img/placeholders/bgimg-ps-specialty-classes.jpg', // background image

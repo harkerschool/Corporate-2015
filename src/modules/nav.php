@@ -38,15 +38,6 @@
                 <li class="current-page-title"><a href="#top">Back to Top</a></li>
             </ul>
             <ul class="current-page-menu current-page-menu-bookmarks">
-                <li data-magellan-arrival="intro"><a href="#intro">Intro</a></li>
-                <li data-magellan-arrival="subtopic1"><a href="#subtopic1">Subtopic 1</a></li>
-                <li data-magellan-arrival="subtopic2"><a href="#subtopic2">Subtopic 2</a></li>
-                <li data-magellan-arrival="subtopic2"><a href="#subtopic3">Subtopic 3</a></li>
-                <li class="menu-item-more">
-                    <a href="#more-bookmarks" data-dropdown="more-bookmarks" aria-controls="more-bookmarks" aria-expanded="false"><span>More</span></a>
-                    <ul id="more-bookmarks" class="f-dropdown" data-dropdown-content aria-hidden="true">
-                    </ul>
-                </li>
             </ul>
         </nav>
     </div>

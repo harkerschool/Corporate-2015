@@ -1,7 +1,7 @@
-<div class="section" id="intro" data-magellan-destination="intro">
+<div class="section">
     <div class="row">
         <div class="column">
-            <p class="large-text-columns-3">
+            <p class="large-text-columns-3" id="bookmark-intro" data-magellan-destination="bookmark-intro">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
                 tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
                 quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
