@@ -1,4 +1,4 @@
-<div class="section" id="bookmark-stats" data-magellan-destination="bookmark-stats">
+<div class="section">
     <div class="row">
         <div class="column">
             <h2>By The Numbers <a href="#">See more facts & stats</a></h2>

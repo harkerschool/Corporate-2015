@@ -64,6 +64,7 @@ $harker-logo-width: 223px;
 }
 .primary-nav-menu, .current-page-menu {
     @include inline-list;
+    @include clearfix;
     li {
         margin: 0;
     }
@@ -357,6 +358,7 @@ $harker-logo-width: 223px;
 .menu-item-more .f-dropdown {
     background-color: rgba($white,0.9);
     margin-top: 0;
+    width: 200px;
     @include box-shadow( 0 2px 2px -1px rgba(black, 0.2) );
     li {
         &.active {

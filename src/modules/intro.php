@@ -1,13 +1,8 @@
 <div class="section">
     <div class="row">
-        <div class="column">
-            <p class="large-text-columns-3" id="bookmark-intro" data-magellan-destination="bookmark-intro">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <div class="column medium-18 medium-centered">
+            <p class="intro" id="bookmark-intro" data-bookmark-label="Intro">
+                In a supportive and nurturing environment, our exceptionally qualified faculty build tailored learning programs and opportunities for our youngest students. Specialists begin teaching in kindergarten, and students take pride and pleasure in their accomplishments in an environment of honesty and personal accountability.
             </p>
         </div>
     </div>

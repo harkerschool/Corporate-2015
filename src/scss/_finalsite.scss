@@ -2,10 +2,8 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .fsElement {
-    position: relative;
+    @extend .section;
     clear: both;
-    background-color: $lightgray;
-    padding: rhythm(1.5) 0;
     .fsElement {
         background-color: transparent;
         padding: 0;

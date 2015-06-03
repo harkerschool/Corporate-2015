@@ -26,7 +26,7 @@ hkr.foundation = {
         // Initialize Foundation
         $(document).foundation({
             "magellan-expedition": {
-                destination_threshold: 96, // pixels from the top of destination for it to be considered active
+                destination_threshold: 24 + 96 + 48, // pixels from the top of destination for it to be considered active
                 offset_by_height: false
             },
             accordion: {
@@ -148,7 +148,7 @@ hkr.navbar = {
         $(window).load(function() {
             if (location.hash && $navBar.hasClass('is-stuck')) {
                 // scroll up to reveal content behind fixed navbar
-                scrollBy(0, $navBar.height() * -1);
+                scrollBy(0, $navBar.height() * -1 - 48);
             }
         });
     },
@@ -256,7 +256,7 @@ hkr.navbar = {
                     }
                 }
 
-                $bookmark.data('magellan-destination', id);
+                $bookmark.attr('data-magellan-destination', id);
                 menuHTML += '<li data-magellan-arrival="' + id + '"><a href="#' + id + '">' + text + '</a></li>';
             });
 
