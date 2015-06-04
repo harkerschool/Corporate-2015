@@ -90,6 +90,12 @@
     border-bottom: 1px solid $default-border-color;
 }
 
+// Margins
+.margin-top { margin-top: rhythm(1); }
+.margin-bottom { margin-bottom: rhythm(1); }
+.margin-left { margin-left: ($column-gutter/2); }
+.margin-right { margin-right: ($column-gutter/2); }
+
 // Background Colors
 .green-bg {
     background-color: $green;
