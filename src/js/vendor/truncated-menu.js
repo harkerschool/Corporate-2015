@@ -45,20 +45,28 @@
                 visibleItemsWidth = 0,
                 listItems = [];
 
-            // save initial visible and hidden items
-            this.initVisibleItems = $visibleItems;
-            this.initHiddenItems = $hiddenItems;
+            this.settings.moreItem = $moreItem;
+            this.settings.hiddenItems = $hiddenItems;
+            this.settings.visibleItems = $visibleItems;
 
             if ($list.length === 0) {
                 return false;
             }
 
             if ($moreItem.length === 0) {
-                var moreItemHTML = '<li class="menu-item-more"><a href="#more-bookmarks" data-dropdown="more-bookmarks" aria-controls="more-bookmarks" aria-expanded="false"><span>More</span></a><ul id="more-bookmarks" class="f-dropdown" data-dropdown-content aria-hidden="true"></ul></li>';
+                var moreItemHTML = '<li class="menu-item-more"><a href="#more-' + this.id + '" data-dropdown="more-' + this.id + '" aria-controls="more-' + this.id + '" aria-expanded="false"><span>More</span></a><ul id="more-' + this.id + '" class="f-dropdown" data-dropdown-content aria-hidden="true"></ul></li>';
 
                 $moreItem = $(moreItemHTML).appendTo($list);
                 $hiddenList = $moreItem.children('ul');
+                $visibleItems = ($visibleItems.length === 0) ? $().add($moreItem) : $visibleItems.add($moreItem);
+
+                this.settings.moreItem = $moreItem;
+                this.settings.visibleItems = $visibleItems;
             }
+
+            // save initial visible and hidden items
+            this.initVisibleItems = $visibleItems;
+            this.initHiddenItems = $hiddenItems;
 
             // get list items and widths
             $list.children('li').not($hiddenItems).each(function() {
@@ -125,9 +133,10 @@
             var $list = $(this.element),
                 $moreItem = $(this.settings.moreItem).removeClass('hide'),
                 $hiddenList = $moreItem.children('ul'),
-                $hiddenItems = $list.find('li').not($moreItem);
+                $visibleItems = $(this.settings.visibleItems),
+                $hiddenItems = $list.find('li').not($visibleItems);
 
-            $list.empty().append($moreItem).addClass('is-truncated-all');
+            $list.empty().append($visibleItems).addClass('is-truncated-all');
             $hiddenList.empty().append($hiddenItems);
 
             this.settings.afterTruncate();

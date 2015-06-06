@@ -3,8 +3,8 @@
 
 $brand-bar-height: rem-calc(48);
 $current-page-bar-height: $brand-bar-height;
-$harker-logo-square-width: 72px;
-$harker-logo-width: 223px;
+$harker-logo-square-width: 65px; // 16px left/right padding
+$harker-logo-width: 215px; // 16px left/right padding
 
 @mixin nav-bar-icon($content) {
     @include fa-icon();
@@ -65,6 +65,7 @@ $harker-logo-width: 223px;
 .primary-nav-menu, .current-page-menu {
     @include inline-list;
     @include clearfix;
+    margin: 0;
     li {
         margin: 0;
     }
@@ -112,8 +113,8 @@ $harker-logo-width: 223px;
     margin-right: 0.5rem;
 }
 .brand-bar .primary-nav-menu-sections {
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
 } 
 
 .primary-nav-menu-home {
@@ -124,35 +125,34 @@ $harker-logo-width: 223px;
     }
 }
 
-.harker-logo {
+.nav-bar .harker-logo {
     width: $harker-logo-square-width;
     border-right: 4px solid $darkerharkergreen;
     @media #{$large-up} { 
         width: $harker-logo-width;
         border-left: 4px solid $darkerharkergreen;
     }
-    .nav-bar.is-stuck & {
-        position: fixed;
-        top: 0;
-        @include transition( transform 0.25s );
-        @include transform( translateY(0) );
-        @include trigger-gpu();
-    }
-    .nav-bar.is-stuck.is-collapsed & {
-        @include transform( translateY($brand-bar-height) );
-    }
     a, & {
-        background: $harkergreen url(../img/harker-logo-square.png) no-repeat center center;
-        text-indent: 120%;
-        white-space: nowrap;
-        overflow: hidden;
-        @media #{$large-up} { 
-            background-image: url(../img/harker-logo.png)
-        }
+        background-color: $harkergreen;
     }
     a:hover {
         background-color: $darkharkergreen;
     }
+}
+
+.nav-bar.is-stuck .harker-logo {
+    position: fixed;
+    top: 0;
+    @include transition( transform 0.25s );
+    @include transform( translateY(0) );
+    @include trigger-gpu();
+}
+.nav-bar.is-stuck.is-collapsed .harker-logo {
+    @include transform( translateY($brand-bar-height) );
+}
+
+.primary-nav-menu-sections a {
+    text-transform: uppercase;
 }
 
 .primary-nav-menu-secondary a {
@@ -224,22 +224,25 @@ $harker-logo-width: 223px;
     }
 }
 
+$transform-nav-distance: $harker-logo-square-width;
+$transform-nav-distance-large: $harker-logo-width;
 .current-page-nav {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
     @include transform( translateX(0) );
     @include transition(transform 0.25s ease-out);
     @include trigger-gpu();
     .nav-bar.is-stuck.is-collapsed & {
-        @include transform( translateX($harker-logo-square-width) );
+        @include transform( translateX($transform-nav-distance) );
         @media #{$large-up} { 
-            @include transform( translateX($harker-logo-width) );
+            @include transform( translateX($transform-nav-distance-large) );
         }
     }
 }
-
 .nav-bar.is-stuck.is-collapsed .f-dropdown {
-    @include transform( translateX(-$harker-logo-square-width) );
+    @include transform( translateX(-$transform-nav-distance) );
     @media #{$large-up} {
-        @include transform( translateX(-$harker-logo-width) );
+        @include transform( translateX(-$transform-nav-distance-large) );
     }
 }
 
@@ -256,21 +259,6 @@ $harker-logo-width: 223px;
         // @media #{$large-up} {
         //     margin-left: $harker-logo-width;
         // }
-    }
-}
-
-.current-page-hamburger a {
-    font-size: rem-calc(13);
-    padding-left: 1rem;
-    // font-size: rem-calc(24); // big icon
-    // padding-left: 1rem;
-    // padding-right: 1rem;
-    // border-left: 1px solid $silver;
-    // border-right: 1px solid $silver;
-    // margin-right: 0.5rem;
-    &:before {
-        @include nav-bar-icon($fa-var-bars);
-        width: 1em;
     }
 }
 
@@ -341,45 +329,6 @@ $harker-logo-width: 223px;
     }
 }
 
-// Nav Bar Modules
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-
-.menu-item-more > a {
-    position: relative;
-    overflow: hidden;
-    span {
-        position: absolute;
-        top: 0;
-        left: 100%;
-    }
-    &:after {
-        @include nav-bar-icon($fa-var-ellipsis-h); // $fa-var-angle-down;
-    }
-}
-.menu-item-more .f-dropdown {
-    background-color: rgba($white,0.9);
-    margin-top: 0;
-    width: 200px;
-    @include box-shadow( 0 2px 2px -1px rgba(black, 0.2) );
-    li {
-        &.active {
-            a {
-                color: $darkergray;
-                border-bottom: 3px solid $blue;
-            }
-        }
-    }
-    a {
-        color: $gray;
-        font-size: inherit;
-        padding-top: 0.75rem;
-        padding-bottom: 0.75rem;
-        &:hover, &:focus {
-            color: $darkergray;
-        }
-    }
-}
-
 // mmenu (drawer menu)
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -434,4 +383,87 @@ $mm_btnSize: 48px;
 
 .mm-menu .mm-navbar > a {
     color: $darkgray;
+}
+
+// Menu Modules
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.menu-item-hamburger {
+    display: block;
+    // float: right;
+    // font-size: rem-calc(24);
+    // margin-top: 11px;
+    a {
+        margin-top: -2px; // correct bottom text alignment with text links
+        &:before {
+            @include fa-icon();
+            content: $fa-var-bars;
+            display: block;
+            line-height: inherit;
+        }
+    }
+}
+
+.menu-item-more > a {
+    position: relative;
+    overflow: hidden;
+    span {
+        position: absolute;
+        top: 0;
+        left: 100%;
+    }
+    &:after {
+        @include nav-bar-icon($fa-var-ellipsis-h); // $fa-var-angle-down;
+    }
+}
+.menu-item-more .f-dropdown {
+    background-color: rgba($white,0.95);
+    margin-top: 0;
+    width: 200px;
+    @include box-shadow( 0 2px 2px -1px rgba(black, 0.2) );
+    li {
+        border-top: 1px solid $default-border-color;
+        &:hover, &:focus {
+            background-color: $white;
+        }
+        &:first-child {
+            border-top: none;
+        }
+        &.active {
+            a {
+                color: $darkergray;
+                border-bottom: 3px solid $blue;
+            }
+        }
+    }
+    a {
+        color: $gray;
+        font-size: inherit;
+        padding-top: 0.75rem;
+        padding-bottom: 0.75rem;
+        &:hover, &:focus {
+            color: $darkergray;
+        }
+    }
+}
+
+.harker-logo {
+    width: 33px;
+    height: rhythm(2);
+    &, a {
+        background: url(../img/harker-logo-square.png) no-repeat center center;
+        text-indent: 120%;
+        white-space: nowrap;
+        overflow: hidden;
+        @media #{$large-up} { 
+            background-image: url(../img/harker-logo.png);
+        }
+    }
+    a {
+        display: block;
+        width: auto;
+    }
+    @media #{$large-up} { 
+        width: 183px;
+    }
 }

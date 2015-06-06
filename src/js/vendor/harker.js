@@ -113,6 +113,48 @@ hkr.hero = {
     }
 };
 
+hkr.header = {
+    init: function() {
+        this.menu.init();
+    },
+    menu: {
+        init: function() {
+            var $menu = $('.header-nav-menu-sections');
+
+            if ($menu.length === 0) {
+                this.element = {};
+                return this.element;
+            }
+
+            this.element = $menu;
+            this.mediaQueries = this.getMediaQueries();
+
+            $menu.truncatedMenu({
+                moreItem: '.header-nav-menu-sections .menu-item-more',
+                visibleItems: '.header-nav-menu-sections .header-hamburger',
+                afterTruncate: function() {
+                    $(document).foundation('dropdown', 'reflow');
+                }
+            });
+
+            // this.mediaQueries();
+            // $(window).on('resize.hkr', this.mediaQueries);
+        },
+        getMediaQueries: function() {
+            var $menu = this.element;
+
+            return function() {
+                if (Foundation.utils.is_small_only()) {
+                    $menu.data('plugin_truncatedMenu').truncateAll();
+                    $menu.data('plugin_truncatedMenu').off();
+                } else {
+                    $menu.data('plugin_truncatedMenu').on();
+                }
+            };
+        }
+    }
+};
+
 // TODO: Delay reaction of scroll events
 hkr.navbar = {
     init: function() {
@@ -192,7 +234,7 @@ hkr.navbar = {
             this.element = $sectionMenu;
 
             $sectionMenu.truncatedMenu({
-                visibleItems: '.primary-nav-menu-sections .active',
+                visibleItems: '.primary-nav-menu-sections .active, .primary-nav-menu-sections .menu-item-hamburger',
                 moreItem: '.primary-nav-menu-sections .menu-item-more',
                 afterTruncate: function() {
                     $(document).foundation('dropdown', 'reflow');
@@ -215,7 +257,7 @@ hkr.navbar = {
             this.mediaQueries = this.getMediaQueries();
 
             $bookmarksMenu.truncatedMenu({
-                moreItem: '.current-page-menu-bookmarks .menu-item-more',
+                moreItem: '.current-page-menu-bookmarks .menu-item-more, .current-page-menu-bookmarks .menu-item-hamburger',
                 afterTruncate: function() {
                     $(document).foundation('dropdown', 'reflow');
                 }

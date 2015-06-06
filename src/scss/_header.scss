@@ -1,0 +1,97 @@
+$harker-logo-stacked-width: 89px;
+$harker-logo-stacked-height: 63px;
+$header-menu-line-height: 16px;
+
+.header {
+    margin-top: rhythm(1);
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 50;
+    background: transparent;
+    &, a {
+        color: $white;
+    }
+}
+
+.header-nav {
+    @include grid-row;
+    @include grid-column(24);
+    float: none;
+}
+
+.header .harker-logo {
+    float: left;
+}
+
+.header-nav-menu {
+    @include inline-list;
+    margin-bottom: 0;
+    > li {
+        margin-left: 1rem;
+    }
+    a {
+        text-decoration: none;
+        text-transform: uppercase;
+    }
+}
+
+.header-nav-menu-sections {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    > li {
+        margin-top: 21px;
+        line-height: 1rem;
+    }
+    > li, > li > ul { 
+        // display: none; 
+    }
+    .menu-item-hamburger {
+        // display: block;
+        a {
+            margin-top: -2px; // correct bottom text alignment with text links
+        }
+    }
+    @media #{$medium-up} { 
+        > li, > li > ul { 
+            display: block; 
+        }
+        // .header-hamburger {
+        //     float: left;
+        //     font-size: 1rem;
+        //     margin-top: 21px;
+        //     a {
+        //         margin-top: -2px; // correct bottom text alignment with text links
+        //     }
+        // }
+    }
+}
+
+.header-nav-menu-secondary {
+    float: right;
+    > li {
+        margin-top: 11px;
+        font-size: rem-calc(24);
+        line-height: 1em;
+    }
+    a:before {
+        @include fa-icon();
+        display: block;
+        line-height: 1em;
+    }
+}
+
+.harker-logo-stacked {
+    width: $harker-logo-stacked-width;
+    height: $harker-logo-stacked-height;
+    a, & {
+        display: block;
+        background: url(../img/harker-logo-stacked.png) no-repeat center center;
+        text-indent: 120%;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+    a {
+        width: auto;
+    }
+}

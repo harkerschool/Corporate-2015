@@ -9,7 +9,7 @@
         hero( array(
             'title' => '<span class="title-division">Preschool</span> <span class="title-topic">Specialty Classes</span>',
             'subtitle' => 'Learn by Exploring.',
-            'text_classes' => 'large-12 large-offset-10',
+            'text_classes' => 'large-12 large-offset-12',
             'img_src' => 'img/placeholders/bgimg-ps-specialty-classes.jpg', // background image
             'img_alt' => '',
             'vimeo_id' => '122377196', // background video

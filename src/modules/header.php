@@ -27,4 +27,31 @@
 </script>
 </head>
 <body>
+    <header id="header" class="header">
+        <nav class="header-nav">
+            <div class="harker-logo">The Harker School</div>
+            <ul class="header-nav-menu header-nav-menu-secondary">
+                <li class="menu-item-search"><a href="#" title="Search"></a></li>
+                <li class="menu-item-login"><a href="#" title="Login"></a></li>
+            </ul>
+            <ul class="header-nav-menu header-nav-menu-sections">
+                <li class="menu-item-hamburger"><a href="#global-nav" title="Menu"></a></li>
+                <li><a href="#">Admission</a></li>
+                <li><a href="#">Preschool</a></li>
+                <li><a href="#">Lower School</a></li>
+                <li><a href="#">Middle School</a></li>
+                <li><a href="#">Upper School</a></li>
+                <li><a href="#">Summer</a></li>
+                <li class="menu-item-more">
+                    <a href="#h-more-sections" data-dropdown="h-more-sections" aria-controls="h-more-sections" aria-expanded="false"><span>More</span></a>
+                    <ul id="h-more-sections" class="f-dropdown" data-dropdown-content aria-hidden="true">
+                        <li class="more-sections-item"><a href="/about">About</a></li>
+                        <li class="more-sections-item"><a href="/news">News</a></li>
+                        <li class="more-sections-item"><a href="/alumni">Alumni</a></li>
+                        <li class="more-sections-item"><a href="/giving">Giving</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
 <?php } ?>

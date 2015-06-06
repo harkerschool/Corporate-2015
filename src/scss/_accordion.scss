@@ -25,6 +25,7 @@
         content: $fa-var-ellipsis-v;
         color: inherit;
         float: right;
+        margin-left: 1rem;
     }
 }
 @mixin accordion-button-active() {

@@ -14,7 +14,7 @@ function hero( $args = array() ) {
 ?>
 <div id="hero" class="hero">
     <div class="hero-text">
-        <div class="row-fill">
+        <div class="row">
             <div class="columns <?php echo $text_classes; ?>">
                 <h1 class="title"><?php echo $title; ?></h1>
                 <p class="subtitle">

@@ -13,10 +13,11 @@
                 <li class="menu-item-login"><a href="http://www.harker.org/page.cfm?p=196" title="Login"></a></li>
             </ul>
             <ul class="primary-nav-menu primary-nav-menu-sections">
+                <li class="menu-item-hamburger"><a href="#global-nav" title="Menu"></a></li>
                 <li><a href="/admission">Admission</a></li>
                 <li><a href="/preschool">Preschool</a></li>
                 <li><a href="/lower-school">Lower School</a></li>
-                <li><a href="/middle-school">Middle School</a></li>
+                <li class="active"><a href="/middle-school">Middle School</a></li>
                 <li><a href="/upper-school">Upper School</a></li>
                 <li><a href="/summer">Summer</a></li>
                 <li class="menu-item-more">
@@ -34,7 +35,6 @@
     <div class="current-page-bar">
         <nav class="current-page-nav" data-magellan-expedition="current-page-nav">
             <ul class="current-page-menu current-page-menu-meta">
-                <li class="current-page-hamburger"><a href="#global-nav" title="Menu"></a></li>
                 <li class="current-page-title"><a href="#top">Back to Top</a></li>
             </ul>
             <ul class="current-page-menu current-page-menu-bookmarks">
