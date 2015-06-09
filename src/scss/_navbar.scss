@@ -9,7 +9,7 @@ $harker-logo-width: 215px; // 16px left/right padding
 @mixin nav-bar-icon($content) {
     @include fa-icon();
     content: $content;
-    line-height: rhythm(1);
+    line-height: inherit;
     display: block;
     width: rhythm(1);
     text-align: center;
@@ -87,7 +87,7 @@ $harker-logo-width: 215px; // 16px left/right padding
         color: $lightgray;
     }
     a, span {
-        padding: 0.75rem 0.5rem;
+        padding: rem-calc(14) 0.5rem rem-calc(10);
         background-color: $darkharkergreen;
         @include transition(background-color 0.5s);
         &:hover { 
@@ -213,7 +213,7 @@ $harker-logo-width: 215px; // 16px left/right padding
     @include box-shadow( $default-shadow );
     a, span {
         height: $current-page-bar-height;
-        padding: 0.75rem 0.5rem 0.5rem;
+        padding: 0.75rem 0.5rem;
         @media #{$large-up} {
             // padding: 1rem 0.5rem 0.5rem;
             margin-bottom: 0;
@@ -394,12 +394,10 @@ $mm_btnSize: 48px;
     // font-size: rem-calc(24);
     // margin-top: 11px;
     a {
-        margin-top: -2px; // correct bottom text alignment with text links
         &:before {
-            @include fa-icon();
-            content: $fa-var-bars;
-            display: block;
-            line-height: inherit;
+            @include nav-bar-icon($fa-var-bars);
+            position: relative;
+            top: -2px; // correct bottom text alignment with text links
         }
     }
 }
@@ -414,6 +412,8 @@ $mm_btnSize: 48px;
     }
     &:after {
         @include nav-bar-icon($fa-var-ellipsis-h); // $fa-var-angle-down;
+        position: relative;
+        top: 3px;
     }
 }
 .menu-item-more .f-dropdown {
