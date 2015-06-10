@@ -25,7 +25,7 @@
         include "modules/two-column.php";
         include "modules/text-photo-left-alt.php";
         include "modules/accordion-list.php";
-        include "modules/accordion-list-fs.php";
+        // include "modules/accordion-list-fs.php";
         // include "modules/text-columns.php";
         include "modules/features.php";
         include "modules/base.php";

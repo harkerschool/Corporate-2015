@@ -74,18 +74,3 @@ $header-menu-line-height: 16px;
         line-height: 1em;
     }
 }
-
-.harker-logo-stacked {
-    width: $harker-logo-stacked-width;
-    height: $harker-logo-stacked-height;
-    a, & {
-        display: block;
-        background: url(../img/harker-logo-stacked.png) no-repeat center center;
-        text-indent: 120%;
-        white-space: nowrap;
-        overflow: hidden;
-    }
-    a {
-        width: auto;
-    }
-}

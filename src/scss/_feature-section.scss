@@ -2,7 +2,7 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .section-feature {
-    padding: 0;
+    @extend .section-collapse;
     overflow: hidden;
     > .row {
         @extend .row-wide;
