@@ -161,6 +161,7 @@
     &:before {
         content: $fa-var-link !important;
         float: none;
+        margin-left: 0;
     }
     .accordion-invert & {
         @include accordion-button-invert;

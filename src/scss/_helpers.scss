@@ -107,7 +107,7 @@
     &:after {
         @include nav-bar-icon($fa-var-ellipsis-h); // $fa-var-angle-down;
         position: relative;
-        top: 3px;
+        top: -2px;
     }
 }
 .menu-item-more .f-dropdown {
@@ -136,7 +136,7 @@
         padding-top: 0.75rem;
         padding-bottom: 0.75rem;
         &:hover, &:focus {
-            color: $darkergray;
+            color: $darkergray; 
         }
     }
 }
@@ -145,23 +145,17 @@
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .harker-logo {
-    width: 33px;
-    height: rhythm(2);
-    &, a {
-        background: url(../img/harker-logo-square.png) no-repeat center center;
-        text-indent: 120%;
-        white-space: nowrap;
-        overflow: hidden;
-        @media #{$large-up} { 
-            background-image: url(../img/harker-logo.png);
-        }
-    }
+    text-indent: -9999px;
+    overflow: hidden;
     a {
         display: block;
-        width: auto;
-    }
-    @media #{$large-up} { 
-        width: 183px;
+        width: 33px;
+        height: rhythm(2);
+        background: url(../img/harker-logo-square.png) no-repeat center center;
+        @media #{$large-up} { 
+            width: 183px;
+            background-image: url(../img/harker-logo.png);
+        }
     }
 }
 
@@ -173,24 +167,20 @@
 }
 
 .harker-logo.harker-logo-horiz {
-    width: 183px;
-    &, a {
+    a {
+        width: 183px;
         background-image: url(../img/harker-logo.png);
     }
 }
 
 .harker-logo-stacked {
-    width: $harker-logo-stacked-width;
-    height: $harker-logo-stacked-height;
-    a, & {
-        display: block;
-        background: url(../img/harker-logo-stacked.png) no-repeat center center;
-        text-indent: 120%;
-        white-space: nowrap;
-        overflow: hidden;
-    }
+    text-indent: -9999px;
+    overflow: hidden;
     a {
-        width: auto;
+        display: block;
+        width: $harker-logo-stacked-width;
+        height: $harker-logo-stacked-height;
+        background: url(../img/harker-logo-stacked.png) no-repeat center center;
     }
 }
 

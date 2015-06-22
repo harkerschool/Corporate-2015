@@ -439,6 +439,8 @@ $account-bar-height: 38px;
 
 #fsPoweredByFinalsite {
     margin: 1rem;
+    position: absolute;
+    bottom: 38px;
 }
 
 // Admin
@@ -451,4 +453,8 @@ $account-bar-height: 38px;
         width: 100%;
         bottom: 0;
     }
+}
+
+#fsElementSettings > input {
+    display: inline;
 }

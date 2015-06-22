@@ -23,9 +23,9 @@ $harker-logo-width: 215px; // 16px left/right padding
 }
 
 @mixin trigger-gpu() {
-    @include transform( translateZ(0) );
-    @include backface-visibility(hidden);
-    @include perspective(1000);
+    // @include transform( translateZ(0) );
+    // @include backface-visibility(hidden);
+    // @include perspective(1000);
 }
 
 .nav-bar, .nav-bar-wrapper {
@@ -35,6 +35,7 @@ $harker-logo-width: 215px; // 16px left/right padding
 
 .nav-bar {
     z-index: 100;
+    height: 48*2px;
     &.is-stuck {
         @include is-stuck();
         // @include transition(top 0.25s);
@@ -141,8 +142,7 @@ $harker-logo-width: 215px; // 16px left/right padding
 }
 
 .nav-bar.is-stuck .harker-logo {
-    position: fixed;
-    top: 0;
+    position: absolute;
     @include transition( transform 0.25s );
     @include transform( translateY(0) );
     @include trigger-gpu();

@@ -115,6 +115,12 @@ hkr.hero = {
 
 hkr.header = {
     init: function() {
+        var $header = $('.header');
+
+        if ($('.hero').length !== 0) {
+            $header.removeClass('hide');
+        }
+
         this.menu.init();
     },
     menu: {
@@ -158,7 +164,8 @@ hkr.header = {
 // TODO: Delay reaction of scroll events
 hkr.navbar = {
     init: function() {
-        var $navBar = $('.nav-bar');
+        var $navBar = $('.nav-bar'),
+            $hero = $('.fsElement.hero');
 
         if ($navBar.length === 0) {
             this.element = {};
@@ -166,9 +173,10 @@ hkr.navbar = {
         }
 
         this.element = $navBar;
-        this.sectionMenu.init();
-        this.bookmarksMenu.init();
-        this.globalNav.init();
+
+        if ($navBar.hasClass('fsNavBar') && $hero.length !== 0) {
+            $hero.after($navBar);
+        }
 
         // set up scroll behavior for navbar
         if (!Modernizr.touch) {
@@ -193,6 +201,10 @@ hkr.navbar = {
                 scrollBy(0, $navBar.height() * -1 - 48);
             }
         });
+
+        this.sectionMenu.init();
+        this.bookmarksMenu.init();
+        this.globalNav.init();
     },
     getScrollHandle: function(direction) {
         var bookmarksMenu = this.bookmarksMenu,

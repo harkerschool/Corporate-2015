@@ -7,7 +7,8 @@
 <title><?php echo $title; ?></title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/styles-blessed1.css">
+<link rel="stylesheet" type="text/css" href="css/styles.css">
 <style type="text/css">
 </style>
 <script src="bower_components/modernizr/modernizr.js"></script>
@@ -29,7 +30,7 @@
 <body>
     <header id="header" class="header">
         <nav class="header-nav">
-            <div class="harker-logo">The Harker School</div>
+            <div class="harker-logo"><a href="http://www.harker.org">The Harker School</a></div>
             <ul class="header-nav-menu header-nav-menu-secondary">
                 <li class="menu-item-search"><a href="#" title="Search"></a></li>
                 <li class="menu-item-login"><a href="#" title="Login"></a></li>

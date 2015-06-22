@@ -7,6 +7,47 @@ module.exports = function(grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        watch: {
+            src: {
+                files: ['src/scss/{,*/}*.{scss,sass}'],
+                tasks: ['sass:src', 'bless:css']
+            }
+        },
+
+        sass: {
+            src: {
+                options: {
+                    sourcemap: 'none',
+                    style: 'expanded',
+                    compass: true,
+                    loadPath: [
+                        'src/bower_components/foundation/scss',
+                        'src/bower_components/font-awesome/scss',
+                        'src/bower_components/jQuery.mmenu/src/scss'
+                    ]
+                },
+                files: [{
+                    expand: true,
+                    cwd: 'src/scss',
+                    src: ['*.{scss,sass}'],
+                    dest: 'src/css',
+                    ext: '.css'
+                }]
+            }
+        },
+
+        bless: {
+            css: {
+                options: {
+                    imports: false,
+                    force: true // allows script to overwrite file
+                },
+                files: {
+                    'src/css/styles.css': 'src/css/styles.css'
+                }
+            }
+        },
+
         clean: {
             dist: {
                 dot: true,
@@ -15,7 +56,8 @@ module.exports = function(grunt) {
                     '!dist/.git*'
                 ]
             },
-            bower: ['src/css/bower.css', 'src/js/vendor/bower.js']
+            bower: ['src/js/vendor/bower.js'],
+            css: ['src/css/*']
         },
 
         // Concat Bower JS files. CSS styles are imported via SASS.
@@ -45,11 +87,7 @@ module.exports = function(grunt) {
             js: {
                 src: ['src/js/vendor/*.js', 'src/js/*.js'],
                 dest: 'dist/js/scripts.js'
-            },
-            css: {
-                src: ['src/css/vendor/*.css', 'src/css/*.css'],
-                dest: 'dist/css/styles.css'
-            },
+            }
         },
 
         cssmin: {
@@ -92,6 +130,14 @@ module.exports = function(grunt) {
                     src: '*.*'
                 }]
             },
+            css: {
+                files: [{
+                    expand: true,
+                    cwd: 'src',
+                    dest: 'dist',
+                    src: ['css/*.css']
+                }]
+            },
             dist: {
                 files: [{
                     expand: true,
@@ -128,9 +174,12 @@ module.exports = function(grunt) {
     // 8. Copy src files that arent's CSS or JS (e.g. images, fonts) and save in dist folder
     grunt.registerTask('build', [
         'clean',
+        'sass',
+        'bless',
         'bower_concat',
         'concat',
         'copy:modernizr',
+        'copy:css',
         'cssmin',
         'uglify',
         'copy:bower',
