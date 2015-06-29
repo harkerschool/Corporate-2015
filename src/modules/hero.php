@@ -16,10 +16,10 @@ function hero( $args = array() ) {
     <div class="hero-text">
         <div class="row">
             <div class="columns <?php echo $text_classes; ?>">
-                <h1 class="title"><?php echo $title; ?></h1>
-                <p class="subtitle">
+                <div class="hero-title"><?php echo $title; ?></div>
+                <div class="hero-subtitle">
                     <?php echo $subtitle; ?>
-                </p>
+                </div>
                 <div id="actions" data-magellan-expedition="actions">
                     <ul class="button-group">
                         <?php if ( $wistia_id ): ?>

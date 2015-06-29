@@ -59,9 +59,9 @@
                             <li><a href="#">Lower School Teacher Directory</a></li>
                         </ul>
                     </li>
-                    <li><a href="#">Lower School Students</a>
+                    <li><a href="#">Lower School Students</a></li>
+                    <li><a href="#">Lower School Support &amp; Services</a>
                         <ul>
-                            <li><a href="#">Lower School Support &amp; Services</a></li>
                             <li><a href="#">Academic Counseling</a></li>
                             <li><a href="#">Food Program</a></li>
                             <li><a href="#">Wellness &amp; Health</a></li>

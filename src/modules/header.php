@@ -21,11 +21,17 @@
 <script src="js/vendor/fullscreen-wistia.js"></script>
 <script src="js/vendor/harker.js"></script>
 <script src="js/main.js"></script>
+<!--[if IE 9 ]>
 <script>
 (function($){
-    // do something
+    $(window).load(function() {
+        $('.mm-navbar').on('click', function() {
+            $('.mm-panel').removeClass('mm-current').removeClass('mm-opened');
+        });
+    });
 })(jQuery);
 </script>
+<![endif]-->
 </head>
 <body>
     <header id="header" class="header">
@@ -36,7 +42,7 @@
                 <li class="menu-item-login"><a href="#" title="Login"></a></li>
             </ul>
             <ul class="header-nav-menu header-nav-menu-sections">
-                <li class="menu-item-hamburger"><a href="#global-nav" title="Menu"></a></li>
+                <li class="menu-item-hamburger"><a href="#global-nav" title="Menu"><span class="menu-item-text">Menu</span></a></li>
                 <li><a href="#">Admission</a></li>
                 <li><a href="#">Preschool</a></li>
                 <li><a href="#">Lower School</a></li>

@@ -76,22 +76,31 @@
 
 .rhythm-margin-1-5 {
     margin-top: rhythm(1.5);
-    margin-bottom: rhythm(1.5);
+    margin-bottom: rhythm(1.5); 
 }
 
 // Menu Modules
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+a .menu-item-text {
+    display: inline-block;
+    margin-left: 0.5rem;
+    @media #{$medium-up} {
+        text-indent: -9999px;
+        margin-left: 0;
+    }
+}
+
 .menu-item-hamburger {
-    display: block;
-    // float: right;
-    // font-size: rem-calc(24);
-    // margin-top: 11px;
+    display: block; 
     a {
+        display: block;
         &:before {
-            @include nav-bar-icon($fa-var-bars);
-            position: relative;
-            top: -2px; // correct bottom text alignment with text links
+            @include fa-icon();
+            content: $fa-var-bars; 
+        }
+        &:before, span {
+            line-height: 1;
         }
     }
 }
@@ -151,10 +160,10 @@
         display: block;
         width: 33px;
         height: rhythm(2);
-        background: url(../img/harker-logo-square.png) no-repeat center center;
+        background: url(#{$img-path}harker-logo-square.png) no-repeat center center;
         @media #{$large-up} { 
             width: 183px;
-            background-image: url(../img/harker-logo.png);
+            background-image: url(#{$img-path}harker-logo.png);
         }
     }
 }
@@ -162,14 +171,14 @@
 .harker-logo.harker-logo-square {
     width: 33px;
     &, a {
-        background: url(../img/harker-logo-square.png) no-repeat center center;
+        background: url(#{$img-path}harker-logo-square.png) no-repeat center center;
     }
 }
 
 .harker-logo.harker-logo-horiz {
     a {
         width: 183px;
-        background-image: url(../img/harker-logo.png);
+        background-image: url(#{$img-path}harker-logo.png);
     }
 }
 
@@ -180,7 +189,7 @@
         display: block;
         width: $harker-logo-stacked-width;
         height: $harker-logo-stacked-height;
-        background: url(../img/harker-logo-stacked.png) no-repeat center center;
+        background: url(#{$img-path}harker-logo-stacked.png) no-repeat center center;
     }
 }
 

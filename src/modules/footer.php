@@ -1,8 +1,9 @@
-<?php function the_footer() { ?>
-<footer class="section footer" style="background-color: #05533e;">
+<?php function the_footer($is_home = false) { ?>
+<footer class="section footer <?php if ( $is_home ) { echo 'footer-short'; } ?>">
 <div class="row">
     <div class="column">
-        <p class="harker-logo harker-logo-horiz">The Harker School</p>
+        <?php if ( ! $is_home ): ?>
+        <p class="harker-logo harker-logo-horiz"><a href="http://www.harker.org">The Harker School</a></p>
         <nav class="footer-nav">
             <ul class="footer-nav-menu row">
                 <li class="column large-5 medium-8">
@@ -65,6 +66,8 @@
                 </li>
             </ul>
         </nav>
+        <?php endif; ?>
+        <p class="footer-legal text-center">Copyright &copy; 1893-2015 &bull; The Harker School &bull; San Jose, CA 95129 <span class="footer-contact-link">| <a href="page.cfm?p=93" target="_self">Contact Us</a> | <a href="/page.cfm?p=3686" data-page-name="Privacy Policy">Privacy Policy</a></span></p>
     </div>
 </div>
 </footer>

@@ -64,26 +64,6 @@ html, body {
 // Headers
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.title, .subtitle {
-    color: $white;
-    font-weight: normal;
-    @include text-shadow($default-shadow);
-}
-.title {
-    font-family: "DINPro Black", Helvetica, Arial, sans-serif;
-    font-size: rem-calc(48);
-    text-transform: uppercase;
-    @media #{$medium-up} {
-        font-size: rem-calc(64);
-    }
-}
-.subtitle {
-    font-size: rem-calc(24);
-    @media #{$medium-up} {
-        font-size: rem-calc(32);
-    }
-}
-
 h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     a {
@@ -108,12 +88,8 @@ p.subheader {
     font-size: $h3-font-size;
 }
 
-.title, h1, h2, h3 {
+h1, h2, h3 {
     line-height: 1em;
-}
-
-.subtitle {
-    line-height: 1.5em;
 }
 
 h5 {
@@ -137,6 +113,13 @@ blockquote {
     p {
         margin: 0;
     }
+}
+
+// Inline Elements
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+small {
+    font-size: 80%;
 }
 
 // Hyperlinks

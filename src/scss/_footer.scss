@@ -5,6 +5,25 @@
     }
 }
 
+.footer-short {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background: transparent;
+    width: 100%;
+    padding: 0;
+    .feature-is-playing & {
+        display: none;
+    }
+}
+
+.footer-legal {
+    font-size: rem-calc(12);
+    @media #{$medium-up} {
+        font-size: inherit;
+    }
+}
+
 .footer-nav-menu {
     &, ul {
         list-style: none;

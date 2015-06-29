@@ -10,7 +10,7 @@ module.exports = function(grunt) {
         watch: {
             src: {
                 files: ['src/scss/{,*/}*.{scss,sass}'],
-                tasks: ['sass:src', 'bless:css']
+                tasks: ['compile:css']
             }
         },
 
@@ -23,7 +23,8 @@ module.exports = function(grunt) {
                     loadPath: [
                         'src/bower_components/foundation/scss',
                         'src/bower_components/font-awesome/scss',
-                        'src/bower_components/jQuery.mmenu/src/scss'
+                        'src/bower_components/jQuery.mmenu/src/scss',
+                        'src/bower_components/slick-carousel/slick'
                     ]
                 },
                 files: [{
@@ -39,12 +40,23 @@ module.exports = function(grunt) {
         bless: {
             css: {
                 options: {
+                    banner: '/* this is a banner */',
                     imports: false,
                     force: true // allows script to overwrite file
                 },
                 files: {
                     'src/css/styles.css': 'src/css/styles.css'
                 }
+            }
+        },
+
+        file_append: {
+            bless: {
+                files: [{
+                    prepend: '@charset "UTF-8";',
+                    input: 'src/css/styles.css',
+                    output: 'src/css/styles.css'
+                }]
             }
         },
 
@@ -164,6 +176,13 @@ module.exports = function(grunt) {
         'copy:bower'
     ]);
 
+    grunt.registerTask('compile:css', [
+        'clean:css',
+        'sass',
+        'bless',
+        'file_append:bless'
+    ]);
+
     // 1. Clean dist files
     // 2. Concat bower files (CSS & JS) and save in dist folder
     // 3. Concat JS & CSS files and save in dist folder
@@ -176,6 +195,7 @@ module.exports = function(grunt) {
         'clean',
         'sass',
         'bless',
+        'file_append',
         'bower_concat',
         'concat',
         'copy:modernizr',

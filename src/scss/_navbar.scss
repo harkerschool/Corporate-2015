@@ -35,7 +35,6 @@ $harker-logo-width: 215px; // 16px left/right padding
 
 .nav-bar {
     z-index: 100;
-    height: 48*2px;
     &.is-stuck {
         @include is-stuck();
         // @include transition(top 0.25s);
@@ -127,17 +126,17 @@ $harker-logo-width: 215px; // 16px left/right padding
 }
 
 .nav-bar .harker-logo {
-    width: $harker-logo-square-width;
-    border-right: 4px solid $darkerharkergreen;
-    @media #{$large-up} { 
-        width: $harker-logo-width;
-        border-left: 4px solid $darkerharkergreen;
-    }
-    a, & {
+    a {
+        width: $harker-logo-square-width;
+        border-right: 4px solid $darkerharkergreen;
         background-color: $harkergreen;
-    }
-    a:hover {
-        background-color: $darkharkergreen;
+        &:hover {
+            background-color: $darkharkergreen;
+        }
+        @media #{$large-up} { 
+            width: $harker-logo-width;
+            border-left: 4px solid $darkerharkergreen;
+        }
     }
 }
 
@@ -156,18 +155,23 @@ $harker-logo-width: 215px; // 16px left/right padding
 }
 
 .primary-nav-menu-secondary a {
+    display: block;
     font-size: rem-calc(24);
-    line-height: rhythm(1);
+    line-height: rem-calc(24);
+    height: rem-calc(48);
     padding-right: 0.5rem; 
-    padding-left: 0.5rem;
+    padding-left: 0.5rem; 
     &:before {
         @include fa-icon();
         line-height: rhythm(1);
-        display: block;
+        display: inline-block;
         width: rhythm(1);
         text-align: center;
+        position: relative;
+        top: -2px; // correct bottom text alignment with text links
     }
 }
+
 .menu-item-instagram a:before { content: $fa-var-instagram; }
 .menu-item-youtube a:before { content: $fa-var-youtube-square; }
 .menu-item-twitter a:before { content: $fa-var-twitter-square; }
@@ -187,11 +191,14 @@ $harker-logo-width: 215px; // 16px left/right padding
 }
 
 .primary-nav-menu-sections {
-    a[href="#more-sections"] {
-        // display: none;
+    li:not(.menu-item-hamburger) {
+        display: none;
+        @media #{$medium-up} { 
+            display: block;
+        }
     }
     li.active a {
-        background-image: url(../img/active-menu-item.png);
+        background-image: url(#{$img-path}active-menu-item.png);
         background-position: bottom center;
         background-repeat: no-repeat;
     }
@@ -206,13 +213,8 @@ $harker-logo-width: 215px; // 16px left/right padding
     color: $gray;
     font-size: rem-calc(14);
     line-height: rhythm(1);
-    // height: $current-page-bar-height;
-    // overflow: hidden;
-    // border-bottom: 3px solid scale-color($default-bg-color, $lightness: -8%);
-    // background-color: $white;
     @include box-shadow( $default-shadow );
     a, span {
-        height: $current-page-bar-height;
         padding: 0.75rem 0.5rem;
         @media #{$large-up} {
             // padding: 1rem 0.5rem 0.5rem;
@@ -248,17 +250,8 @@ $transform-nav-distance-large: $harker-logo-width;
 
 .current-page-menu-meta {
     float: left;
-    // margin-left: 0;
-    // @include transition(margin-left 0.25s ease-out);
-    // @include trigger-gpu();
     a {
         color: $darkergray;
-    }
-    .nav-bar.is-stuck.is-collapsed & {
-        // margin-left: $harker-logo-square-width;
-        // @media #{$large-up} {
-        //     margin-left: $harker-logo-width;
-        // }
     }
 }
 

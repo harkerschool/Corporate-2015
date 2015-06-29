@@ -45,6 +45,10 @@ hkr.foundation = {
 
 hkr.hero = {
     init: function() {
+        if ($('.hero').length !== 0) {
+            $('html').addClass('has-hero');
+        }
+
         this.setupBgImage();
         this.setupBgVideo();
         this.setupFeatureVideo();
@@ -100,7 +104,7 @@ hkr.hero = {
             return;
         }
 
-        var wistiaHTML = '<div id="wistia_' + wistiaID + '" class="wistia_embed">&nbsp;</div>',
+        var wistiaHTML = '<div id="wistia_' + wistiaID + '" class="wistia_embed" style="width:100%;height:100%;">&nbsp;</div>',
             exitLinkHTML = '<a href="#" id="fs-wistia-exit" title="Exit Video"><i class="fa fa-2x fa-times"></i></a>';
 
         // Set up Wistia feature video
@@ -116,10 +120,6 @@ hkr.hero = {
 hkr.header = {
     init: function() {
         var $header = $('.header');
-
-        if ($('.hero').length !== 0) {
-            $header.removeClass('hide');
-        }
 
         this.menu.init();
     },
@@ -174,9 +174,12 @@ hkr.navbar = {
 
         this.element = $navBar;
 
-        if ($navBar.hasClass('fsNavBar') && $hero.length !== 0) {
+        if ($hero.length !== 0 && !$hero.next().is($navBar)) {
             $hero.after($navBar);
         }
+
+        this.sectionMenu.init();
+        this.bookmarksMenu.init();
 
         // set up scroll behavior for navbar
         if (!Modernizr.touch) {
@@ -201,10 +204,6 @@ hkr.navbar = {
                 scrollBy(0, $navBar.height() * -1 - 48);
             }
         });
-
-        this.sectionMenu.init();
-        this.bookmarksMenu.init();
-        this.globalNav.init();
     },
     getScrollHandle: function(direction) {
         var bookmarksMenu = this.bookmarksMenu,
@@ -330,51 +329,50 @@ hkr.navbar = {
                 text = ($pageTopic.length) ? $pageTopic.text().trim() : $pageTitle.text().trim();
             }
 
+            if (text === '') {
+                return;
+            }
+
             $navbarTitle.html(text);
         }
-    },
-    globalNav: {
-        init: function() {
-            var $globalNav = $(".global-nav nav");
+    }
+};
 
-            if ($globalNav.length === 0) {
-                this.element = {};
-                return this.element;
-            }
+// mmenu
+hkr.globalNav = {
+    init: function() {
+        var $globalNav = $(".global-nav nav");
 
-            this.element = $globalNav;
-            $globalNav.attr('id', 'global-nav');
-
-            // Set up mmenu
-            $globalNav.mmenu({
-                offCanvas: {
-                    position: "left",
-                    zposition: "front"
-                },
-                navbars: true,
-                extensions: ["pageshadow"]
-            }, {
-                // configuration
-                offCanvas: {
-                    pageNodetype: 'main',
-                    pageSelector: '#main'
-                },
-                classNames: {
-                    fixedElements: {
-                        fixed: "fixed"
-                    }
-                }
-            });
-
-            var mmenu = $globalNav.data("mmenu");
-
-            if (typeof mmenu !== "undefined") {
-                // somehow find list item to select
-                // mmenu.setSelected($('.global-nav-selected'));
-                // // somehow find panel to activate
-                // mmenu.openPanel($('#mm-14'));
-            }
+        if ($globalNav.length === 0) {
+            this.element = {};
+            return this.element;
         }
+
+        this.element = $globalNav;
+        $globalNav.attr('id', 'global-nav');
+
+        // Set up mmenu
+        $globalNav.mmenu({
+            offCanvas: {
+                position: "left",
+                zposition: "front"
+            },
+            navbars: true,
+            extensions: ["pageshadow"]
+        }, {
+            // configuration
+            offCanvas: {
+                pageNodetype: 'main',
+                pageSelector: '#main'
+            },
+            classNames: {
+                fixedElements: {
+                    fixed: "fixed"
+                }
+            }
+        });
+
+        var mmenu = $globalNav.data("mmenu"); // get plugin object
     }
 };
 

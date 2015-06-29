@@ -376,6 +376,22 @@
     }
 }
 
+// Gallery
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsMediaGallery {
+    margin: 0 -1rem;
+}
+
+.fsMediaGalleryObject {
+    display: block;
+    float: left;
+    margin: 1.5rem 0;
+    padding: 0 1rem;
+    width: 240px;
+    vertical-align: top;
+}
+
 // Account Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -397,6 +413,9 @@ $account-bar-height: 38px;
     }
     li > span {
         cursor: pointer;
+    }
+    .feature-is-playing & {
+        display: none;
     }
 }
 #fsAccountBar .fsAccountBarAvatar {
@@ -457,4 +476,15 @@ $account-bar-height: 38px;
 
 #fsElementSettings > input {
     display: inline;
+}
+
+.fsComposeMode {
+    .has-hero & .header {
+        display: block;
+        position: static;
+        background: $darkergray;
+    }
+    .nav-bar-top {
+        height: auto;
+    }
 }

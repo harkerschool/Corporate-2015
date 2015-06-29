@@ -1,0 +1,60 @@
+.frame-1 {
+    @include animation-duration(1.5s);
+    @include animation-name(fadeIn1);
+}
+.frame-2 {
+    @include animation-duration(3s);
+    @include animation-name(fadeIn2);
+}
+.frame-3 {
+    @include animation-duration(4.5s);
+    @include animation-name(fadeIn3);
+}
+.frame-4 {
+    @include animation-duration(6s);
+    @include animation-name(fadeIn3);
+}
+
+@include keyframes(fadeIn1) {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@include keyframes(fadeIn2) {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@include keyframes(fadeIn3) {
+    0% {
+        opacity: 0;
+    }
+    66% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+@include keyframes(fadeIn4) {
+    0% {
+        opacity: 0;
+    }
+    75% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}

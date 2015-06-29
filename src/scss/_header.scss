@@ -3,7 +3,7 @@ $harker-logo-stacked-height: 63px;
 $header-menu-line-height: 16px;
 
 .header {
-    display: block;
+    display: none;
     margin-top: rhythm(1);
     position: absolute;
     top: 0;
@@ -13,6 +13,12 @@ $header-menu-line-height: 16px;
     background: transparent;
     &, a {
         color: $white;
+    }
+    .feature-is-playing & {
+        visibility: hidden;
+    }
+    .has-hero & {
+        display: block;
     }
 }
 
@@ -41,25 +47,18 @@ $header-menu-line-height: 16px;
 .header-nav-menu-sections {
     padding-left: 1rem;
     padding-right: 1rem;
+    > li:not(.menu-item-hamburger) {
+        display: none;
+        @media #{$medium-up} { 
+            display: block;
+        }
+    }
     > li {
         margin-top: 21px;
         line-height: 1rem;
     }
-    > li, > li > ul { 
-        // display: none; 
-    }
-    @media #{$medium-up} { 
-        > li, > li > ul { 
-            display: block; 
-        }
-        // .header-hamburger {
-        //     float: left;
-        //     font-size: 1rem;
-        //     margin-top: 21px;
-        //     a {
-        //         margin-top: -2px; // correct bottom text alignment with text links
-        //     }
-        // }
+    > .menu-item-hamburger {
+        margin-top: 19px; // fix alignment issues
     }
 }
 
