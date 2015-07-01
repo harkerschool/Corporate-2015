@@ -11,6 +11,15 @@ module.exports = function(grunt) {
             src: {
                 files: ['src/scss/{,*/}*.{scss,sass}'],
                 tasks: ['compile:css']
+            },
+            dist: {
+                files: [
+                    'src/scss/{,*/}*.{scss,sass}',
+                    'js/{,*/}*.js',
+                    'fonts/{,*/}*',
+                    'img/{,*/}*.*'
+                ],
+                tasks: ['build']
             }
         },
 

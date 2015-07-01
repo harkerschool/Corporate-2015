@@ -11,9 +11,9 @@
             'subtitle' => 'Learn by Exploring.',
             'text_classes' => 'large-12 large-offset-12',
             'img_src' => 'img/placeholders/bgimg-ps-specialty-classes.jpg', // background image
-            'img_alt' => '',
-            'vimeo_id' => '122377196', // background video
-            'wistia_id' => 'ponntrph3v' // feature video
+            'img_alt' => ''
+            // 'vimeo_id' => '122377196', // background video
+            // 'wistia_id' => 'ponntrph3v' // feature video
         ));
         include "modules/nav.php";
         include "modules/intro.php";

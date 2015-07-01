@@ -13,12 +13,13 @@
     width: 100%;
     padding: 0;
     .feature-is-playing & {
-        display: none;
+        display: none; 
     }
 }
 
 .footer-legal {
     font-size: rem-calc(12);
+    text-align: center;
     @media #{$medium-up} {
         font-size: inherit;
     }

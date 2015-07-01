@@ -215,6 +215,7 @@ $harker-logo-width: 215px; // 16px left/right padding
     line-height: rhythm(1);
     @include box-shadow( $default-shadow );
     a, span {
+        height: rem-calc(48); // restrict height from increasing on active state (border is added)
         padding: 0.75rem 0.5rem;
         @media #{$large-up} {
             // padding: 1rem 0.5rem 0.5rem;

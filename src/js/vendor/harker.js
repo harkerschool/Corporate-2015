@@ -60,11 +60,18 @@ hkr.hero = {
             return;
         }
 
-        // Initiate fullscreen image
-        $img.fsBackground({
-            cropBottom: 60,
-            container: '#hero'
-        });
+        if ($('.hero-bg').length) {
+            $img.fsBackground({
+                cropBottom: 60, // use same crop as bg video (to hide playbar)
+                container: '#hero'
+            });
+        } else {
+            $img.fsBackground({
+                aspectRatio: $img.width() / $img.height(),
+                container: '#hero'
+            });
+        }
+
     },
     setupBgVideo: function() {
         var $videoContainer = $('.hero-bg'),
@@ -137,7 +144,7 @@ hkr.header = {
 
             $menu.truncatedMenu({
                 moreItem: '.header-nav-menu-sections .menu-item-more',
-                visibleItems: '.header-nav-menu-sections .header-hamburger',
+                visibleItems: '.header-nav-menu-sections .menu-item-hamburger',
                 afterTruncate: function() {
                     $(document).foundation('dropdown', 'reflow');
                 }

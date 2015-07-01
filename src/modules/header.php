@@ -1,6 +1,6 @@
-<?php function the_header( $title = 'Web Redesign Template') { ?>
+<?php function the_header( $title = 'Web Redesign Template', $class = '' ) { ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="<?php echo $class; ?>">
 <head>
 <meta charset="UTF-8">
 <meta http-equiv="x-ua-compatible" content="ie=edge">

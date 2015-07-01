@@ -237,7 +237,7 @@ a .menu-item-text {
 
 .green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg {
     color: $white;
-    h1, h2, h3, h4, h5, h6, code, a {
+    h1, h2, h3, h4, h5, h6, code, a, strong, b {
         color: $white;
     }
     a:hover, a:focus {
