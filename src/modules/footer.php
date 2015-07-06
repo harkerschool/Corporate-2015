@@ -1,5 +1,5 @@
 <?php function the_footer($is_home = false) { ?>
-<footer class="section footer <?php if ( $is_home ) { echo 'footer-short'; } ?>">
+<footer class="section footer <?php if ( $is_home ) { echo 'footer-overlay'; } ?>">
 <div class="row">
     <div class="column">
         <?php if ( ! $is_home ): ?>

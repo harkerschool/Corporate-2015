@@ -26,7 +26,7 @@
 
 .fsElement.section-collapse {
     > header,
-    .fsElementContent,
+    > .fsElementContent,
     > footer {
         padding-left: 0;
         padding-right: 0;
@@ -394,6 +394,202 @@
     }
 }
 
+// Calendar
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsCalendar .fsTitle {
+    color: $green;
+}
+
+.fsDate:first-child,
+.fsCalendar .fsTitle:first-child {
+    display: block;
+    color: $header-font-color;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: rhythm(0.5);
+}
+
+.fsCalendar .fsTitle:first-child {
+    margin-top: rhythm(1);
+}
+
+.fsElementEventColorIcon {
+    border-radius: 0;
+    height: 0.75rem;
+    width: 0.75rem;
+    display: inline-block;
+    border: 1px solid #CCC;
+}
+
+.fsCalendarEventLink {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.fsAlertIcon {
+    height: 13px;
+}
+
+.fsAllDay {
+    text-transform: capitalize;
+}
+
+.fsNotes {
+    .fsCalendar.fsList &, .fsCalendar.fsSlideshow & {
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.fsDescription {
+    margin-top: rhythm(1);
+}
+
+.fsAlertFeeds {
+    margin-bottom: -16px;
+}
+
+// List
+
+.fsCalendar.fsList {
+    .fsMonthContainer {
+        margin-bottom: rhythm(2);
+    }
+    .fsDayContainer {
+        margin-bottom: rhythm(1);
+    }
+    .fsDayContainer > article {
+        margin-bottom: rhythm(0.5);
+    }
+    .fsDate:first-child {
+        display: none;
+    }
+    .fsDayContainer > article:first-child > .fsDate:first-child {
+        display: block;
+    }
+}
+
+// Grid
+
+.fsCalendarEventGrid ,
+.fsCalendarMonthBrowser{
+    margin-bottom: rhythm(1);
+}
+
+.fsCalendarMonthBrowser {
+    button {
+        padding: 0 1rem;
+        line-height: rem-calc(22);
+        font-weight: bold;
+        margin: 0 1rem;
+        &, &:hover, &:focus {
+            background: transparent;
+            border: 1px solid $default-border-color;
+            color: $body-font-color;
+        }
+    }
+}
+
+.fsCalendarMonthBrowser,
+.fsCalendarDate {
+    color: $header-font-color;
+    font-weight: bold;
+}
+
+.fsCalendarOutOfRange .fsCalendarDate {
+    color: $silver;
+}
+
+.fsCalendarLegend ul {
+    margin-left: 0;
+    list-style: none;
+    ul {
+        display: none;
+    }
+}
+
+.fsElementEventIcon {
+    img {
+        margin-bottom: 0;
+    }
+}
+
+.fsCalendarEventGrid .fsCalendarRow .fsCalendarOutOfRange {
+    background-color: transparent;
+}
+
+.fsCalendarEventGrid .fsCalendarDaybox {
+    .fsCalendarInfo {
+        line-height: 1.25;
+        padding: 0;
+        margin-bottom: rhythm(0.5);
+    }
+}
+
+.fsCalendarEventGrid {
+    .fsCalendarEventLink {
+        font-size: rem-calc(14); 
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .fsCalendarEventGrid .fsCalendarDaybox {
+        float: none;
+        height: auto !important;
+        min-height: 0;
+        padding: 0;
+        margin-bottom: rhythm(1);
+        .fsCalendarDate {
+            text-align: left;
+            text-transform: uppercase;
+            margin-bottom: rhythm(0.5);
+        }
+        .fsCalendarDay, 
+        .fsCalendarMonth {
+            display: inline;
+        }
+    }
+    .fsCalendarEventGrid {
+        .fsCalendarEventLink {
+            font-size: inherit; 
+        }
+    }
+}
+
+// Slideshow
+
+.fsSlideshow .fsElementContent {
+    .slick-slider {
+        margin: 0 1rem;
+    }
+    .fsNextButton, .fsPrevButton {
+        font-size: 2rem;
+        top: 50%;
+        margin-top: -2rem;
+        line-height: 2;
+        padding: 0 0.5rem;
+        color: $anchor-font-color;
+        &:hover {
+            color: $anchor-font-color-hover;
+        }
+    }
+    .fsLeftArrow {
+        left: 0.5rem;
+    }
+    .fsRightArrow {
+        right: 0.5rem;
+    }
+}
+
+.fsSlideshow .fsPager {
+    margin-left: 0;
+    bottom: auto;
+}
+
 // Forms
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -476,6 +672,9 @@ $account-bar-height: 38px;
     #fsPageWrapper {
         padding-bottom: $account-bar-height;
     }
+    &.is-home #fsPageWrapper {
+        padding-bottom: 0;
+    }
 }
 
 // Footer
@@ -483,17 +682,24 @@ $account-bar-height: 38px;
 
 .fsElement.footer {
     padding-bottom: rhythm(1);
+    .is-home & {
+        padding-bottom: $account-bar-height;
+    }
 }
 
 #fsPoweredByFinalsite {
     @include box-sizing(content-box);
     position: relative;
-    width: 100%;
+    display: block;
+    width: auto;
     padding: 1.5rem 1rem;
     background-color: #05533E;
     background-position: 16px 24px;
     &, &:hover {
         opacity: 1;
+    }
+    .is-home & {
+        display: none;
     }
 }
 

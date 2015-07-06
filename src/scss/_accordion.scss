@@ -36,20 +36,29 @@
 @mixin accordion-content() {
     padding: $accordion-content-padding;
     background: $accordion-content-active-bg-color;
-    color: $default-font-color;
-    line-height: 1.25;
+    color: $body-font-color;
+    line-height: 1.375;
     position: relative;
     z-index: 1; // overlap .accordion-direct-link ;P
     @include box-shadow($default-shadow);
-
     h1, h2, h3, h4, h5, h6 {
-        color: $default-header-font-color;
+        margin-top: rhythm(1);
+    }
+    h1, h2, h3, h4, h5, h6, strong, b {
+        color: $header-font-color;
+    }
+    h1, h2, h3, h4, h5, h6,
+    p, ul, ol, dl, .subheader {
+        margin-bottom: rhythm(0.5);
     }
     code {
-        color: $default-font-color;
+        color: $body-font-color;
     }
     a {
-        color: $default-link-font-color;
+        color: $anchor-font-color;
+        &:hover, &:focus {
+            color: $anchor-font-color-hover;
+        }
     }
     .button {
         background: $secondary-color;
@@ -61,7 +70,7 @@
         margin: 0;
         @include transition(background-color 0.25s);
         &, &:hover, &:focus {
-            color: $default-link-font-color;
+            color: $anchor-font-color;
         }
         &:hover, &:focus {
             background-color: $secondary-button-bg-hover;
@@ -90,7 +99,7 @@
     margin-left: -$accordion-content-padding;
     margin-right: -$accordion-content-padding;
     margin-top: 0;
-    margin-bottom: $default-bottom-margin;
+    margin-bottom: rhythm(1);
     > li {
         padding: $accordion-content-padding;
         border-bottom: 1px solid $default-border-color;
@@ -131,7 +140,7 @@
         > .content {
             @include accordion-content;
             ul {
-                margin-bottom: rhythm(1);
+                margin-bottom: $paragraph-margin-bottom;
             }
             > :first-child,
             > :first-child > :first-child {

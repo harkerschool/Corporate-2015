@@ -113,6 +113,6 @@
     }
     @media #{$large-up} {
         font-size: $h1-font-size;
-        margin-bottom: rhythm(1);
+        margin-bottom: $header-bottom-margin;
     }
 }

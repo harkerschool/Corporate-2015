@@ -22,6 +22,10 @@
 .section-collapse-bottom {
     padding-bottom: 0;
 }
+.section-collapse-y {
+    padding-top: 0;
+    padding-bottom: 0;
+}
 
 // Grid Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -51,8 +55,10 @@
     max-width: none;
 }
 
-[class*="block-grid-"] {
-    margin-bottom: rhythm(1);
+@media #{$small-only} {
+    [class*=block-grid-] > li {
+        width: 100%;
+    }
 }
 
 // Vertical Rhythm Helpers
@@ -245,6 +251,9 @@ a .menu-item-text {
     }
     a.button.secondary, a.button.info {
         color: $oil;
+    }
+    .subheader {
+        @extend .subheader-invert;
     }
     .button-outline {
         @extend .button-outline-invert;

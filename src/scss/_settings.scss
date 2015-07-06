@@ -4,7 +4,7 @@
 
 // Author Settings
 
-// 01. Colors
+// I. Colors
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Neutral Colors
@@ -36,26 +36,22 @@ $gold: #DCAA00;
 // $royalblue: #597da9;
 // $darkroyalblue: #3c6da9;
 
-$default-bg-color: $lightgray;
 $default-border-color: $silver;
 $default-shadow: 0 1px 2px -1px rgba(black,0.2);
 
-$default-font-color: $gray;
-$default-link-font-color: $blue;
-$default-header-font-color: $darkgray;
-$default-subheader-font-color: $green;
+// II. Paths
+// - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// Paths
 $img-path: "../img/css/";
 $font-path: "../fonts/";
 $slick-font-path: $font-path + "vendor/";
 $slick-loader-path: $img-path;
-
-// 02. Typography & Vertical Rhythm
-// - - - - - - - - - - - - - - - - - - - - - - - - -
 $fa-font-path: "../fonts/vendor";
-$default-font-family: DINPro, Helvetica, Arial, sans-serif;  
 
+// III. Vertical Rhythm
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+// Compass Variables
 $base-font-size: 16px;
 $base-line-height: 24px;
 $rhythm-unit: "rem";
@@ -63,14 +59,9 @@ $rem-with-px-fallback: false;
 $round-to-nearest-half-line: true;
 $min-line-padding: 0;
 
+// Author Variables
 $default-line-height: rhythm(1);
 $default-margin: rhythm(1);
-$default-top-margin: rhythm(1);
-$default-bottom-margin: rhythm(1);
-
-$default-header-line-height: rhythm(1);
-$default-header-top-margin: rhythm(1);
-$default-header-bottom-margin: $default-bottom-margin;
 
 // Foundation Settings
 // Table of Contents
@@ -195,8 +186,8 @@ $secondary-color: $white;
 // $info-color: #a0d3e8;
 
 // We use these to control various global styles
-$body-bg: $default-bg-color;
-$body-font-color: $default-font-color;
+$body-bg: $lightgray;
+$body-font-color: $gray;
 // $body-font-family: $font-family-sans-serif;
 // $body-font-weight: $font-weight-normal;
 // $body-font-style: normal;
@@ -270,10 +261,10 @@ $body-font-color: $default-font-color;
 // $header-font-family: $body-font-family;
 $header-font-weight: $font-weight-bold;
 // $header-font-style: normal;
-$header-font-color: $default-header-font-color;
-$header-line-height: $default-header-line-height;
-$header-top-margin: $default-header-top-margin;
-$header-bottom-margin: $default-header-bottom-margin;
+$header-font-color: $darkgray;
+$header-line-height: 1;
+$header-top-margin: rhythm(1);
+$header-bottom-margin: rhythm(1);
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
@@ -294,28 +285,28 @@ $h5-font-reduction: rem-calc(2); // 16
 
 // These control how subheaders are styled.
 $subheader-line-height: 1.25;
-$subheader-font-color: $default-subheader-font-color; // scale-color($header-font-color, $lightness: 35%);
+$subheader-font-color: $green; // scale-color($header-font-color, $lightness: 35%);
 // $subheader-font-weight: $font-weight-normal;
-$subheader-top-margin: rhythm(1);
-$subheader-bottom-margin: $default-header-bottom-margin;
+$subheader-top-margin: $header-top-margin;
+$subheader-bottom-margin: $header-bottom-margin;
 
 // A general <small> styling
 // $small-font-size: 60%;
-$small-font-color: $default-font-color; // scale-color($header-font-color, $lightness: 35%);
+$small-font-color: $body-font-color; // scale-color($header-font-color, $lightness: 35%);
 
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
 $paragraph-font-weight: inherit;
 $paragraph-font-size: inherit;
 $paragraph-line-height: inherit;
-$paragraph-margin-bottom: $default-bottom-margin;
+$paragraph-margin-bottom: rhythm(0.5);
 $paragraph-aside-font-size: inherit;
 $paragraph-aside-line-height: inherit;
 $paragraph-aside-font-style: normal;
 // $paragraph-text-rendering: optimizeLegibility;
 
 // We use these to style <code> tags
-$code-color: $default-font-color;
+$code-color: $body-font-color;
 // $code-font-family: $font-family-monospace;
 // $code-font-weight: $font-weight-normal;
 $code-background-color: transparent; // scale-color($secondary-color, $lightness: 70%);
@@ -327,14 +318,14 @@ $code-padding: 0; // rem-calc(2) rem-calc(5) rem-calc(1);
 // We use these to style anchors
 $anchor-text-decoration: underline;
 $anchor-text-decoration-hover: underline;
-$anchor-font-color: $default-link-font-color;
+$anchor-font-color: $blue;
 $anchor-font-color-hover: scale-color($anchor-font-color, $lightness: -14%);
 
 // We use these to style the <hr> element
 // $hr-border-width: 1px;
 // $hr-border-style: solid;
 $hr-border-color: rgba(black, 0.2); // $gainsboro;
-$hr-margin: $default-bottom-margin;
+$hr-margin: rhythm(1);
 
 // We use these to style lists
 // $list-font-family: $paragraph-font-family;
@@ -342,16 +333,16 @@ $hr-margin: $default-bottom-margin;
 // $list-line-height: $paragraph-line-height;
 // $list-margin-bottom: $paragraph-margin-bottom;
 // $list-style-position: outside;
-// $list-side-margin: 1.1rem;
-// $list-ordered-side-margin: 1.4rem;
+$list-side-margin: 2rem;
+$list-ordered-side-margin: 2rem;
 // $list-side-margin-no-bullet: 0;
-// $list-nested-margin: rem-calc(20);
+$list-nested-margin: 2rem;
 // $definition-list-header-weight: $font-weight-bold;
 // $definition-list-header-margin-bottom: .3rem;
-// $definition-list-margin-bottom: rem-calc(12);
+$definition-list-margin-bottom: $paragraph-margin-bottom;
 
 // We use these to style blockquotes
-$blockquote-font-color: $default-font-color; // scale-color($header-font-color, $lightness: 35%);
+$blockquote-font-color: $body-font-color; // scale-color($header-font-color, $lightness: 35%);
 $blockquote-padding: rhythm(0.5) rem-calc(20) rhythm(0.5) rem-calc(19);
 $blockquote-border: 1px solid $default-border-color;
 $blockquote-cite-font-size: rem-calc(13);
@@ -502,7 +493,7 @@ $block-grid-default-spacing: rem-calc(32);
 
 // We use this to control the display property.
 // $button-display: inline-block;
-// $button-margin-bottom: rem-calc(20);
+$button-margin-bottom: rhythm(1);
 
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
@@ -1037,7 +1028,7 @@ $off-canvas-back-bg: $off-canvas-bg; // #444;
 // $include-html-panel-classes: $include-html-classes;
 
 // We use these to control the background and border styles
-// $panel-bg: scale-color($white, $lightness: -5%);
+$panel-bg: $white;
 // $panel-border-style: solid;
 // $panel-border-size: 1px;
 
@@ -1046,11 +1037,11 @@ $off-canvas-back-bg: $off-canvas-bg; // #444;
 // $panel-border-color: scale-color($panel-bg, $lightness: $panel-function-factor);
 
 // We use these to set default inner padding and bottom margin
-// $panel-margin-bottom: rem-calc(20);
-// $panel-padding: rem-calc(20);
+$panel-margin-bottom: rhythm(1);
+$panel-padding: rhythm(1) 1rem;
 
 // We use these to set default font colors
-// $panel-font-color: $oil;
+$panel-font-color: $body-font-color;
 // $panel-font-color-alt: $white;
 
 // $panel-header-adjust: true;

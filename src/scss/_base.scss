@@ -29,7 +29,7 @@
 // @import "foundation/components/magellan";
 // @import "foundation/components/orbit";
 // @import "foundation/components/pagination";
-// @import "foundation/components/panels";
+@import "foundation/components/panels";
 // @import "foundation/components/pricing-tables";
 // @import "foundation/components/progress-bars";
 // @import "foundation/components/reveal";
@@ -75,14 +75,26 @@ h1, h2, h3, h4, h5, h6 {
         margin-top: 0;
     }
 }
+h4, h5, h6 {
+    margin-bottom: $paragraph-margin-bottom;
+    line-height: $default-line-height;
+}
+h5 {
+    text-decoration: underline;
+}
+
 .h1 { @extend h1; }
 .h2 { @extend h2; }
 .h3 { @extend h3; }
 .h4 { @extend h4; }
 .h5 { @extend h5; }
 .h6 { @extend h6; }
+
 .subheader {
     text-transform: none;
+}
+.subheader-invert {
+    color: $white;
 }
 p.subheader {
     font-size: $h3-font-size - $h3-font-reduction;
@@ -91,19 +103,16 @@ p.subheader {
     }
 }
 
-h1, h2, h3 {
-    line-height: 1em;
-}
-
-h5 {
-    text-decoration: underline;
-}
-
 // Block Elements
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-p aside {
-    font-weight: $font-weight-light;
+p {
+    aside {
+        font-weight: $font-weight-light;
+    }
+    &:last-child {
+        margin-bottom: rhythm(1);
+    }
 }
 
 pre {
@@ -126,7 +135,7 @@ small {
 }
 
 strong, b {
-    color: $default-header-font-color;
+    color: $header-font-color;
 }
 
 // Hyperlinks
@@ -134,4 +143,8 @@ strong, b {
 
 a {
     @include transition(color 0.25s);
+}
+
+button, .button {
+    margin-top: rhythm(1);
 }
