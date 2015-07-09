@@ -2,32 +2,32 @@
     <div class="row">
         <div class="column">
             <h2>By The Numbers <a href="#">See more facts & stats</a></h2>
-        </div>
-    </div>
-    <div class="row">
-        <div class="column medium-6">
-            <div class="stat">
-                <span class="stat-measure">10:1</span>
-                <span class="stat-desc">Student to Teacher Ratio</span>
-            </div>
-        </div>
-        <div class="column medium-6">
-            <div class="stat">
-                <span class="stat-measure">50+</span>
-                <span class="stat-desc">Number of After-School Activities & Classes</span>
-            </div>
-        </div>
-        <div class="column medium-6">
-            <div class="stat">
-                <span class="stat-measure">74%</span>
-                <span class="stat-desc">Lower School Teachers with Advanced Degrees</span>
-            </div>
-        </div>
-        <div class="column medium-6">
-            <div class="stat">
-                <span class="stat-measure">10</span>
-                <span class="stat-desc">Number of Lower School Sports</span>
-            </div>
+            <ul class="medium-block-grid-2 large-block-grid-4">
+                <li>
+                    <div class="stat">
+                        <span class="stat-measure">85%</span>
+                        <span class="stat-desc">Students in the After-School Program</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="stat">
+                        <span class="stat-measure">10</span>
+                        <span class="stat-desc">Number of International Sister Schools</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="stat">
+                        <span class="stat-measure">100%</span>
+                        <span class="stat-desc">Students in Performing Arts</span>
+                    </div>
+                </li>
+                <li>
+                    <div class="stat">
+                        <span class="stat-measure">8</span>
+                        <span class="stat-desc">Number of Sports Offered</span>
+                    </div>
+                </li>
+            </ul>
         </div>
     </div>
 </div>

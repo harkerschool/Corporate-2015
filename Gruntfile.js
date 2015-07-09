@@ -15,9 +15,9 @@ module.exports = function(grunt) {
             dist: {
                 files: [
                     'src/scss/{,*/}*.{scss,sass}',
-                    'js/{,*/}*.js',
-                    'fonts/{,*/}*',
-                    'img/{,*/}*.*'
+                    'src/js/{,*/}*.js',
+                    'src/fonts/{,*/}*',
+                    'src/img/{,*/}*.*'
                 ],
                 tasks: ['build']
             }
@@ -49,7 +49,6 @@ module.exports = function(grunt) {
         bless: {
             css: {
                 options: {
-                    banner: '/* this is a banner */',
                     imports: false,
                     force: true // allows script to overwrite file
                 },
@@ -124,6 +123,17 @@ module.exports = function(grunt) {
             }
         },
 
+        imagemin: {
+            dist: {
+                files: [{
+                    expand: true,
+                    cwd: 'src/img/',
+                    src: ['**/*.{png,jpg,jpeg,gif}'],
+                    dest: 'src/img/'
+                }]
+            }
+        },
+
         uglify: {
             options: {
                 banner: '/*! <%= pkg.title %> | <%= grunt.template.today("yyyy-mm-dd") %> */\n'
@@ -168,7 +178,7 @@ module.exports = function(grunt) {
                     src: [
                         'fonts/*.*',
                         'fonts/vendor/*.*',
-                        'img/{,*/}*.*'
+                        'img/**/*.{png,jpg,jpeg,gif}'
                     ]
                 }]
             }

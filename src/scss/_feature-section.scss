@@ -72,7 +72,7 @@
 }
 
 .feature-caption-content {
-    padding: 1rem;
+    padding: rem-calc(18) 1rem rem-calc(14);
     :first-child {
         margin-top: 0;
     }
@@ -81,9 +81,10 @@
     }
     .button {
         display: none;
-        padding: 1rem;
-        &.button:hover, .button:focus {
+        // padding: 1rem;
+        &:hover, &:focus {
             color: $white;
+
         }  
     }
     @media #{$medium-up} {
@@ -102,7 +103,7 @@
     margin: 0;
     text-transform: none;
     &, a {
-        font-weight: 400;
+        font-weight: bold;
         color: $white;
     }
     a {

@@ -76,11 +76,12 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 h4, h5, h6 {
+    font-weight: normal;
     margin-bottom: $paragraph-margin-bottom;
     line-height: $default-line-height;
 }
-h5 {
-    text-decoration: underline;
+h5, h6 {
+    text-transform: none;
 }
 
 .h1 { @extend h1; }
@@ -92,6 +93,9 @@ h5 {
 
 .subheader {
     text-transform: none;
+    &:first-child {
+        margin-top: 0;
+    }
 }
 .subheader-invert {
     color: $white;
@@ -143,8 +147,4 @@ strong, b {
 
 a {
     @include transition(color 0.25s);
-}
-
-button, .button {
-    margin-top: rhythm(1);
 }

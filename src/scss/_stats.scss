@@ -11,16 +11,17 @@
 .stat-measure, .stat-desc {
     display: block;
     font-weight: bold;
-    line-height: 1;
 }
 
 .stat-measure {
     font-size: rem-calc(64);
     color: $green;
-    margin-bottom: rhythm(1);
+    line-height: 1;
+    margin-bottom: 1rem;
 }
 
 .stat-desc {
     font-size: rem-calc(24);
     color: $gray;
+    line-height: 1.25;
 }

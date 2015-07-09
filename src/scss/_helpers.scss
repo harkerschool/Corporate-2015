@@ -205,6 +205,11 @@ a .menu-item-text {
 // Hide
 .hide { display: none !important; }
 
+// Truncate
+.truncate {
+    @include truncate;
+}
+
 // Borders
 .border-bottom {
     border-bottom: 1px solid $default-border-color;
@@ -241,7 +246,7 @@ a .menu-item-text {
     background-color: $gold;
 }
 
-.green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg {
+.green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg, .gold-bg {
     color: $white;
     h1, h2, h3, h4, h5, h6, code, a, strong, b {
         color: $white;
@@ -297,33 +302,4 @@ a .menu-item-text {
 
 .float-right {
     float: right;
-}
-
-// CSS3 Columns
-@mixin css3-columns($columns: false) {
-    @if $columns {
-        @include column-width(grid-calc($columns, $total-columns));
-        @include column-count($columns);
-        @include column-gap($column-gutter);
-    }
-}
-
-@mixin css3-columns-html-class($size) {
-    @for $i from 1 through $total-columns {
-        .#{$size}-text-columns-#{$i} {
-            @include css3-columns($i);
-        }
-    }
-}
-
-@media #{$small-up} {
-    @include css3-columns-html-class($size: small);
-}
-
-@media #{$medium-up} {
-    @include css3-columns-html-class($size: medium);
-}
-
-@media #{$large-up} {
-    @include css3-columns-html-class($size: large);
 }

@@ -48,6 +48,13 @@
     }
 }
 
+.hero .hero-text > .row { 
+    max-width: $row-width;
+    width: 100%;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .hero-title, .hero-subtitle {
     color: $white;
     font-weight: normal;

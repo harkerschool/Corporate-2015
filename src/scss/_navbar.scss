@@ -297,6 +297,8 @@ $transform-nav-distance-large: $harker-logo-width;
     a {
         color: $gray;
         border-bottom: 3px solid transparent;
+        max-width: 160px;
+        @include truncate;
         @include transition(color 0.5s, border-bottom 0.5s);
         &:hover, &:focus {
             color: $darkergray;

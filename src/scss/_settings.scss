@@ -28,7 +28,7 @@ $red: #9C0947;
 $orange: #CE5D27;
 $gold: #DCAA00;
 
-// Nick's Initial Colors
+// Nick's Old Colors
 // $green: #32a988;
 // $blue: #05533e;
 // $orange: #bf6938;
@@ -268,16 +268,16 @@ $header-bottom-margin: rhythm(1);
 // $header-text-rendering: optimizeLegibility;
 
 // We use these to control header font sizes
-$h1-font-size: rhythm(2); // 48
-$h2-font-size: rhythm(1.5); // 36
-$h3-font-size: rhythm(1); // 24
+$h1-font-size: rem-calc(48); // 48
+$h2-font-size: rem-calc(36); // 36
+$h3-font-size: rem-calc(24); // 24
 $h4-font-size: rem-calc(20);
 $h5-font-size: rem-calc(18);
 $h6-font-size: 1rem; // 16
 
 // We use these to control header size reduction on small screens
-$h1-font-reduction: rhythm(0.5); // 36
-$h2-font-reduction: rhythm(0.5); // 24
+$h1-font-reduction: rem-calc(12); // 36
+$h2-font-reduction: rem-calc(12); // 24
 $h3-font-reduction: rem-calc(4); // 20
 $h4-font-reduction: rem-calc(2); // 18
 $h5-font-reduction: rem-calc(2); // 16

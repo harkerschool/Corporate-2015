@@ -43,6 +43,31 @@ hkr.foundation = {
     }
 };
 
+hkr.accordion = {
+    init: function() {
+        var $buttons = $('.fsPanel .fsElement .button');
+
+        $buttons.each(function() {
+            var $button = $(this),
+                $panel = $button.closest('.fsPanel'),
+                $header = $panel.children('header'),
+                href = $button.attr('href');
+
+            $header.append('<a href="' + href + '" class="accordion-direct-link"></a>');
+            $panel.addClass('has-accordion-direct-link');
+        });
+    }
+};
+
+// TODO: Integrate with Media Manager
+hkr.slider = {
+    init: function() {
+        $('.feature-slider').slick({
+            autoplay: true
+        });
+    }
+};
+
 hkr.hero = {
     init: function() {
         if ($('.hero').length !== 0) {
@@ -66,9 +91,11 @@ hkr.hero = {
                 container: '#hero'
             });
         } else {
-            $img.fsBackground({
-                aspectRatio: $img.width() / $img.height(),
-                container: '#hero'
+            $(window).load(function() {
+                $img.fsBackground({
+                    aspectRatio: $img.width() / $img.height(),
+                    container: '#hero'
+                });
             });
         }
 
@@ -311,9 +338,9 @@ hkr.navbar = {
                     text = $bookmark.data('bookmark-label');
                 } else {
                     text = $bookmark.text().trim();
-                    if (text.length > lengthMax) {
-                        text = text.substring(0, lengthMax).trim() + "&hellip;";
-                    }
+                    // if (text.length > lengthMax) {
+                    //     text = text.substring(0, lengthMax).trim() + "&hellip;";
+                    // }
                 }
 
                 $bookmark.attr('data-magellan-destination', id);
@@ -385,9 +412,27 @@ hkr.globalNav = {
 
 hkr.news = {
     init: function() {
+        var $feed = $('.news-feed'),
+            tag = $feed.data('wp-tag'),
+            cat = $feed.data('wp-cat');
+
+        if (tag === undefined) {
+            tag = '';
+        }
+        if (cat === undefined) {
+            cat = '';
+        }
+
         // Set up WordPress JSON API Feed
         $('.news-feed').WPFeed({
-            method: 'get_posts'
+            method: 'get_posts',
+            args: {
+                tag: tag,
+                category_name: cat,
+                count: 6,
+                date_format: 'F j, Y',
+                include: "id,title,title_plain,url,thumbnail"
+            }
         });
     }
 };
