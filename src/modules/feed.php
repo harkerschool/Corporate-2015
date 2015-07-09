@@ -2,8 +2,8 @@
     <div class="row">
         <div class="column">
             <h2>Feed</h2>
-            <div class="news-feed" data-wp-tag="topacademics" data-wp-cat="lower-school">
-            </div>
+            <ul data-wp-tag="topacademics" data-wp-cat="lower-school" class="news-feed medium-block-grid-3 large-block-grid-4 medium-text-columns-3 large-text-columns-4">
+            </ul>
             <p><a href="http://news.harker.org">View all news stories</a></p>
         </div>
     </div>

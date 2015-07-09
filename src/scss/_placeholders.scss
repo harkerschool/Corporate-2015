@@ -23,11 +23,15 @@
 }
 
 @media #{$medium-up} {
-    @include css3-columns-html-class($size: medium);
+    .csscolumns {
+        @include css3-columns-html-class($size: medium);
+    }
 }
 
 @media #{$large-up} {
-    @include css3-columns-html-class($size: large);
+    .csscolumns {
+        @include css3-columns-html-class($size: large);
+    }
 }
 
 // Vertically Align

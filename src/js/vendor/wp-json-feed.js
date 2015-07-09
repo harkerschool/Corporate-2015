@@ -60,7 +60,7 @@
                 console.error("'posts' or 'post' property was not found in JSON response.");
                 return false;
             }
-            console.log(posts);
+            // console.log(posts);
 
             return posts;
 
@@ -70,7 +70,7 @@
 
             $.each(posts, function(index, post) {
 
-                html += '<article class="wp-article ' + 'post-' + post.id + '"><div class="wp-body">';
+                html += '<li class="wp-article ' + 'post-' + post.id + '"><div class="wp-body">';
 
                 if (post.thumbnail) {
                     html += '<div class="wp-thumbnail"';
@@ -97,7 +97,7 @@
                 else if (post.content)
                     html += post.content + '</div>';
 
-                html += '</div></div></article>';
+                html += '</div></div></li>';
 
             });
 
