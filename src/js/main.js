@@ -6,6 +6,7 @@
         hkr.foundation.init();
         hkr.globalNav.init();
         hkr.news.init();
+        hkr.photoCover.init();
         hkr.accordion.init();
         hkr.slider.init();
     });

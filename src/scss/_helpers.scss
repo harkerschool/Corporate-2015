@@ -27,6 +27,18 @@
     padding-bottom: 0;
 }
 
+// Photo Cover
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.backgroundsize .photo-cover-active {
+    background-repeat: no-repeat;
+    background-position: center center;
+    @include background-size(cover);
+    img {
+        visibility: hidden;
+    }
+}
+
 // Grid Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 

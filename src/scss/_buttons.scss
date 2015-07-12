@@ -1,12 +1,19 @@
 // Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+.button {
+    line-height: rhythm(1);
+    padding: rhythm(0.5) 2rem;
+}
+
 .button-outline,
 .button-outline-invert {
     &, &:hover, &:focus {
         background: transparent;
         font-weight: 100;
         font-size: rem-calc(22);
+        padding-top: rem-calc(12);
+        padding-bottom: rem-calc(12);
     }
 }
 
@@ -26,7 +33,11 @@
 }
 
 .button-group {
+    margin: 0;
+    padding: 0;
+    list-style: none;
     > li {
+        display: inline-block;
         margin: 0 1rem 0 0;
     }
 }

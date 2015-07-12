@@ -22,12 +22,6 @@ $header-menu-line-height: 16px;
     }
 }
 
-.header-nav {
-    @include grid-row;
-    @include grid-column(24);
-    float: none;
-}
-
 .header .harker-logo {
     float: left;
 }
@@ -59,6 +53,10 @@ $header-menu-line-height: 16px;
     }
     > .menu-item-hamburger {
         margin-top: 19px; // fix alignment issues
+    }
+    > .active {
+        border-bottom: 1px solid #fff;
+        padding-bottom: 2px;
     }
 }
 

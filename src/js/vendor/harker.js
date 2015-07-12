@@ -169,6 +169,12 @@ hkr.header = {
             this.element = $menu;
             this.mediaQueries = this.getMediaQueries();
 
+            var pathArray = window.location.pathname.split('/'),
+                level1 = pathArray[1],
+                $activeMenuItem = $menu.find('a[href="/' + level1 + '"]').parent('li');
+
+            $activeMenuItem.addClass('active');
+
             $menu.truncatedMenu({
                 moreItem: '.header-nav-menu-sections .menu-item-more',
                 visibleItems: '.header-nav-menu-sections .menu-item-hamburger',
@@ -277,6 +283,12 @@ hkr.navbar = {
             }
 
             this.element = $sectionMenu;
+
+            var pathArray = window.location.pathname.split('/'),
+                level1 = pathArray[1],
+                $activeMenuItem = $sectionMenu.find('a[href="/' + level1 + '"]').parent('li');
+
+            $activeMenuItem.addClass('active');
 
             $sectionMenu.truncatedMenu({
                 visibleItems: '.primary-nav-menu-sections .active, .primary-nav-menu-sections .menu-item-hamburger',
@@ -406,7 +418,22 @@ hkr.globalNav = {
             }
         });
 
-        var mmenu = $globalNav.data("mmenu"); // get plugin object
+        var mmenu = $globalNav.data("mmenu"), // get plugin object
+            $currentMenuItem = $globalNav.find('.fsNavCurrentPage'),
+            $currentPanel = $currentMenuItem.closest('.mm-panel');
+
+        mmenu.setSelected($currentMenuItem);
+        mmenu.openPanel($currentPanel);
+    }
+};
+
+hkr.photoCover = {
+    init: function() {
+        var $container = $('.photo-cover'),
+            $img = $container.find('img').first(),
+            src = $img.attr('src');
+
+        $container.css('backgroundImage', 'url(' + src + ')').addClass('photo-cover-active');
     }
 };
 
@@ -414,13 +441,23 @@ hkr.news = {
     init: function() {
         var $feed = $('.news-feed'),
             tag = $feed.data('wp-tag'),
-            cat = $feed.data('wp-cat');
+            cat = $feed.data('wp-cat'),
+            count = $feed.data('wp-count'),
+            thumbnail = $feed.data('wp-thumbnail');
 
         if (tag === undefined) {
             tag = '';
         }
         if (cat === undefined) {
             cat = '';
+        }
+        if (count === undefined) {
+            count = 6;
+        }
+        if (thumbnail === false) {
+            thumbnail = "";
+        } else {
+            thumbnail = ",thumbnail";
         }
 
         // Set up WordPress JSON API Feed
@@ -429,9 +466,9 @@ hkr.news = {
             args: {
                 tag: tag,
                 category_name: cat,
-                count: 6,
+                count: count,
                 date_format: 'F j, Y',
-                include: "id,title,title_plain,url,thumbnail"
+                include: "id,title,title_plain,url" + thumbnail
             }
         });
     }

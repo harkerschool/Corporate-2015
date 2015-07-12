@@ -24,14 +24,14 @@
     }
 }
 
-.fsElement.section-collapse {
-    > header,
-    > .fsElementContent,
-    > footer {
-        padding-left: 0;
-        padding-right: 0;
-    }
-}
+// .fsElement.section-collapse {
+//     > header,
+//     > .fsElementContent,
+//     > footer {
+//         padding-left: 0;
+//         padding-right: 0;
+//     }
+// }
 
 .fsElement.section-wide {
     > header,
@@ -92,6 +92,9 @@
     .fsTwoColumnLayout .fsDiv {
         @include grid-column($columns:12, $collapse:true);
     }
+    .fsThreeColumnLayout .fsDiv {
+        @include grid-column($columns:8, $collapse:true);
+    }
     .fsFourColumnLayout .fsDiv {
         @include grid-column($columns:12, $collapse:true);
         &:nth-of-type(2n+1) {
@@ -101,9 +104,6 @@
 }
 
 @media #{$large-up} {
-    .fsThreeColumnLayout .fsDiv {
-        @include grid-column($columns:8, $collapse:true);
-    }
     .fsFourColumnLayout .fsDiv {
         @include grid-column($columns:6, $collapse:true);
         &:nth-of-type(2n+1) {

@@ -3,7 +3,7 @@
 function hero( $args = array() ) {     
     $args = array_merge( array(
         'title' => 'Page Title',
-        'subtitle' => 'Tag Line Goes Here',
+        'subtitle' => 'We challenge and support students with an innovative curriculum that encourages success in college and beyond.',
         'text_classes' => 'large-14 large-offset-10',
         'img_src' => 'http://dummyimage.com/1440x1200/4d494d/686a82.gif&text=placeholder+image', // background image
         'img_alt' => 'Placeholder Image',

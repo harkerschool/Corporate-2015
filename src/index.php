@@ -8,7 +8,6 @@
     <?php
         hero( array(
             'title' => '<span class="title-division">Middle School</span> <span class="title-topic">Programs & Extraccuriculars</span>',
-            'subtitle' => 'Learn by Exploring.',
             'text_classes' => 'large-12 large-offset-12',
             'img_src' => 'img/placeholders/bgimg-ps-specialty-classes.jpg', // background image
             'img_alt' => ''
