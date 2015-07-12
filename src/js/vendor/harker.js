@@ -422,8 +422,12 @@ hkr.globalNav = {
             $currentMenuItem = $globalNav.find('.fsNavCurrentPage'),
             $currentPanel = $currentMenuItem.closest('.mm-panel');
 
-        mmenu.setSelected($currentMenuItem);
-        mmenu.openPanel($currentPanel);
+        if ($currentMenuItem.length !== 0) {
+            mmenu.setSelected($currentMenuItem);
+        }
+        if ($currentPanel.length !== 0) {
+            mmenu.openPanel($currentPanel);
+        }
     }
 };
 
