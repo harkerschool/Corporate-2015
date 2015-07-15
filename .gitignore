@@ -12,5 +12,7 @@
 /src/bower_components
 /src/css
 /src/js/vendor/bower.js
+/src/img/*
+!/src/img/css/*
 /test
 /tmp
