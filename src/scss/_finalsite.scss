@@ -24,14 +24,14 @@
     }
 }
 
-// .fsElement.section-collapse {
-//     > header,
-//     > .fsElementContent,
-//     > footer {
-//         padding-left: 0;
-//         padding-right: 0;
-//     }
-// }
+.fsElement.section-feature {
+    > header,
+    > .fsElementContent,
+    > footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
 
 .fsElement.section-wide {
     > header,
@@ -55,6 +55,12 @@
     .row {
         margin-left: 0;
         margin-right: 0;
+    }
+}
+
+.green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg, .gold-bg {
+    &.fsElement:last-child {
+        border-bottom: 3rem solid $lightgray;
     }
 }
 
@@ -417,6 +423,74 @@
     margin-bottom: rhythm(0.5);
 }
 
+.fsDateTime {
+    margin-bottom: rhythm(0.5);
+    .fsDate, .fsTime {
+        display: inline-block;
+        margin-bottom: 0;
+    }
+}
+
+.fsAthleticsEvent.fsList {
+    .fsListItems > article {
+        @include clearfix;
+        margin-bottom: rhythm(1);
+    }
+}
+
+.fsAthleticsTeamName {
+    margin-top: 0;
+}
+
+.fsAthleticsTeamIcon,
+.fsAthleticsEvent.fsList .fsTitle, 
+.fsAthleticsOpponents,
+.fsAthleticsEvent.fsList .fsAlertIcon,
+.fsAthleticsAdvantage, 
+.fsAthleticsLocations  {
+    float: left;
+    margin-right: 0.5rem;
+}
+
+.fsAthleticsAdvantage {
+    clear: left;
+}
+
+.fsAthleticsEvent.fsList .fsTitle,
+.fsAthleticsEvent.fsList .fsDate {
+    &:after {
+        content: ',';
+    }
+}
+
+.fsAthleticsOpponents > * {
+    display: inline;
+}
+
+// Athletic Event Details
+
+.fsAthleticsTitle,
+.fsAthleticsContainer {
+    margin-bottom: rhythm(0.5);
+}
+
+.fsAthleticsTitle {
+    font-weight: bold;
+    color: $header-font-color;
+}
+
+.fsAthleticsLabel,
+.fsAthleticsContent {
+    display: inline-block;
+    .fsAthleticsLocation & {
+        display: block;
+    }
+}
+
+.fsAthleticsLabel {
+    margin-right: 0.5rem;
+}
+
 .fsCalendar .fsTitle:first-child {
     margin-top: rhythm(1);
 }
@@ -697,7 +771,6 @@ $account-bar-height: 38px;
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 .fsElement.footer {
-    padding-bottom: rhythm(1);
     .is-home & {
         padding-bottom: $account-bar-height;
     }

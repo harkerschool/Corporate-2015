@@ -425,7 +425,7 @@ hkr.globalNav = {
         if ($currentMenuItem.length !== 0) {
             mmenu.setSelected($currentMenuItem);
         }
-        if ($currentPanel.length !== 0) {
+        if ($currentPanel.length !== 0 && Foundation.utils.is_medium_up()) {
             mmenu.openPanel($currentPanel);
         }
     }
@@ -433,11 +433,15 @@ hkr.globalNav = {
 
 hkr.photoCover = {
     init: function() {
-        var $container = $('.photo-cover'),
-            $img = $container.find('img').first(),
-            src = $img.attr('src');
+        var $containers = $('.photo-cover');
 
-        $container.css('backgroundImage', 'url(' + src + ')').addClass('photo-cover-active');
+        $containers.each(function() {
+            var $container = $(this),
+                $img = $container.find('img').first(),
+                src = $img.attr('src');
+
+            $container.css('backgroundImage', 'url(' + src + ')').addClass('photo-cover-active');
+        });
     }
 };
 

@@ -39,6 +39,24 @@
     }
 }
 
+// Table List
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.table-list {
+    margin: 0 0 rhythm(1);
+    padding: 0;
+    list-style: none;
+    background: $white;
+    @include box-shadow($default-shadow);
+    > li {
+        padding: rhythm(0.25) 1rem;
+        border-top: 1px solid $gainsboro;
+        &:first-child {
+            border-top: none;
+        }
+    }
+}
+
 // Grid Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -228,10 +246,10 @@ a .menu-item-text {
 }
 
 // Margins
-.margin-top { margin-top: rhythm(1); }
-.margin-bottom { margin-bottom: rhythm(1); }
-.margin-left { margin-left: ($column-gutter/2); }
-.margin-right { margin-right: ($column-gutter/2); }
+.margin-top { margin-top: rhythm(1) !important; }
+.margin-bottom { margin-bottom: rhythm(1) !important; }
+.margin-left { margin-left: ($column-gutter/2) !important; }
+.margin-right { margin-right: ($column-gutter/2) !important; }
 
 // Background Colors
 .green-bg {

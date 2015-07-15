@@ -269,7 +269,7 @@ $header-bottom-margin: rhythm(1);
 
 // We use these to control header font sizes
 $h1-font-size: rem-calc(48); // 48
-$h2-font-size: rem-calc(36); // 36
+$h2-font-size: rem-calc(32); // 32
 $h3-font-size: rem-calc(24); // 24
 $h4-font-size: rem-calc(20);
 $h5-font-size: rem-calc(18);
@@ -1344,9 +1344,9 @@ $panel-font-color: $body-font-color;
 // These control the table head styles
 // $table-head-bg: $white-smoke;
 // $table-head-font-size: rem-calc(14);
-// $table-head-font-color: $jet;
-// $table-head-font-weight: $font-weight-bold;
-// $table-head-padding: rem-calc(8 10 10);
+$table-head-font-color: $darkergray;
+$table-head-font-weight: normal;
+$table-head-padding: rhythm(0.5) 1rem;
 
 // These control the table foot styles
 // $table-foot-bg: $table-head-bg;
@@ -1362,10 +1362,10 @@ $panel-font-color: $body-font-color;
 // $table-caption-font-weight: bold;
 
 // These control the row padding and font styles
-// $table-row-padding: rem-calc(9 10);
+$table-row-padding: $table-head-padding;
 // $table-row-font-size: rem-calc(14);
-// $table-row-font-color: $jet;
-// $table-line-height: rem-calc(18);
+$table-row-font-color: $darkgray;
+// $table-line-height: rhythm(1);
 
 // These are for controlling the layout, display and margin of tables
 // $table-layout: auto;
