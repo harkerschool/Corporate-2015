@@ -13,6 +13,6 @@
 /src/css
 /src/js/vendor/bower.js
 /src/img/*
-!/src/img/css/*
+!/src/img/css/
 /test
 /tmp
