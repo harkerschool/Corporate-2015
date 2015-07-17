@@ -482,6 +482,21 @@ hkr.news = {
     }
 };
 
+hkr.finalsite = {
+    init: function() {
+        var $profiles = $('.fsConstituentItem');
+
+        $profiles.each(function() {
+            var $profile = $(this),
+                $photo = $profile.children('.fsPhoto');
+
+            if ($photo.length === 0) {
+                $profile.addClass('no-fsPhoto');
+            }
+        });
+    }
+}
+
 hkr.helpers = {
     scroll: function(handleDown, handleUp) {
         handleDown = typeof handleDown === "function" ? handleDown : function() {};

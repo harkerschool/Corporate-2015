@@ -28,6 +28,7 @@
     > header,
     > .fsElementContent,
     > footer {
+        max-width: 90rem;
         padding-left: 0;
         padding-right: 0;
     }
@@ -58,19 +59,15 @@
     }
 }
 
-.green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg, .gold-bg {
-    &.fsElement:last-child {
-        border-bottom: 3rem solid $lightgray;
-    }
-}
-
 // Content Elements
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.fsContent.column, .fsContent.columns {
-    padding-right: 0;
-    padding-left: 0;
-    clear: none;
+.fsContent, .fsContainer {
+    &.column, &.columns {
+        padding-right: 0;
+        padding-left: 0;
+        clear: none;
+    }
 }
 
 // Container Elements
@@ -680,6 +677,83 @@
 
 // Constituents
 // - - - - - - - - - - - - - - - - - - - - - - - - -
+
+$constituent-photo-width: 33%;
+
+[class^="fsConstituentColumnLayout"] {
+    @include grid-row($behavior:nest);
+    .fsConstituentItem {
+        width: 100%;
+    }
+}
+
+.fsConstituentItem {
+    max-width: $row-width*0.5; // 600px
+    padding-left: $column-gutter/2;
+    padding-right: $column-gutter/2;
+    margin-bottom: rhythm(1);
+    @include clearfix;
+    > * {
+        margin-left: $constituent-photo-width;
+        padding-left: $column-gutter/2;
+    }
+    &.no-fsPhoto > * {
+        margin-left: 0;
+        padding-left: 0;
+    }
+    .fsPhoto {
+        float: left;
+        width: $constituent-photo-width;
+        // max-width: $row-width*0.125; // 150px
+        margin-left: 0;
+        padding-left: 0;
+        margin-bottom: rhythm(1);
+        text-align: center;
+        background-color: $darkergray;
+    }
+    .fsFullName {
+        margin-top: 0;
+    }
+    .fsBiography {
+        margin-top: rhythm(1);
+        > :last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+@media #{$medium-up} {
+    .fsConstituentColumnLayout_2, .fsConstituentColumnLayout_3, .fsConstituentColumnLayout_4 {
+        .fsConstituentItem {
+            width: 50%;
+            &:nth-of-type(2n+1) {
+                clear: both;
+            }
+        }
+    }
+}
+
+@media #{$large-up} {
+    .fsConstituentColumnLayout_3, .fsConstituentColumnLayout_4 {
+        .fsConstituentItem {
+            &:nth-of-type(2n+1) {
+                clear: none;
+            }
+        }
+    }
+    .fsConstituentColumnLayout_3 .fsConstituentItem {
+        width: 33.3333%;
+        &:nth-of-type(3n+1) {
+            clear: both;
+        }
+    }
+    .fsConstituentColumnLayout_4 .fsConstituentItem {
+        width: 25%;
+        &:nth-of-type(4n+1) {
+            clear: both;
+        }
+    }
+}
 
 .fsElementPagination {
     .hide-pagination & {

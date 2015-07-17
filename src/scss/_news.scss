@@ -76,6 +76,24 @@
     }
 }
 
+.news-feed-outline {
+    .wp-text {
+        border: 1px solid $white;  
+    }
+    .wp-thumbnail + .wp-text {
+        border-top: 0;
+    }
+    .wp-body {
+        background-color: transparent;
+        @include box-shadow(none);
+    }
+    .wp-title a {
+        &, &:hover, &:focus {
+            color: $white;
+        }
+    }
+}
+
 // Other Feeds
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 

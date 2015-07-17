@@ -213,16 +213,16 @@ $body-font-color: $gray;
 // d. Media Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-// $small-range: (0em, 40em); // 0-640px
-// $medium-range: (40.063em, 64em); // 641px-1024px
-// $large-range: (64.063em, 90em); // 1025-1440px
-// $xlarge-range: (90.063em, 120em); // 1441-1920px
-// $xxlarge-range: (120.063em, 99999999em); // 1921px-infinite
+$small-range: (0em, 40em); // 0-640px
+$medium-range: (40.063em, 64em); // 641px-1024px
+$large-range: (64.063em, 90em); // 1025-1440px
+$xlarge-range: (90.063em, 120em); // 1441-1920px
+$xxlarge-range: (120.063em, 99999999em); // 1921px-infinite
 
-// $screen: "only screen";
+$screen: "only screen";
 
-// $landscape: "#{$screen} and (orientation: landscape)";
-// $portrait: "#{$screen} and (orientation: portrait)";
+$landscape: "#{$screen} and (orientation: landscape)";
+$portrait: "#{$screen} and (orientation: portrait)";
 
 // $small-up: $screen;
 // $small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})";
@@ -238,6 +238,15 @@ $body-font-color: $gray;
 
 // $xxlarge-up: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)})";
 // $xxlarge-only: "#{$screen} and (min-width:#{lower-bound($xxlarge-range)}) and (max-width:#{upper-bound($xxlarge-range)})";
+
+$small-up-height: $screen;
+$small-only-height: "#{$screen} and (max-height: #{upper-bound($small-range)})";
+
+$medium-up-height: "#{$screen} and (min-height:#{lower-bound($medium-range)})";
+$medium-only-height: "#{$screen} and (min-height:#{lower-bound($medium-range)}) and (max-height:#{upper-bound($medium-range)})";
+
+$large-up-height: "#{$screen} and (min-height:#{lower-bound($large-range)})";
+$large-only-height: "#{$screen} and (min-height:#{lower-bound($large-range)}) and (max-height:#{upper-bound($large-range)})";
 
 // Legacy
 // $small: $medium-up;

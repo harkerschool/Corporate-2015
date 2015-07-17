@@ -88,6 +88,7 @@
 @media #{$small-only} {
     [class*=block-grid-] > li {
         width: 100%;
+        padding-bottom: 0;
     }
 }
 
@@ -276,7 +277,12 @@ a .menu-item-text {
     background-color: $gold;
 }
 
-.green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg, .gold-bg {
+.gray-bg {
+    background-color: $darkergray;
+}
+
+
+.green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg, .gold-bg, .gray-bg {
     color: $white;
     h1, h2, h3, h4, h5, h6, code, a, strong, b {
         color: $white;

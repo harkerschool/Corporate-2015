@@ -9,5 +9,6 @@
         hkr.photoCover.init();
         hkr.accordion.init();
         hkr.slider.init();
+        hkr.finalsite.init();
     });
 })(jQuery);
