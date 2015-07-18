@@ -671,14 +671,12 @@
 // Forms
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.fsLoginSubmit {
-    @include button;
-}
+
 
 // Constituents
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$constituent-photo-width: 33%;
+$constituent-photo-width: 100px;
 
 [class^="fsConstituentColumnLayout"] {
     @include grid-row($behavior:nest);
@@ -688,7 +686,7 @@ $constituent-photo-width: 33%;
 }
 
 .fsConstituentItem {
-    max-width: $row-width*0.5; // 600px
+    max-width: $row-width*0.625; // 750px
     padding-left: $column-gutter/2;
     padding-right: $column-gutter/2;
     margin-bottom: rhythm(1);
@@ -756,10 +754,67 @@ $constituent-photo-width: 33%;
 }
 
 .fsElementPagination {
+    margin-bottom: rhythm(1);
     .hide-pagination & {
         display: none !important;
     }
 }
+
+// Profiles
+
+.fsProfileImage {
+    display: block;
+    float: left;
+    width: 100px;
+    margin-right: 1rem;
+    margin-bottom: rhythm(1);
+}
+
+.fsConstituentProfile {
+    .fsFullName {
+        margin-top: 0;
+    }
+}
+
+.fsProfileSection {
+    clear: both;
+    margin-bottom: rhythm(1);
+}
+
+.fsProfileSectionData {
+    margin-bottom: rhythm(0.5);
+}
+
+.fsProfileSectionSpecialData, .fsProfileSpecialFieldName {
+    > div {
+        width: auto;
+        float: none;
+        display: block;
+        margin-left: rem-calc(100) + 1rem;
+    }
+    > div:first-child {
+        width: rem-calc(100);
+        float: left;
+        margin-left: 0;
+        margin-right: 1rem;
+        @include truncate;
+    }
+}
+
+.fsProfileSectionFieldName {
+    width: rem-calc(100);
+    margin-right: 1rem;
+    @include truncate;
+}
+
+.fsProfileSectionFieldValue {
+    width: auto;
+    float: none;
+    display: block;
+    margin-left: rem-calc(100) + 1rem;
+}
+
+
 
 // Media
 // - - - - - - - - - - - - - - - - - - - - - - - - -

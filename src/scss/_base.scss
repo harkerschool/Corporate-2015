@@ -148,3 +148,10 @@ strong, b {
 a {
     @include transition(color 0.25s);
 }
+
+// Forms
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+input[type="submit"] {
+    @include button;
+    padding: rem-calc(11) 2rem rem-calc(10);
+}

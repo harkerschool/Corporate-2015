@@ -447,38 +447,43 @@ hkr.photoCover = {
 
 hkr.news = {
     init: function() {
-        var $feed = $('.news-feed'),
-            tag = $feed.data('wp-tag'),
-            cat = $feed.data('wp-cat'),
-            count = $feed.data('wp-count'),
-            thumbnail = $feed.data('wp-thumbnail');
+        var $feeds = $('.news-feed');
 
-        if (tag === undefined) {
-            tag = '';
-        }
-        if (cat === undefined) {
-            cat = '';
-        }
-        if (count === undefined) {
-            count = 6;
-        }
-        if (thumbnail === false) {
-            thumbnail = "";
-        } else {
-            thumbnail = ",thumbnail";
-        }
+        $feeds.each(function() {
+            var $feed = $(this),
+                tag = $feed.data('wp-tag'),
+                cat = $feed.data('wp-cat'),
+                count = $feed.data('wp-count'),
+                thumbnail = $feed.data('wp-thumbnail');
 
-        // Set up WordPress JSON API Feed
-        $('.news-feed').WPFeed({
-            method: 'get_posts',
-            args: {
-                tag: tag,
-                category_name: cat,
-                count: count,
-                date_format: 'F j, Y',
-                include: "id,title,title_plain,url" + thumbnail
+            if (tag === undefined) {
+                tag = '';
             }
+            if (cat === undefined) {
+                cat = '';
+            }
+            if (count === undefined) {
+                count = 6;
+            }
+            if (thumbnail === false) {
+                thumbnail = "";
+            } else {
+                thumbnail = ",thumbnail";
+            }
+
+            // Set up WordPress JSON API Feed
+            $feed.WPFeed({
+                method: 'get_posts',
+                args: {
+                    tag: tag,
+                    category_name: cat,
+                    count: count,
+                    date_format: 'F j, Y',
+                    include: "id,title,title_plain,url" + thumbnail
+                }
+            });
         });
+
     }
 };
 

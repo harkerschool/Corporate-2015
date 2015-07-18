@@ -252,6 +252,14 @@ a .menu-item-text {
 .margin-left { margin-left: ($column-gutter/2) !important; }
 .margin-right { margin-right: ($column-gutter/2) !important; }
 
+.margin-top-none { margin-top: 0 !important; }
+.margin-bottom-none { margin-bottom: 0 !important; }
+.margin-top-small { margin-top: rhythm(0.5) !important; }
+.margin-bottom-small { margin-bottom: rhythm(0.5) !important; }
+.margin-top-large { margin-top: rhythm(2) !important; }
+.margin-bottom-large { margin-bottom: rhythm(2) !important; }
+
+
 // Background Colors
 .green-bg {
     background-color: $green;
