@@ -9,7 +9,7 @@
         hero( array(
             'title' => '<span class="title-division">Middle School</span> <span class="title-topic">Programs & Extraccuriculars</span>',
             'text_classes' => 'large-12 large-offset-12',
-            'img_src' => 'img/placeholders/bgimg-ps-specialty-classes.jpg', // background image
+            'img_src' => 'img/hero-ps-teachers.jpg', // background image
             'img_alt' => ''
             // 'vimeo_id' => '122377196', // background video
             // 'wistia_id' => 'ponntrph3v' // feature video

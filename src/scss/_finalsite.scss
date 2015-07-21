@@ -832,6 +832,13 @@ $constituent-photo-width: 100px;
     vertical-align: top;
 }
 
+
+.fsMediaGalleryThumbnail {
+    .media-portrait & {
+        height: 312px;
+    }
+}
+
 // Account Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 

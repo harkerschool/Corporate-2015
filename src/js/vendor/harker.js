@@ -176,7 +176,7 @@ hkr.header = {
             $activeMenuItem.addClass('active');
 
             $menu.truncatedMenu({
-                moreItem: '.header-nav-menu-sections .menu-item-more',
+                moreItem: '.header-nav-menu-sections > .active, .header-nav-menu-sections .menu-item-more',
                 visibleItems: '.header-nav-menu-sections .menu-item-hamburger',
                 afterTruncate: function() {
                     $(document).foundation('dropdown', 'reflow');
@@ -291,7 +291,7 @@ hkr.navbar = {
             $activeMenuItem.addClass('active');
 
             $sectionMenu.truncatedMenu({
-                visibleItems: '.primary-nav-menu-sections .active, .primary-nav-menu-sections .menu-item-hamburger',
+                visibleItems: '.primary-nav-menu-sections > .active, .primary-nav-menu-sections .menu-item-hamburger',
                 moreItem: '.primary-nav-menu-sections .menu-item-more',
                 afterTruncate: function() {
                     $(document).foundation('dropdown', 'reflow');
@@ -500,7 +500,7 @@ hkr.finalsite = {
             }
         });
     }
-}
+};
 
 hkr.helpers = {
     scroll: function(handleDown, handleUp) {
