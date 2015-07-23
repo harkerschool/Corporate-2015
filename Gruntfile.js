@@ -94,6 +94,12 @@ module.exports = function(grunt) {
                     'waypoints': [
                         'lib/jquery.waypoints.js',
                         'lib/shortcuts/sticky.js'
+                    ],
+                    'foundation': [
+                        'js/foundation/foundation.js',
+                        'js/foundation/foundation.dropdown.js',
+                        'js/foundation/foundation.equalizer.js',
+                        'js/foundation/foundation.magellan.js'
                     ]
                 }
             }
