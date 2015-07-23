@@ -1,9 +1,8 @@
 <?php function the_footer($is_home = false) { ?>
-<footer class="section footer <?php if ( $is_home ) { echo 'footer-overlay'; } ?>">
+<footer class="section footer footer-invert <?php if ( $is_home ) { echo 'footer-overlay'; } ?>">
 <div class="row">
     <div class="column">
         <?php if ( ! $is_home ): ?>
-        <p class="harker-logo harker-logo-horiz"><a href="http://www.harker.org">The Harker School</a></p>
         <nav class="footer-nav">
             <ul class="footer-nav-menu row">
                 <li class="column large-5 medium-8">
@@ -67,7 +66,17 @@
             </ul>
         </nav>
         <?php endif; ?>
+        <div class="text-center"><div class="harker-logo harker-logo-horiz"><a href="http://www.harker.org">The Harker School</a></div></div>
         <p class="footer-legal">Copyright &copy; 1893-2015 &bull; The Harker School &bull; San Jose, CA 95129 <span class="footer-contact-link">| <a href="page.cfm?p=93" target="_self">Contact Us</a> | <a href="/page.cfm?p=3686" data-page-name="Privacy Policy">Privacy Policy</a></span></p>
+        <div class="text-center">
+            <ul class="footer-nav-menu-social">
+                <li class="menu-item-followtext">Follow Us!</li>
+                <li class="menu-item-social menu-item-instagram"><a href="http://instagram.com/harkerschool" title="Instagram"></a></li>
+                <li class="menu-item-social menu-item-youtube"><a href="http://youtube.com/harkerschool" title="Youtube"></a></li>
+                <li class="menu-item-social menu-item-twitter"><a href="http://twitter.com/harkerschool" title="Twitter"></a></li>
+                <li class="menu-item-social menu-item-facebook"><a href="http://facebook.com/harkerschool" title="Facebook"></a></li>
+            </ul>
+        </div>
     </div>
 </div>
 </footer>

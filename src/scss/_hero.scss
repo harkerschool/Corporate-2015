@@ -7,6 +7,10 @@
     width: 100%;
     height: 768px;
     overflow: hidden;
+    &.fsElement {
+        width: auto;
+        height: auto;
+    }
 }
 
 .hero-text {

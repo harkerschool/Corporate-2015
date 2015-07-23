@@ -1,0 +1,44 @@
+// Finalsite Forms
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+@import "compass/support";
+@import "compass/css3";
+@import "compass/typography/vertical_rhythm";
+@import "settings";
+@import "normalize";
+@import "font-awesome";
+@import "font";
+@import "foundation/components/type";
+@import "foundation/components/forms";
+@import "elements"; 
+
+// Author Styles
+
+form { // overwrite specificity
+    .elementRow {
+        margin: 0;
+    }
+    .elementContainer {
+        padding: 0;
+    }
+    fieldset {
+        padding: 0 1rem;
+        margin: 0.75rem 0;
+    }
+    .prevPage, .nextPage, .submitBtn, 
+    .userConfirmation, .hydraulics, #recurringPaymentSection {
+        display: none;
+    }
+    .targetForm {
+        width: auto !important;
+        max-width: em-calc(750);
+    }
+}
+
+input[type="submit"], input[type="button"] {
+    // overwrite Finalsite's important declarations
+    background-color: $button-bg-color !important; 
+    &:hover, &:focus {
+        background-color: $button-bg-hover !important;
+    }
+}

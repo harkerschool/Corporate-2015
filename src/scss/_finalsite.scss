@@ -164,6 +164,10 @@
 // Accordion Element
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+.fsAccordion, .fsElement .fsAccordion {
+    margin-top: rhythm(0.5);
+}
+
 .fsPanel {
     margin-bottom: rhythm(1);
 
@@ -243,6 +247,7 @@
 
 // child accordion
 .fsAccordion .fsAccordion {
+    margin-top: 0;
     margin-bottom: rhythm(1);
 
     > .fsElementContent {
@@ -411,7 +416,7 @@
     color: $green;
 }
 
-.fsDate:first-child,
+.fsCalendar .fsDate:first-child,
 .fsCalendar .fsTitle:first-child {
     display: block;
     color: $header-font-color;
@@ -525,7 +530,7 @@
 
 .fsDescription {
     margin-top: rhythm(1);
-}
+} 
 
 .fsAlertFeeds {
     margin-bottom: -16px;
@@ -535,7 +540,7 @@
 
 .fsCalendar.fsList {
     .fsMonthContainer {
-        margin-bottom: rhythm(2);
+        margin-bottom: rhythm(1.5);
     }
     .fsDayContainer {
         margin-bottom: rhythm(1);
@@ -814,7 +819,49 @@ $constituent-photo-width: 100px;
     margin-left: rem-calc(100) + 1rem;
 }
 
+// News
+// - - - - - - - - - - - - - - - - - - - - - - - - - 
 
+.fsNews {
+    article {
+        margin-bottom: rhythm(2);
+    }
+    .fsThumbnail {
+        display: block;
+        margin-bottom: rhythm(1);
+    }
+    .fsThumbnail .fsCroppedImage {
+        display: block;
+        width: 100%;
+        height: 0;
+        padding-bottom: 66.6667%; // 3/2 ratio
+    }
+    .fsTitle {
+        font-size: $h4-font-size;
+        font-weight: normal;
+        color: $header-font-color;
+        a {
+            text-decoration: none;
+        }
+    }
+    .fsReadMoreLink {
+        display: block;
+        margin-bottom: rhythm(1);
+    }
+}
+
+.fsNews.news-list {
+    article {
+        margin-bottom: rhythm(1);
+    }
+}
+
+[class*="-bg"] .fsNews,
+.fsNews[class*="-bg"] {
+    .fsTitle {
+        color: $white;
+    }
+}
 
 // Media
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -925,6 +972,17 @@ $account-bar-height: 38px;
     }
     .is-home & {
         display: none;
+    }
+}
+
+// Misc Finalsite Elements
+// - - - - - - - - - - - - - - - - - - - - - - - - - 
+
+.fsLoadMoreButton {
+    @include button;
+    padding: $button-small-padding;
+    [class*="-bg"] & {
+        @include button-secondary;
     }
 }
 

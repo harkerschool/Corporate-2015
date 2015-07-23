@@ -109,8 +109,20 @@
     a {
         text-decoration: none;
     }
+    .word-chunk {
+        display: inline;
+    }
     @media #{$medium-up} { 
         font-size: $h2-font-size;
+        .word-chunk {
+            display: block;
+            &:after {
+                content: '-';
+            }
+            &.word-chunk-end:after {
+                content: '';
+            }
+        }
     }
     @media #{$large-up} {
         font-size: $h1-font-size;

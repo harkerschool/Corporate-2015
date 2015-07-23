@@ -502,6 +502,19 @@ hkr.finalsite = {
     }
 };
 
+hkr.footer = {
+    init: function() {
+        var $footer = $('.footer'),
+            $lastElement = $('#fsPageContent > .fsLayout > .fsDiv > .fsElement:last-child').first(),
+            classes = $lastElement.attr('class'),
+            regex = /\w+-bg/;
+
+        if (regex.test(classes)) {
+            $footer.addClass('footer-invert');
+        }
+    }
+};
+
 hkr.helpers = {
     scroll: function(handleDown, handleUp) {
         handleDown = typeof handleDown === "function" ? handleDown : function() {};

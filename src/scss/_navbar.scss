@@ -154,7 +154,8 @@ $harker-logo-width: 215px; // 16px left/right padding
     text-transform: uppercase;
 }
 
-.primary-nav-menu-secondary a {
+.primary-nav-menu-secondary a,
+.footer-nav-menu-social a {
     display: block;
     font-size: rem-calc(24);
     line-height: rem-calc(24);

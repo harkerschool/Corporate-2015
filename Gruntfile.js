@@ -53,7 +53,8 @@ module.exports = function(grunt) {
                     force: true // allows script to overwrite file
                 },
                 files: {
-                    'src/css/styles.css': 'src/css/styles.css'
+                    'src/css/styles.css': 'src/css/styles.css',
+                    'src/css/forms.css': 'src/css/forms.css'
                 }
             }
         },
@@ -76,16 +77,18 @@ module.exports = function(grunt) {
                     '!dist/.git*'
                 ]
             },
-            bower: ['src/js/vendor/bower.js'],
+            bower: ['src/js/vendor/bower*.js'],
             css: ['src/css/*']
         },
 
         // Concat Bower JS files. CSS styles are imported via SASS.
         bower_concat: {
-            js: {
+            dist: {
                 dest: 'src/js/vendor/bower.js',
                 exclude: [
-                    'modernizr'
+                    'modernizr',
+                    'jquery',
+                    'countUp.js'
                 ],
                 mainFiles: {
                     'waypoints': [
@@ -215,7 +218,7 @@ module.exports = function(grunt) {
         'sass',
         'bless',
         'file_append',
-        'bower_concat',
+        'bower_concat:dist',
         'concat',
         'copy:modernizr',
         'copy:css',

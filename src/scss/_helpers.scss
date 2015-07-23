@@ -39,10 +39,16 @@
     }
 }
 
-// Table List
+// List Helpers
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.table-list {
+.list-expand {
+    > li {
+        margin-bottom: rhythm(0.25);
+    }
+}
+
+.list-table {
     margin: 0 0 rhythm(1);
     padding: 0;
     list-style: none;
@@ -203,6 +209,9 @@ a .menu-item-text {
             background-image: url(#{$img-path}harker-logo.png);
         }
     }
+    &.harker-logo-true-height a {
+        height: 32px;
+    }
 }
 
 .harker-logo.harker-logo-square {
@@ -259,6 +268,11 @@ a .menu-item-text {
 .margin-top-large { margin-top: rhythm(2) !important; }
 .margin-bottom-large { margin-bottom: rhythm(2) !important; }
 
+.margin-centered {
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 // Background Colors
 .green-bg {
@@ -290,7 +304,7 @@ a .menu-item-text {
 }
 
 
-.green-bg, .blue-bg, .purple-bg, .red-bg, .orange-bg, .gold-bg, .gray-bg {
+[class*="-bg"] {
     color: $white;
     h1, h2, h3, h4, h5, h6, code, a, strong, b {
         color: $white;

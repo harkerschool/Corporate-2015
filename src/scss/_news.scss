@@ -24,8 +24,14 @@
         display: block;
         margin: 0 auto;
         max-height: rhythm(8);
-        .backgroundsize & {
-            visibility: hidden;
+    }
+    .backgroundsize & {
+        max-height: none;
+        width: 100%;
+        height: 0;
+        padding-bottom: 66.6667%;
+        img {
+            display: none;
         }
     }
 }
