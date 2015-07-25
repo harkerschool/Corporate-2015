@@ -1,14 +1,14 @@
 // General Elements
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.fsElement {
+.fsElement { 
     @extend .section;
-    clear: both;
+    clear: both; 
     .fsElement {
         background-color: transparent;
         padding: 0;
     }
-}
+} 
 
 .fsElement > header,
 .fsElementContent,

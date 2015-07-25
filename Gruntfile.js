@@ -50,7 +50,8 @@ module.exports = function(grunt) {
             css: {
                 options: {
                     imports: false,
-                    force: true // allows script to overwrite file
+                    force: true, // allows script to overwrite file
+                    logCount: true
                 },
                 files: {
                     'src/css/styles.css': 'src/css/styles.css',

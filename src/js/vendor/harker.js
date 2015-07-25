@@ -76,7 +76,7 @@ hkr.hero = {
 
         this.setupBgImage();
         this.setupBgVideo();
-        this.setupFeatureVideo();
+        // this.setupFeatureVideo();
     },
     setupBgImage: function() {
         var $img = $('.hero-img > img');
@@ -220,6 +220,10 @@ hkr.navbar = {
 
         this.sectionMenu.init();
         this.bookmarksMenu.init();
+
+        if ($('html').hasClass('is-404')) {
+            return;
+        }
 
         // set up scroll behavior for navbar
         if (!Modernizr.touch) {
@@ -489,7 +493,12 @@ hkr.news = {
 
 hkr.finalsite = {
     init: function() {
-        var $profiles = $('.fsConstituentItem');
+        this.directory();
+    },
+    directory: function() {
+        var regex = /\".*\"\s/,
+            $profiles = $('.fsConstituentItem'),
+            $names = $('.fsFullName', $profiles);
 
         $profiles.each(function() {
             var $profile = $(this),
@@ -498,6 +507,15 @@ hkr.finalsite = {
             if ($photo.length === 0) {
                 $profile.addClass('no-fsPhoto');
             }
+        });
+
+        // remove nicknames
+        $names.each(function() {
+            var $name = $(this),
+                text = $name.text().trim(),
+                newName = text.replace(regex, "");
+
+            $name.children('a').text(newName);
         });
     }
 };
