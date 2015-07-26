@@ -712,7 +712,6 @@ $constituent-photo-width: 100px;
         padding-left: 0;
         margin-bottom: rhythm(1);
         text-align: center;
-        background-color: $darkergray;
     }
     .fsFullName {
         margin-top: 0;
@@ -948,6 +947,10 @@ $account-bar-height: 38px;
     &.is-home #fsPageWrapper {
         padding-bottom: 0;
     }
+}
+
+body.fsAccountBarVisible {
+    margin: 0;
 }
 
 // Footer

@@ -76,7 +76,7 @@ hkr.hero = {
 
         this.setupBgImage();
         this.setupBgVideo();
-        // this.setupFeatureVideo();
+        this.setupFeatureVideo();
     },
     setupBgImage: function() {
         var $img = $('.hero-img > img');
@@ -221,7 +221,7 @@ hkr.navbar = {
         this.sectionMenu.init();
         this.bookmarksMenu.init();
 
-        if ($('html').hasClass('is-404')) {
+        if ($('body').hasClass('is-404')) {
             return;
         }
 
