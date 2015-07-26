@@ -60,12 +60,31 @@ module.exports = function(grunt) {
             }
         },
 
+        csssplit: {
+            src: {
+                src: ['src/css/styles.css'],
+                dest: 'src/css/styles.css',
+                options: {
+                    maxSelectors: 3500, // 4095,
+                    maxPages: 3,
+                    suffix: '-'
+                }
+            },
+        },
+
         file_append: {
             bless: {
                 files: [{
                     prepend: '@charset "UTF-8";',
                     input: 'src/css/styles.css',
                     output: 'src/css/styles.css'
+                }]
+            },
+            csssplit: {
+                files: [{
+                    prepend: '@charset "UTF-8";\n',
+                    input: 'src/css/styles-2.css',
+                    output: 'src/css/styles-2.css'
                 }]
             }
         },
@@ -208,7 +227,7 @@ module.exports = function(grunt) {
     grunt.registerTask('compile:css', [
         'clean:css',
         'sass',
-        'bless',
+        'csssplit',
         'file_append:bless'
     ]);
 
@@ -223,7 +242,7 @@ module.exports = function(grunt) {
     grunt.registerTask('build', [
         'clean',
         'sass',
-        'bless',
+        'csssplit',
         'file_append',
         'bower_concat:dist',
         'concat',
