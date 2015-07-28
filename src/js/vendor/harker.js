@@ -6,8 +6,6 @@ hkr.ga = {
     init: function() {
         var hkrga = this;
 
-        this.tracker = ga.getAll()[0];
-
         $('a.track-link').on('click', function() {
             var $link = $(this),
                 url = $link.attr('href'),

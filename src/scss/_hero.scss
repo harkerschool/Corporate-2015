@@ -108,10 +108,18 @@
     }
 }
 
-.hero-text .button {
-    margin-bottom: rhythm(1);
-    @media #{$small-only} {
-        padding: 0.375rem 2rem;
+.hero-text .button-group {
+    margin-bottom: 0;
+    > li {
+        margin-bottom: rhythm(1);
+        &:last-child {
+            margin-bottom: 0;
+        }       
+    }
+    .button {
+        @media #{$small-only} {
+            padding: 0.375rem 2rem;
+        }
     }
 }
 
