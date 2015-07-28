@@ -12,4 +12,7 @@
         hkr.footer.init();
         hkr.finalsite.init();
     });
+    $(window).load(function() {
+        hkr.ga.init();
+    });
 })(jQuery);

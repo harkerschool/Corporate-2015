@@ -22,7 +22,7 @@
 <script src="js/vendor/fullscreen-wistia.js"></script>
 <script src="js/vendor/harker.js"></script>
 <script src="js/main.js"></script>
-<!--[if IE 9 ]>
+<!--[if lte IE 9 ]>
 <script>
 (function($){
     $(window).load(function() {

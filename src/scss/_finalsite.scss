@@ -384,13 +384,6 @@
   }
 }
 
-// Global Nav Element
-// - - - - - - - - - - - - - - - - - - - - - - - - -
-
-.fsElement.global-nav {
-    display: none;
-}
-
 // Page Content & Layout
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -885,6 +878,42 @@ $constituent-photo-width: 100px;
     }
 }
 
+// Login
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+.fsAccount {
+    .fsAccountGreeting {
+        color: $green;
+        font-size: $h3-font-size;
+    }
+    .fsAccountAvatar {
+        display: none;
+    }
+    .fsAccountLinks {
+        .fsAccountActivityLink, .fsAccountProfileLink, .fsAccountMessagesLink {
+            a {
+                display: inline;
+                padding: 0;
+                text-decoration: underline;
+            }
+        }
+    }
+    .fsAccountLogout {
+        margin: rhythm(1) 0;
+        a {
+            @include button;
+            padding: $button-small-padding;
+        }
+    } 
+}
+
+.portal-nav {
+    display: none;
+    .fsAccountBarVisible &, .fsComposeMode & {
+        display: block;
+    }
+}
+
 // Account Bar
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
@@ -959,6 +988,13 @@ body.fsAccountBarVisible {
 .fsElement.footer {
     .is-home & {
         padding-bottom: $account-bar-height;
+    }
+}
+
+.fsElement.global-nav {
+    display: none;
+    .fsComposeMode {
+        display: block;
     }
 }
 

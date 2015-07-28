@@ -5,7 +5,8 @@
     }
 }
 
-.footer-overlay {
+.footer-overlay,
+.is-home .footer {
     position: absolute;
     left: 0;
     bottom: 0;
@@ -14,6 +15,9 @@
     padding: 0;
     .feature-is-playing & {
         display: none; 
+    }
+    @media #{$small-only-height} {
+        visibility: hidden;
     }
 }
 

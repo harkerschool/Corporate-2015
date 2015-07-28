@@ -3,17 +3,41 @@ var hkr = {};
 
 // Google Analytics functions
 hkr.ga = {
+    init: function() {
+        var hkrga = this;
+
+        this.tracker = ga.getAll()[0];
+
+        $('a.track-link').on('click', function() {
+            var $link = $(this),
+                url = $link.attr('href'),
+                category = $link.data('ga-cat'),
+                label = $link.data('ga-label');
+
+            if (label === 'title-cta') {
+                var $title = $('.title').first(),
+                    title = ($title.length > 0) ? $title.text() : window.location.href;
+
+                label = title.trim() + ' CTA';
+            }
+
+            hkrga.trackLink(url, category, label);
+
+            return false;
+        });
+    },
     /**
-     * Function that tracks a click on an outbound link in Google Analytics.
+     * Function that tracks a click on a link in Google Analytics.
      * This function takes a string as an argument, and uses it
      * as the event label. The string can be the anchor text or URL.
      */
-    trackOutboundLink: function(url, label) {
+    trackLink: function(url, category, label) {
         url = typeof url !== 'undefined' ? url : '';
+        category = typeof category !== 'undefined' ? category : 'Tracked Links';
         label = typeof label !== 'undefined' ? label : url;
 
-        ga('send', 'event', 'outbound', 'click', label, {
-            'hitCallback': function() {
+        this.tracker('send', 'event', category, 'click', label, {
+            "hitCallback": function() {
                 document.location = url;
             }
         });
@@ -76,7 +100,9 @@ hkr.hero = {
 
         this.setupBgImage();
         this.setupBgVideo();
-        this.setupFeatureVideo();
+        if ($('.fsDraftMode').length === 0) {
+            this.setupFeatureVideo();
+        }
     },
     setupBgImage: function() {
         var $img = $('.hero-img > img');
@@ -217,6 +243,8 @@ hkr.navbar = {
         if ($hero.length !== 0 && !$hero.next().is($navBar)) {
             $hero.after($navBar);
         }
+
+        $('html').addClass('has-nav-bar');
 
         this.sectionMenu.init();
         this.bookmarksMenu.init();
@@ -431,6 +459,13 @@ hkr.globalNav = {
         }
         if ($currentPanel.length !== 0 && Foundation.utils.is_medium_up()) {
             mmenu.openPanel($currentPanel);
+        }
+
+        if ($('#lte-IE9').length > 0) {
+            // fix for ie9
+            $('.mm-navbar').on('click', function() {
+                $('.mm-panel').removeClass('mm-current').removeClass('mm-opened');
+            });
         }
     }
 };
