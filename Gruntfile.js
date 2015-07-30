@@ -108,7 +108,8 @@ module.exports = function(grunt) {
                 exclude: [
                     'modernizr',
                     'jquery',
-                    'countUp.js'
+                    'countUp.js',
+                    'hologram-github-theme'
                 ],
                 mainFiles: {
                     'waypoints': [

@@ -14,12 +14,17 @@
 .button {
     line-height: rhythm(1);
     padding: rhythm(0.5) 2rem;
+    @include box-shadow($default-shadow);
 }
 
 p, ul, ol, dl {
     + p .button {
         margin: rhythm(0.5) 0;
     }
+}
+
+.button-small {
+    padding: rhythm(0.25) 2rem;
 }
 
 .button-outline,
@@ -31,6 +36,7 @@ p, ul, ol, dl {
         padding-top: rem-calc(12);
         padding-bottom: rem-calc(12);
     }
+    @include box-shadow(none);
 }
 
 .button-outline {
@@ -49,11 +55,11 @@ p, ul, ol, dl {
 }
 
 .button-group {
-    margin: 0;
+    margin: rhythm(1) 0 rhythm(0.5);
     padding: 0;
     list-style: none;
     > li {
         display: inline-block;
-        margin: 0 1rem 0 0;
+        margin: 0 1rem rhythm(0.5) 0;
     }
 }

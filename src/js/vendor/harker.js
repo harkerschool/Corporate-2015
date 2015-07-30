@@ -543,13 +543,13 @@ hkr.finalsite = {
         });
 
         // remove nicknames
-        $names.each(function() {
-            var $name = $(this),
-                text = $name.text().trim(),
-                newName = text.replace(regex, "");
+        // $names.each(function() {
+        //     var $name = $(this),
+        //         text = $name.text().trim(),
+        //         newName = text.replace(regex, "");
 
-            $name.children('a').text(newName);
-        });
+        //     $name.children('a').text(newName);
+        // });
     }
 };
 

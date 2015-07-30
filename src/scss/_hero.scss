@@ -111,7 +111,6 @@
 .hero-text .button-group {
     margin-bottom: 0;
     > li {
-        margin-bottom: rhythm(1);
         &:last-child {
             margin-bottom: 0;
         }       
@@ -195,4 +194,29 @@
     -moz-border-radius: 0 0 0 5px;
     -webkit-border-radius: 0 0 0 5px;
     border-radius: 0 0 0 5px;
+}
+
+.wistia_embed .wistia-title,
+.wistia_embed .wistia-content {
+    color: $white;
+    font-weight: normal;
+}
+
+.wistia_embed .wistia-title {
+    font-family: "DINPro Black", Helvetica, Arial, sans-serif;
+    font-size: rem-calc(36);
+    line-height: 1em;
+    margin-bottom: $header-bottom-margin;
+    @media #{$medium-up} {
+        font-size: rem-calc(48);
+    }
+}
+
+.wistia_embed .wistia-content {
+    font-family: $font-family-sans-serif;
+    font-size: rem-calc(18);
+    line-height: 1.5em;
+    @media #{$medium-up} {
+        font-size: rem-calc(24);
+    }
 }

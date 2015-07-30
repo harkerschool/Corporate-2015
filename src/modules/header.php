@@ -7,8 +7,8 @@
 <title><?php echo $title; ?></title>
 <meta name="description" content="">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="css/styles-blessed1.css">
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="css/styles-1.css">
+<link rel="stylesheet" type="text/css" href="css/styles-2.css">
 <style type="text/css">
 </style>
 <script src="bower_components/modernizr/modernizr.js"></script>

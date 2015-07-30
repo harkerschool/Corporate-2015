@@ -1046,6 +1046,10 @@ body.fsAccountBarVisible {
 }
 
 .fsComposeMode {
+    h1, h2, h3, h4, h5, h6, .hero-title {
+        text-transform: none;
+    }
+
     .has-hero & .header {
         display: block;
         position: static;
@@ -1054,4 +1058,5 @@ body.fsAccountBarVisible {
     .nav-bar-top {
         height: auto;
     }
+
 }

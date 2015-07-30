@@ -1,1 +1,0 @@
-Add custom templates functionality to wp-json-feed.js.

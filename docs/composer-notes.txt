@@ -1,3 +1,0 @@
-== Can't change format of text in Header and Footer in element's design settings.
-== Can't find "Display more events" link in Calendar element.
-

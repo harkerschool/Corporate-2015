@@ -45,8 +45,12 @@ h5, h6 {
 
 .subheader {
     text-transform: none;
+    font-size: $h3-font-size - $h3-font-reduction;
     &:first-child {
         margin-top: 0;
+    }
+    @media #{$medium-up} {
+        font-size: $h3-font-size;
     }
 }
 .subheader-invert {
