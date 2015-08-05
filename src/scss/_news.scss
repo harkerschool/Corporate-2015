@@ -85,6 +85,7 @@
 .news-feed-outline {
     .wp-text {
         border: 1px solid $white;  
+        @include box-shadow(none);
     }
     .wp-thumbnail + .wp-text {
         border-top: 0;

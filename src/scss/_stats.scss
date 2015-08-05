@@ -11,13 +11,22 @@
 .stat-measure, .stat-desc {
     display: block;
     font-weight: bold;
+    a {
+        text-decoration: none;
+    }
 }
 
 .stat-measure {
     font-size: rem-calc(64);
-    color: $green;
     line-height: 1;
+    color: $green;
     margin-bottom: 1rem;
+    a {
+        color: $green;
+    }
+    a:hover {
+        color: scale-color($green, $lightness: -14%);
+    }
 }
 
 .stat-desc {

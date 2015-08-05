@@ -243,7 +243,13 @@ a .menu-item-text {
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
 // Hide
-.hide { display: none !important; }
+.hide { 
+    display: none !important; 
+    .fsComposeMode &.fsElement {
+        display: block !important;
+    }
+}
+
 
 // Truncate
 .truncate {

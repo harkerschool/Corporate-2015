@@ -6,17 +6,18 @@ hkr.ga = {
     init: function() {
         var hkrga = this;
 
-        $('a.track-link').on('click', function() {
+        ga('create', 'UA-2450420-1', 'auto', {
+            'name': 'hkr'
+        });
+
+        $(document).on('click.hkr.ga', 'a.track-link', function() {
             var $link = $(this),
                 url = $link.attr('href'),
                 category = $link.data('ga-cat'),
                 label = $link.data('ga-label');
 
-            if (label === 'title-cta') {
-                var $title = $('.title').first(),
-                    title = ($title.length > 0) ? $title.text() : window.location.href;
-
-                label = title.trim() + ' CTA';
+            if ($link.hasClass('wistia-link')) {
+                category = 'Video CTAs';
             }
 
             hkrga.trackLink(url, category, label);
@@ -30,11 +31,11 @@ hkr.ga = {
      * as the event label. The string can be the anchor text or URL.
      */
     trackLink: function(url, category, label) {
-        url = typeof url !== 'undefined' ? url : '';
+        url = typeof url !== 'undefined' ? url : 'href not set';
         category = typeof category !== 'undefined' ? category : 'Tracked Links';
         label = typeof label !== 'undefined' ? label : url;
 
-        this.tracker('send', 'event', category, 'click', label, {
+        ga('hkr.send', 'event', category, 'click', label, {
             "hitCallback": function() {
                 document.location = url;
             }
