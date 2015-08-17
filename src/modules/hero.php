@@ -4,6 +4,7 @@ function hero( $args = array() ) {
     $args = array_merge( array(
         'title' => 'Page Title',
         'subtitle' => 'We challenge and support students with an innovative curriculum that encourages success in college and beyond.',
+        'container_classes' => '',
         'text_classes' => 'large-14 large-offset-10',
         'img_src' => 'http://dummyimage.com/1440x1200/4d494d/686a82.gif&text=placeholder+image', // background image
         'img_alt' => 'Placeholder Image',
@@ -12,7 +13,7 @@ function hero( $args = array() ) {
     ), $args );
     extract( $args );
 ?>
-<div id="hero" class="hero">
+<div id="hero" class="hero <?php echo $container_classes; ?>">
     <div class="hero-text">
         <div class="row">
             <div class="columns <?php echo $text_classes; ?>">

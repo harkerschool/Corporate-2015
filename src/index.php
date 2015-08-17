@@ -8,6 +8,7 @@
     <?php
         hero( array(
             'title' => '<span class="title-division">Middle School</span> <span class="title-topic">Programs & Extraccuriculars</span>',
+            'container_classes' => 'hero-overlay',
             'text_classes' => 'large-12 large-offset-12',
             'img_src' => 'img/hero-ps-teachers.jpg', // background image
             'img_alt' => ''
