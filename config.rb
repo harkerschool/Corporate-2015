@@ -5,6 +5,8 @@ add_import_path "src/bower_components/jQuery.mmenu/src/scss"
 
 # Set this to the root of your project when deployed:
 http_path = "/"
+http_images_path = "http://www.harker.org/uploaded/themes/corporate-2015/img/css/"
+
 css_dir = "src/css"
 sass_dir = "src/scss"
 images_dir = "src/img/css"
@@ -16,7 +18,7 @@ fonts_dir = "src/fonts/vendor"
 # output_style = :expanded
 
 # To enable relative paths to assets via compass helper functions. Uncomment:
-# relative_assets = true
+relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
 # line_comments = false

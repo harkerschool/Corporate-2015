@@ -6,6 +6,10 @@ hkr.ga = {
     init: function() {
         var hkrga = this;
 
+        if (typeof ga === 'undefined') {
+            return;
+        }
+
         ga('create', 'UA-2450420-1', 'auto', {
             'name': 'hkr'
         });
@@ -14,32 +18,52 @@ hkr.ga = {
             var $link = $(this),
                 url = $link.attr('href'),
                 category = $link.data('ga-cat'),
+                action = $link.data('ga-action'),
                 label = $link.data('ga-label');
 
             if ($link.hasClass('wistia-link')) {
                 category = 'Video CTAs';
             }
 
-            hkrga.trackLink(url, category, label);
+            hkrga.trackLink(url, category, action, label);
 
             return false;
         });
+
+        $(document).on('click.hkr.ga', '.track-click', function() {
+            var $el = $(this),
+                category = $el.data('ga-cat'),
+                action = $el.data('ga-action'),
+                label = $el.data('ga-label');
+
+            hkrga.trackEvent(category, action, label);
+        });
+
     },
     /**
      * Function that tracks a click on a link in Google Analytics.
      * This function takes a string as an argument, and uses it
      * as the event label. The string can be the anchor text or URL.
      */
-    trackLink: function(url, category, label) {
+    trackLink: function(url, category, action, label) {
         url = typeof url !== 'undefined' ? url : 'href not set';
         category = typeof category !== 'undefined' ? category : 'Tracked Links';
+        action = typeof action !== 'undefined' ? action : 'click';
         label = typeof label !== 'undefined' ? label : url;
 
-        ga('hkr.send', 'event', category, 'click', label, {
+        ga('hkr.send', 'event', category, action, label, {
             "hitCallback": function() {
                 document.location = url;
             }
         });
+    },
+
+    trackEvent: function(category, action, label) {
+        category = typeof category !== 'undefined' ? category : 'Tracked Events';
+        action = typeof action !== 'undefined' ? action : 'undefined';
+        label = typeof label !== 'undefined' ? label : window.location.href;
+
+        ga('hkr.send', 'event', category, action, label);
     }
 };
 
