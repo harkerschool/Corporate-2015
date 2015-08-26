@@ -164,10 +164,6 @@
 // Accordion Element
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.fsAccordion, .fsElement .fsAccordion {
-    margin-top: rhythm(0.5);
-}
-
 .fsPanel {
     margin-bottom: rhythm(1);
 
@@ -410,7 +406,8 @@
 }
 
 .fsCalendar .fsDate:first-child,
-.fsCalendar .fsTitle:first-child {
+.fsCalendar .fsTitle:first-child,
+.fsAthleticsEvent.fsList .fsDateTime:first-child {
     display: block;
     color: $header-font-color;
     font-weight: bold;
@@ -425,6 +422,8 @@
         margin-bottom: 0;
     }
 }
+
+// Athletic Event Listing
 
 .fsAthleticsEvent.fsList {
     .fsListItems > article {
@@ -451,7 +450,6 @@
     clear: left;
 }
 
-.fsAthleticsEvent.fsList .fsTitle,
 .fsAthleticsEvent.fsList .fsDate {
     &:after {
         content: ',';
@@ -498,7 +496,8 @@
     border: 1px solid #CCC;
 }
 
-.fsCalendarEventLink {
+.fsCalendarEventLink,
+.fsAthleticsEventDetailLink {
     text-decoration: none;
     &:hover {
         text-decoration: underline;
