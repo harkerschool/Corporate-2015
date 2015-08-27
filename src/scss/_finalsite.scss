@@ -425,6 +425,13 @@
 
 // Athletic Event Listing
 
+.athletics-link-viewall {
+    display: none;
+    .hasTeam & {
+        display: block;
+    }
+}
+
 .fsAthleticsEvent.fsList {
     .fsListItems > article {
         @include clearfix;

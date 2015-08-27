@@ -552,6 +552,7 @@ hkr.news = {
 hkr.finalsite = {
     init: function() {
         this.directory();
+        this.athleticsEvents();
     },
     directory: function() {
         var regex = /\".*\"\s/,
@@ -575,6 +576,14 @@ hkr.finalsite = {
 
         //     $name.children('a').text(newName);
         // });
+    },
+    athleticsEvents: function() {
+        var regex = /~athletics_team_id/,
+            path = window.location.pathname;
+
+        if (regex.test(path)) {
+            $('body').addClass('hasTeam');
+        }
     }
 };
 

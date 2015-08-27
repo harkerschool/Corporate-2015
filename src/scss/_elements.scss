@@ -116,3 +116,7 @@ input[type="submit"], input[type="button"] {
     @include button;
     padding: $button-small-padding;
 }
+
+select {
+    display: block;
+}
