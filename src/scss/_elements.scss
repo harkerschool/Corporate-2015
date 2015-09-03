@@ -45,12 +45,8 @@ h5, h6 {
 
 .subheader {
     text-transform: none;
-    font-size: $h3-font-size - $h3-font-reduction;
     &:first-child {
         margin-top: 0;
-    }
-    @media #{$medium-up} {
-        font-size: $h3-font-size;
     }
 }
 .subheader-invert {
@@ -60,6 +56,15 @@ p.subheader {
     font-size: $h3-font-size - $h3-font-reduction;
     @media #{$large-up} {
         font-size: $h3-font-size;
+    }
+}
+
+.intro .subheader, .subheader-intro, p.subheader-intro {
+    font-size: $h2-font-size - $h2-font-reduction;
+    font-weight: $subheader-font-weight;
+    color: $header-font-color;
+    @media #{$large-up} {
+        font-size: $h2-font-size;
     }
 }
 

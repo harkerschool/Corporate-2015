@@ -342,28 +342,30 @@ a .menu-item-text {
 }
 
 // Text Colors
-.green-txt {
-    color: $green;
+.header-text {
+    color: $header-font-color !important;
+}
+.body-text {
+    color: $body-font-color !important;
 }
 
-.blue-txt {
-    color: $blue;
+.green-text {
+    color: $green !important;
 }
-
-.purple-txt {
-    color: $purple;
+.blue-text {
+    color: $blue !important;
 }
-
-.red-txt {
-    color: $red;
+.purple-text {
+    color: $purple !important;
 }
-
-.orange-txt {
-    color: $orange;
+.red-text {
+    color: $red !important;
 }
-
-.gold-txt {
-    color: $gold;
+.orange-text {
+    color: $orange !important;
+}
+.gold-text {
+    color: $gold !important;
 }
 
 // Circles
