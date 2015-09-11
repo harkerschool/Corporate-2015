@@ -15,6 +15,7 @@
     padding-right: ($column-gutter/2);
     margin: 0;
     text-transform: uppercase;
+    word-break: break-word;
     @include box-shadow($default-shadow);
     @include transition(background-color 0.25s, color 0.25s);
     &:hover, &:focus {
