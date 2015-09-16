@@ -12,7 +12,7 @@
 }
 .frame-4 {
     @include animation-duration(6s);
-    @include animation-name(fadeIn3);
+    @include animation-name(fadeIn4);
 }
 
 @include keyframes(fadeIn1) {

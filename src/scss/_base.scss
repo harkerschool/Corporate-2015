@@ -46,5 +46,10 @@
 // @import "foundation/components/offcanvas";
 @import "foundation/components/visibility";
 
+// foundation modifications
+[class*=block-grid-]>li {
+    padding-bottom: 0;
+}
+
 // author base styles
 @import "elements";

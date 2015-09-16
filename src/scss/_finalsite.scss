@@ -253,7 +253,7 @@
     .fsPanel {
         border-bottom: 1px solid $default-border-color;
         margin-bottom: 0;
-        &:first-child {
+        &:nth-of-type(1) {
             border-top: 1px solid $default-border-color;
         }
 
@@ -407,6 +407,8 @@
 
 .fsCalendar .fsDate:first-child,
 .fsCalendar .fsTitle:first-child,
+.fsDialog .fsDate:first-child,
+.fsDialog .fsTitle:first-child,
 .fsAthleticsEvent.fsList .fsDateTime:first-child {
     display: block;
     color: $header-font-color;
@@ -503,14 +505,6 @@
     border: 1px solid #CCC;
 }
 
-.fsCalendarEventLink,
-.fsAthleticsEventDetailLink {
-    text-decoration: none;
-    &:hover {
-        text-decoration: underline;
-    }
-}
-
 .fsAlertIcon {
     height: 13px;
 }
@@ -520,19 +514,25 @@
 }
 
 .fsNotes {
-    .fsCalendar.fsList &, .fsCalendar.fsSlideshow & {
+    .fsCalendar.fsList &, .fsCalendar.fsSlideshow &, .fsDialog & {
         p {
             margin-bottom: 0;
         }
     }
 }
 
-.fsDescription {
-    margin-top: rhythm(1);
+.fsDescription, .fsDialog .fsNotes {
+    margin-top: rhythm(0.5);
 }  
 
 .fsAlertFeeds {
     margin-bottom: -16px;
+}
+
+// Calendar Event Details
+
+.fsDialog .fsTitle {
+    font-weight: bold;
 }
 
 // List
