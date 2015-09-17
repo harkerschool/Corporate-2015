@@ -39,6 +39,23 @@ hkr.ga = {
             hkrga.trackEvent(category, action, label);
         });
 
+        $(document).on('click.hkr.ga', '.campus-visits-page .fsNotes a', function() {
+            var $link = $(this),
+                url = $link.attr('href');
+
+            hkrga.trackLink(url, 'Admission CTAs', 'Visit', 'Event Notes Link');
+
+            return false;
+        });
+        $(document).on('click.hkr.ga', '.campus-visits-page .fsDescription a', function() {
+            var $link = $(this),
+                url = $link.attr('href');
+
+            hkrga.trackLink(url, 'Admission CTAs', 'Visit', 'Event Description Link');
+
+            return false;
+        });
+
     },
     /**
      * Function that tracks a click on a link in Google Analytics.
