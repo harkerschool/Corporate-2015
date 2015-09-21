@@ -33,14 +33,12 @@
  * © 2015 MyFonts Inc
 */
 
-// NOTE: .woff2 fonts not accepted by Finalsite's file manager.
-
 @font-face {
   font-family: DINPro;
   font-weight: 400;
   src: url('../fonts/2D41C8_4_0.eot');
   src: url('../fonts/2D41C8_4_0.eot?#iefix') format('embedded-opentype'),
-       // url('../fonts/2D41C8_4_0.woff2') format('woff2'),
+       url('../fonts/2D41C8_4_0.woff2') format('woff2'),
        url('../fonts/2D41C8_4_0.woff') format('woff'),
        url('../fonts/2D41C8_4_0.ttf') format('truetype');
 }
@@ -50,7 +48,7 @@
   font-style: italic;
   src: url('../fonts/2D41C8_0_0.eot');
   src: url('../fonts/2D41C8_0_0.eot?#iefix') format('embedded-opentype'),
-       // url('../fonts/2D41C8_0_0.woff2') format('woff2'),
+       url('../fonts/2D41C8_0_0.woff2') format('woff2'),
        url('../fonts/2D41C8_0_0.woff') format('woff'),
        url('../fonts/2D41C8_0_0.ttf') format('truetype');
 }
@@ -59,7 +57,7 @@
   font-weight: 700;
   src: url('../fonts/2D41C8_2_0.eot');
   src: url('../fonts/2D41C8_2_0.eot?#iefix') format('embedded-opentype'),
-       // url('../fonts/2D41C8_2_0.woff2') format('woff2'),
+       url('../fonts/2D41C8_2_0.woff2') format('woff2'),
        url('../fonts/2D41C8_2_0.woff') format('woff'),
        url('../fonts/2D41C8_2_0.ttf') format('truetype');
 }
@@ -68,16 +66,35 @@
   font-weight: 100;
   src: url('../fonts/2D41C8_3_0.eot');
   src: url('../fonts/2D41C8_3_0.eot?#iefix') format('embedded-opentype'),
-       // url('../fonts/2D41C8_3_0.woff2') format('woff2'),
+       url('../fonts/2D41C8_3_0.woff2') format('woff2'),
        url('../fonts/2D41C8_3_0.woff') format('woff'),
        url('../fonts/2D41C8_3_0.ttf') format('truetype');
+}
+@font-face {
+  font-family: DINPro;
+  font-weight: 100;
+  font-style: italic;
+  src: url('../fonts/2F3075_0.eot');
+  src: url('../fonts/2F3075_0.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/2F3075_0.woff2') format('woff2'),
+       url('../fonts/2F3075_0.woff') format('woff'),
+       url('../fonts/2F3075_0.ttf') format('truetype');
 }
 @font-face {
   font-family: 'DINPro Black';
   font-weight: 400;
   src: url('../fonts/2D41C8_1_0.eot');
   src: url('../fonts/2D41C8_1_0.eot?#iefix') format('embedded-opentype'),
-       // url('../fonts/2D41C8_1_0.woff2') format('woff2'),
+       url('../fonts/2D41C8_1_0.woff2') format('woff2'),
        url('../fonts/2D41C8_1_0.woff') format('woff'),
        url('../fonts/2D41C8_1_0.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'DINPro Condensed';
+    font-weight: 700;
+    src: url('../fonts/2F3625_0_0.eot');
+    src: url('../fonts/2F3625_0_0.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/2F3625_0_0.woff2') format('woff2'),
+         url('../fonts/2F3625_0_0.woff') format('woff'),
+         url('../fonts/2F3625_0_0.ttf') format('truetype');
 }

@@ -1,7 +1,9 @@
 <div class="section purple-bg">
     <div class="row">
         <div class="column medium-8">
-            <img src="http://dummyimage.com/600x400/333/ddd.gif&text=placeholder+image" alt="placeholder+image">
+            <p>
+                <img src="http://dummyimage.com/600x400/333/ddd.gif&text=placeholder+image" alt="placeholder+image">
+            </p>
         </div>
         <div class="column medium-15">
             <h2>Art Studio</h2>
