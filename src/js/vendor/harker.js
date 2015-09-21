@@ -47,7 +47,7 @@ hkr.ga = {
 
             return false;
         });
-        $(document).on('click.hkr.ga', '.campus-visits-page .fsDescription a', function() {
+        $(document).on('click.hkr.ga', '.campus-visits-page .fsDescription a:not(.track-link)', function() {
             var $link = $(this),
                 url = $link.attr('href');
 
