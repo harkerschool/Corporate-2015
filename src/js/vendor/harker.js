@@ -120,6 +120,10 @@ hkr.accordion = {
             $header.append('<a href="' + href + '" class="accordion-direct-link"></a>');
             $panel.addClass('has-accordion-direct-link');
         });
+
+        $(document).on('click.hkr.accordion', '.accordion-fix .fsPanel > header', function() {
+            $(this).siblings('.fsElementContent').toggle();
+        });
     }
 };
 
@@ -311,9 +315,19 @@ hkr.navbar = {
         }
 
         $(window).load(function() {
-            if (location.hash && $navBar.hasClass('is-stuck')) {
+            if (location.hash) {
                 // scroll up to reveal content behind fixed navbar
-                scrollBy(0, $navBar.height() * -1 - 48);
+                // scrollBy(0, $navBar.height() * -1 - 48);
+                var el = $(location.hash),
+                    section = el.closest('.fsElement, .section'),
+                    sectionTop = (section.offset().top === el.offset().top) ? section.offset().top - 48 : section.offset().top, // subtract padding
+                    navBarHeight = $navBar.height(),
+                    offset = sectionTop - navBarHeight;
+
+                setTimeout(function() {
+                    $(window).scrollTop(offset);
+                }, 100);
+
             }
         });
     },
