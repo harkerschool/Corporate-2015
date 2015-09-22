@@ -133,6 +133,10 @@ hkr.slider = {
         $('.feature-slider').slick({
             autoplay: true
         });
+        $('.stats-slider').slick({
+            slidesToShow: 4,
+            slidesToScroll: 4
+        });
     }
 };
 
