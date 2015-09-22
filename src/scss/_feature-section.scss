@@ -4,6 +4,7 @@
 .section-feature {
     @extend .section-collapse;
     overflow: hidden;
+    background-color: $darkergray;
     > .row {
         @extend .row-wide;
         position: relative;
@@ -18,7 +19,6 @@
     position: absolute;
     bottom: 0;
     left: 0;
-    background-color: rgba($darkgray, 0.9);
     color: $white;
     @include text-shadow($default-shadow);
     &.position-left {
@@ -36,96 +36,5 @@
     &.position-bottom {
         top: auto;
         bottom: 0;
-    }
-    &.green-bg {
-        background-color: rgba($green, 0.9);
-    }
-    &.blue-bg {
-        background-color: rgba($blue, 0.9);
-    }
-    &.purple-bg {
-        background-color: rgba($purple, 0.9);
-    }
-    &.red-bg {
-        background-color: rgba($red, 0.9);
-    }
-    &.orange-bg {
-        background-color: rgba($orange, 0.9);
-    }
-    &.gold-bg {
-        background-color: rgba($gold, 0.9);
-    }
-    @media #{$medium-up} {
-        @include circle;
-        @include vertical-align;
-        @include box-shadow($default-shadow);
-        position: absolute;
-        margin: 0 rem-calc(100) 0;
-        text-align: center;
-        width: rem-calc(250);
-        height:  rem-calc(250);
-    }
-    @media #{$large-up} {
-        width: rem-calc(360);
-        height:  rem-calc(360);
-    }
-}
-
-.feature-caption-content {
-    padding: rem-calc(18) 1rem rem-calc(14);
-    :first-child {
-        margin-top: 0;
-    }
-    :last-child {
-        margin-bottom: 0;
-    }
-    .button {
-        display: none;
-        // padding: 1rem;
-        &:hover, &:focus {
-            color: $white;
-
-        }  
-    }
-    @media #{$medium-up} {
-        @include vertical-align;
-    }
-    @media #{$large-up} {
-        .button {
-            display: inline-block;
-        }
-    }
-}
-
-.feature-caption-header {
-    font-size: $h3-font-size;
-    line-height: 1em;
-    margin: 0;
-    text-transform: none;
-    &, a {
-        font-weight: bold;
-        color: $white;
-    }
-    a {
-        text-decoration: none;
-    }
-    .word-chunk {
-        display: inline;
-    }
-    @media #{$medium-up} { 
-        font-size: $h2-font-size;
-        .word-chunk {
-            display: block;
-            &:after {
-                content: '-';
-            }
-            &.word-chunk-end:after {
-                content: '';
-            }
-        }
-    }
-    @media #{$large-up} {
-        font-size: $h1-font-size;
-        margin-bottom: $header-bottom-margin;
     }
 }

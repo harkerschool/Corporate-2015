@@ -89,11 +89,11 @@ blockquote {
     }
 }
 
-p, ul, ol, dl {
-    &:last-child {
-        margin-bottom: rhythm(1);
-    }
-}
+// p, ul, ol, dl {
+//     &:last-child {
+//         margin-bottom: rhythm(1);
+//     }
+// }
 
 // Inline Elements
 // - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -104,6 +104,13 @@ small {
 
 strong, b {
     color: $header-font-color;
+}
+
+// Images
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+p > img {
+    margin-bottom: rhythm(0.5);
 }
 
 // Hyperlinks

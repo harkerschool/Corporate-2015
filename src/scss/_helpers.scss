@@ -297,32 +297,45 @@ a .menu-item-text {
 .green-bg {
     background-color: $green;
 }
-
 .blue-bg {
     background-color: $blue;
 }
-
 .purple-bg {
     background-color: $purple;
 }
-
 .red-bg {
     background-color: $red;
 }
-
 .orange-bg {
     background-color: $orange;
 }
-
 .gold-bg {
     background-color: $gold;
 }
-
 .gray-bg {
     background-color: $darkergray;
 }
 
-[class*="-bg"] {
+.green-transparent-bg {
+    background-color: rgba($green, 0.8);
+}
+.blue-transparent-bg {
+    background-color: rgba($blue, 0.8);
+}
+.purple-transparent-bg {
+    background-color: rgba($purple, 0.8);
+}
+.red-transparent-bg {
+    background-color: rgba($red, 0.8);
+}
+.orange-transparent-bg {
+    background-color: rgba($orange, 0.8);
+}
+.gold-transparent-bg {
+    background-color: rgba($gold, 0.8);
+}
+
+[class*="-bg"], .section-feature {
     color: $white;
     h1, h2, h3, h4, h5, h6, code, a, strong, b {
         color: $white;
