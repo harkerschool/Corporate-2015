@@ -1,4 +1,4 @@
-.feature-slider, .feature-slide, .slick-slide {
+.feature-slider, .feature-slide, .slick-slider, .slick-slide {
     position: relative;
 }
 .slick-slider {
@@ -9,6 +9,7 @@
     margin-top: -18px;
     margin-bottom: 0;
     width: auto;
+    height: auto;
     &:before {
         @include fa-icon();
         font-size: rem-calc(36);
@@ -38,4 +39,23 @@
 }
 .slick-dots li button:before {
     font-size: rem-calc(48);
+}
+
+.stats-slider {
+    margin: 0 -1rem;
+    .slick-slide {
+        padding: 0 $column-gutter/2;
+    }
+    .slick-prev,
+    .slick-next {
+        &:before {
+            color: $silver;
+        }
+    }
+    .slick-prev {
+        left: 1.25rem;
+    }
+    .slick-next {
+        right: 1.25rem;
+    }
 }

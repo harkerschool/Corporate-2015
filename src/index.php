@@ -17,8 +17,9 @@
         ));
         include "modules/nav.php";
         include "modules/intro.php";
-        include "modules/stats.php";
-        include "modules/feed.php";
+        // include "modules/stats.php";
+        include "modules/stats-slider.php";
+        // include "modules/feed.php";
         // include "modules/tabs.php";
         include "modules/text-photo-right.php";
         include "modules/three-column.php";
