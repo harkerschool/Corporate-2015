@@ -335,7 +335,7 @@ a .menu-item-text {
     background-color: rgba($gold, 0.8);
 }
 
-[class*="-bg"] {
+[class*="-bg"], .section-feature {
     color: $white;
     h1, h2, h3, h4, h5, h6, code, a, strong, b {
         color: $white;

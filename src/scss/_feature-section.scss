@@ -4,6 +4,7 @@
 .section-feature {
     @extend .section-collapse;
     overflow: hidden;
+    background-color: $darkergray;
     > .row {
         @extend .row-wide;
         position: relative;
