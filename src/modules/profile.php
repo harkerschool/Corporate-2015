@@ -7,7 +7,7 @@
                     <div class="feature-profile">
                         <div class="feature-profile-main">
                             <div class="feature-profile-header green-transparent-bg">
-                                <h2 class="feature-profile-name"><a href="#">Alexandria Kerekez</a></h2>
+                                <h2 class="feature-profile-name">Alexandria Kerekez</h2>
                                 <p class="feature-profile-title">Preschool Art Specialist</p>
                             </div>
                             <div class="feature-profile-content">
@@ -19,8 +19,8 @@
                                 Designed and painted utility boxes for an anti-graffiti initiative in San Jose.
                             </div>
                         </div>
-                        <div class="feature-profile-quote">
-                            <blockquote>Preschool-aged learners have captured my curiosity and heart.</blockquote>
+                        <div class="feature-profile-aside">
+                            <blockquote class="feature-profile-quote">Preschool-aged learners have captured my curiosity and heart.</blockquote>
                         </div>
                     </div>
                 </div>
