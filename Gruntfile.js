@@ -108,13 +108,13 @@ module.exports = function(grunt) {
                 exclude: [
                     'modernizr',
                     'jquery',
-                    'countUp.js',
                     'hologram-github-theme'
                 ],
                 mainFiles: {
                     'waypoints': [
                         'lib/jquery.waypoints.js',
-                        'lib/shortcuts/sticky.js'
+                        'lib/shortcuts/sticky.js',
+                        'lib/shortcuts/inview.js',
                     ],
                     'foundation': [
                         'js/foundation/foundation.js',

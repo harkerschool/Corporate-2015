@@ -131,12 +131,67 @@ hkr.accordion = {
 hkr.slider = {
     init: function() {
         $('.feature-slider').slick({
-            autoplay: true
+            autoplay: true 
         });
-        $('.stats-slider').slick({
+        this.statsSlider();
+    },
+    statsSlider: function() {
+        var counters = [],
+            $slider = $('.stats-slider').slick({
             slidesToShow: 4,
-            slidesToScroll: 4
+            slidesToScroll: 4,
+            responsive: [
+                {
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 3,
+                        infinite: true,
+                        dots: true
+                    }
+                },
+                {
+                    breakpoint: 640,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+            ]
         });
+
+        $('.count').each(function() {
+            var $el = $(this),
+                countTo = parseInt($el.text(), 10),
+                counter = new countUp(this, 0, countTo, 0, 3); // count from 0 to number defined in elemnt's text
+
+            // $el.text("0");
+            counters.push(counter);
+        });
+
+        var inview = new Waypoint.Inview({
+            element: $slider[0],
+            enter: function(direction) {
+                setTimeout(function() {
+                    for(var i = 0, length = counters.length; i < length; i++ ) {
+                        counters[i].start();
+                    }
+                }, 100);
+            }
+        });
+    }
+};
+
+hkr.scroll = {
+    init: function() {
+        // do something
     }
 };
 

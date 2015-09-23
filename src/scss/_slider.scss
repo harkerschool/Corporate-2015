@@ -42,20 +42,35 @@
 }
 
 .stats-slider {
+    overflow: hidden;
     margin: 0 -1rem;
     .slick-slide {
         padding: 0 $column-gutter/2;
     }
     .slick-prev,
     .slick-next {
+        opacity: 0;
+        @include transition(all 0.3s ease-in-out);
         &:before {
             color: $silver;
         }
     }
     .slick-prev {
-        left: 1.25rem;
+        left: -2rem;
     }
     .slick-next {
-        right: 1.25rem;
+        right: -2rem;
     }
+    &:hover {
+        .slick-prev,
+        .slick-next {
+            opacity: 1;
+        }
+        .slick-prev {
+            left: 1.25rem;
+        }
+        .slick-next {
+            right: 1.25rem;
+        }
+    } 
 }
