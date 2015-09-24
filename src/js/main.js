@@ -9,6 +9,7 @@
         hkr.photoCover.init();
         hkr.accordion.init();
         hkr.slider.init();
+        hkr.fade.init();
         hkr.footer.init();
         hkr.finalsite.init();
     });

@@ -177,21 +177,37 @@ hkr.slider = {
         });
 
         var inview = new Waypoint.Inview({
-            element: $slider[0],
-            enter: function(direction) {
-                setTimeout(function() {
-                    for(var i = 0, length = counters.length; i < length; i++ ) {
-                        counters[i].start();
-                    }
-                }, 100);
-            }
-        });
+                element: $slider[0],
+                enter: function(direction) {
+                    setTimeout(function() {
+                        for(var i = 0, length = counters.length; i < length; i++ ) {
+                            counters[i].start();
+                        }
+                    }, 100);
+                }
+            });
     }
 };
 
-hkr.scroll = {
+hkr.fade = {
     init: function() {
-        // do something
+        var $faders = $('.fade-in').addClass('fade-in-init'),
+            inviews = [];
+
+        $faders.each( function() {
+            var $el = $(this);
+
+            inviews.push(
+                new Waypoint.Inview({
+                    element: this,
+                    enter: function(direction) {
+                        // setTimeout(function() {
+                        $el.addClass('fade-in-start');
+                        // }, 100);
+                    }
+                })
+            );
+        });
     }
 };
 

@@ -1,6 +1,6 @@
 <div class="section">
     <div class="row">
-        <div class="column">
+        <div class="column fade-in">
             <h2 id="bookmark-three">Three Column Module</h2>
             <div class="row">
                 <div class="column medium-8">

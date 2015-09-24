@@ -1,5 +1,5 @@
 <div class="section">
-    <div class="row">
+    <div class="row fade-in">
         <div class="column">
             <h2>Two Column Module</h2>
             <div class="row">

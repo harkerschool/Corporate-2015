@@ -1,5 +1,5 @@
 <div class="section purple-bg">
-    <div class="row">
+    <div class="row fade-in">
         <div class="column medium-8">
             <p>
                 <img src="http://dummyimage.com/600x400/333/ddd.gif&text=placeholder+image" alt="placeholder+image">
