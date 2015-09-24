@@ -3,7 +3,7 @@
 .fade-in-init {
     opacity: 0;
     @include transform(translate(0,50px));
-    @include transition(all 0.5s ease-in 0.5s);
+    @include transition(all 0.5s ease-out 0.5s);
     &.top-to-bottom {
         @include transform(translate(0,-50px));
     }

@@ -56,7 +56,7 @@
         font-size: rem-calc(48);
     }
     @media #{$large-up} {
-        font-size: rem-calc(72);
+        font-size: rem-calc(56);
     }
 }
 .feature-profile-title {
@@ -65,7 +65,7 @@
         font-size: rem-calc(24);
     }
     @media #{$large-up} {
-        font-size: rem-calc(36);
+        font-size: rem-calc(28);
         line-height: 1em;
     }
 }

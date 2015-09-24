@@ -137,6 +137,7 @@ hkr.slider = {
     },
     statsSlider: function() {
         var counters = [],
+            $countEl = $('.count'),
             $slider = $('.stats-slider').slick({
             slidesToShow: 4,
             slidesToScroll: 4,
@@ -167,7 +168,11 @@ hkr.slider = {
             ]
         });
 
-        $('.count').each(function() {
+        if ( $countEl.length === 0 ) {
+            return;
+        }
+
+        $countEl.each(function() {
             var $el = $(this),
                 countTo = parseInt($el.text(), 10),
                 counter = new countUp(this, 0, countTo, 0, 3); // count from 0 to number defined in elemnt's text
