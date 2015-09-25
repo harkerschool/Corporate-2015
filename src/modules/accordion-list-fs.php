@@ -1,17 +1,17 @@
-<section class="green-bg fsElement fsAccordion fsPanelIconBefore small-block-grid-1 medium-block-grid-2 large-block-grid-4" id="fsEl_136">
+<section class="green-bg fsElement fsAccordion accordion-invert fsPanelIconBefore small-block-grid-1 medium-block-grid-2 large-block-grid-4" id="fsEl_136">
     <header>
         <h2 class="fsElementTitle">Accordion</h2>
     </header>
     <!-- ul.accordion -->
     <div class="fsElementContent">
         <!-- li.accordion-navigation  -->
-        <section class="fsElement fsPanel fsStateOpen" id="fsEl_137">
+        <section class="fsElement fsPanel seq-siblings" id="fsEl_137">
             <!-- a -->
             <header>
                 <h2 class="fsElementTitle">Panel 1</h2>
             </header>
             <!-- div.panel -->
-            <div class="fsElementContent" style="display: block;">
+            <div class="fsElementContent" style="display: none;">
                 <div class="fsElement fsContent" id="fsEl_138">
                     <div class="fsElementContent">
                         <ul class="accordion-list">
@@ -44,7 +44,7 @@
                             <header>
                                 <h2 class="fsElementTitle">New Panel</h2>
                             </header>
-                            <div class="fsElementContent" style="display: block;">
+                            <div class="fsElementContent" style="display: none;">
                                 <div class="fsElement fsContent" id="fsEl_159">
                                     <div class="fsElementContent">
                                         <p>Hello World</p>
@@ -114,7 +114,7 @@
                 <h2 class="fsElementTitle">Panel 1</h2>
             </header>
             <!-- div.panel -->
-            <div class="fsElementContent" style="display: block;">
+            <div class="fsElementContent" style="display: none;">
                 <div class="fsElement fsContent" id="fsEl_138">
                     <div class="fsElementContent">
                         <ul>

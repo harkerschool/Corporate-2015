@@ -196,6 +196,8 @@ hkr.slider = {
 
 hkr.fade = {
     init: function() {
+        this.sequences();
+        
         var $faders = $('.fade-in').addClass('fade-in-init'),
             inviews = [];
 
@@ -212,6 +214,22 @@ hkr.fade = {
                     }
                 })
             );
+        });
+    },
+    sequences: function() {
+        var $seqChildren = $('.seq-children'),
+            $seqSiblings = $('.seq-siblings');
+
+        $seqChildren.each(function() {
+            $(this).children().addClass('fade-in').each(function(i){
+                $(this).addClass('seq-'+(i+1));
+            });
+        });
+
+        $seqSiblings.each(function() {
+            $(this).siblings().add(this).addClass('fade-in').each(function(i){
+                $(this).addClass('seq-'+(i+1));
+            });
         });
     }
 };
