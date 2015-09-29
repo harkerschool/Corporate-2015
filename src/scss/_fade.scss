@@ -1,9 +1,13 @@
 // Fade in when in view
 
+$fade-duration: 0.5s;
+$fade-delay: 0.75s;
+$seq-factor: 0.1;
+
 .fade-in-init {
     opacity: 0;
     @include transform(translate(0,50px));
-    @include transition(all 0.5s ease-out 0.5s);
+    @include transition(all $fade-duration ease-out $fade-delay);
     &.top-to-bottom {
         @include transform(translate(0,-50px));
     }
@@ -15,7 +19,7 @@
     }
     @for $i from 0 through 11 {
         &.seq-#{$i+1} {
-            @include transition-delay(#{0.5+0.1*$i}s);
+            @include transition-delay(#{$fade-delay + $seq-factor*$i});
         }
     }
 }
