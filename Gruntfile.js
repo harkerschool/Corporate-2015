@@ -15,9 +15,7 @@ module.exports = function(grunt) {
             dist: {
                 files: [
                     'src/scss/{,*/}*.{scss,sass}',
-                    'src/js/{,*/}*.js',
-                    'src/fonts/{,*/}*',
-                    'src/img/{,*/}*.*'
+                    'src/js/{,*/}*.js'
                 ],
                 tasks: ['build']
             }

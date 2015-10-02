@@ -49,28 +49,33 @@
     }
     .slick-prev,
     .slick-next {
-        opacity: 0;
-        @include transition(all 0.3s ease-in-out);
+        opacity: 0.5;
+        @include transition(opacity 0.3s ease-in-out);
         &:before {
             color: $silver;
+            background-color: $white;
+            width: 0.8em;
+            line-height: 0.8em;
+            text-indent: -0.02778em;
+            @include border-radius(50%);
         }
     }
     .slick-prev {
-        left: -2rem;
+        left: 2px;
+        &:before {
+            content: $fa-var-chevron-circle-left;
+        }
     }
     .slick-next {
-        right: -2rem;
+        right: 2px;
+        &:before {
+            content: $fa-var-chevron-circle-right;
+        }
     }
     &:hover {
         .slick-prev,
         .slick-next {
             opacity: 1;
-        }
-        .slick-prev {
-            left: 1.25rem;
-        }
-        .slick-next {
-            right: 1.25rem;
         }
     } 
 }
