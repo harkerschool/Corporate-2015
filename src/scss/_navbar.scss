@@ -30,6 +30,9 @@ $harker-logo-width: 215px; // 16px left/right padding
 
 .nav-bar, .nav-bar-wrapper {
     position: relative;
+}
+
+.nav-bar-wrapper {
     background-color: $body-bg;
 }
 
@@ -300,7 +303,7 @@ $transform-nav-distance-large: $harker-logo-width;
         }
     }
     a {
-        color: $gray;
+        color: $darkgray;
         border-bottom: 3px solid transparent;
         @include truncate;
         @include transition(color 0.5s, border-bottom 0.5s);
@@ -322,6 +325,17 @@ $transform-nav-distance-large: $harker-logo-width;
             padding-right: $harker-logo-width;
         }
     }
+
+    .f-open-dropdown {
+        @media #{$xlarge-up} { 
+            left: auto !important;
+            right: 1rem;
+            &:before, &:after {
+                display: none;
+            }
+        }
+    }
+
 }
 .current-page-bar .current-page-menu-bookmarks {
     @media #{$large-up} {
