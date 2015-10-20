@@ -56,6 +56,20 @@ hkr.ga = {
             return false;
         });
 
+        // track prints
+        if (window.matchMedia) {
+            var mediaQueryList = window.matchMedia('print');
+            mediaQueryList.addListener(function(mql) {
+                if (!mql.matches) {
+                    hkrga.afterPrint();
+                }
+            });
+        }
+        window.onafterprint = hkrga.afterPrint;
+
+    },
+    afterPrint: function() {
+        ga('hkr.send', 'event', 'Prints', document.location.pathname);
     },
     /**
      * Function that tracks a click on a link in Google Analytics.
