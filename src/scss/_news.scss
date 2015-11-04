@@ -34,6 +34,9 @@
             display: none;
         }
     }
+    .wp-thumbnail-top & {
+        background-position: center top;
+    }
 }
 
 .wp-text {
@@ -76,7 +79,7 @@
     }
     .wp-article {
         display: inline-block;
-        width: auto;
+        width: 100%;
         float: none;
         padding: 0;
     }
