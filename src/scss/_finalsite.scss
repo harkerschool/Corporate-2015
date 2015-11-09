@@ -1066,3 +1066,14 @@ body.fsAccountBarVisible {
     }
 
 }
+
+body.fsComposeMode #fsPageWrapper .fsBanner, 
+body.fsComposeMode #fsPageWrapper .fsElement {
+    &.fsStateEditable:not(.fsBanner):not(.fsPanel):hover {
+        background-color: $white;
+    }
+}
+body.fsComposeMode #fsPageWrapper .fsElement.fsStateEditable[class*="-bg"]:not(.fsBanner):not(.fsPanel):hover,
+body.fsComposeMode #fsPageWrapper .fsElement.fsStateEditable.section-feature:not(.fsBanner):not(.fsPanel):hover {
+    background-color: $gray;
+}
