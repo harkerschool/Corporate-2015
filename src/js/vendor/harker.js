@@ -314,7 +314,8 @@ hkr.hero = {
         });
     },
     setupFeatureVideo: function() {
-        var $videoContainer = $('.hero-feature'),
+        var $html = $('html'),
+            $videoContainer = $('.hero-feature'),
             wistiaID = $videoContainer.data('wistia-id');
 
         if (wistiaID === undefined || typeof Wistia === 'undefined' || $videoContainer.length === 0) {
@@ -322,15 +323,35 @@ hkr.hero = {
             return;
         }
 
-        var wistiaHTML = '<div id="wistia_' + wistiaID + '" class="wistia_embed" style="width:100%;height:100%;">&nbsp;</div>',
+        var wistiaHTML = '<div id="fs-wistia-video" class="wistia_embed wistia_async_' + wistiaID + '" style="width:100%;height:100%;">&nbsp;</div>',
             exitLinkHTML = '<a href="#" id="fs-wistia-exit" title="Exit Video"><i class="fa fa-2x fa-times"></i></a>';
 
         // Set up Wistia feature video
         $videoContainer.append(exitLinkHTML + wistiaHTML);
-        Wistia.fsembed(wistiaID, {
-            container: '.hero-feature',
-            playLink: '#fs-wistia-play'
-        });
+
+        // Set up API handle
+        window._wq = window._wq || [];
+        _wq.push({ "fs-wistia-video": function(video) {
+            var $playLink = $('#fs-wistia-play'),
+                $exitLink = $('#fs-wistia-exit');
+            
+            $playLink.click(function() {
+                video.play();
+                $videoContainer.addClass('is-playing');
+                $html.addClass('feature-is-playing');
+            });
+            $exitLink.click(function() {
+                video.pause();
+                $videoContainer.removeClass('is-playing');
+                $html.removeClass('feature-is-playing');
+            });
+
+        }});
+
+        // Wistia.fsembed(wistiaID, {
+        //     container: '.hero-feature',
+        //     playLink: '#fs-wistia-play'
+        // });
 
     }
 };
