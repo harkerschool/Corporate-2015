@@ -18,7 +18,7 @@
 }
 
 .wp-thumbnail {
-    background: $darkergray no-repeat center center;
+    background: $darkergray no-repeat 50% 33%;
     @include background-size(cover);
     img {
         display: block;
