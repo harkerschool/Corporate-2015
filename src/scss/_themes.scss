@@ -39,4 +39,11 @@
         background-color: rgba($harvest-cream, 0.9);
     }
 }
+
+.gala-page {
+    .gala-red-bg { background-color: $gala-red; } 
+    .gala-gold-bg{ background-color: $gala-gold; } 
+    .gala-grey-bg { background-color: $gala-grey; } 
+    .gala-black-bg { background-color: $gala-black }
+}
  
