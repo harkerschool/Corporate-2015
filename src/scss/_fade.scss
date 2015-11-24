@@ -24,7 +24,8 @@ $seq-factor: 0.1;
     }
 }
 
-.fade-in.fade-in-start {
+.fade-in.fade-in-start,
+.fsComposeMode .fade-in {
     opacity: 1;
     @include transform(translate(0,0));
 }

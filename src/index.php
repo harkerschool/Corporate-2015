@@ -23,14 +23,15 @@
         // include "modules/tabs.php";
         include "modules/text-photo-right.php";
         include "modules/three-column.php";
+        include "modules/profile.php";
+        include "modules/three-column.php";
         include "modules/text-photo-left.php";
         include "modules/two-column.php";
         include "modules/text-photo-left-alt.php";
         // include "modules/accordion-list.php";
         include "modules/accordion-list-fs.php";
         // include "modules/text-columns.php";
-        include "modules/slider.php";
-        include "modules/profile.php";
+        // include "modules/slider.php";
         include "modules/base.php";
     ?>
 </main>

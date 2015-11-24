@@ -227,6 +227,8 @@ $body-font-color: $gray;
 // d. Media Query Ranges
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
+$xxsmall-range: (0em, 20em); // 0-320px
+$xsmall-range: (0em, 30em); // 0-480px
 $small-range: (0em, 40em); // 0-640px
 $medium-range: (40.063em, 64em); // 641px-1024px
 $large-range: (64.063em, 90em); // 1025-1440px
@@ -238,14 +240,19 @@ $screen: "only screen";
 $landscape: "#{$screen} and (orientation: landscape)";
 $portrait: "#{$screen} and (orientation: portrait)";
 
+$xxsmall-only: "#{$screen} and (max-width: #{upper-bound($xxsmall-range)})";
+$xsmall-only: "#{$screen} and (max-width: #{upper-bound($xsmall-range)})";
+
 // $small-up: $screen;
 // $small-only: "#{$screen} and (max-width: #{upper-bound($small-range)})";
 
 // $medium-up: "#{$screen} and (min-width:#{lower-bound($medium-range)})";
 // $medium-only: "#{$screen} and (min-width:#{lower-bound($medium-range)}) and (max-width:#{upper-bound($medium-range)})";
+$medium-down: "#{$screen} and (max-width:#{upper-bound($medium-range)})";
 
 // $large-up: "#{$screen} and (min-width:#{lower-bound($large-range)})";
 // $large-only: "#{$screen} and (min-width:#{lower-bound($large-range)}) and (max-width:#{upper-bound($large-range)})";
+$large-down: "#{$screen} and (max-width:#{upper-bound($large-range)})";
 
 // $xlarge-up: "#{$screen} and (min-width:#{lower-bound($xlarge-range)})";
 // $xlarge-only: "#{$screen} and (min-width:#{lower-bound($xlarge-range)}) and (max-width:#{upper-bound($xlarge-range)})";
@@ -367,7 +374,7 @@ $definition-list-margin-bottom: $paragraph-margin-bottom;
 // We use these to style blockquotes
 $blockquote-font-color: $body-font-color; // scale-color($header-font-color, $lightness: 35%);
 $blockquote-padding: rhythm(0.5) rem-calc(20) rhythm(0.5) rem-calc(19);
-$blockquote-border: 1px solid $default-border-color;
+$blockquote-border: 4px solid $default-border-color;
 $blockquote-cite-font-size: rem-calc(13);
 $blockquote-cite-font-color: scale-color($blockquote-font-color, $lightness: 20%);
 // $blockquote-cite-link-color: $blockquote-cite-font-color;

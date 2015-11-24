@@ -1075,5 +1075,7 @@ body.fsComposeMode #fsPageWrapper .fsElement {
 }
 body.fsComposeMode #fsPageWrapper .fsElement.fsStateEditable[class*="-bg"]:not(.fsBanner):not(.fsPanel):hover,
 body.fsComposeMode #fsPageWrapper .fsElement.fsStateEditable.section-feature:not(.fsBanner):not(.fsPanel):hover {
-    background-color: $gray;
+    &, & .fsElement.fsStateEditable:not(.fsBanner):not(.fsPanel):hover {
+        background-color: $gray;
+    }
 }
