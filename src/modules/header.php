@@ -14,8 +14,7 @@
 <script src="bower_components/modernizr/modernizr.js"></script>
 <script src="bower_components/jquery/dist/jquery.js"></script>
 <script src="js/vendor/bower.js"></script>
-<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js"></script>
-<script charset='ISO-8859-1' src='//fast.wistia.com/labs/crop-fill/plugin.js'></script>
+<script charset="ISO-8859-1" src="//fast.wistia.com/assets/external/E-v1.js" async></script>
 <script src="js/vendor/truncated-menu.js"></script>
 <script src="js/vendor/wp-json-feed.js"></script>
 <script src="js/vendor/fullscreen-background.js"></script>

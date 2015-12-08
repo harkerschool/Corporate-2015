@@ -10,10 +10,10 @@
             'title' => '<span class="title-division">Middle School</span> <span class="title-topic">Programs & Extraccuriculars</span>',
             'container_classes' => 'hero-overlay',
             'text_classes' => 'large-12 large-offset-12',
-            'img_src' => 'img/hero-ps-teachers.jpg', // background image
-            'img_alt' => ''
-            // 'vimeo_id' => '122377196', // background video
-            // 'wistia_id' => 'ponntrph3v' // feature video
+            'img_src' => 'img/hero-campu-visits.jpg', // background image
+            'img_alt' => '',
+            'vimeo_id' => '139031350', // background video
+            'wistia_id' => 'ponntrph3v' // feature video
         ));
         include "modules/nav.php";
         include "modules/intro.php";

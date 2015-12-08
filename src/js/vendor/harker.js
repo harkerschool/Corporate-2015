@@ -292,7 +292,7 @@ hkr.hero = {
             return;
         }
 
-        var vimeoHTML = '<iframe id="vimeoplayer" src="https://player.vimeo.com/video/' + vimeoID + '?autoplay=1&loop=1&title=0&byline=0&portrait=0&api=1&player_id=vimeoplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
+        var vimeoHTML = '<iframe id="vimeoplayer" src="https://player.vimeo.com/video/' + vimeoID + '?loop=1&title=0&byline=0&portrait=0&api=1&player_id=vimeoplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
             $video = $(vimeoHTML),
             vimeoPlayer = $f($video[0]);
 
@@ -305,6 +305,7 @@ hkr.hero = {
                 vimeoPlayer.addEvent('pause', function() {
                     $videoContainer.removeClass('is-playing');
                 });
+                vimeoPlayer.api('play');
             });
         }
 
@@ -318,7 +319,7 @@ hkr.hero = {
             $videoContainer = $('.hero-feature'),
             wistiaID = $videoContainer.data('wistia-id');
 
-        if (wistiaID === undefined || typeof Wistia === 'undefined' || $videoContainer.length === 0) {
+        if (wistiaID === undefined || $videoContainer.length === 0) {
             $('#fs-wistia-play').remove();
             return;
         }

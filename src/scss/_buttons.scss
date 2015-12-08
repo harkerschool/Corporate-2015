@@ -85,6 +85,8 @@ p, ul, ol, dl {
     list-style: none;
     > li {
         display: inline-block;
-        margin: 0 1rem rhythm(0.5) 0;
+        > .button {
+            margin: 0 1rem rhythm(0.5) 0;
+        }
     }
 }
