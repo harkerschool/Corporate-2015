@@ -455,10 +455,10 @@ hkr.navbar = {
                 // scroll up to reveal content behind fixed navbar
                 // scrollBy(0, $navBar.height() * -1 - 48);
                 var el = $(location.hash),
-                    section = el.closest('.fsElement, .section'),
-                    sectionTop = (section.offset().top === el.offset().top) ? section.offset().top - 48 : section.offset().top, // subtract padding
+                    // section = el.closest('.fsElement, .section'),
+                    // sectionTop = (section.offset().top === el.offset().top) ? section.offset().top - 48 : section.offset().top, // subtract padding
                     navBarHeight = $navBar.height(),
-                    offset = sectionTop - navBarHeight;
+                    offset = el.offset().top - navBarHeight - 24;
 
                 setTimeout(function() {
                     $(window).scrollTop(offset);

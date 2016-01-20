@@ -53,6 +53,7 @@
     padding: 0;
     list-style: none;
     background: $white;
+    color: $darkgray;
     @include box-shadow($default-shadow);
     > li {
         padding: rhythm(0.25) 1rem;
