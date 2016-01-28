@@ -35,6 +35,9 @@ form { // overwrite specificity
         width: auto !important;
         max-width: em-calc(750);
     }
+    .pageControls {
+        padding: 0;
+    }
 }
 
 input[type="submit"], input[type="button"] {

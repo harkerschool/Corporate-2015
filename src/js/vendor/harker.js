@@ -468,7 +468,8 @@ hkr.navbar = {
         });
     },
     getScrollHandle: function(direction) {
-        var bookmarksMenu = this.bookmarksMenu,
+        var sectionMenu = this.sectionMenu,
+            bookmarksMenu = this.bookmarksMenu,
             $navBar = this.element;
 
         if (direction === "down") {
@@ -488,6 +489,9 @@ hkr.navbar = {
                 // show when user scrolls/swipes up
                 if ($navBar.hasClass('is-collapsed')) {
                     $navBar.removeClass('is-collapsed').addClass('is-social');
+                    if (sectionMenu.element.length) {
+                        sectionMenu.element.data('plugin_truncatedMenu').truncate();
+                    }
                     if (bookmarksMenu.element.length) {
                         bookmarksMenu.mediaQueries();
                     }

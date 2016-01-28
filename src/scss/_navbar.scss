@@ -184,16 +184,15 @@ $harker-logo-width: 215px; // 16px left/right padding
 .menu-item-youtube a:before { content: $fa-var-youtube-square; }
 .menu-item-twitter a:before { content: $fa-var-twitter-square; }
 .menu-item-facebook a:before { content: $fa-var-facebook-square; }
+.menu-item-linkedin a:before { content: $fa-var-linkedin-square; }
 .menu-item-search a:before { content: $fa-var-search; }
 .menu-item-login a:before { content: $fa-var-user; }
 
 .primary-nav-menu-secondary .menu-item-social {
     display: none;
     @media #{$large-up} { 
-        display: block;
-        visibility: hidden;
         .nav-bar.is-social & {
-            visibility: visible;
+            display: block;
         }
     }
 }

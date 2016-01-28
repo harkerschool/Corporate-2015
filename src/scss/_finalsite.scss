@@ -476,6 +476,10 @@
     display: inline;
 }
 
+.fsAthleticsLocations {
+    clear: left; 
+}
+
 // Athletic Event Details
 
 .fsAthleticsTitle,
@@ -1084,5 +1088,8 @@ body.fsComposeMode #fsPageWrapper .fsElement.fsStateEditable[class*="-bg"]:not(.
 body.fsComposeMode #fsPageWrapper .fsElement.fsStateEditable.section-feature:not(.fsBanner):not(.fsPanel):hover {
     &, & .fsElement.fsStateEditable:not(.fsBanner):not(.fsPanel):hover {
         background-color: $gray;
+    }
+    & .fsPanel .fsElement:hover {
+        background-color: $white !important;
     }
 }
