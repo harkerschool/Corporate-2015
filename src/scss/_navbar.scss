@@ -216,7 +216,7 @@ $harker-logo-width: 215px; // 16px left/right padding
 
 .current-page-bar {
     z-index: 1;
-    background-color: rgba($lightgray, 0.9);
+    background-color: $white;
     color: $gray;
     font-size: rem-calc(14);
     line-height: rhythm(1);
