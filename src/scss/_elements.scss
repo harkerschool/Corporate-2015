@@ -122,6 +122,7 @@ a {
 
 // Forms
 // - - - - - - - - - - - - - - - - - - - - - - - - -
+
 $button-small-padding: rem-calc(11) 2rem rem-calc(10);
 
 input[type="submit"], input[type="button"] {
@@ -131,4 +132,11 @@ input[type="submit"], input[type="button"] {
 
 select {
     display: block;
+}
+
+// Table
+// - - - - - - - - - - - - - - - - - - - - - - - - -
+
+td, th {
+    vertical-align: top;
 }
