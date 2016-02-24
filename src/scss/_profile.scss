@@ -53,8 +53,13 @@
     }
 
     @media #{$large-up} {
+        position: static;
+        float: left;
         margin-bottom: rhythm(2);
         padding-left: 4rem;
+        &.position-right {
+            float: right;
+        }
     }
 }
 
@@ -183,10 +188,11 @@
         top: 0; // header height
         left: 0;
         width: grid-calc(11, $total-columns);
-        padding-top: rem-calc(24+116+48);
+        // padding-top: rem-calc(24+116+48);
         padding-bottom: rhythm(1);
         padding-left: 4rem;
         margin: 0;
+        clear: both;
 
         &.position-right {
             left: grid-calc(13, $total-columns);
