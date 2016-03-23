@@ -1,4 +1,22 @@
-#fsPageWrapper {
+.search-dropdown {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: rem-calc(30) 0;
+    @include box-shadow($default-shadow);
+
+    .gsc-search-box-tools .gsc-clear-button {
+        display: table-cell;
+    }
+    div.gsc-clear-button {
+        width: 37px;
+        height: 37px;
+    }
+}
+
+#fsPageWrapper, #page {
     .gsc-control-cse,
     .gsc-control-searchbox-only {
         font-family: $font-family-sans-serif;
@@ -58,6 +76,7 @@
         padding: rem-calc(9);
         width: rem-calc(37);
         margin: 0 0 0 1rem;
+        display: block;
     }
 
     .gsc-control-cse .gsc-table-result {
