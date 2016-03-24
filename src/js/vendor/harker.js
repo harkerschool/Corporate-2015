@@ -720,6 +720,35 @@ hkr.news = {
     }
 };
 
+hkr.search = {
+    init: function() {
+
+        var $searchDropdown = $('.search-dropdown'),
+            $searchInput = $('input.gsc-input'),
+            $html = $('html');
+        
+        $(document).on('click.hkr.search', '.menu-item-search > a', function(event) {
+            $searchDropdown.addClass('search-dropdown-open');
+            $html.addClass('search-dropdown-opening');
+            $searchInput.focus();
+            $html.addClass('search-dropdown-opened');
+
+            return false;
+        });
+
+        $(document).on('click.hkr.search', '.search-box-close-link, #mm-blocker', function(event) {
+            $searchDropdown.removeClass('search-dropdown-open');
+            $html.removeClass('search-dropdown-opened');
+            setTimeout(function() {
+                $html.removeClass('search-dropdown-opening');
+            }, 250);
+
+            return false;
+        });
+
+    }
+};
+
 hkr.finalsite = {
     init: function() {
         this.directory();

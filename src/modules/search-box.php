@@ -1,5 +1,7 @@
 <div class="fsElement fsSearch fsSearchField search-dropdown" id="fsEl_3390">
     <div class="fsElementContent">
+        <a href="#" tabindex="-1" class="search-box-close-link"><i class="fa fa-times"></i></a>
+        <h2>Search</h2>
         <script>
             (function() {
               var scriptCoreId = 'fsSearchElementScriptCore';

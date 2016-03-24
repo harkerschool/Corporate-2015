@@ -364,12 +364,13 @@ $mm_btnSize: 48px;
 }
 
 #mm-blocker {
-    background: rgba( 0, 0, 0, 0 );
-    transition: background 0.25s ease;
+    background: #000000;
+    opacity: 0;
+    @include transition(opacity 0.25s ease-out);
     z-index: 999 !important;
 }
 .mm-opening #mm-blocker {
-    background: rgba( 0, 0, 0, 0.3 );
+    opacity: 0.4;
 }
 
 .mm-listview > li {
