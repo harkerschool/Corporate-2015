@@ -101,6 +101,8 @@ hkr.ga = {
 hkr.foundation = {
     init: function() {
 
+        Foundation.global.namespace = '';
+
         // Initialize Foundation
         $(document).foundation({
             "magellan-expedition": {
@@ -434,21 +436,13 @@ hkr.navbar = {
         }
 
         // set up scroll behavior for navbar
-        if (!Modernizr.touch) {
-            new Waypoint.Sticky({
-                element: $navBar[0],
-                stuckClass: 'is-stuck',
-                wrapper: '<div class="nav-bar-wrapper" />'
-            });
+        new Waypoint.Sticky({
+            element: $navBar[0],
+            stuckClass: 'is-stuck',
+            wrapper: '<div class="nav-bar-wrapper" />'
+        });
 
-            hkr.helpers.scroll(this.getScrollHandle("down"), this.getScrollHandle("up"));
-        } else {
-            new Waypoint.Sticky({
-                element: $('.current-page-bar')[0],
-                stuckClass: 'is-stuck',
-                wrapper: '<div class="current-page-bar-wrapper" />'
-            });
-        }
+        hkr.helpers.scroll(this.getScrollHandle("down"), this.getScrollHandle("up"));
 
         $(window).load(function() {
             if (location.hash) {
@@ -723,29 +717,38 @@ hkr.news = {
 hkr.search = {
     init: function() {
 
-        var $searchDropdown = $('.search-dropdown'),
-            $searchInput = $('input.gsc-input'),
-            $html = $('html');
+        this.element = $('.search-dropdown');
+        this.html = $('html');
+        this.open = this.open.bind(this);
+        this.close = this.close.bind(this);
         
-        $(document).on('click.hkr.search', '.menu-item-search > a', function(event) {
-            $searchDropdown.addClass('search-dropdown-open');
-            $html.addClass('search-dropdown-opening');
-            $searchInput.focus();
-            $html.addClass('search-dropdown-opened');
+        $(document).on('click.hkr.search', '.menu-item-search > a', this.open);
+        $(document).on('click.hkr.search', '.search-box-close-link', this.close);
 
-            return false;
-        });
+        if (Modernizr.touch) {
+            $(document).on('touchstart', '#mm-blocker', this.close);
+        } else {
+            $(document).on('click.hkr.search', '#mm-blocker', this.close );
+        }
+        
+    },
+    open: function(event) {
+        this.element.addClass('search-dropdown-open');
+        this.html.addClass('search-dropdown-opening');
+        $('input.gsc-input').focus();
+        this.html.addClass('search-dropdown-opened');
+            
+        return false;
+    },
+    close: function(event) {
+        this.element.removeClass('search-dropdown-open');
+        this.html.removeClass('search-dropdown-opened');
+        $('input.gsc-input').val('');
+        setTimeout(function() {
+            this.html.removeClass('search-dropdown-opening');
+        }.bind(this), 250);
 
-        $(document).on('click.hkr.search', '.search-box-close-link, #mm-blocker', function(event) {
-            $searchDropdown.removeClass('search-dropdown-open');
-            $html.removeClass('search-dropdown-opened');
-            setTimeout(function() {
-                $html.removeClass('search-dropdown-opening');
-            }, 250);
-
-            return false;
-        });
-
+        return false;
     }
 };
 

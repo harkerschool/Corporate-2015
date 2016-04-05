@@ -28,7 +28,7 @@ $header-menu-line-height: 16px;
 
 .header-nav-menu {
     @include inline-list;
-    margin-bottom: 0;
+    margin: 0;
     > li {
         margin-left: 1rem;
     }
@@ -63,9 +63,14 @@ $header-menu-line-height: 16px;
 .header-nav-menu-secondary {
     float: right;
     > li {
-        margin-top: 11px;
+        margin-top: 0;
+        margin-left: 0;
         font-size: rem-calc(24);
         line-height: 1em;
+
+        > a {
+            padding: 0.5rem;
+        }
     }
     a:before {
         @include fa-icon();
