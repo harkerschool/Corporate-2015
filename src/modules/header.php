@@ -34,6 +34,7 @@
 <![endif]-->
 </head>
 <body>
+<div id="page">
     <header id="header" class="header">
         <div class="row">
             <div class="column">
@@ -65,4 +66,5 @@
             </div>
         </div>
     </header>
+    <?php include "search-box.php" ?>
 <?php } ?>

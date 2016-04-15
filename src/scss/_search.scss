@@ -1,4 +1,43 @@
-#fsPageWrapper {
+.search-dropdown {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: rem-calc(35) 0;
+    background-color: $white;
+    @include box-shadow( 0 2px 10px -2px rgba(black, 0.3) );
+    @include transform(translateY(-100%));
+    @include transition(transform 0.25s ease-out);
+
+    &.search-dropdown-open {
+        @include transform(translateY(0));
+    }
+
+    h2 {
+        margin-top: 0;
+    }
+
+    .search-box-close-link {
+        display: block;
+        float: right;
+        font-size: rem-calc(24);
+        line-height: 1;
+        width: 37px; // width of search button
+        text-align: center;
+        color: #555;
+    }
+}
+
+// reusing mm-blocker to fade out background
+html.search-dropdown-opened #mm-blocker {
+    opacity: 0.4;
+}
+html.search-dropdown-opening #mm-blocker {
+    display: block;
+}
+
+#fsPageWrapper, #page {
     .gsc-control-cse,
     .gsc-control-searchbox-only {
         font-family: $font-family-sans-serif;
@@ -58,6 +97,7 @@
         padding: rem-calc(9);
         width: rem-calc(37);
         margin: 0 0 0 1rem;
+        display: block;
     }
 
     .gsc-control-cse .gsc-table-result {
@@ -80,7 +120,7 @@
         border: none;
     }
     .gsc-result-info {
-        padding: 0.375rem 0.5rem;
+        padding: 0.375rem 0;
         font-size: 0.75rem;
         line-height: 1.5rem;
     }
@@ -241,5 +281,36 @@
     .gs-promotion .gs-visibleUrl,
     .gs-promotion .gs-visibleUrl-short {
         color: $gray;
+    }
+
+    // results
+    .gsc-results-wrapper-overlay {
+        padding: 36px;
+    }
+
+    .gsc-results-close-btn {
+        top: 12px;
+        right: 12px;
+    }
+
+    .gsc-selected-option-container {
+        min-width: 100px;
+    }
+
+    .gsc-modal-background-image {
+        background-color: #000;
+    }
+
+    .gsc-modal-background-image-visible {
+        opacity: 0.4;
+    }
+
+    .gsc-results {
+        width: 100%;
+    }
+
+    .gcsc-branding {
+        padding-left: 0;
+        padding-right: 0;
     }
 }

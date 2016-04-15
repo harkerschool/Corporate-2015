@@ -2,6 +2,7 @@
     $(document).ready(function() {
         hkr.hero.init();
         hkr.header.init();
+        hkr.search.init();
         hkr.navbar.init();
         hkr.foundation.init();
         hkr.globalNav.init();

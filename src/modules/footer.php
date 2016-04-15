@@ -80,6 +80,7 @@
     </div>
 </div>
 </footer>
+</div><!-- #page -->
 <?php include "nav-global.php"; ?>
 </body>
 </html>
