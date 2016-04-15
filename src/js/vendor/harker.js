@@ -687,7 +687,8 @@ hkr.news = {
                 tag = $feed.data('wp-tag'),
                 cat = $feed.data('wp-cat'),
                 count = $feed.data('wp-count'),
-                thumbnail = $feed.data('wp-thumbnail');
+                thumbnail = $feed.data('wp-thumbnail'),
+                date = $feed.data('wp-date');
 
             if (tag === undefined) {
                 tag = '';
@@ -698,10 +699,17 @@ hkr.news = {
             if (count === undefined) {
                 count = 6;
             }
-            if (thumbnail === false) {
+            
+            if (thumbnail == false) {
                 thumbnail = "";
             } else {
                 thumbnail = ",thumbnail";
+            }
+
+            if (date == true) {
+                date = ",date";
+            } else {
+                date = "";
             }
 
             // Set up WordPress JSON API Feed
@@ -712,7 +720,7 @@ hkr.news = {
                     category_name: cat,
                     count: count,
                     date_format: 'F j, Y',
-                    include: "id,title,title_plain,url" + thumbnail
+                    include: "id,title,title_plain,url" + date + thumbnail
                 }
             });
         });

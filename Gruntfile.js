@@ -106,7 +106,8 @@ module.exports = function(grunt) {
                 exclude: [
                     'modernizr',
                     'jquery',
-                    'hologram-github-theme'
+                    'hologram-github-theme',
+                    'font-awesome'
                 ],
                 mainFiles: {
                     'waypoints': [
