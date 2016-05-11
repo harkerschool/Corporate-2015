@@ -528,7 +528,7 @@ $button-margin-bottom: 0;
 // We use these to control button text styles.
 // $button-font-family: $body-font-family;
 // $button-font-color: $white;
-// $button-font-color-alt: $oil;
+$button-font-color-alt: $gray;
 // $button-font-tny: rem-calc(11);
 // $button-font-sml: rem-calc(13);
 $button-font-med: rem-calc(18);
@@ -1071,7 +1071,7 @@ $panel-margin-bottom: rhythm(1);
 $panel-padding: rhythm(1) 1rem;
 
 // We use these to set default font colors
-$panel-font-color: $body-font-color;
+$panel-font-color: $darkgray;
 // $panel-font-color-alt: $white;
 
 // $panel-header-adjust: true;

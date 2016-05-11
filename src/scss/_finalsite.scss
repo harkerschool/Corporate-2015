@@ -924,6 +924,19 @@ $constituent-photo-width: 100px;
     } 
 }
 
+.fsLoginForgotView {
+    @include panel();
+
+    button {
+        padding: $button-small-padding;
+    }
+}
+
+.fsLoginForgotCancel {
+    @include button-secondary();
+    border-color: #ddd;
+}
+
 // .portal-nav {
 //     display: none;
 //     .fsAccountBarVisible &, .fsComposeMode & {
