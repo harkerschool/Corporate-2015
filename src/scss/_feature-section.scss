@@ -38,3 +38,11 @@
         bottom: 0;
     }
 }
+
+.feature-caption-content {
+    padding: 1rem;
+
+    & > :last-child {
+        margin-bottom: 0;
+    }
+}

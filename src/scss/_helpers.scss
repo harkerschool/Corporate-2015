@@ -266,6 +266,7 @@ a .menu-item-text {
 .padding-bottom { padding-bottom: rhythm(2) !important; }
 .padding-left { padding-left: ($column-gutter/2) !important; }
 .padding-right { padding-right: ($column-gutter/2) !important; }
+.padding { padding: rhythm(2) ($column-gutter/2) !important; }
 
 .padding-top-none { padding-top: 0 !important; }
 .padding-bottom-none { padding-bottom: 0 !important; }
