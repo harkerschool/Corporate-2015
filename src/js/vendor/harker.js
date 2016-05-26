@@ -556,7 +556,7 @@ hkr.navbar = {
             };
         },
         insertBookmarks: function() {
-            var $bookmarks = $('main').find('*[id^="bookmark-"]'),
+            var $bookmarks = $('#fsPageWrapper').find('*[id^="bookmark-"]'),
                 $bookmarksMenu = this.element,
                 menuHTML = '';
 

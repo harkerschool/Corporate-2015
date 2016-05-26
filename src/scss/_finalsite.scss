@@ -59,10 +59,10 @@
     }
 }
 
-// Content Elements
+// Column Elements
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.fsContent, .fsContainer {
+.fsElement {
     &.column, &.columns {
         padding-right: 0;
         padding-left: 0;
@@ -276,16 +276,23 @@
 // Finalsite Tabs
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-.fsTabs {
-    .ui-tabs .ui-tabs-nav {
-        padding: 0;
+.fsPanelGroup .fsTabsNav {
+    margin: 0;
+}
+
+.fsPanelGroup .fsTabsNav li a {
+    padding: 1rem;
+    line-height: 1;
+
+    &:hover {
+        background-color: rgba(37, 37, 37, 0.15);
+        color: inherit;
     }
-    .fsTab {
-        padding-top: rhythm(1);
-        padding-bottom: rhythm(1);
-        background-color: $white;
-        @include box-shadow($default-shadow);
-    }
+}
+
+.fsPanelGroup .fsTabsNav li.fsStateSelected a {
+    background-color: $blue;
+    color: $white;
 }
 
 #fsElementLibrary .fsTab {
