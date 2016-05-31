@@ -147,7 +147,9 @@ hkr.accordion = {
 hkr.slider = {
     init: function() {
         $('.feature-slider').slick({
-            autoplay: true 
+            autoplay: true,
+            focusOnSelect: true,
+            pauseOnHover: false
         });
         this.statsSlider(); 
     },
