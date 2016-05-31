@@ -1,3 +1,5 @@
+// MarComm Award
+
 .marcom-award {
     display: none;
 
@@ -12,4 +14,14 @@
 
 div[data-ps-embed-type] {
     background-color: rgba(0, 0, 0, 0.1);
+}
+
+// Widgetic Widgets
+
+.wdgtc-wrap {
+    margin-bottom: rhythm(1);
+}
+
+.wdgtc-holder {
+    min-height: 100% !important;
 }
