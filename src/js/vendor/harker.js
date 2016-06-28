@@ -111,6 +111,10 @@ hkr.foundation = {
             },
             accordion: {
                 multi_expand: true
+            },
+            equalizer : {
+                equalize_on_stack: true,
+                act_on_hidden_el: true
             }
         });
 

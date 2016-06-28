@@ -360,6 +360,28 @@ a .menu-item-text {
     background-color: rgba($gold, 0.8);
 }
 
+.img-bg {
+    background: no-repeat center center;
+    @include background-size(cover);
+}
+
+.img-bg-fixed {
+    background-attachment: fixed;
+}
+
+.screen-bg {
+    display: relative;
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0; bottom: 0;
+        left: 0; right: 0;
+        background: rgba(black, 0.5);
+    }
+}
+
 [class*="-bg"], .section-feature {
     color: $white;
     h1, h2, h3, h4, h5, h6, code, a, strong, b {
