@@ -119,9 +119,11 @@ hkr.foundation = {
         });
 
         // Override Foundation's click callback for direct links.
-        $('.accordion').on('click', '.accordion-direct-link', function() {
+        $('.accordion, .fsAccordion').on('click', '.accordion-direct-link', function() {
             var url = $(this).attr('href');
             document.location = url;
+
+            return false;
         });
 
     }
