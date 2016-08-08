@@ -722,6 +722,7 @@ hkr.news = {
                     category_name: cat,
                     count: count,
                     date_format: 'F j, Y',
+                    thumbnail_size: 'medium',
                     include: "id,title,title_plain,url" + date + thumbnail
                 }
             });
