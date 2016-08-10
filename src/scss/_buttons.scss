@@ -4,7 +4,7 @@
 $button-padding: rhythm(0.5) 2rem;
 $button-small-padding: rhythm(0.5) 1rem;
 
-$button-line-height: rhythm(1);
+$button-line-height: 1.5em;
 $button-small-line-height: 1.25em;
 
 @mixin button-secondary() {
@@ -14,6 +14,27 @@ $button-small-line-height: 1.25em;
     &:hover, &:focus {
         background-color: $secondary-button-bg-hover;
         color: $button-font-color-alt;
+    }
+}
+
+@mixin button-color($btn-color:false, $btn-border-color:false, $btn-text-color:false) {
+    @if $btn-color {
+        background-color: $btn-color;
+    }
+
+    @if $btn-border-color {
+        border-color: $btn-border-color;
+    } @else {
+        border: none;
+    }
+
+    @if $btn-text-color {
+        border-color: $btn-text-color;
+    }
+
+    &:hover, &:focus {
+        background-color: scale-color($btn-color, $lightness: $button-function-factor);
+        color: $btn-text-color;
     }
 }
 
@@ -56,10 +77,6 @@ p, ul, ol, dl {
     &, &:hover, &:focus {
         background: transparent;
         font-weight: 100;
-        font-size: rem-calc(18);
-        @media #{$large-up} {
-            font-size: rem-calc(22);
-        }
     }
     @include box-shadow(none);
 }
@@ -77,6 +94,22 @@ p, ul, ol, dl {
         border: 1px solid $white;
         color: $white;
     }
+}
+
+.button-green {
+    @include button-color($btn-color: $green);
+}
+.button-purple {
+    @include button-color($btn-color: $purple);
+}
+.button-red {
+    @include button-color($btn-color: $red);
+}
+.button-orange {
+    @include button-color($btn-color: $orange);
+}
+.button-gold {
+    @include button-color($btn-color: $gold);
 }
 
 .button-group {
