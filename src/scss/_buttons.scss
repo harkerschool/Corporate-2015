@@ -1,7 +1,7 @@
 // Buttons
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$button-padding: rhythm(0.5) 2rem;
+$button-padding: 0.625rem 2rem 0.5rem;
 $button-small-padding: rhythm(0.5) 1rem;
 
 $button-line-height: 1.5em;
@@ -53,13 +53,9 @@ $button-small-line-height: 1.25em;
 }
 
 .button {
-    line-height: $button-small-line-height;
-    padding: $button-small-padding;
+    padding: $button-padding;
+    line-height: 1.5;
     @include box-shadow($default-shadow);
-    @media #{$large-up} {
-        line-height: $button-line-height;
-        padding: $button-padding;
-    }
 }
 
 p, ul, ol, dl {
