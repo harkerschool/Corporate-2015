@@ -434,7 +434,7 @@ $accordion-navigation-font-size: rem-calc(20);
 
 // We use these to control text style.
 // $alert-font-weight: $font-weight-normal;
-// $alert-font-size: rem-calc(13);
+$alert-font-size: inherit;
 // $alert-font-color: $white;
 // $alert-font-color-alt: scale-color($secondary-color, $lightness: -66%);
 
@@ -448,12 +448,12 @@ $accordion-navigation-font-size: rem-calc(20);
 // $alert-bottom-margin: rem-calc(20);
 
 // We use these to style the close buttons
-// $alert-close-color: $oil;
+$alert-close-color: $white;
 // $alert-close-top: 50%;
 // $alert-close-position: rem-calc(4);
 // $alert-close-font-size: rem-calc(22);
-// $alert-close-opacity: 0.3;
-// $alert-close-opacity-hover: 0.5;
+$alert-close-opacity: 0.7;
+$alert-close-opacity-hover: 1;
 // $alert-close-padding: 9px 6px 4px;
 // $alert-close-background: inherit;
 

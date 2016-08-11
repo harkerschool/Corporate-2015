@@ -36,35 +36,36 @@
 <body>
 <div id="page">
     <header id="header" class="header">
-        <div class="row">
-            <div class="column">
-                <nav class="header-nav">
-                    <div class="harker-logo"><a href="http://www.harker.org">The Harker School</a></div>
-                    <ul class="header-nav-menu header-nav-menu-secondary">
-                        <li class="menu-item-search"><a href="#" title="Search"></a></li>
-                        <li class="menu-item-login"><a href="#" title="Login"></a></li>
-                    </ul>
-                    <ul class="header-nav-menu header-nav-menu-sections">
-                        <li class="menu-item-hamburger"><a href="#global-nav" title="Menu"><span class="menu-item-text">Menu</span></a></li>
-                        <li><a href="#">Admission</a></li>
-                        <li><a href="#">Preschool</a></li>
-                        <li><a href="#">Lower School</a></li>
-                        <li><a href="#">Middle School</a></li>
-                        <li><a href="#">Upper School</a></li>
-                        <li><a href="#">Summer</a></li>
-                        <li class="menu-item-more">
-                            <a href="#h-more-sections" data-dropdown="h-more-sections" aria-controls="h-more-sections" aria-expanded="false"><span>More</span></a>
-                            <ul id="h-more-sections" class="f-dropdown" data-dropdown-content aria-hidden="true">
-                                <li class="more-sections-item"><a href="/about">About</a></li>
-                                <li class="more-sections-item"><a href="/news">News</a></li>
-                                <li class="more-sections-item"><a href="/alumni">Alumni</a></li>
-                                <li class="more-sections-item"><a href="/giving">Giving</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </nav>
+        <div class="header-alert">
+            <div class="header-alert-inner">
+                Hello World! <a href="#">Click here</a><a href="#" class="close"><i class="fa fa-times" aria-hidden="true"></i></a>
             </div>
         </div>
+        <nav class="header-nav">
+            <div class="harker-logo"><a href="http://www.harker.org">The Harker School</a></div>
+            <ul class="header-nav-menu header-nav-menu-secondary">
+                <li class="menu-item-search"><a href="#" title="Search"></a></li>
+                <li class="menu-item-login"><a href="#" title="Login"></a></li>
+            </ul>
+            <ul class="header-nav-menu header-nav-menu-sections">
+                <li class="menu-item-hamburger"><a href="#global-nav" title="Menu"><span class="menu-item-text">Menu</span></a></li>
+                <li><a href="#">Admission</a></li>
+                <li><a href="#">Preschool</a></li>
+                <li><a href="#">Lower School</a></li>
+                <li><a href="#">Middle School</a></li>
+                <li><a href="#">Upper School</a></li>
+                <li><a href="#">Summer</a></li>
+                <li class="menu-item-more">
+                    <a href="#h-more-sections" data-dropdown="h-more-sections" aria-controls="h-more-sections" aria-expanded="false"><span>More</span></a>
+                    <ul id="h-more-sections" class="f-dropdown" data-dropdown-content aria-hidden="true">
+                        <li class="more-sections-item"><a href="/about">About</a></li>
+                        <li class="more-sections-item"><a href="/news">News</a></li>
+                        <li class="more-sections-item"><a href="/alumni">Alumni</a></li>
+                        <li class="more-sections-item"><a href="/giving">Giving</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
     </header>
     <?php include "search-box.php" ?>
 <?php } ?>

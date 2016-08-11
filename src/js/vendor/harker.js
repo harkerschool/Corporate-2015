@@ -149,6 +149,44 @@ hkr.accordion = {
     }
 };
 
+hkr.headerAlert = {
+    init: function() {
+        var $alerts = $('.header-alert'),
+            hideID = localStorage.getItem("hkrHideAlert");
+
+        if (hideID !== null) {
+            if (hideID === 'undefined') {
+                $alerts.remove();
+            } else {
+                $alerts.filter(hideID).remove(); // hide element with id
+            }
+        }
+
+        $alerts.on('click.hkr.alert', '.close', function(e) {
+            var $alert = $(this).closest('.header-alert'),
+                id = $alert.attr('id');
+
+            e.preventDefault();
+
+            $alert.addClass('header-alert-close');
+
+            if (Modernizr.csstransitions) {
+                $alert.on('transitionend webkitTransitionEnd oTransitionEnd', function(e) {
+                    $alert.remove();
+                });
+            } else {
+                $alert.remove();
+            }
+
+            if (typeof id === 'undefined') {
+                localStorage.setItem("hkrHideAlert", 'undefined');
+            } else {
+                localStorage.setItem("hkrHideAlert", id);
+            }
+        });
+    }
+};
+
 // TODO: Integrate with Media Manager
 hkr.slider = {
     init: function() {

@@ -146,11 +146,10 @@ a {
 // Forms
 // - - - - - - - - - - - - - - - - - - - - - - - - -
 
-$button-small-padding: rem-calc(11) 2rem rem-calc(10);
-
 input[type="submit"], input[type="button"] {
     @include button;
-    padding: $button-small-padding;
+    @include box-shadow($default-shadow);
+    line-height: 1.5;
 }
 
 select {

@@ -119,7 +119,8 @@ module.exports = function(grunt) {
                         'js/foundation/foundation.js',
                         'js/foundation/foundation.dropdown.js',
                         'js/foundation/foundation.equalizer.js',
-                        'js/foundation/foundation.magellan.js'
+                        'js/foundation/foundation.magellan.js',
+                        'js/foundation/foundation.alert.js'
                     ]
                 }
             }

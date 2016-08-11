@@ -1,0 +1,25 @@
+.alert-box.alert-box-unstyled {
+    border: none;
+    font-weight: inherit;
+    margin: 0;
+    position: relative;
+    padding: 0;
+    transition: none;
+    background: none;
+    color: inherit;
+}
+
+.alert-box {
+    line-height: rhythm(1);
+    font-size: rem-calc(14);
+
+    .close {
+        padding: 0 0.25rem;
+        line-height: inherit;
+    }
+    .fa-times {
+        position: relative;
+        top: -2px;
+        font-size: rem-calc(12);
+    }
+}

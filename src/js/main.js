@@ -5,6 +5,7 @@
         hkr.search.init();
         hkr.navbar.init();
         hkr.foundation.init();
+        hkr.headerAlert.init();
         hkr.globalNav.init();
         hkr.news.init();
         hkr.photoCover.init();
