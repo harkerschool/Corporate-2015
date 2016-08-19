@@ -33,7 +33,7 @@ $header-menu-line-height: 16px;
 }
 
 .header-alert {
-    background: $green;
+    background: rgba($green, 0.8);
     color: $white;
     font-size: rem-calc(14);
     line-height: 1.5rem;

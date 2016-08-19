@@ -38,7 +38,7 @@
     <header id="header" class="header">
         <div class="header-alert">
             <div class="header-alert-inner">
-                Hello World! <a href="#">Click here</a><a href="#" class="close"><i class="fa fa-times" aria-hidden="true"></i></a>
+                <a href="/giving/capital-giving">Learn more about our current capital giving campaign</a><a href="#" class="close"><i class="fa fa-times" aria-hidden="true"></i></a>
             </div>
         </div>
         <nav class="header-nav">

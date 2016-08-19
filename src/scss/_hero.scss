@@ -27,13 +27,22 @@
     }
 }
 
-.hero-text > div {
-    margin-top: rhythm(8);
-    margin-bottom: rhythm(8);
-    .csstransforms .is-resized & {
+.hero .hero-text > div {
+    margin-top: 10rem;
+    margin-bottom: 10rem;
+}
+
+@media #{$medium-up-height} {
+    .csstransforms .hero.is-resized .hero-text > div {
         margin-top: 0;
         margin-bottom: 0;
-        @extend %vertical-align;
+        
+        // vertically center
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
     }
 }
 
