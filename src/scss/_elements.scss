@@ -97,12 +97,13 @@ blockquote {
     }
 
     &:before {
+        font-family: Georgia, serif;
         color: #ccc;
         content: open-quote;
         font-size: 4em;
         line-height: 0.1em;
-        margin-right: 0.25em;
-        margin-left: -0.18em;
+        margin-right: 0.2em;
+        margin-left: -0.1em;
         vertical-align: -0.4em;
     }
 
