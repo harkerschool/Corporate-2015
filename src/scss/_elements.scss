@@ -85,16 +85,11 @@ pre {
 
 blockquote {
     color: $darkgray;
-    font-size: rem-calc(20);
+    font-size: rem-calc(24);
     line-height: 1.5em;
     font-weight: 100;
     font-style: italic;
     quotes: "\201C""\201D""\2018""\2019";
-
-    p {
-        display: inline;
-        margin: 0;
-    }
 
     &:before {
         font-family: Georgia, serif;
@@ -107,10 +102,16 @@ blockquote {
         vertical-align: -0.4em;
     }
 
-}
+    p {
+        display: inline;
+        margin: 0;
+    }
 
-cite {
-    line-height: inherit;
+    cite {
+        font-size: rem-calc(20);
+        line-height: inherit;
+    }
+
 }
 
 [class*="-bg"] {
