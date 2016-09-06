@@ -91,25 +91,34 @@ blockquote {
     font-style: italic;
     quotes: "\201C""\201D""\2018""\2019";
 
-    &:before {
-        font-family: Georgia, serif;
-        color: #ccc;
-        content: open-quote;
-        font-size: 4em;
-        line-height: 0.1em;
-        margin-right: 0.2em;
-        margin-left: -0.1em;
-        vertical-align: -0.4em;
-    }
-
     p {
         display: inline;
         margin: 0;
+
+        &:before, &:after {
+            font-family: Georgia, serif;
+            color: #ccc;
+            font-size: 4em;
+            line-height: 0.1em;
+        }
+
+        &:before {
+            content: open-quote;
+            margin-right: 0.2em;
+            margin-left: -0.1em;
+            vertical-align: -0.4em;
+        }
+        &:after {
+            content: close-quote;
+            margin-left: 0.05em;
+            vertical-align: -0.6em;
+        }
     }
 
     cite {
         font-size: rem-calc(20);
         line-height: inherit;
+        font-weight: 400;
     }
 
 }
