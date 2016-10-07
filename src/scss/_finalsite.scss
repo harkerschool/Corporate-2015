@@ -218,6 +218,17 @@
     }
 }
 
+// titlecase accordion
+.fsAccordion.accordion-titlecase {
+    .fsPanel {
+        > header .fsElementTitle,
+        > header .fsElementTitle a {
+            text-transform: none;
+            font-size: 1rem;
+        }
+    }
+}
+
 // inverted accordion
 .fsAccordion.accordion-invert,
 .fsAccordion .fsAccordion {
