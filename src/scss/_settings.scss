@@ -322,7 +322,7 @@ $subheader-bottom-margin: $header-bottom-margin;
 
 // A general <small> styling
 // $small-font-size: 60%;
-$small-font-color: $body-font-color; // scale-color($header-font-color, $lightness: 35%);
+$small-font-color: inherit; // scale-color($header-font-color, $lightness: 35%);
 
 // We use these to style paragraphs
 // $paragraph-font-family: inherit;
@@ -336,7 +336,7 @@ $paragraph-aside-font-style: normal;
 // $paragraph-text-rendering: optimizeLegibility;
 
 // We use these to style <code> tags
-$code-color: $body-font-color;
+$code-color: inherit;
 // $code-font-family: $font-family-monospace;
 // $code-font-weight: $font-weight-normal;
 $code-background-color: transparent; // scale-color($secondary-color, $lightness: 70%);
@@ -372,11 +372,11 @@ $list-nested-margin: 2rem;
 $definition-list-margin-bottom: $paragraph-margin-bottom;
 
 // We use these to style blockquotes
-$blockquote-font-color: $body-font-color; // scale-color($header-font-color, $lightness: 35%);
+$blockquote-font-color: inherit; // scale-color($header-font-color, $lightness: 35%);
 $blockquote-padding: rhythm(0.5) rem-calc(20) rhythm(0.5) rem-calc(19);
 $blockquote-border: 4px solid $default-border-color;
 $blockquote-cite-font-size: rem-calc(13);
-$blockquote-cite-font-color: scale-color($blockquote-font-color, $lightness: 20%);
+$blockquote-cite-font-color: scale-color($body-font-color, $lightness: 20%);
 // $blockquote-cite-link-color: $blockquote-cite-font-color;
 
 // Acronym styles

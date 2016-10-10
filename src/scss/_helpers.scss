@@ -384,7 +384,7 @@ a .menu-item-text {
 
 [class*="-bg"], .section-feature {
     color: $white;
-    h1, h2, h3, h4, h5, h6, code, a, strong, b {
+    h1, h2, h3, h4, h5, h6, .subheader, code, a, strong, b {
         color: $white;
     }
     a:hover, a:focus {
@@ -393,11 +393,36 @@ a .menu-item-text {
     a.button.secondary, a.button.info {
         color: $oil;
     }
-    .subheader {
-        @extend .subheader-invert;
-    }
     .button-outline {
         @extend .button-outline-invert;
+    }
+    .panel-outline {
+        @extend .panel-outline-invert;
+    }
+}
+
+.reset-text-color {
+    color: $body-font-color;
+    h1, h2, h3, h4, h5, h6, .subheader, code, strong, b {
+        color: $header-font-color;
+    }
+    a {
+        color: $anchor-font-color;
+        &:hover, &:focus {
+            color: $anchor-font-color-hover
+        }
+    }
+    a.button.secondary, a.button.info {
+        color: $oil;
+    }
+    .button-outline {
+        &, &:hover, &:focus {
+            border-color: $oil;
+            color: $oil;
+        }
+    }
+    .panel-outline {
+        @extend .panel-outline;
     }
 }
 

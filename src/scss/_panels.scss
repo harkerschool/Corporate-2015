@@ -1,6 +1,15 @@
-h1, h2, h3, h4, h5, h6 {
-    .panel & {
+
+.panel {
+    h1, h2, h3, h4, h5, h6 {
         margin-bottom: rhythm(0.5);
+    }
+
+    .button.secondary {
+        border-color: #ddd;
+    }
+
+    > :last-child, > :last-child :last-child {
+        margin-bottom: 0;
     }
 }
 
@@ -8,6 +17,17 @@ h1, h2, h3, h4, h5, h6 {
     color: $darkgray;
 }
 
-.panel .button.secondary {
-    border-color: #ddd;
+.panel-outline, .panel-outline-invert {
+    background-color: transparent;
+}
+
+.panel-outline {
+    border-color: $oil;
+}
+
+.panel-outline-invert {
+    border-color: $white;
+    p {
+        color: $white;
+    }
 }
