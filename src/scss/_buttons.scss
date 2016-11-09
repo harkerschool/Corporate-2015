@@ -57,6 +57,10 @@ $button-small-line-height: 1.25em;
     @include box-shadow($default-shadow);
 }
 
+a.cta {
+    @include button;
+}
+
 p, ul, ol, dl {
     + p .button {
         margin: rhythm(0.5) 0;
