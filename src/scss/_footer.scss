@@ -82,6 +82,7 @@
 
 .footer-nav-menu-social {
     @include inline-list;
+    overflow: visible;
     @include clearfix;
     margin-left: 0;
     li, a, a:before {
