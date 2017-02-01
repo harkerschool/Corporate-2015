@@ -1,5 +1,7 @@
 # Harker Marketing Website 2015
 
+The front-end templates, styles and scripts for The Harker School's corporate website: http://www.harker.org/. Uses modular design to support rapid production of rich, responsive web pages.
+
 ## Requirements
 
   * Ruby 1.9+
@@ -15,33 +17,3 @@
   * Run `grunt bower` to concat bower components into one file (index.php references this file, so it's required).
   * Run `compass compile` to compile sass files. Run `compass watch` to watch for changes in scss folder.
   * Run `grunt` to build distribution folder with concatenated and minified files of js and css files. Also, copies any required images or fonts.
-
-# Foundation Compass Template
-
-The easiest way to get started with Foundation + Compass.
-
-## Requirements
-
-  * Ruby 1.9+
-  * [Node.js](http://nodejs.org)
-  * [compass](http://compass-style.org/): `gem install compass`
-  * [bower](http://bower.io): `npm install bower -g`
-
-## Quickstart
-
-  * [Download this starter compass project and unzip it](https://github.com/zurb/foundation-compass-template/archive/master.zip)
-  * Run `bower install` to install the latest version of Foundation
-  
-Then when you're working on your project, just run the following command:
-
-```bash
-bundle exec compass watch
-```
-
-## Upgrading
-
-If you'd like to upgrade to a newer version of Foundation down the road just run:
-
-```bash
-bower update
-```
