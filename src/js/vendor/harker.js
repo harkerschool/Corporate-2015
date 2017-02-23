@@ -113,7 +113,7 @@ hkr.foundation = {
                 multi_expand: true
             },
             equalizer : {
-                equalize_on_stack: true,
+                equalize_on_stack: false,
                 act_on_hidden_el: true
             }
         });
