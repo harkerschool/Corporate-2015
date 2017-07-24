@@ -7,7 +7,7 @@
         var container = this,
             html = '',
             settings = $.extend(true, {
-                domain: 'http://news.harker.org',
+                domain: 'https://news.harker.org',
                 method: 'get_recent_posts',
                 args: {
                     count: 3,
