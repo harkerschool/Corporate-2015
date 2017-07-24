@@ -195,7 +195,7 @@ hkr.slider = {
             focusOnSelect: true,
             pauseOnHover: false
         });
-        this.statsSlider(); 
+        this.statsSlider();
     },
     statsSlider: function() {
         var counters = [],
@@ -261,7 +261,7 @@ hkr.slider = {
 hkr.fade = {
     init: function() {
         this.sequences();
-        
+
         var $faders = $('.fade-in').addClass('fade-in-init'),
             inviews = [];
 
@@ -383,7 +383,7 @@ hkr.hero = {
         _wq.push({ "fs-wistia-video": function(video) {
             var $playLink = $('#fs-wistia-play'),
                 $exitLink = $('#fs-wistia-exit');
-            
+
             $playLink.click(function() {
                 video.play();
                 $videoContainer.addClass('is-playing');
@@ -739,7 +739,7 @@ hkr.news = {
             if (count === undefined) {
                 count = 6;
             }
-            
+
             if (thumbnail == false) {
                 thumbnail = "";
             } else {
@@ -776,7 +776,7 @@ hkr.search = {
         this.html = $('html');
         this.open = this.open.bind(this);
         this.close = this.close.bind(this);
-        
+
         $(document).on('click.hkr.search', '.menu-item-search > a', this.open);
         $(document).on('click.hkr.search', '.search-box-close-link', this.close);
 
@@ -785,14 +785,14 @@ hkr.search = {
         } else {
             $(document).on('click.hkr.search', '#mm-blocker', this.close );
         }
-        
+
     },
     open: function(event) {
         this.element.addClass('search-dropdown-open');
         this.html.addClass('search-dropdown-opening');
         $('input.gsc-input').focus();
         this.html.addClass('search-dropdown-opened');
-            
+
         return false;
     },
     close: function(event) {
@@ -875,3 +875,58 @@ hkr.helpers = {
         });
     }
 };
+
+(function($){
+  if(window.location.pathname == '/student-stories') {
+    //Count number of modals
+    var modals = $(".modals > div").length;
+
+    //Closes modal when ESC is pressed
+    $(document).on('keyup',function(evt) {
+        if (evt.keyCode == 27) {
+            location.href="#close";
+        }
+    });
+
+    //Close modal when clicking outside of it
+
+    $('body').click(function (event)
+    {
+       if(!$(event.target).closest('.modal-profile').length && !$(event.target).is('.modal-profile')) {
+         location.href="#close";
+       }
+    });
+
+    //Swap between modals
+    var $currentId = null;
+    $(".student-profile").on("click", function(){
+      var id = $(this).data("id");
+      $currentId = id;
+    })
+    $(".slick-next").on("click", function(){
+      if( $currentId < modals){
+        $currentId++
+        location.href="#close";
+        location.href="#" + $currentId;
+      }
+    })
+    $(".slick-prev").on("click", function(){
+      if( $currentId > 1){
+        $currentId--
+        location.href="#close";
+        location.href="#" + $currentId;
+      }
+    })
+    $(document).on("keyup", function(e){
+      if (e.which === 37 && $currentId > 1){
+        $currentId--;
+        location.href="#close";
+        location.href="#" + $currentId;
+      } else if (e.which === 39 && $currentId < modals) {
+        $currentId++;
+        location.href="#close";
+        location.href="#" + $currentId;
+      }
+    })
+  }
+})(jQuery);
