@@ -879,7 +879,7 @@ hkr.helpers = {
 (function($){
   if(window.location.pathname == '/student-stories') {
     //Count number of modals
-    var modals = $(".modals > div").length;
+    var $modals = $(".modals > div").length;
 
     //Closes modal when ESC is pressed
     $(document).on('keyup',function(evt) {
@@ -904,7 +904,7 @@ hkr.helpers = {
       $currentId = id;
     })
     $(".slick-next").on("click", function(){
-      if( $currentId < modals){
+      if( $currentId < $modals){
         $currentId++
         location.href="#close";
         location.href="#" + $currentId;
@@ -922,7 +922,7 @@ hkr.helpers = {
         $currentId--;
         location.href="#close";
         location.href="#" + $currentId;
-      } else if (e.which === 39 && $currentId < modals) {
+      } else if (e.which === 39 && $currentId < $modals) {
         $currentId++;
         location.href="#close";
         location.href="#" + $currentId;
