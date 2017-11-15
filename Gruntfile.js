@@ -254,7 +254,7 @@ module.exports = function(grunt) {
         'copy:dist'
     ]);
 
-    grunt.registerTask('default' [
+    grunt.registerTask('default', [
         'build'
     ]);
 
