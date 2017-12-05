@@ -347,8 +347,9 @@ i.fa {
 
 @media only screen and (max-width: 40em) {
   .modalDialog {
-    max-height: calc(95vh - 200px);
+    max-height: calc(110vh - 300px);
     overflow-y: auto;
+    top: 20%;
   }
 }
 
