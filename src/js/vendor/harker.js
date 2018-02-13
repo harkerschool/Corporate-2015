@@ -195,7 +195,11 @@ hkr.slider = {
             focusOnSelect: true,
             pauseOnHover: false
         });
+        $('.facts-slider').slickLightbox({
+          caption: 'caption'
+        });
         this.statsSlider();
+        this.factsSlider();
     },
     statsSlider: function() {
         var counters = [],
@@ -255,6 +259,39 @@ hkr.slider = {
                     }, 100);
                 }
             });
+    },
+
+    factsSlider: function() {
+      $('.facts-slider').slick({
+          infinite: true,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          responsive: [
+            {
+              breakpoint: 1024,
+              setting: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+              }
+            },
+            {
+              breakpoint: 640,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            },
+            {
+              breakpoint: 480,
+              settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+              }
+            }
+          ]
+        });
     }
 };
 
@@ -877,9 +914,9 @@ hkr.helpers = {
 };
 
 (function($){
-  if(window.location.pathname == '/student-stories') {
+  if(window.location.pathname == '/profile-archive') {
     //Count number of modals
-    var $modals = $(".modals > div").length;
+    var modals = $(".modals > div").length;
 
     //Closes modal when ESC is pressed
     $(document).on('keyup',function(evt) {
@@ -903,14 +940,14 @@ hkr.helpers = {
       var id = $(this).data("id");
       $currentId = id;
     })
-    $(".slick-next").on("click", function(){
-      if( $currentId < $modals){
+    $(".profile-next").on("click", function(){
+      if( $currentId < modals){
         $currentId++
         location.href="#close";
         location.href="#" + $currentId;
       }
     })
-    $(".slick-prev").on("click", function(){
+    $(".profile-prev").on("click", function(){
       if( $currentId > 1){
         $currentId--
         location.href="#close";
@@ -922,7 +959,7 @@ hkr.helpers = {
         $currentId--;
         location.href="#close";
         location.href="#" + $currentId;
-      } else if (e.which === 39 && $currentId < $modals) {
+      } else if (e.which === 39 && $currentId < modals) {
         $currentId++;
         location.href="#close";
         location.href="#" + $currentId;
