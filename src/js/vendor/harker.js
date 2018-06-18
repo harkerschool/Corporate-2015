@@ -377,7 +377,7 @@ hkr.hero = {
             return;
         }
 
-        var vimeoHTML = '<iframe id="vimeoplayer" src="https://player.vimeo.com/video/' + vimeoID + '?loop=1&title=0&byline=0&portrait=0&api=1&player_id=vimeoplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
+        var vimeoHTML = '<iframe id="vimeoplayer" src="https://player.vimeo.com/video/' + vimeoID + '?&muted=1&loop=1&title=0&byline=0&portrait=0&api=1&player_id=vimeoplayer" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
             $video = $(vimeoHTML),
             vimeoPlayer = $f($video[0]);
 
